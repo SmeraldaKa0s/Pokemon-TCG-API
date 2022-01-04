@@ -60,4 +60,38 @@ header .background-header img {
   height: 100%;
 }
 
+.light-mode .buscador {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 30px 0px;
+  padding: 30px 0px;
+}
+.light-mode .buscador form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.light-mode .buscador form label {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.light-mode .buscador form label .fa-search {
+  font-size: 20px;
+  margin: 0px 10px;
+}
+.light-mode .buscador form label input {
+  width: 60%;
+  padding: 10px;
+  border-top: transparent;
+  border-left: transparent;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.light-mode .buscador form label input:focus {
+  outline-color: #dddee0;
+}
+
 /*# sourceMappingURL=style.css.map */
