@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/SmeraldaKa0s/API-/issues"
   },
-  "homepage": "https://github.com/SmeraldaKa0s/API-#readme"
+  "homepage": "https://github.com/SmeraldaKa0s/API-#readme",
+  "dependencies": {
+    "sass": "^1.45.2"
+  }
 }

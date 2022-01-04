@@ -19,11 +19,12 @@
                 text-shadow: 2px 2px 2px #2e70b6a9;                
                 font-size: 20px;
                 font-weight: 500;
+                transition: all 0.3s ease-out;
             }  
             li:hover{
                 text-shadow: 2px 2px 2px #a70e13b9;
                 letter-spacing: 2px;
-                transition: all 0.3s ease-out;
+                
 
             }         
         }
@@ -31,6 +32,6 @@
 }
 
 
-.dark-mode{
+/* .dark-mode{
     
-}
+} */
