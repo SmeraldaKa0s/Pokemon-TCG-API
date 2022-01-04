@@ -94,4 +94,18 @@ header .background-header img {
   outline-color: #dddee0;
 }
 
+.tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+.tarjetas .item {
+  margin: 10px;
+}
+.tarjetas .item img {
+  width: 300px;
+  height: 400px;
+}
+
 /*# sourceMappingURL=style.css.map */
