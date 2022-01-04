@@ -17,6 +17,38 @@ ul, li {
 
 a {
   text-decoration: none;
+  color: black;
+}
+
+* {
+  font-family: "Nunito", sans-serif;
+}
+
+.light-mode nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background: #cfcedb;
+  background: radial-gradient(circle, #cfcedb 0%, white 56%, #cfcedb 100%);
+  position: sticky;
+  top: 0;
+}
+.light-mode nav ul {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.light-mode nav ul li {
+  text-shadow: 2px 2px 2px #2e70b6a9;
+  font-size: 20px;
+  font-weight: 500;
+}
+.light-mode nav ul li:hover {
+  text-shadow: 2px 2px 2px #a70e13b9;
+  letter-spacing: 2px;
+  transition: all 0.3s ease-out;
 }
 
 header .background-header {

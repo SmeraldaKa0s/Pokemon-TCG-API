@@ -1,0 +1,33 @@
+.light-mode{
+
+    nav{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+        background: rgb(207,206,219);
+        background: radial-gradient(circle, rgba(207,206,219,1) 0%, rgba(255,255,255,1) 56%, rgba(207,206,219,1) 100%);
+        position: sticky;
+        top: 0;
+        
+        
+        
+        ul{
+            width: 50%;
+            display: flex;
+            justify-content: space-evenly;
+            li{
+                text-shadow: 2px 2px 2px #2e70b6a9;                
+                font-size: 20px;
+                font-weight: 500;
+            }  
+            li:hover{
+                text-shadow: 2px 2px 2px #a70e13b9;
+                letter-spacing: 2px;
+                transition: all 0.3s ease-out;
+
+            }         
+        }
+    }
+}
