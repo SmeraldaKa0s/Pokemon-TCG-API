@@ -47,6 +47,8 @@ a {
 }
 .light-mode nav ul li:hover {
   text-shadow: 2px 2px 2px #a70e13b9;
+  letter-spacing: 2px;
+  transition: all 0.3s ease-out;
 }
 
 header .background-header {
