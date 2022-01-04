@@ -1,37 +1,45 @@
-.light-mode{
-    .buscador{
-        width: 100%;
+.light-mode {
+  .buscador {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 30px 0px;
+    padding: 30px 0px;
+
+    form {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      label { 
         display: flex;
+        justify-content: center;
         align-items: center;
-        margin: 30px 0px;
-        padding: 30px 0px;
-        form{
-           width: 100%;
-           display: flex;
-           justify-content: center;
-            label{
-                width: 60%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+        position: relative;
 
-                .fa-search{
-                    font-size: 20px;
-                    margin: 0px 10px;
-                }
-
-                input{
-                    width: 60%;
-                    padding: 10px;
-                    border-top: transparent;
-                    border-left: transparent;
-                    border-radius: 5px;
-                    font-size: 20px;
-                }
-                input:focus{
-                    outline-color: rgb(221, 222, 224);
-                }
-            }
+        .fa-search {
+          color: $color-buscador;
+          font-size: 15px;
+          margin: 0px -25px;
+          z-index: 5;
+          transform: translateY(-10%); 
         }
+
+        input {
+          width: 100vw;
+          max-width: 642px;
+          padding: 10px;
+          padding-left: 35px;
+          border-top: transparent;
+          border-left: transparent;
+          border-radius: 5px;
+          font-size: 20px;
+        }
+
+        input:focus {
+          outline-color: rgb(221, 222, 224);
+        }
+      }
     }
+  }
 }

@@ -76,18 +76,25 @@ header .background-header img {
   justify-content: center;
 }
 .light-mode .buscador form label {
-  width: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .light-mode .buscador form label .fa-search {
-  font-size: 20px;
-  margin: 0px 10px;
+  color: grey;
+  font-size: 15px;
+  margin: 0px -25px;
+  z-index: 5;
+  /*   position: absolute;
+    left: 200px;*/
+  transform: translateY(-10%);
 }
 .light-mode .buscador form label input {
-  width: 60%;
+  width: 100vw;
+  max-width: 642px;
   padding: 10px;
+  padding-left: 35px;
   border-top: transparent;
   border-left: transparent;
   border-radius: 5px;
