@@ -17,11 +17,7 @@ ul, li {
 
 a {
   text-decoration: none;
-  color: black;
-}
-
-* {
-  font-family: "Nunito", sans-serif;
+  color: #424242;
 }
 
 .light-mode nav {
@@ -31,7 +27,8 @@ a {
   align-items: center;
   height: 80px;
   background: #cfcedb;
-  background: radial-gradient(circle, #cfcedb 0%, white 56%, #cfcedb 100%);
+  background: linear-gradient(180deg, #D2F9F0 13.04%, #01B0F1 100%);
+  box-shadow: 0px 4px 15px 9px rgba(0, 0, 0, 0.09);
   position: sticky;
   top: 0;
 }
@@ -41,13 +38,14 @@ a {
   justify-content: space-evenly;
 }
 .light-mode nav ul li {
+  font-family: "VT323", monospace;
   text-shadow: 2px 2px 2px #2e70b6a9;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 500;
   transition: all 0.3s ease-out;
 }
 .light-mode nav ul li:hover {
-  text-shadow: 2px 2px 2px #a70e13b9;
+  text-shadow: 2px 2px 2px #D2F9F0;
   letter-spacing: 2px;
 }
 
