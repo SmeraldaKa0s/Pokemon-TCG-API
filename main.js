@@ -25,3 +25,5 @@ const aHTML = (data) => {
     
     return arrayReduc
 } 
+
+
