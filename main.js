@@ -1,5 +1,7 @@
 const contenedorTarjetas = document.querySelector(".tarjetas")
 console.log(contenedorTarjetas)
+const prev = document.getElementById("prev")
+const next = document.getElementById("next")
 
 let paginaActual = 1
 
@@ -9,8 +11,6 @@ const urlPokemon = async () => {
     console.log(data)
     console.log(data.data)
     contenedorTarjetas.innerHTML = aHTML(data)   
-   
-    
 }    
 
 urlPokemon()
@@ -25,3 +25,18 @@ const aHTML = (data) => {
     
     return arrayReduc
 } 
+
+// Paginado
+
+next.onclick = () => {
+    paginaActual = paginaActual + 1
+    urlPokemon()
+}
+
+prev.onclick = () => {
+    if (paginaActual === 1) {
+      prev.disabled = true
+    }
+    paginaActual = paginaActual - 1
+    urlPokemon()
+}

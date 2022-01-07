@@ -111,4 +111,14 @@ header .background-header img {
   height: 400px;
 }
 
+/* Paginado */
+.paginado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.paginado button {
+  background-color: aqua;
+}
+
 /*# sourceMappingURL=style.css.map */
