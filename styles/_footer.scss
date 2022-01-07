@@ -1,0 +1,9 @@
+footer {
+  width: 100%;
+  height: 250px;
+  background-color: #4F4C4C;
+  @include flex-centrar($items: flex-end);
+   .imagen-footer{
+    max-width: 100%;
+  } 
+}
