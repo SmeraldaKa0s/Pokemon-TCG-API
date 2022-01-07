@@ -1,11 +1,15 @@
 .light-mode {
+.titulo {
+        @include flex-centrar($direccion:column); 
+        
+      }
   .buscador {
     width: 100%;
     display: flex;
     align-items: center;
     margin: 30px 0px;
     padding: 30px 0px;
-
+  
     form {
       width: 100%;
       display: flex;

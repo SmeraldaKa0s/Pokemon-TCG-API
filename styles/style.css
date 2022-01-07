@@ -63,6 +63,12 @@ header .background-header img {
   height: 100%;
 }
 
+.light-mode .titulo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .light-mode .buscador {
   width: 100%;
   display: flex;
