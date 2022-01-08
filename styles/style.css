@@ -118,6 +118,7 @@ header .background-header img {
   align-items: center;
 }
 .paginado button {
+  width: 100px;
   border-radius: 5px;
   margin: 10px;
   padding: 5px;

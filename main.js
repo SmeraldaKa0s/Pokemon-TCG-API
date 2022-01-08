@@ -1,9 +1,12 @@
 const contenedorTarjetas = document.querySelector(".tarjetas")
 console.log(contenedorTarjetas)
+const firstPage = document.getElementById("first-page")
 const prev = document.getElementById("prev")
 const next = document.getElementById("next")
+const lastPage = document.getElementById("last-page")
 
 let paginaActual = 1
+let ultimaPagina = 0
 
 const urlPokemon = async () => {    
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=10&page=${paginaActual}`)
@@ -28,15 +31,23 @@ const aHTML = (data) => {
 
 // Paginado
 
+firstPage.onclick = () => {
+    paginaActual = 1
+    urlPokemon()
+}
+
 next.onclick = () => {
-    paginaActual = paginaActual + 1
+    paginaActual++  
+    if (paginaActual === ultimaPagina) {
+      next.disabled = true
+    }
     urlPokemon()
 }
 
 prev.onclick = () => {
+    paginaActual--
     if (paginaActual === 1) {
-      prev.disabled = true
+        prev.disabled = true
     }
-    paginaActual = paginaActual - 1
     urlPokemon()
 }
