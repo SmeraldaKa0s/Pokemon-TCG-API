@@ -33,34 +33,34 @@ const aHTML = (data) => {
 
 firstPage.onclick = () => {
     paginaActual = 1
-    if (paginaActual === 1) {
+    /* if (paginaActual === 1) {
         firstPage.disabled = true
         prev.disabled = true
-    }
+    } */
     urlPokemon()
 }
 
 next.onclick = () => {
     paginaActual++  
-    if (paginaActual === 1441) {
+    /* if (paginaActual === 1441) {
       next.disabled = true
-    }
+    } */
     urlPokemon()
 }
 
 prev.onclick = () => {
     paginaActual--
-    if (paginaActual === 1) {
+    /* if (paginaActual === 1) {
         prev.disabled = true
-    }
+    } */
     urlPokemon()
 }
 
 lastPage.onclick = () => {
     paginaActual = 1441
     if (paginaActual === 1441) {
-    next.disabled = true
-    lastPage.disabled = true
+        next.disabled = true
+        lastPage.disabled = true
     }
     urlPokemon()
 }
