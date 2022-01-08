@@ -111,11 +111,17 @@ header .background-header img {
   height: 400px;
 }
 
-main .contenedor {
+main {
   height: 900px;
   background: url("/assets/body_bg.png");
   background-size: cover;
   background-position: center center;
+  display: flex;
+  justify-content: center;
+}
+main .contenedor {
+  width: 80%;
+  height: 900px;
 }
 
 /*# sourceMappingURL=style.css.map */
