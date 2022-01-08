@@ -58,9 +58,9 @@ prev.onclick = () => {
 
 lastPage.onclick = () => {
     paginaActual = 1441
-    if (paginaActual === 1441) {
+/*     if (paginaActual === 1441) {
         next.disabled = true
         lastPage.disabled = true
-    }
+    } */
     urlPokemon()
 }
