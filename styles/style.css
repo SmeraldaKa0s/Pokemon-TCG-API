@@ -112,11 +112,10 @@ header .background-header img {
 }
 
 main .contenedor {
-  height: 1000px;
-  background: url("/API-/assets/body_bg.png");
+  height: 900px;
+  background: url("/assets/body_bg.png");
   background-size: cover;
   background-position: center center;
-  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
