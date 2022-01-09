@@ -17,7 +17,7 @@ ul, li {
 
 a {
   text-decoration: none;
-  color: #424242;
+  color: inherit;
 }
 
 .light-mode nav {
@@ -120,6 +120,67 @@ header .background-header img {
 .tarjetas .item img {
   width: 300px;
   height: 400px;
+}
+
+.contenedor-footer {
+  width: 100%;
+  height: 350px;
+  background-color: #000000;
+  font-family: "Nunito", sans-serif;
+  color: #fff;
+  letter-spacing: 0.08em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.contenedor-footer .column-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: normal;
+  padding: 50px 50px 0 50px;
+  margin: 10px 10px 0 0;
+}
+.contenedor-footer .column-footer li {
+  margin: 5px 0 5px 0;
+  transition: 0.4s ease;
+  padding-left: 150px;
+}
+.contenedor-footer .column-footer li:hover {
+  color: #44e2cd;
+  letter-spacing: 4px;
+}
+.contenedor-footer .titulo-contacto-footer {
+  font-size: 20px;
+  font-weight: normal;
+  border-bottom: 1px solid #656565;
+  line-height: 1.7;
+  transition: opacity 0.4s ease;
+  margin-bottom: 10px;
+}
+.contenedor-footer .titulo-contacto-footer:hover {
+  opacity: 0.9;
+  color: #d2f9f0;
+}
+.contenedor-footer .contenedor-copyright-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+.contenedor-footer .posicion-parrafo-footer {
+  z-index: 5;
+  transform: translateY(-147%);
+}
+.contenedor-footer .link-copyright-footer {
+  color: #d2f9f0;
+}
+.contenedor-footer .imagen-footer {
+  object-fit: cover;
+  max-width: 100%;
+  min-height: 80px;
 }
 
 /*# sourceMappingURL=style.css.map */
