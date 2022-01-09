@@ -1,9 +1,36 @@
-footer {
+.contenedor-footer {
   width: 100%;
-  height: 250px;
-  background-color: #4F4C4C;
-  @include flex-centrar($items: flex-end);
-   .imagen-footer{
-    max-width: 100%;
-  } 
+  height: 280px;
+  background-color: #000000;
+  // @include flex-centrar($items: flex-end);
+  
+  .column-footer {
+    @include flex-centrar($direccion:column);
+    font-family: $tipogracia-principal;
+    color: #fff;
+    padding-top: 50px; 
+    letter-spacing: 0.08em;
+  }
+
+  .titulo-contacto-footer {
+    font-size: 20px;
+    font-weight: normal;
+    border-bottom: 1px solid #656565;
+    line-height: 1.70;
+    transition: opacity .4s ease;
+  }
+
+  .titulo-contacto-footer:hover {
+    opacity: 0.5;
+   }
 }
+
+// .contenedor-imagen-footer{
+//     @include flex-centrar($items: flex-end);
+
+//     .imagen-footer{
+//       object-fit: cover;
+//       max-width: 100%;
+//       min-height: 100px;
+//     } 
+//   }
