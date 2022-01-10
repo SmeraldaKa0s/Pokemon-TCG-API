@@ -15,4 +15,10 @@
         border-radius: 5px;
         background-color: transparent;
     }
+    button:hover {
+        border: 2px solid rgb(128, 128, 128);
+    }
+    button:active {
+        border: 2px solid rgb(128, 128, 128);
+    }
 }
