@@ -218,6 +218,12 @@ header .background-header img {
   border-radius: 5px;
   background-color: transparent;
 }
+.paginado button:hover {
+  border: 2px solid gray;
+}
+.paginado button:active {
+  border: 2px solid gray;
+}
 
 .card-img:hover {
   transition: 0.5s;
