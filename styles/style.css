@@ -200,6 +200,24 @@ header .background-header img {
   min-height: 80px;
 }
 
+/* Paginado */
+.paginado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.paginado button {
+  font-size: 18px;
+  width: 100px;
+  margin: 10px;
+  margin-top: 50px;
+  margin-bottom: 25px;
+  padding: 5px;
+  border: 2px solid rgba(128, 128, 128, 0.37);
+  border-radius: 5px;
+  background-color: transparent;
+}
+
 img:hover {
   transition: 0.5s;
   transform: scale(1.3);
