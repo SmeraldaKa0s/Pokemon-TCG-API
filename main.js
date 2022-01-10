@@ -23,7 +23,7 @@ const aHTML = (data) => {
     const arrayReduc = data.data.reduce((acc, elemento) => {
         return acc + `
         <div class="item" id="${elemento.id}">
-        <img src="${elemento.images.large}" alt="${elemento.name}">
+        <img class="card-img" src="${elemento.images.large}" alt="${elemento.name}">
         </div>`
     }, "")
     
