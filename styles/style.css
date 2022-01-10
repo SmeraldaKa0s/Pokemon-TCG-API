@@ -118,4 +118,28 @@ header .background-header img {
   height: 400px;
 }
 
+.container-form {
+  display: flex;
+  justify-content: center;
+  background-color: #f0f0f0;
+}
+.container-form .formularios {
+  margin: 20px 0px;
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.tablas {
+  margin: 30px 0px;
+  display: flex;
+  justify-content: center;
+}
+.tablas table {
+  width: 80%;
+}
+.tablas table th {
+  padding: 5px;
+}
+
 /*# sourceMappingURL=style.css.map */

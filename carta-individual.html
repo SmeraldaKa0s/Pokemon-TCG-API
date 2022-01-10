@@ -28,15 +28,15 @@
         </ul>
     </nav>  
     <main>
-        <div class="formularios">   
-            <form>
+        <div class="container-form">   
+            <form class="formularios">
                 <label>View as
                     <select>
                         <option value="images" selected>Images</option>
                         <option value="list">List</option>
                     </select>
                 </label>
-                <div>
+                <div class="sort-formulario">
                     <label>
                         Sorted by
                         <select>
@@ -57,28 +57,33 @@
 
         <div class="tablas">  
             <table>
-                <tr>
-                    <th>Name</th>
-                    <th>N.Pokedex</th>
-                    <th>Set</th>
-                    <th>Rarity</th>
-                    <th>Types</th>
-                    <th>Subtypes</th>
-                    <th>Resistances</th>
-                    <th>Weaknesses</th>
-                </tr>
-                <tr>
-                    <td>Aerodactyl</td>
-                    <td>142</td>
-                    <td>Legend Maker</td>
-                    <td>Rare Holo</td>
-                    <td>Colorless</td>
-                    <td>Stage 1</td>
-                    <td>Fighting</td>
-                    <td>Lightning</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>N.Pokedex</th>
+                        <th>Set</th>
+                        <th>Rarity</th>
+                        <th>Types</th>
+                        <th>Subtypes</th>
+                        <th>Resistances</th>
+                        <th>Weaknesses</th>
+                    </tr>
+                </thead>     
+                <tbody>
+                    <tr>
+                        <td>Aerodactyl</td>
+                        <td>142</td>
+                        <td>Legend Maker</td>
+                        <td>Rare Holo</td>
+                        <td>Colorless</td>
+                        <td>Stage 1</td>
+                        <td>Fighting</td>
+                        <td>Lightning</td>
+                    </tr>
+                </tbody>         
             </table>        
         </div>
+
     </main>    
 </body>
 </html>
