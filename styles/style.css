@@ -131,15 +131,90 @@ header .background-header img {
 }
 
 .tablas {
-  margin: 30px 0px;
+  width: 80%;
   display: flex;
   justify-content: center;
 }
 .tablas table {
-  width: 80%;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
 }
-.tablas table th {
-  padding: 5px;
+.tablas thead th:nth-child(1) {
+  width: 12.5%;
+  background-color: white;
+}
+.tablas thead th:nth-child(2) {
+  width: 12.5%;
+  background-color: black;
+  color: white;
+}
+.tablas thead th:nth-child(3) {
+  background-color: white;
+  width: 12.5%;
+}
+.tablas thead th:nth-child(4) {
+  width: 12.5%;
+  background-color: black;
+  color: white;
+}
+.tablas thead th:nth-child(5) {
+  width: 12.5%;
+  background-color: white;
+}
+.tablas thead th:nth-child(6) {
+  width: 12.5%;
+  background-color: black;
+  color: white;
+}
+.tablas thead th:nth-child(7) {
+  background-color: white;
+  width: 12.5%;
+}
+.tablas thead th:nth-child(8) {
+  width: 12.5%;
+  background-color: black;
+  color: white;
+}
+.tablas tbody th:nth-child(1) {
+  width: 12.5%;
+  background-color: white;
+}
+.tablas tbody th:nth-child(2) {
+  width: 12.5%;
+  background-color: black;
+  color: white;
+}
+.tablas tbody th:nth-child(3) {
+  background-color: white;
+  width: 12.5%;
+}
+.tablas tbody th:nth-child(4) {
+  width: 12.5%;
+  background-color: black;
+  color: white;
+}
+.tablas tbody th:nth-child(5) {
+  width: 12.5%;
+  background-color: white;
+}
+.tablas tbody th:nth-child(6) {
+  width: 12.5%;
+  background-color: black;
+  color: white;
+}
+.tablas tbody th:nth-child(7) {
+  background-color: white;
+  width: 12.5%;
+}
+.tablas tbody th:nth-child(8) {
+  width: 12.5%;
+  background-color: black;
+  color: white;
+}
+.tablas th, .tablas td {
+  padding: 20px;
+  background-color: white;
 }
 
 /*# sourceMappingURL=style.css.map */

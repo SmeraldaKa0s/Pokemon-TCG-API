@@ -1,15 +1,71 @@
 .tablas{
-    margin: 30px 0px;
-    display: flex;
-    justify-content: center;
-       
-    table{
-        width: 80%;
+   
 
-        th{
-            padding: 5px;
-        }
+    table {
+        table-layout: fixed;
+        width: 100%;
+        border-collapse: collapse;
+        align-items: center;
+        
+      }
+      
+      thead th:nth-child(1) {
+        width: 12.5%;
+        background-color: white;
+      }
+      
+      thead th:nth-child(2) {
+        width: 12.5%;
+        background-color: black;
+        color: white;
+      }
+      
+      thead th:nth-child(3) {
+        background-color: white;
+        width: 12.5%;
+      }
+      
+      thead th:nth-child(4) {
+        width: 12.5%;
+        background-color: black;
+        color: white;
+      }
+
+      thead th:nth-child(5) {
+        width: 12.5%;
+        background-color: white;
+      }
+      
+      thead th:nth-child(6) {
+        width: 12.5%;
+        background-color: black;
+        color: white;
+      }
+      
+      thead th:nth-child(7) {
+        background-color: white;
+        width: 12.5%;
+      }
+      
+      thead th:nth-child(8) {
+        width: 12.5%;
+        background-color: black;
+        color: white;
+      }
+
+          
+      th, td {
+        padding: 5px;
+        background-color: white;
+      }
+
     
-    }
+    
+
+
+  
+  
+
+      
 
 }
