@@ -1,0 +1,44 @@
+.form-sets {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 500px;
+	height: 100px;
+	background-color: aqua;
+}
+
+.cotenedor-sets {
+	flex-wrap: wrap;
+	display: flex;
+	justify-content: center;
+
+	.tarjetas-sets {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 250px;
+		height: 300px;
+		margin: 10px;
+		border-radius: 10px;
+		border: solid 2px;
+		background-color: aqua;
+
+		.cotenedor-imagen-sets {
+			height: 200px;
+			width: 80px;
+			overflow: hidden;
+			background-color:deeppink img {
+				width: 100%;
+			}
+		}
+		.contenedor-logo-sets {
+			height: 40px;
+			width: 40px;
+			overflow: hidden;
+			background-color: burlywood;
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
