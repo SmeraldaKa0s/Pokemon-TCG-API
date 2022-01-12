@@ -131,89 +131,20 @@ header .background-header img {
 }
 
 .tablas {
-  width: 80%;
-  display: flex;
-  justify-content: center;
+  width: 100%;
 }
 .tablas table {
   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
+  text-align: center;
 }
-.tablas thead th:nth-child(1) {
-  width: 12.5%;
-  background-color: white;
-}
-.tablas thead th:nth-child(2) {
-  width: 12.5%;
-  background-color: black;
-  color: white;
-}
-.tablas thead th:nth-child(3) {
-  background-color: white;
-  width: 12.5%;
-}
-.tablas thead th:nth-child(4) {
-  width: 12.5%;
-  background-color: black;
-  color: white;
-}
-.tablas thead th:nth-child(5) {
-  width: 12.5%;
-  background-color: white;
-}
-.tablas thead th:nth-child(6) {
-  width: 12.5%;
-  background-color: black;
-  color: white;
-}
-.tablas thead th:nth-child(7) {
-  background-color: white;
-  width: 12.5%;
-}
-.tablas thead th:nth-child(8) {
-  width: 12.5%;
-  background-color: black;
-  color: white;
-}
-.tablas tbody th:nth-child(1) {
-  width: 12.5%;
-  background-color: white;
-}
-.tablas tbody th:nth-child(2) {
-  width: 12.5%;
-  background-color: black;
-  color: white;
-}
-.tablas tbody th:nth-child(3) {
-  background-color: white;
-  width: 12.5%;
-}
-.tablas tbody th:nth-child(4) {
-  width: 12.5%;
-  background-color: black;
-  color: white;
-}
-.tablas tbody th:nth-child(5) {
-  width: 12.5%;
-  background-color: white;
-}
-.tablas tbody th:nth-child(6) {
-  width: 12.5%;
-  background-color: black;
-  color: white;
-}
-.tablas tbody th:nth-child(7) {
-  background-color: white;
-  width: 12.5%;
-}
-.tablas tbody th:nth-child(8) {
-  width: 12.5%;
-  background-color: black;
+.tablas thead th {
+  background: red linear-gradient(blue, #9c0808);
   color: white;
 }
 .tablas th, .tablas td {
-  padding: 20px;
+  padding: 10px;
   background-color: white;
 }
 

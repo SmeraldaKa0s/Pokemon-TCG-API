@@ -1,71 +1,24 @@
+
 .tablas{
-   
+  width: 100%;
+ 
+ 
 
     table {
         table-layout: fixed;
         width: 100%;
-        border-collapse: collapse;
-        align-items: center;
-        
+        border-collapse: collapse;        
+        text-align: center;        
       }
       
-      thead th:nth-child(1) {
-        width: 12.5%;
-        background-color: white;
-      }
-      
-      thead th:nth-child(2) {
-        width: 12.5%;
-        background-color: black;
+      thead th{
+        background: red linear-gradient(blue, rgb(156, 8, 8));
         color: white;
       }
-      
-      thead th:nth-child(3) {
-        background-color: white;
-        width: 12.5%;
-      }
-      
-      thead th:nth-child(4) {
-        width: 12.5%;
-        background-color: black;
-        color: white;
-      }
-
-      thead th:nth-child(5) {
-        width: 12.5%;
-        background-color: white;
-      }
-      
-      thead th:nth-child(6) {
-        width: 12.5%;
-        background-color: black;
-        color: white;
-      }
-      
-      thead th:nth-child(7) {
-        background-color: white;
-        width: 12.5%;
-      }
-      
-      thead th:nth-child(8) {
-        width: 12.5%;
-        background-color: black;
-        color: white;
-      }
-
           
       th, td {
-        padding: 5px;
+        padding: 10px;
         background-color: white;
-      }
-
-    
-    
-
-
-  
-  
-
-      
+      }    
 
 }
