@@ -234,15 +234,6 @@ header .background-header img {
   border-radius: 15px;
 }
 
-.form-sets {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 500px;
-  height: 100px;
-  background-color: aqua;
-}
-
 .cotenedor-sets {
   flex-wrap: wrap;
   display: flex;
@@ -260,16 +251,16 @@ header .background-header img {
   background-color: aqua;
 }
 .cotenedor-sets .tarjetas-sets .cotenedor-imagen-sets {
-  height: 200px;
+  height: 100px;
   width: 80px;
   overflow: hidden;
 }
-.cotenedor-sets .tarjetas-sets .cotenedor-imagen-sets background-color:deeppink img {
+.cotenedor-sets .tarjetas-sets .cotenedor-imagen-sets img {
   width: 100%;
 }
 .cotenedor-sets .tarjetas-sets .contenedor-logo-sets {
-  height: 40px;
-  width: 40px;
+  height: 60px;
+  width: 60px;
   overflow: hidden;
   background-color: burlywood;
 }
