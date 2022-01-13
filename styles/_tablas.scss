@@ -1,18 +1,16 @@
 
 .tablas{
-  width: 100%;
- 
- 
-
+  margin-top: 30px;
+  
     table {
-        table-layout: fixed;
-        width: 100%;
+      margin: auto;
+        table-layout: fixed;        
         border-collapse: collapse;        
         text-align: center;        
       }
       
       thead th{
-        background: red linear-gradient(blue, rgb(156, 8, 8));
+        background: black;
         color: white;
       }
           

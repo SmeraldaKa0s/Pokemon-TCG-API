@@ -131,16 +131,16 @@ header .background-header img {
 }
 
 .tablas {
-  width: 100%;
+  margin-top: 30px;
 }
 .tablas table {
+  margin: auto;
   table-layout: fixed;
-  width: 100%;
   border-collapse: collapse;
   text-align: center;
 }
 .tablas thead th {
-  background: red linear-gradient(blue, #9c0808);
+  background: black;
   color: white;
 }
 .tablas th, .tablas td {
