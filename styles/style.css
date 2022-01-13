@@ -242,29 +242,33 @@ header .background-header img {
 .cotenedor-sets .tarjetas-sets {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 250px;
-  height: 300px;
+  align-items: center;
+  width: 300px;
+  height: 250px;
   margin: 10px;
-  border-radius: 10px;
-  border: solid 2px;
-  background-color: aqua;
+  border: solid 1px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 15px;
 }
 .cotenedor-sets .tarjetas-sets .cotenedor-imagen-sets {
-  height: 100px;
-  width: 80px;
-  overflow: hidden;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .cotenedor-sets .tarjetas-sets .cotenedor-imagen-sets img {
   width: 100%;
 }
-.cotenedor-sets .tarjetas-sets .contenedor-logo-sets {
+.cotenedor-sets .tarjetas-sets .contenedor-logo-texto-sets {
+  display: flex;
+  flex-direction: row;
+}
+.cotenedor-sets .tarjetas-sets .contenedor-logo-texto-sets .contenedor-logo-sets {
   height: 60px;
   width: 60px;
-  overflow: hidden;
-  background-color: burlywood;
 }
-.cotenedor-sets .tarjetas-sets .contenedor-logo-sets img {
+.cotenedor-sets .tarjetas-sets .contenedor-logo-texto-sets .contenedor-logo-sets img {
   width: 100%;
 }
 

@@ -1,3 +1,9 @@
+@mixin centrar {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
 .cotenedor-sets {
 	flex-wrap: wrap;
 	display: flex;
@@ -6,29 +12,37 @@
 	.tarjetas-sets {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		width: 250px;
-		height: 300px;
+		align-items: center;
+		width: 300px;
+		height: 250px;
 		margin: 10px;
-		border-radius: 10px;
-		border: solid 2px;
-		background-color: aqua;
-
+		border: solid 1px;
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+		border-radius: 15px;
 		.cotenedor-imagen-sets {
-			height: 100px;
-			width: 80px;
-			overflow: hidden;
+			width: 120px;
+			height: 120px;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
 			img {
 				width: 100%;
 			}
 		}
-		.contenedor-logo-sets {
-			height: 60px;
-			width: 60px;
-			overflow: hidden;
-			background-color: burlywood;
-			img {
-				width: 100%;
+		.contenedor-logo-texto-sets {
+			display: flex;
+			flex-direction: row;
+
+			.contenedor-texto-sets {
+			}
+			.contenedor-logo-sets {
+				height: 60px;
+				width: 60px;
+				img {
+					width: 100%;
+				}
 			}
 		}
 	}

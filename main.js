@@ -55,18 +55,21 @@ const setsHTML = (data) => {
 			acc +
 			`
 			<div class="tarjetas-sets">
-               <div class="cotenedor-imagen-sets">
+            <div class="cotenedor-imagen-sets">
                   <img src="${elemento.images.logo}">
+            </div>
+				   <div class="contenedor-logo-texto-sets">
+						 <div class="contenedor-logo-sets">
+              <img src="${elemento.images.symbol}">
+              </div>
+							<div class="contenedor-texto-sets">
+				         <p> ${elemento.name} </p>
+				         <p> ${elemento.id} </p>
+						     <p> ${elemento.releaseDate} </p>
+				        <p> ${elemento.series} </p>
                </div>
-				<div>
-				     <p> ${elemento.name} </p>
-				     <p> ${elemento.id} </p>
-						 <p> ${elemento.releaseDate} </p>
-				     <p> ${elemento.series} </p>
-                </div>
-			  	<div class="contenedor-logo-sets">
-                   <img src="${elemento.images.symbol}">
-                </div>
+           </div>
+			  	
 			
 			</div>
 			`
