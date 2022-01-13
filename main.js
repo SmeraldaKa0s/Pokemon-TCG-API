@@ -5,7 +5,7 @@ const tablaInfoPokemon = document.querySelector("#tabla-resultados")
 let paginaActual = 1
 
 const urlPokemon = async () => {    
-    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=${paginaActual}`)
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=12&page=${paginaActual}`)
     const data = await respuesta.json()
     console.log(data)
     console.log(data.data)
