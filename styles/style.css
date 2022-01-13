@@ -1,5 +1,10 @@
 body {
   margin: 0;
+  background: url("/assets/body_bg.png");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
 }
 
 p, h1, h2, h3, h4, h5, h6 {
@@ -59,10 +64,12 @@ a {
 header .background-header {
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 header .background-header img {
-  width: 100%;
-  height: 100%;
+  width: 50%;
 }
 
 .light-mode .titulo {
@@ -232,6 +239,36 @@ header .background-header img {
   transform: scale(1.3);
   box-shadow: black 0px 5px 15px;
   border-radius: 15px;
+}
+
+.container-form {
+  display: flex;
+  justify-content: center;
+  background-color: #f0f0f0;
+}
+.container-form .formularios {
+  margin: 20px 0px;
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.tablas {
+  margin-top: 30px;
+}
+.tablas table {
+  margin: auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: center;
+}
+.tablas thead th {
+  background: black;
+  color: white;
+}
+.tablas th, .tablas td {
+  padding: 10px;
+  background-color: white;
 }
 
 /*# sourceMappingURL=style.css.map */

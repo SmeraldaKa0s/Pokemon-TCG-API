@@ -1,0 +1,22 @@
+
+.tablas{
+  margin-top: 30px;
+  
+    table {
+      margin: auto;
+        table-layout: fixed;        
+        border-collapse: collapse;        
+        text-align: center;        
+      }
+      
+      thead th{
+        background: black;
+        color: white;
+      }
+          
+      th, td {
+        padding: 10px;
+        background-color: white;
+      }    
+
+}
