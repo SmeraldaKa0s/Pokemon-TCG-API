@@ -7,25 +7,29 @@
         align-items: center;
         height: 80px;
         background: rgb(207,206,219);
-        background: radial-gradient(circle, rgba(207,206,219,1) 0%, rgba(255,255,255,1) 56%, rgba(207,206,219,1) 100%);
+        background: linear-gradient(180deg, #D2F9F0 13.04%, #01B0F1 100%);
+        box-shadow: 0px 4px 15px 9px rgba(0, 0, 0, 0.09);
         position: sticky;
-        top: 0;     
+        top: 0; 
+        color: $tipografia-color-principal;
+        z-index: 10;    
         
         ul{
             width: 50%;
             display: flex;
             justify-content: space-evenly;
             li{
+                font-family: $tipografia-secundaria; 
                 text-shadow: 2px 2px 2px #2e70b6a9;                
-                font-size: 20px;
+                font-size: 30px;
                 font-weight: 500;
-                transition: all 0.3s ease-out;
+                transition: 500ms;
+                min-width: 100px; 
             }  
             li:hover{
-                text-shadow: 2px 2px 2px #a70e13b9;
-                letter-spacing: 2px;
-                
-
+                text-shadow: 2px 2px 2px #D2F9F0;
+                letter-spacing: 4px;
+                transform: scale(1.1) translateY(3px);        
             }         
         }
     }

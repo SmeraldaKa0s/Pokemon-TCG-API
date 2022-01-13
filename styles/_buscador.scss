@@ -1,37 +1,67 @@
-.light-mode{
-    .buscador{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        margin: 30px 0px;
-        padding: 30px 0px;
-        form{
-           width: 100%;
-           display: flex;
-           justify-content: center;
-            label{
-                width: 60%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+.light-mode {
+.titulo {
+        @include flex-centrar($direccion:column);
+        font-family: $tipografia-secundaria; 
+        color: $tipografia-color-principal;
+        margin-top: 15px;
+        font-size: 20px;
+        letter-spacing: 5px; 
+        margin-bottom: 30px;
+      }
+      
+  .buscador {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 30px 0px;
+    padding: 30px 0px;
+    flex-direction: column;
 
-                .fa-search{
-                    font-size: 20px;
-                    margin: 0px 10px;
-                }
-
-                input{
-                    width: 60%;
-                    padding: 10px;
-                    border-top: transparent;
-                    border-left: transparent;
-                    border-radius: 5px;
-                    font-size: 20px;
-                }
-                input:focus{
-                    outline-color: rgb(221, 222, 224);
-                }
-            }
-        }
+    span{
+      margin-top: 7px;
+      font-family: $tipogracia-principal;
+      color: $tipografia-color-principal;
     }
+  
+    form {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      label { 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .fa-search {
+          color: $color-buscador;
+          font-size: 15px;
+          margin: 0px -25px;
+          z-index: 5;
+          transform: translateY(-10%); 
+        }
+
+        input {
+          width: 100vw;
+          max-width: 500px;
+          padding: 10px;
+          padding-left: 35px;
+          border-top: transparent;
+          border-left: transparent;
+          border-radius: 10px 150px / 120px;
+          font-size: 13px;
+        }
+
+        input:hover {
+          outline-color: rgb(221, 222, 224);
+        }
+
+        input:focus{
+          box-shadow: inset 0 0 10px 3px #dadddc; 
+          transition: 200ms;
+        }
+      }
+    }
+  }
 }

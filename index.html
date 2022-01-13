@@ -8,8 +8,17 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">    
+    <!--Fonts-->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <!--Icon-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
     <title>POKÉMON TCG</title>
 </head>
 
@@ -32,7 +41,7 @@
                 </a>
             </li>
         </ul>
-    </nav>   
+    </nav>
     <header>
         <div class="background-header">
             <img src="assets/logo-header.png">
@@ -40,17 +49,68 @@
     </header>
     <main>
         <div class="buscador">
-            <form>
-                <label>
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Search for a card">
-                </label>
-            </form>
-        </div>   
-        <div class="tarjetas">                        
-        </div>     
-    </main>
+            <div class="titulo">
+                <h1>Ultimate Pokémon Card Database</h1>
+            </div>
 
+            <div>
+                <form>
+                    <label>
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search for a card">
+                    </label>
+                </form>
+            </div>
+            <span>Try 'venusaur' or simply Browse By Set</span>
+        </div>
+        <!--Fin Buscador-->
+        </div>
+        <div class="tarjetas">
+        </div>
+    </main>
+    
+    <!-- Paginado -->
+
+    <div class="paginado" id="paginado">
+        <button id="first-page"><i class="fas fa-step-backward"></i></button>
+        <button id="prev">Previous</button>
+        <button id="next">Next</button>
+        <button id="last-page"><i class="fas fa-step-forward"></i></button>
+    </div>
+
+    <!--Comienzo Footer-->
+    <footer>
+        <div class="contenedor-footer">
+            <div class="column-footer">
+                <h4 class="titulo-contacto-footer">Contact us</h4>
+                <p>made with ♡ by:</p>
+                <ul class="lista-footer">
+                    <a href="https://www.linkedin.com/in/mikayalandino">
+                        <li>Mika</li>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/carolina-lerner-223034214">
+                        <li>Caro</li>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/sofia-bernabei">
+                        <li>Sofi</li>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/alx-l">
+                        <li>Aleks</li>
+                    </a>
+
+                </ul>
+            </div>
+            <div class="contenedor-copyright-footer">
+                <img class="imagen-footer" src="assets/Grouppoke.svg">
+                <p class="posicion-parrafo-footer">Copyright © 2022 <a class="link-copyright-footer" href="https://docs.pokemontcg.io/">Pokémon TCG
+                        API</a>. This website is not
+                    produced, endorsed, supported, or affiliated with Nintendo or The Pokémon Company.</p>
+            </div> 
+        </div>
+    </footer>
     <script src="main.js"></script>
 </body>
 
