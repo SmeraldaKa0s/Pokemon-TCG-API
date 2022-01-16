@@ -69,7 +69,7 @@ header .background-header {
   margin-top: 20px;
 }
 header .background-header img {
-  width: 50%;
+  width: 30%;
 }
 
 .light-mode .titulo {
@@ -180,31 +180,32 @@ header .background-header img {
   align-items: center;
 }
 
-.tablas {
+.light-mode .tablas {
+  width: 100%;
   margin-top: 30px;
 }
-.tablas table {
+.light-mode .tablas table {
+  width: 80%;
   margin: auto;
   table-layout: fixed;
   border-collapse: collapse;
   text-align: center;
 }
-.tablas thead th {
+.light-mode .tablas thead th {
   background: black;
   color: white;
 }
-.tablas th, .tablas td {
+.light-mode .tablas th, .light-mode .tablas td {
   padding: 10px;
   background-color: white;
 }
-
-.paginado-listas-cartas {
+.light-mode .paginado-listas-cartas {
   display: flex;
   justify-content: center;
   margin: 20px;
 }
-.paginado-listas-cartas button {
-  margin: 30px;
+.light-mode .paginado-listas-cartas button {
+  margin: 30px 15px;
 }
 
 .contenedor-footer {

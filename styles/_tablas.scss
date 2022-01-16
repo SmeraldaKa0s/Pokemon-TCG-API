@@ -1,32 +1,37 @@
 
-.tablas{
-  margin-top: 30px;
+.light-mode{
+  .tablas{
+    width: 100%;
+    margin-top: 30px;
+    
+      table {
+        width: 80%;
+          margin: auto;
+          table-layout: fixed;        
+          border-collapse: collapse;        
+          text-align: center;        
+        }
+        
+        thead th{
+          background: black;
+          color: white;
+        }
+            
+        th, td {
+          padding: 10px;
+          background-color: white;
+        }    
   
-    table {
-      margin: auto;
-        table-layout: fixed;        
-        border-collapse: collapse;        
-        text-align: center;        
-      }
-      
-      thead th{
-        background: black;
-        color: white;
-      }
-          
-      th, td {
-        padding: 10px;
-        background-color: white;
-      }    
-
-}
-
-.paginado-listas-cartas{
-  display: flex;
-  justify-content: center;
-  margin: 20px;
-
-  button{
-    margin: 30px;
   }
+  
+  .paginado-listas-cartas{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  
+    button{
+      margin: 30px 15px;
+    }
+  }
+    
 }
