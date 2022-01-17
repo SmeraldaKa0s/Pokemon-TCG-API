@@ -8,6 +8,17 @@ const prev = document.getElementById("prev")
 const next = document.getElementById("next")
 const lastPage = document.getElementById("last-page")
 
+//Buscador
+const searchForm = document.getElementById("serch-form")
+const searchInput = document.getElementById("search-input")
+
+const paginadoBusqueda = document.getElementById("paginado-busqueda")
+const firstPageBusqueda = document.getElementById("first-page-busqueda")
+const prevBusqueda = document.getElementById("prev-busqueda")
+const nextBusqueda = document.getElementById("next-busqueda")
+const lastPageBusqueda = document.getElementById("last-page-busqueda")
+
+
 let paginaActual = 1
 let ultimaPagina = 0
 
@@ -16,7 +27,7 @@ const urlPokemon = async () => {
     const data = await respuesta.json()
     console.log(data)
     console.log(data.data)
-    //contenedorTarjetas.innerHTML = aHTML(data) 
+    contenedorTarjetas.innerHTML = aHTML(data) 
     console.log(data.data[0].resistances[0].type) 
     console.log(tablasHTML(data))
     tablaInfoPokemon.innerHTML = tablasHTML(data)
@@ -121,3 +132,21 @@ lastPage.onclick = () => {
     }
     urlPokemon()
 }
+
+//Búsqueda 
+
+let busquedaPorInput = ""
+
+const inputBusquedaPokemon = async () => {
+    const res = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${busquedaPorInput}&pageSize=10&page=${paginaActual}`)
+    const data = await res.json()
+    contenedorTarjetas.innerHTML = aHTML(data)
+}
+
+searchForm.onsubmit = (e) => {
+    e.preventDefault() 
+    busquedaPorInput = searchInput.value
+    inputBusquedaPokemon()
+
+}
+

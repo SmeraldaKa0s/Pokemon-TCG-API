@@ -54,10 +54,13 @@
             </div>
 
             <div>
-                <form>
+                <form id="search-form">
                     <label>
                         <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Search for a card">
+                        <input id="search-input" type="text" placeholder="Search for a card" required>
+                    </label>
+                    <label>
+                        <input id="submit" type ="submit" value="Send">
                     </label>
                 </form>
             </div>
@@ -78,6 +81,16 @@
         <button id="last-page"><i class="fas fa-step-forward"></i></button>
     </div>
 
+    <!--Paginado busqueda-->
+
+    <div class="paginado" id="paginado-busqueda">
+        <button id="first-page-busqueda"><i class="fas fa-step-backward"></i></button>
+        <button id="prev-busqueda">Previous</button>
+        <button id="next-busqueda">Next</button>
+        <button id="last-page-busqueda"><i class="fas fa-step-forward"></i></button>
+    </div>
+
+    
     <!--Comienzo Footer-->
     <footer>
         <div class="contenedor-footer">
