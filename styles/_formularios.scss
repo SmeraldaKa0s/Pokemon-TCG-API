@@ -8,6 +8,34 @@
         width: 40%;
         display: flex;
         justify-content: space-around;
+
+        .buscador-lista-cartas{
+            
+            display: flex;            
+
+            .contenedor-img-icon{
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                img{
+                    width: 45%;                   
+                    
+                }
+            }            
+        }
+
+        .selector-ver-como{
+            display: flex;
+            align-items: center;
+            
+        }
+
+        .sort-formulario{
+            display: flex;
+            align-items: center;
+           
+        }
+
     
        
     }

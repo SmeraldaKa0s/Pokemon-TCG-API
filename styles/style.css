@@ -69,7 +69,7 @@ header .background-header {
   margin-top: 20px;
 }
 header .background-header img {
-  width: 50%;
+  width: 30%;
 }
 
 .light-mode .titulo {
@@ -160,23 +160,52 @@ header .background-header img {
   display: flex;
   justify-content: space-around;
 }
+.container-form .formularios .buscador-lista-cartas {
+  display: flex;
+}
+.container-form .formularios .buscador-lista-cartas .contenedor-img-icon {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.container-form .formularios .buscador-lista-cartas .contenedor-img-icon img {
+  width: 45%;
+}
+.container-form .formularios .selector-ver-como {
+  display: flex;
+  align-items: center;
+}
+.container-form .formularios .sort-formulario {
+  display: flex;
+  align-items: center;
+}
 
-.tablas {
+.light-mode .tablas {
+  width: 100%;
   margin-top: 30px;
 }
-.tablas table {
+.light-mode .tablas table {
+  width: 80%;
   margin: auto;
   table-layout: fixed;
   border-collapse: collapse;
   text-align: center;
 }
-.tablas thead th {
+.light-mode .tablas thead th {
   background: black;
   color: white;
 }
-.tablas th, .tablas td {
+.light-mode .tablas th, .light-mode .tablas td {
   padding: 10px;
   background-color: white;
+}
+.light-mode .paginado-listas-cartas {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.light-mode .paginado-listas-cartas button {
+  margin: 30px 15px;
 }
 
 .contenedor-footer {
