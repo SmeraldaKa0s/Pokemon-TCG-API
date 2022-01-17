@@ -47,7 +47,7 @@ const tablasHTML = (data) => {
 
 const urlPokemon = async () => {    
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=10&page=${paginaActual}`)
-    paginaActual = 1
+   
     const data = await respuesta.json()   
     contenedorTarjetas.innerHTML = aHTML(data)     
   
@@ -57,7 +57,7 @@ urlPokemon()
 
 const fetchBusquedaPokemon = async () => {
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=10&page=${paginaActual}`)
-    paginaActual = 1
+    
     const data = await respuesta.json()      
     tablaInfoPokemon.innerHTML = tablasHTML(data)     
 }
@@ -77,44 +77,65 @@ const aHTML = (data) => {
 
 // Paginado
 
-firstPage.onclick = () => {
-    paginaActual = 1
-    firstPage.disabled = true
-    prev.disabled = true
-    next.disabled = false
-    lastPage.disabled = false
-    urlPokemon()
-}
+const primeraPagina = (boton, funcion) => {
 
-next.onclick = () => {
-    paginaActual++ 
-    firstPage.disabled = false
-    prev.disabled = false
-     if (paginaActual === 1441) {
-      next.disabled = true
-      lastPage.disabled = true
-    } 
-    urlPokemon()
-}
-
-prev.onclick = () => {
-    paginaActual--
-    next.disabled = false
-    lastPage.disabled = false
-    if (paginaActual === 1) {
-        prev.disabled = true
+    boton.onclick = () => {
+        paginaActual = 1
         firstPage.disabled = true
+        prev.disabled = true
+        next.disabled = false
+        lastPage.disabled = false
+        funcion()
     }
-    urlPokemon()
 }
 
-lastPage.onclick = () => {
-    paginaActual = 1441
-    prev.disabled = false
-    firstPage.disabled = false
-    if (paginaActual === 1441) {
-        next.disabled = true
-        lastPage.disabled = true
+primeraPagina(firstPage, urlPokemon)
+
+const paginaSiguiente = (boton, funcion) => {
+
+    boton.onclick = () => {
+        paginaActual++ 
+        console.log(paginaActual)
+        firstPage.disabled = false
+        prev.disabled = false
+         if (paginaActual === 1441) {
+          next.disabled = true
+          lastPage.disabled = true
+        } 
+        funcion()
     }
-    urlPokemon()
+} 
+
+paginaSiguiente(next, urlPokemon)
+
+const paginaAnterior = (boton, funcion) => {
+
+    boton.onclick = () => {
+        paginaActual--
+        next.disabled = false
+        lastPage.disabled = false
+        if (paginaActual === 1) {
+            prev.disabled = true
+            firstPage.disabled = true
+        }
+        funcion()
+    }
 }
+
+paginaAnterior(prev, urlPokemon)
+
+const paginaUltima = (boton, funcion) => {
+
+    boton.onclick = () => {
+        paginaActual = 1441
+        prev.disabled = false
+        firstPage.disabled = false
+        if (paginaActual === 1441) {
+            next.disabled = true
+            lastPage.disabled = true
+        }
+        funcion()
+    }
+}
+
+paginaUltima(lastPage, urlPokemon)
