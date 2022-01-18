@@ -215,8 +215,16 @@ header .background-header img {
 .light-mode .tablas table tbody:nth-child(even) {
   background-color: #f7e1e1;
 }
+.light-mode .tablas table tbody:nth-child(even):hover {
+  background-color: #1EBAF1;
+  color: white;
+}
 .light-mode .tablas table tbody:nth-child(odd) {
   background-color: #efeff8;
+}
+.light-mode .tablas table tbody:nth-child(odd):hover {
+  background-color: #e04545;
+  color: white;
 }
 .light-mode .tablas table td, .light-mode .tablas table th {
   padding: 10px;
