@@ -39,3 +39,18 @@
 /* .dark-mode{
     
 } */
+
+
+@media screen and (max-width: 700px) {
+
+.light-mode{ 
+    nav{
+        height: 200px;
+    }
+    ul, li {
+        display: none; 
+    }
+}
+  
+    
+}
