@@ -134,13 +134,15 @@ header .background-header img {
 }
 
 .tarjetas {
+  margin: 30px 0px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%;
 }
 .tarjetas .item {
-  margin: 10px;
+  margin: 10px 0px;
+  justify-content: space-around;
 }
 .tarjetas .item img {
   width: 300px;
@@ -216,14 +218,14 @@ header .background-header img {
   background-color: #f7e1e1;
 }
 .light-mode .tablas table tbody:nth-child(even):hover {
-  background-color: #1EBAF1;
+  background-color: #52cdfa;
   color: white;
 }
 .light-mode .tablas table tbody:nth-child(odd) {
   background-color: #efeff8;
 }
 .light-mode .tablas table tbody:nth-child(odd):hover {
-  background-color: #e04545;
+  background-color: #f86565;
   color: white;
 }
 .light-mode .tablas table td, .light-mode .tablas table th {

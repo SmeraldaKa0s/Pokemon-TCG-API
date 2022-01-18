@@ -35,11 +35,11 @@
                     <div class="contenedor-img-icon">
                         <img src="assets/pokedex.png" alt="pokedex">
                     </div>
-                    <input type="text" placeholder="Search for a card">
+                    <input id="input-busqueda-carta-individual" type="text" placeholder="Search for a card">
                 </label>
                 <label class="selector-ver-como">
                     View as
-                    <select>
+                    <select id="selector-ver-como">
                         <option value="images" selected>Images</option>
                         <option value="list">List</option>
                     </select>
@@ -47,20 +47,23 @@
                 <div class="sort-formulario">
                     <label>
                         Sorted by
-                        <select>
+                        <select id="selector-ordenar-nombre-numero">
                             <option value="name">Name</option>
                             <option value="number">Set/Number</option>
                         </select>                        
                     </label>
                     <label>
-                        <select>
+                        <select id="selector-ordenar-asc-desc">
                             <option value="asc">Ascendent</option>
                             <option value="desc">Descendent</option>
                         </select>
                     </label>
                 </div>
             </form>          
-        </div>        
+        </div>  
+        <div id="contenedor-cartas" class="tarjetas">
+
+        </div>      
         <div class="tablas">  
                 <table id="tabla-resultados">                                  
                 </table>       

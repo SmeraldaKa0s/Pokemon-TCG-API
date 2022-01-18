@@ -1,7 +1,12 @@
 const contenedorTarjetas = document.querySelector(".tarjetas")
 const tablaInfoPokemon = document.querySelector("#tabla-resultados")
+const inputBusquedaCartaIndividual = document.querySelector("#input-busqueda-carta-individual")
+const selectorVerComo = document.querySelector("#selector-ver-como")
+const selectorOrdenarPorNombreYNumero = document.querySelector("#selector-ordenar-nombre-numero")
+const selectorOrdenarPorAscDesc = document.querySelector("#selector-ordenar-asc-desc")
+const contenedorCartasIndividuales = document.querySelector("#contenedor-cartas")
 
-console.log(contenedorTarjetas)
+
 // Paginado
 const firstPage = document.getElementById("first-page")
 const prev = document.getElementById("prev")
@@ -10,6 +15,20 @@ const lastPage = document.getElementById("last-page")
 
 let paginaActual = 1
 let ultimaPagina = 0
+
+const urlPokemon = async () => {    
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=10&page=${paginaActual}`)   
+    const data = await respuesta.json()   
+    contenedorTarjetas.innerHTML = aHTML(data)        
+}    
+
+urlPokemon()
+
+const fetchBusquedaPokemon = async () => {
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=${paginaActual}`)
+    const data = await respuesta.json()    
+         
+}
 
 const tablasHTML = (data) => {
     const arrayAHtml = data.data.reduce((acc, elemento) => {
@@ -43,26 +62,6 @@ const tablasHTML = (data) => {
 
     return arrayAHtml
 }
-
-
-const urlPokemon = async () => {    
-    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=10&page=${paginaActual}`)
-   
-    const data = await respuesta.json()   
-    contenedorTarjetas.innerHTML = aHTML(data)     
-  
-}    
-
-urlPokemon()
-
-const fetchBusquedaPokemon = async () => {
-    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=10&page=${paginaActual}`)
-    
-    const data = await respuesta.json()      
-    tablaInfoPokemon.innerHTML = tablasHTML(data)     
-}
-
-fetchBusquedaPokemon()
 
 const aHTML = (data) => {
     const arrayAHtml = data.data.reduce((acc, elemento) => {
