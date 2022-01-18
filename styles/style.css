@@ -210,14 +210,20 @@ header .background-header img {
   table-layout: fixed;
   border-collapse: collapse;
   text-align: center;
+  font-family: "VT323", monospace;
 }
-.light-mode .tablas thead th {
-  background: black;
-  color: white;
+.light-mode .tablas table tbody:nth-child(even) {
+  background-color: #f7e1e1;
 }
-.light-mode .tablas th, .light-mode .tablas td {
+.light-mode .tablas table tbody:nth-child(odd) {
+  background-color: #efeff8;
+}
+.light-mode .tablas table td, .light-mode .tablas table th {
   padding: 10px;
-  background-color: white;
+}
+.light-mode .tablas table thead tr {
+  background-color: #ad1818;
+  color: white;
 }
 .light-mode .paginado-listas-cartas {
   display: flex;
@@ -226,6 +232,15 @@ header .background-header img {
 }
 .light-mode .paginado-listas-cartas button {
   margin: 30px 15px;
+  border: transparent;
+  color: white;
+  background-color: #AD1818;
+  width: 70px;
+  height: 30px;
+  border-radius: 5px;
+}
+.light-mode .paginado-listas-cartas button:hover {
+  background-color: #1EBAF1;
 }
 
 .contenedor-footer {
