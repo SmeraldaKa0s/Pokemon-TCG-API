@@ -1,0 +1,70 @@
+.light-mode{    
+
+    .container-form{  
+        display: flex;
+        justify-content: center;
+        background-color: rgb(240, 240, 240);
+        font-family: $tipografia-secundaria;
+        
+        
+        .formularios{
+            margin: 20px 0px;
+            width: 45%;
+            display: flex;
+            justify-content: space-between;
+    
+            .buscador-lista-cartas{                
+                display: flex;            
+    
+                .contenedor-img-icon{
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    img{
+                        width: 35px;                   
+                        
+                    }
+                } 
+                
+                input{
+                    border: transparent;
+                    margin-left: 5px;
+                    padding: 10px;
+                    font-family: $tipografia-secundaria;
+                }
+            }
+    
+            .selector-ver-como{
+                display: flex;
+                align-items: center;
+               
+
+                select{
+                    margin-left: 5px;
+                    font-family: $tipografia-secundaria;
+                    height: 35px;
+                    border: transparent;
+                }
+                
+            }
+    
+            .sort-formulario{
+                display: flex;
+                align-items: center;
+
+                select{
+                    font-family: $tipografia-secundaria;
+                    height: 35px;
+                    border: transparent;
+                    margin-right: 5px;
+                    padding: 5px;
+                }
+               
+            }
+    
+        
+           
+        }
+    
+    }
+}

@@ -1,5 +1,10 @@
 body {
   margin: 0;
+  background: url("/assets/body_bg.png");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
 }
 
 p, h1, h2, h3, h4, h5, h6 {
@@ -59,10 +64,12 @@ a {
 header .background-header {
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 header .background-header img {
-  width: 100%;
-  height: 100%;
+  width: 30%;
 }
 
 .light-mode .titulo {
@@ -127,19 +134,123 @@ header .background-header img {
 }
 
 .tarjetas {
+  margin: 30px 0px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%;
 }
 .tarjetas .item {
-  margin: 10px;
+  margin: 10px 0px;
+  justify-content: space-around;
 }
 .tarjetas .item img {
   width: 300px;
   height: 400px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 15px;
+}
+
+.light-mode .container-form {
+  display: flex;
+  justify-content: center;
+  background-color: #f0f0f0;
+  font-family: "VT323", monospace;
+}
+.light-mode .container-form .formularios {
+  margin: 20px 0px;
+  width: 45%;
+  display: flex;
+  justify-content: space-between;
+}
+.light-mode .container-form .formularios .buscador-lista-cartas {
+  display: flex;
+}
+.light-mode .container-form .formularios .buscador-lista-cartas .contenedor-img-icon {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.light-mode .container-form .formularios .buscador-lista-cartas .contenedor-img-icon img {
+  width: 35px;
+}
+.light-mode .container-form .formularios .buscador-lista-cartas input {
+  border: transparent;
+  margin-left: 5px;
+  padding: 10px;
+  font-family: "VT323", monospace;
+}
+.light-mode .container-form .formularios .selector-ver-como {
+  display: flex;
+  align-items: center;
+}
+.light-mode .container-form .formularios .selector-ver-como select {
+  margin-left: 5px;
+  font-family: "VT323", monospace;
+  height: 35px;
+  border: transparent;
+}
+.light-mode .container-form .formularios .sort-formulario {
+  display: flex;
+  align-items: center;
+}
+.light-mode .container-form .formularios .sort-formulario select {
+  font-family: "VT323", monospace;
+  height: 35px;
+  border: transparent;
+  margin-right: 5px;
+  padding: 5px;
+}
+
+.light-mode .tablas {
+  width: 100%;
+  margin-top: 30px;
+}
+.light-mode .tablas table {
+  width: 80%;
+  margin: auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: "VT323", monospace;
+}
+.light-mode .tablas table tbody:nth-child(even) {
+  background-color: #f7e1e1;
+}
+.light-mode .tablas table tbody:nth-child(even):hover {
+  background-color: #52cdfa;
+  color: white;
+}
+.light-mode .tablas table tbody:nth-child(odd) {
+  background-color: #efeff8;
+}
+.light-mode .tablas table tbody:nth-child(odd):hover {
+  background-color: #f86565;
+  color: white;
+}
+.light-mode .tablas table td, .light-mode .tablas table th {
+  padding: 10px;
+}
+.light-mode .tablas table thead tr {
+  background-color: #ad1818;
+  color: white;
+}
+.light-mode .paginado-listas-cartas {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.light-mode .paginado-listas-cartas button {
+  margin: 30px 15px;
+  border: transparent;
+  color: white;
+  background-color: #AD1818;
+  width: 70px;
+  height: 30px;
+  border-radius: 5px;
+}
+.light-mode .paginado-listas-cartas button:hover {
+  background-color: #1EBAF1;
 }
 
 .contenedor-footer {
