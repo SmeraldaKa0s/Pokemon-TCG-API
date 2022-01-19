@@ -8,6 +8,23 @@ const prev = document.getElementById("prev")
 const next = document.getElementById("next")
 const lastPage = document.getElementById("last-page")
 
+// Menu desplegable 
+// const asideMenu = querySelector("#aside-menu")
+// const burgerMenu = querySelector(".box-left")
+// const closeMenu = querySelector(".close-menu")
+
+// burgerMenu.onclick = () => {
+//     asideMenu.style.display = "block";
+//     burgerMenu.style.display = "none";
+// }
+// console.log(burgerMenu)
+// closeMenu.onclick = () => {
+//     asideMenu.style.display = "none";
+//     burgerMenu.style.display = "block";
+
+// }
+
+
 let paginaActual = 1
 let ultimaPagina = 0
 

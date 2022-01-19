@@ -1,0 +1,53 @@
+.modal-bg {
+  @include flex-centrar($direccion: column, $content: center, $items: start);
+  position: fixed;
+  width: 0;
+  transition: 300ms;
+  top: 0;
+  height: 100vh;
+  background-color: #323130e8;
+  cursor: pointer;
+  overflow: hidden;
+  
+  .ico-close{
+    @include flex-centrar($content: end);
+    i{
+      font-size: 32px;
+    }
+
+  }
+  
+
+  .modal {
+    background: linear-gradient(90deg, #59FFD7 0%, #FFA751 100%);
+    width: 50%;
+    height: 100vh;
+  }
+
+
+  .list-aside {
+
+    li {
+      @include flex-centrar($direccion:column, $content: center, $items: none);
+      a {
+        padding: 24px 36px;
+        font-size: 30px;
+        font-family: $tipografia-secundaria;
+        color: rgb(46, 44, 44);
+        border-bottom: 1px solid #415050;
+        transition: 1s; 
+      }
+    }
+  }
+
+  a:hover {
+    background: linear-gradient(90deg, #59ffd745 0%, #FFA751 100%);
+  }
+  
+
+
+  &.abierto {
+    width: 100vh;
+    transition: 300ms;
+  }
+}

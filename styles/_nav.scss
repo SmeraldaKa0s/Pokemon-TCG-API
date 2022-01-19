@@ -13,10 +13,11 @@
     color: $tipografia-color-principal;
     z-index: 10;
 
-    ul {
+    .list-nav {
       width: 50%;
       display: flex;
       justify-content: space-evenly;
+
       li {
         font-family: $tipografia-secundaria;
         text-shadow: 2px 2px 2px #2e70b6a9;
@@ -25,6 +26,7 @@
         transition: 500ms;
         min-width: 100px;
       }
+
       li:hover {
         text-shadow: 2px 2px 2px #d2f9f0;
         letter-spacing: 4px;
@@ -43,11 +45,11 @@
     nav {
       @include flex-centrar($content: start);
 
-      ul,
-      li {
-        display: none;
+      .list-nav {
+        li {
+          display: none;
+        }
       }
-
       .box-left {
         @include flex-centrar($items: start);
 
