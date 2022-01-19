@@ -368,6 +368,10 @@ header .background-header img {
   font-size: 32px;
 }
 .modal-bg .modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: none;
   background: linear-gradient(90deg, #59FFD7 0%, #FFA751 100%);
   width: 50%;
   height: 100vh;
