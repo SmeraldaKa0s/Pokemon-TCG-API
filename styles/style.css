@@ -353,6 +353,7 @@ header .background-header img {
   width: 0;
   transition: 300ms;
   top: 0;
+  left: 0;
   height: 100vh;
   background-color: #323130e8;
   cursor: pointer;
@@ -366,13 +367,14 @@ header .background-header img {
 }
 .modal-bg .ico-close i {
   font-size: 32px;
+  margin-right: 10px;
 }
 .modal-bg .modal {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: none;
-  background: linear-gradient(90deg, #59FFD7 0%, #FFA751 100%);
+  background: linear-gradient(90deg, #ffffff 0%, #b4ffee 100%);
   width: 50%;
   height: 100vh;
 }
@@ -387,11 +389,12 @@ header .background-header img {
   font-size: 30px;
   font-family: "VT323", monospace;
   color: #2e2c2c;
-  border-bottom: 1px solid #415050;
+  border: 1px solid #b4b4aa;
+  border-width: 1px 0 1px 0px;
   transition: 1s;
 }
 .modal-bg a:hover {
-  background: linear-gradient(90deg, #59ffd745 0%, #FFA751 100%);
+  background: linear-gradient(90deg, #ffffff 0%, #63f1d0 100%);
 }
 .modal-bg.abierto {
   width: 100vh;
