@@ -4,7 +4,7 @@
 
 	.tarjetas-sets {
 		@include flex-centrar($direccion: column, $items: center, $content: normal);
-		width: 300px;
+		width: 400px;
 		height: 250px;
 		margin: 10px;
 		border: solid 1px;
