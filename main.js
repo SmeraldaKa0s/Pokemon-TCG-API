@@ -23,54 +23,6 @@ const lastPage = document.getElementById("last-page");
 let paginaActual = 1;
 let ultimaPagina = 0;
 
-//paginado sets
-const firstPageSets = document.getElementById("first-page-set");
-const prevSets = document.getElementById("prev-set");
-const nextSets = document.getElementById("next-set");
-const lastPageSets = document.getElementById("last-page-set");
-
-// firstPageSets.onclick = () => {
-// 	paginaActual = 1;
-// 	firstPageSets.disabled = true;
-// 	prevSets.disabled = true;
-// 	nextSets.disabled = false;
-// 	lastPageSets.disabled = false;
-// 	setsPokemon();
-// };
-
-// nextSets.onclick = () => {
-// 	paginaActual++;
-// 	firstPageSets.disabled = false;
-// 	prev.disabled = false;
-// 	if (paginaActual === 1441) {
-// 		nextSets.disabled = true;
-// 		lastPageSets.disabled = true;
-// 	}
-// 	setsPokemon();
-// };
-
-// prevSets.onclick = () => {
-// 	paginaActual--;
-// 	nextSets.disabled = false;
-// 	lastPageSets.disabled = false;
-// 	if (paginaActual === 1) {
-// 		prevSets.disabled = true;
-// 		firstPageSets.disabled = true;
-// 	}
-// 	setsPokemon();
-// };
-
-// lastPageSets.onclick = () => {
-// 	paginaActual = 1441;
-// 	prevSets.disabled = false;
-// 	firstPageSets.disabled = false;
-// 	if (paginaActual === 1441) {
-// 		nextSets.disabled = true;
-// 		lastPageSets.disabled = true;
-// 	}
-// 	setsPokemon();
-// };
-
 //Sets
 
 const setsPokemon = async () => {
@@ -78,6 +30,8 @@ const setsPokemon = async () => {
 		`https://api.pokemontcg.io/v2/sets?pageSize=20&page=${paginaActual}`
 	);
 	const data = await respuesta.json();
+	// console.log(data);
+	// console.log(data.data);
 	contenedorSets.innerHTML = setsHTML(data);
 };
 
@@ -115,7 +69,56 @@ const setsHTML = (data) => {
 
 	return arraySets;
 };
+//paginado sets
+const firstPageSets = document.getElementById("first-page-sets");
+const prevSets = document.getElementById("prev-sets");
+const nextSets = document.getElementById("next-sets");
+const lastPageSets = document.getElementById("last-page-sets");
 
+firstPageSets.onclick = () => {
+	paginaActual = 1;
+	firstPageSets.disabled = true;
+	prevSets.disabled = true;
+	nextSets.disabled = false;
+	lastPageSets.disabled = false;
+	setsPokemon();
+};
+
+nextSets.onclick = () => {
+	paginaActual++;
+	firstPageSets.disabled = false;
+	prevSets.disabled = false;
+	if (paginaActual === 7) {
+		nextSets.disabled = true;
+		lastPageSets.disabled = true;
+	}
+	setsPokemon();
+};
+
+prevSets.onclick = () => {
+	paginaActual--;
+	nextSets.disabled = false;
+	lastPageSets.disabled = false;
+	if (paginaActual === 1) {
+		prevSets.disabled = true;
+		firstPageSets.disabled = true;
+	}
+	setsPokemon();
+};
+
+lastPageSets.onclick = () => {
+	paginaActual = 7;
+	prevSets.disabled = false;
+	firstPageSets.disabled = false;
+	if (paginaActual === 7) {
+		nextSets.disabled = true;
+		lastPageSets.disabled = true;
+	}
+
+	setsPokemon();
+};
+
+//urlPokemon()
 const urlPokemon = async () => {
 	const respuesta = await fetch(
 		`https://api.pokemontcg.io/v2/cards?pageSize=10&page=${paginaActual}`
@@ -124,8 +127,7 @@ const urlPokemon = async () => {
 	contenedorTarjetas.innerHTML = aHTML(data);
 };
 
-//urlPokemon()
-
+//fetchTablas()
 const fetchTablas = async () => {
 	const respuesta = await fetch(
 		`https://api.pokemontcg.io/v2/cards?pageSize=20&page=${paginaActual}`
@@ -133,8 +135,6 @@ const fetchTablas = async () => {
 	const data = await respuesta.json();
 	tablaInfoPokemon.innerHTML = tablasHTML(data);
 };
-
-//fetchTablas()
 
 const fetchImagenes = async () => {
 	const respuesta = await fetch(
