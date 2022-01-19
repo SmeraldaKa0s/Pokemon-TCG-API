@@ -1,5 +1,5 @@
 
-const contenedorTarjetas = document.querySelector(".tarjetas");
+//const contenedorTarjetas = document.querySelector(".tarjetas");
 const contenedorSets = document.querySelector(".cotenedor-sets");
 const contenedorTarjetas = document.querySelector("#tarjetas")
 const tablaInfoPokemon = document.querySelector("#tabla-resultados")
@@ -65,7 +65,7 @@ const setsHTML = (data) => {
 
 	return arraySets;
 };
-=======
+
 const urlPokemon = async () => {    
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=10&page=${paginaActual}`)   
     const data = await respuesta.json()   
@@ -87,7 +87,7 @@ const fetchImagenes = async () => {
     const data = await respuesta.json()  
     //contenedorCartas.innerHTML = aHTML(data)
     console.log(data.data[6])   
-    console.log(crearCartasIndividuales(data))
+    //console.log(crearCartasIndividuales(data))
     
 }
 
@@ -182,7 +182,7 @@ lastPage.onclick = () => {
 	}
 	urlPokemon();
 };
-=======
+
 
 const attacks = (elemento) => elemento.attacks.reduce((acc, attack) => {
     console.log(attack)
