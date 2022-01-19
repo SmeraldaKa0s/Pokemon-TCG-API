@@ -1,21 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Pokémon TCG</title>
-</head>
-<body>
-    <main>
-        asdlkjasd
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>POKÉMON TCG</title>
+		<link rel="stylesheet" href="styles/style.css" />
+	</head>
+	<body>
+		<main>
+			<div class="container-form">
+				<form class="formularios">
+					<label
+						>View as
+						<select>
+							<option value="images" selected>Images</option>
+							<option value="list">List</option>
+						</select>
+					</label>
+					<div class="sort-formulario">
+						<label>
+							Sorted by
+							<select>
+								<option value="name">Name</option>
+								<option value="number">Set/Number</option>
+							</select>
+						</label>
+						<label>
+							<select>
+								<option value="asc">Ascendent</option>
+								<option value="desc">Descendent</option>
+							</select>
+						</label>
+					</div>
+				</form>
+			</div>
 
-        <div id="cartas-indi">
+			<div class="cotenedor-sets"></div>
+		</main>
 
-        </div>
-    </main>    
-
-    <script src="main.js"></script>
-</body>
+		<script src="main.js"></script>
+	</body>
 </html>
+

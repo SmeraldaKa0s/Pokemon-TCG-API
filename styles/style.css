@@ -345,4 +345,55 @@ header .background-header img {
   border-radius: 15px;
 }
 
+.cotenedor-sets {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: normal;
+  flex-wrap: wrap;
+}
+.cotenedor-sets .tarjetas-sets {
+  display: flex;
+  flex-direction: column;
+  justify-content: normal;
+  align-items: center;
+  width: 300px;
+  height: 250px;
+  margin: 10px;
+  border: solid 1px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.cotenedor-sets .tarjetas-sets .cotenedor-imagen-sets {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+.cotenedor-sets .tarjetas-sets .cotenedor-imagen-sets img {
+  width: 100%;
+}
+.cotenedor-sets .tarjetas-sets .contenedor-logo-texto-sets {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.cotenedor-sets .tarjetas-sets .contenedor-logo-texto-sets .contenedor-texto-sets {
+  font-family: "Nunito", sans-serif;
+  margin: 5px;
+}
+.cotenedor-sets .tarjetas-sets .contenedor-logo-texto-sets .contenedor-logo-sets {
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  margin: 5px;
+}
+.cotenedor-sets .tarjetas-sets .contenedor-logo-texto-sets .contenedor-logo-sets img {
+  width: 100%;
+}
+
 /*# sourceMappingURL=style.css.map */
