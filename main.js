@@ -9,6 +9,7 @@ const inputBusquedaCartaIndividual = document.querySelector("#input-busqueda-car
 const selectorVerComo = document.querySelector("#selector-ver-como")
 const selectorOrdenarPorNombreYNumero = document.querySelector("#selector-ordenar-nombre-numero")
 const selectorOrdenarPorAscDesc = document.querySelector("#selector-ordenar-asc-desc")
+const formularioCartaIndividual = document.querySelector(".formularios")
 
 // Paginado
 const firstPage = document.getElementById("first-page");
@@ -22,20 +23,21 @@ let ultimaPagina = 0;
 
 // CARTA-INDIVIDUAL.HTML 
 
-const fetchTablas = async () => {
-    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=${paginaActual}`)
+const fetchBusquedaTablasEImagenes = async () => {
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${inputBusquedaCartaIndividual.value}&pageSize=10&page=1`)
     const data = await respuesta.json()
-    tablaInfoPokemon.innerHTML = tablasHTML(data)
-
+    contenedorCartas.innerHTML = aHTML(data)
+    verComoEnHtml(data)
 }
 
-const fetchImagenes = async () => {
+const fetchTablasEImagenes = async () => {
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=${paginaActual}`)
     const data = await respuesta.json()
     contenedorCartas.innerHTML = aHTML(data)
+    verComoEnHtml(data)
 }
 
-fetchImagenes()
+fetchTablasEImagenes()
 
 const tablasHTML = (data) => {
     const arrayAHtml = data.data.reduce((acc, elemento) => {
@@ -72,14 +74,30 @@ const tablasHTML = (data) => {
     }, `
     <thead>
            <tr>
-                <th>Name</th>
-                <th>National Pokedex</th>
-                <th>Set</th>
-                <th>Rarity</th>
-                <th>Types</th>
-                <th>Subtypes</th>
-                <th>Resistances</th>
-                <th>Weaknesses</th>
+                <th>
+                Name
+                </th>
+                <th>
+                National Pokedex
+                </th>
+                <th>
+                Set
+                </th>
+                <th>
+                Rarity
+                </th>
+                <th>
+                Types
+                </th>
+                <th>
+                Subtypes
+                </th>
+                <th>
+                Resistances
+                </th>
+                <th>
+                Weaknesses
+                </th>
             </tr>
     </thead> `
     )
@@ -87,20 +105,33 @@ const tablasHTML = (data) => {
     return arrayAHtml
 }
 
-selectorVerComo.onchange = () => {
+const verComoEnHtml = (d) => {
 
-    if (selectorVerComo.value === "images") {
-        fetchImagenes()
-        contenedorTabla.style.display = "none"
-        contenedorCartas.style.display = "flex"
-    }
-    else {
-        fetchTablas()
-        contenedorTabla.style.display = "flex"
-        contenedorCartas.style.display = "none"
-    }
+    const data = d
 
+    selectorVerComo.onchange = () => {    
+        if (selectorVerComo.value === "images") {
+            contenedorCartas.innerHTML = aHTML(data)
+            contenedorTabla.style.display = "none"
+            contenedorCartas.style.display = "flex"
+        }
+        else {
+            tablaInfoPokemon.innerHTML = tablasHTML(data)            
+            contenedorTabla.style.display = "flex"
+            contenedorCartas.style.display = "none"
+        }
+    }
 }
+
+console.log(formularioCartaIndividual)
+
+formularioCartaIndividual.onsubmit = (e) => {
+    e.preventDefault()
+    console.log(fetchBusquedaTablasEImagenes())
+    
+    
+}
+
 
 
 
