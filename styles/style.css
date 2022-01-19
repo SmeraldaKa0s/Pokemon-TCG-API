@@ -203,29 +203,32 @@ header .background-header img {
 }
 
 .light-mode .container-form {
+  width: 100%;
   display: flex;
   justify-content: center;
   background-color: #f0f0f0;
   font-family: "VT323", monospace;
 }
 .light-mode .container-form .formularios {
-  margin: 20px 0px;
-  width: 45%;
+  width: 50%;
+  height: 70px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .light-mode .container-form .formularios .buscador-lista-cartas {
   display: flex;
+  align-items: center;
 }
 .light-mode .container-form .formularios .buscador-lista-cartas .contenedor-img-icon {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
+  width: 45px;
+  height: 45px;
 }
 .light-mode .container-form .formularios .buscador-lista-cartas .contenedor-img-icon img {
-  width: 35px;
+  width: 100%;
 }
 .light-mode .container-form .formularios .buscador-lista-cartas input {
+  height: 35%;
+  font-size: 20px;
   border: transparent;
   margin-left: 5px;
   padding: 10px;
@@ -234,23 +237,26 @@ header .background-header img {
 .light-mode .container-form .formularios .selector-ver-como {
   display: flex;
   align-items: center;
+  font-size: 25px;
 }
 .light-mode .container-form .formularios .selector-ver-como select {
+  font-size: 20px;
   margin-left: 5px;
   font-family: "VT323", monospace;
-  height: 35px;
+  padding: 10px;
   border: transparent;
 }
 .light-mode .container-form .formularios .sort-formulario {
   display: flex;
   align-items: center;
+  font-size: 25px;
 }
 .light-mode .container-form .formularios .sort-formulario select {
   font-family: "VT323", monospace;
-  height: 35px;
   border: transparent;
   margin-right: 5px;
-  padding: 5px;
+  padding: 10px;
+  font-size: 20px;
 }
 
 .light-mode .tablas {
@@ -281,6 +287,7 @@ header .background-header img {
 }
 .light-mode .tablas table td, .light-mode .tablas table th {
   padding: 10px;
+  font-size: 20px;
 }
 .light-mode .tablas table thead tr {
   background-color: #ad1818;
@@ -296,9 +303,14 @@ header .background-header img {
   border: transparent;
   color: white;
   background-color: #AD1818;
-  width: 70px;
+  width: 80px;
   height: 30px;
   border-radius: 5px;
+  font-size: 20px;
+  font-family: "VT323", monospace;
+}
+.light-mode .paginado-listas-cartas button .fa-step-backward, .light-mode .paginado-listas-cartas button .fa-step-forward {
+  font-size: 15px;
 }
 .light-mode .paginado-listas-cartas button:hover {
   background-color: #1EBAF1;

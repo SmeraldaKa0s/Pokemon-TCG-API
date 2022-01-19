@@ -1,32 +1,33 @@
 .light-mode{    
 
     .container-form{  
+        width: 100%;
         display: flex;
         justify-content: center;
         background-color: rgb(240, 240, 240);
-        font-family: $tipografia-secundaria;
+        font-family: $tipografia-secundaria;        
         
-        
-        .formularios{
-            margin: 20px 0px;
-            width: 45%;
+        .formularios{            
+            width: 50%;
+            height: 70px;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-evenly;
     
             .buscador-lista-cartas{                
-                display: flex;            
+                display: flex;    
+                align-items: center;       
     
-                .contenedor-img-icon{
-                    width: 100%;
-                    display: flex;
-                    justify-content: flex-end;
+                .contenedor-img-icon{                    
+                    width: 45px;
+                    height: 45px;                   
                     img{
-                        width: 35px;                   
-                        
+                        width: 100%;            
                     }
                 } 
                 
                 input{
+                    height: 35%;                                  
+                    font-size: 20px;
                     border: transparent;
                     margin-left: 5px;
                     padding: 10px;
@@ -37,34 +38,31 @@
             .selector-ver-como{
                 display: flex;
                 align-items: center;
+                font-size: 25px;
                
 
                 select{
+                    font-size: 20px;
                     margin-left: 5px;
                     font-family: $tipografia-secundaria;
-                    height: 35px;
+                    padding: 10px;             
                     border: transparent;
-                }
-                
+                }                
             }
     
             .sort-formulario{
                 display: flex;
                 align-items: center;
+                font-size: 25px;
 
                 select{
-                    font-family: $tipografia-secundaria;
-                    height: 35px;
+                    font-family: $tipografia-secundaria;                 
                     border: transparent;
                     margin-right: 5px;
-                    padding: 5px;
-                }
-               
-            }
-    
-        
-           
-        }
-    
+                    padding: 10px;
+                    font-size: 20px;
+                }               
+            }              
+        }    
     }
 }
