@@ -1,4 +1,3 @@
-//const contenedorTarjetas = document.querySelector(".tarjetas");
 const contenedorSets = document.querySelector(".cotenedor-sets");
 const contenedorTarjetas = document.querySelector("#tarjetas");
 const tablaInfoPokemon = document.querySelector("#tabla-resultados");
@@ -54,11 +53,12 @@ const setsHTML = (data) => {
               <img src="${elemento.images.symbol}">
               </div>
 							<div class="contenedor-texto-sets">
-				         <p> ${elemento.name} </p>
-				         <p> ${elemento.id} </p>
-						 <p> ${elemento.releaseDate} </p>
+				         <p> Name: ${elemento.name} </p>
+				         <p> Id:${elemento.id} </p>
+						 <p> Date: ${elemento.releaseDate} </p>
                          <p> Total number of cards: ${elemento.total} </p>
 				         <p> Serie: ${elemento.series} </p>
+                         <p> Code: ${elemento.ptcgoCode} </p>
                </div>
            </div>
 			  	

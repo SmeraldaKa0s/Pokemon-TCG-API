@@ -5,7 +5,6 @@
 	.tarjetas-sets {
 		@include flex-centrar($direccion: column, $items: center, $content: normal);
 		width: 300px;
-
 		margin: 10px;
 		border: solid 1px;
 		border-radius: 15px;
@@ -17,22 +16,21 @@
 			height: 200px;
 			overflow: hidden;
 			margin-top: 5px;
-			margin-bottom: 5px;
 			img {
 				width: 80%;
 			}
 		}
 		.contenedor-logo-texto-sets {
 			@include flex-centrar();
+			margin-bottom: 10px;
 			.contenedor-texto-sets {
-				font-family: $tipogracia-principal;
-				margin: 5px;
+				font-family: $tipografia-secundaria;
 			}
 			.contenedor-logo-sets {
 				height: 50px;
 				width: 50px;
 				overflow: hidden;
-				margin: 5px;
+				margin: 6px;
 				img {
 					width: 100%;
 				}

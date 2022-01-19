@@ -178,7 +178,6 @@ header .background-header img {
   height: 200px;
   overflow: hidden;
   margin-top: 5px;
-  margin-bottom: 5px;
 }
 .cotenedor-sets .tarjetas-sets .cotenedor-imagen-sets img {
   width: 80%;
@@ -188,16 +187,16 @@ header .background-header img {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 }
 .cotenedor-sets .tarjetas-sets .contenedor-logo-texto-sets .contenedor-texto-sets {
-  font-family: "Nunito", sans-serif;
-  margin: 5px;
+  font-family: "VT323", monospace;
 }
 .cotenedor-sets .tarjetas-sets .contenedor-logo-texto-sets .contenedor-logo-sets {
   height: 50px;
   width: 50px;
   overflow: hidden;
-  margin: 5px;
+  margin: 6px;
 }
 .cotenedor-sets .tarjetas-sets .contenedor-logo-texto-sets .contenedor-logo-sets img {
   width: 100%;
