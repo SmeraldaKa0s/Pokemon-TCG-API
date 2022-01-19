@@ -24,7 +24,7 @@ let ultimaPagina = 0;
 // CARTA-INDIVIDUAL.HTML 
 
 const fetchBusquedaTablasEImagenes = async () => {
-    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${inputBusquedaCartaIndividual.value}&pageSize=10&page=1`)
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${inputBusquedaCartaIndividual.value}&pageSize=20&page=1`)
     const data = await respuesta.json()
     contenedorCartas.innerHTML = aHTML(data)
     verComoEnHtml(data)
@@ -123,27 +123,11 @@ const verComoEnHtml = (d) => {
     }
 }
 
-console.log(formularioCartaIndividual)
-
 formularioCartaIndividual.onsubmit = (e) => {
     e.preventDefault()
-    console.log(fetchBusquedaTablasEImagenes())
-    
-    
+    fetchBusquedaTablasEImagenes()
+    contenedorCartas.innerHTML = aHTML(data)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //Sets
