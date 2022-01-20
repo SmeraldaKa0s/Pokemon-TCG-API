@@ -6,15 +6,15 @@
   top: 0;
   left: 0;
   height: 100vh;
-  background-color: #323130e8;
+  background-color: #171616e3;
   cursor: pointer;
   overflow: hidden;
   
   .ico-close{
     @include flex-centrar($content: end);
     i{
-      font-size: 32px;
-      margin-right: 10px;
+      font-size: 25px;
+      margin-right: 20px;
     }
 
   }
@@ -24,6 +24,7 @@
     @include flex-centrar($direccion: column, $content: space-around, $items: none);
     background: linear-gradient(90deg, #ffffff 0%, #b4ffee 100%);
     width: 50%;
+    min-width: 300px;
     height: 100vh;
   }
 
@@ -50,8 +51,8 @@
   
 
 
-  &.abierto {
-    width: 100vh;
-    transition: 300ms;
+  &.open-aside {
+    width: 100vw;
+    transition: 500ms;
   }
 }

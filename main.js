@@ -8,22 +8,20 @@ const prev = document.getElementById("prev")
 const next = document.getElementById("next")
 const lastPage = document.getElementById("last-page")
 
-// Menu desplegable 
-// const asideMenu = querySelector("#aside-menu")
-// const burgerMenu = querySelector(".box-left")
-// const closeMenu = querySelector(".close-menu")
+//Menu desplegable 
+const burgerMenu = document.querySelector(".burger-menu")
+const modalBg = document.querySelector(".modal-bg")
+const closeMenu = document.querySelector(".close-menu")
 
-// burgerMenu.onclick = () => {
-//     asideMenu.style.display = "block";
-//     burgerMenu.style.display = "none";
-// }
-// console.log(burgerMenu)
-// closeMenu.onclick = () => {
-//     asideMenu.style.display = "none";
-//     burgerMenu.style.display = "block";
 
-// }
+//Funcionalidad Menu desplegable 
+burgerMenu.addEventListener('click', () => {
+    modalBg.classList.add('open-aside');
+})
 
+closeMenu.addEventListener('click', () => {
+    modalBg.classList.remove('open-aside')
+})
 
 let paginaActual = 1
 let ultimaPagina = 0

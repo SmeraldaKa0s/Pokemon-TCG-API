@@ -6,7 +6,7 @@
     align-items: center;
     height: 80px;
     background: rgb(207, 206, 219);
-    background: linear-gradient(180deg, #d2f9f0 13.04%, #01b0f1 100%);
+    background: linear-gradient(180deg, #d2f9f0 28.04%, #5cd3ff 100%);
     box-shadow: 0px 4px 15px 9px rgba(0, 0, 0, 0.09);
     position: sticky;
     top: 0;
@@ -50,34 +50,28 @@
           display: none;
         }
       }
-      .box-left {
-        @include flex-centrar($items: start);
 
         .burger-menu {
-          min-width: 115px;
-          height: 80px;
-          border-right: 1px solid #cca4d0;
+          @include flex-centrar($display: grid);
+          min-width: 45px;
           cursor: pointer;
           overflow: hidden;
-          transition: all 0.3s ease-in-out;
+          display: grid;
+          place-items: center;
 
           .ico-menu {
-            width: 40px;
-            height: 13px;
-            margin-left: 40px;
+            width: 25px;
 
             .bar {
               width: 100%;
               height: 3px;
-              background-color: #937a95;
+              background-color: $tipografia-color-principal;
               border-radius: 2px;
               overflow: hidden;
               margin: 5px 0px 0px;
-              transform: translateY(24px);
             }
           }
         }
-      }
     }
   }
 }
