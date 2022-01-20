@@ -79,7 +79,6 @@ a {
     min-width: 45px;
     cursor: pointer;
     overflow: hidden;
-    display: grid;
     place-items: center;
   }
   .light-mode nav .burger-menu .ico-menu {
