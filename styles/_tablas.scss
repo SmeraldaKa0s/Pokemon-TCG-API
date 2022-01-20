@@ -34,6 +34,7 @@
 
       td, th{
         padding: 10px;
+        font-size: 20px;
       }
 
       thead tr{
@@ -54,9 +55,17 @@
       border: transparent;
       color: white;
       background-color: #AD1818;
-      width: 70px;
+      width: 80px;
       height: 30px;
       border-radius: 5px;
+      font-size: 20px;
+      font-family: $tipografia-secundaria;
+
+      .fa-step-backward, .fa-step-forward{
+        font-size: 15px;
+      }
+
+
     }
 
     button:hover{
