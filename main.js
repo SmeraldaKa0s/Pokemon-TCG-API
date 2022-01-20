@@ -12,12 +12,6 @@ const lastPage = document.getElementById("last-page")
 const searchForm = document.getElementById("search-form")
 const searchInput = document.getElementById("search-input")
 
-const paginadoBusqueda = document.getElementById("paginado-busqueda")
-const firstPageBusqueda = document.getElementById("first-page-busqueda")
-const prevBusqueda = document.getElementById("prev-busqueda")
-const nextBusqueda = document.getElementById("next-busqueda")
-const lastPageBusqueda = document.getElementById("last-page-busqueda")
-
 
 let paginaActual = 1
 let ultimaPagina = 0
