@@ -24,7 +24,46 @@
 
 <body class="light-mode">
     <nav>
-        <ul>
+        <!--Burger menu-->
+            <div class="burger-menu">
+                <div class="ico-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+        <!--Fin burger menu-->
+        <!--Comienzo modal menu-->
+        <aside id="aside-menu" class="modal-bg">
+            <div class="modal">
+                <div class="ico-close">
+                <i class="fas fa-times close-menu"></i>
+                </div>
+                <ul class="list-aside">
+                    <li>
+                        <a href="/index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/carta-individual.html">
+                            Cards
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/sets.html">
+                            Sets
+                        </a>
+                    </li>
+                </ul>
+                
+                    <img src="assets/Vectorpokebola-menu.svg" alt="imagen pokebola">
+                
+            </div>
+        </aside>
+        <!--Fin modal menu-->
+
+        <ul class="list-nav">
             <li>
                 <a href="/index.html">
                     Home
@@ -45,7 +84,7 @@
     <header>
         <div class="background-header">
             <img src="assets/Logo_Pokémon_TCGO.png">
-        </div>       
+        </div>
     </header>
     <main>
         <div class="buscador">
@@ -75,7 +114,7 @@
                 <button id="last-page"><i class="fas fa-step-forward"></i></button>
             </div>
     </main>
-    
+
     <!-- Paginado -->
 
     <!--Comienzo Footer-->
@@ -105,10 +144,11 @@
             </div>
             <div class="contenedor-copyright-footer">
                 <img class="imagen-footer" src="assets/Grouppoke.svg">
-                <p class="posicion-parrafo-footer">Copyright © 2022 <a class="link-copyright-footer" href="https://docs.pokemontcg.io/">Pokémon TCG
+                <p class="posicion-parrafo-footer">Copyright © 2022 <a class="link-copyright-footer"
+                        href="https://docs.pokemontcg.io/">Pokémon TCG
                         API</a>. This website is not
                     produced, endorsed, supported, or affiliated with Nintendo or The Pokémon Company.</p>
-            </div> 
+            </div>
         </div>
     </footer>
     <script src="main.js"></script>

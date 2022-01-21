@@ -1,0 +1,58 @@
+.modal-bg {
+  @include flex-centrar($direccion: column, $content: center, $items: start);
+  position: fixed;
+  width: 0;
+  transition: 300ms;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: #171616e3;
+  cursor: pointer;
+  overflow: hidden;
+  
+  .ico-close{
+    @include flex-centrar($content: end);
+    i{
+      font-size: 25px;
+      margin-right: 20px;
+    }
+
+  }
+  
+
+  .modal {
+    @include flex-centrar($direccion: column, $content: space-around, $items: none);
+    background: linear-gradient(90deg, #ffffff 0%, #b4ffee 100%);
+    width: 50%;
+    min-width: 300px;
+    height: 100vh;
+  }
+
+
+  .list-aside {
+
+    li {
+      @include flex-centrar($direccion:column, $content: center, $items: none);
+      a {
+        padding: 24px 36px;
+        font-size: 30px;
+        font-family: $tipografia-secundaria;
+        color: rgb(46, 44, 44);
+        border: 1px solid #b4b4aa;
+        border-width: 1px 0 1px 0px;
+        transition: 1s; 
+      }
+    }
+  }
+
+  a:hover {
+    background: linear-gradient(90deg, #ffffff 0%, #63f1d0 100%);
+  }
+  
+
+
+  &.open-aside {
+    width: 100vw;
+    transition: 500ms;
+  }
+}

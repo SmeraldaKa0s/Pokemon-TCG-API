@@ -1,18 +1,13 @@
 const contenedorSets = document.querySelector(".cotenedor-sets");
-const contenedorTarjetas = document.querySelector("#tarjetas");
-const tablaInfoPokemon = document.querySelector("#tabla-resultados");
-const inputBusquedaCartaIndividual = document.querySelector(
-	"#input-busqueda-carta-individual"
-);
-const selectorVerComo = document.querySelector("#selector-ver-como");
-const selectorOrdenarPorNombreYNumero = document.querySelector(
-	"#selector-ordenar-nombre-numero"
-);
-const selectorOrdenarPorAscDesc = document.querySelector(
-	"#selector-ordenar-asc-desc"
-);
-const contenedorCartas = document.querySelector("#contenedor-cartas");
-const cajaasdasd = document.querySelector("#cartas-indi");
+const contenedorTarjetas = document.querySelector("#tarjetas")
+const contenedorTabla = document.querySelector(".tablas")
+const contenedorCartas = document.querySelector("#contenedor-cartas")
+const tablaInfoPokemon = document.querySelector("#tabla-resultados")
+const inputBusquedaCartaIndividual = document.querySelector("#input-busqueda-carta-individual")
+const selectorVerComo = document.querySelector("#selector-ver-como")
+const selectorOrdenarPorNombreYNumero = document.querySelector("#selector-ordenar-nombre-numero")
+const selectorOrdenarPorAscDesc = document.querySelector("#selector-ordenar-asc-desc")
+const formularioCartaIndividual = document.querySelector(".formularios")
 
 // Paginado
 const firstPage = document.getElementById("first-page");
@@ -20,8 +15,27 @@ const prev = document.getElementById("prev");
 const next = document.getElementById("next");
 const lastPage = document.getElementById("last-page");
 
-let paginaActual = 1;
-let ultimaPagina = 0;
+
+// CARTA-INDIVIDUAL.HTML 
+
+//Menu desplegable 
+const burgerMenu = document.querySelector(".burger-menu")
+const modalBg = document.querySelector(".modal-bg")
+const closeMenu = document.querySelector(".close-menu")
+
+
+//Funcionalidad Menu desplegable 
+burgerMenu.addEventListener('click', () => {
+    modalBg.classList.add('open-aside');
+})
+
+closeMenu.addEventListener('click', () => {
+    modalBg.classList.remove('open-aside')
+})
+
+
+let paginaActual = 1
+let ultimaPagina = 0
 
 //Sets
 
@@ -33,15 +47,124 @@ const setsPokemon = async () => {
 	// console.log(data);
 	// console.log(data.data);
 	contenedorSets.innerHTML = setsHTML(data);
+
+
+const fetchBusquedaTablasEImagenes = async () => {
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${inputBusquedaCartaIndividual.value}&pageSize=20&page=1`)
+    const data = await respuesta.json()
+    contenedorCartas.innerHTML = aHTML(data)
+    verComoEnHtml(data)
+}
+
+const fetchTablasEImagenes = async () => {
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=${paginaActual}`)
+    const data = await respuesta.json()
+    contenedorCartas.innerHTML = aHTML(data)
+    verComoEnHtml(data)
+}
+
+fetchTablasEImagenes()
+
+const tablasHTML = (data) => {
+    const arrayAHtml = data.data.reduce((acc, elemento) => {
+        return acc + `
+        <tbody>
+            <tr>
+                <td>
+                ${elemento.name}
+                </td>
+                <td>
+                ${elemento.nationalPokedexNumbers}
+                </td>
+                <td>
+                ${elemento.set.name}
+                </td>
+                <td>
+                ${elemento.rarity}
+                </td>
+                <td>
+                ${elemento.types[0]}
+                </td>
+                <td>
+                ${elemento.subtypes[0]}
+                </td>
+                <td>
+                ${elemento.resistances && elemento.resistances.length && elemento.resistances[0].type ? elemento.resistances[0].type : "None"}
+                </td>
+                <td>
+                ${elemento.weaknesses && elemento.weaknesses.length && elemento.weaknesses[0].type ? elemento.weaknesses[0].type : "None"}
+                </td>            
+            </tr>
+        </tbody>
+        `
+    }, `
+    <thead>
+           <tr>
+                <th>
+                Name
+                </th>
+                <th>
+                National Pokedex
+                </th>
+                <th>
+                Set
+                </th>
+                <th>
+                Rarity
+                </th>
+                <th>
+                Types
+                </th>
+                <th>
+                Subtypes
+                </th>
+                <th>
+                Resistances
+                </th>
+                <th>
+                Weaknesses
+                </th>
+            </tr>
+    </thead> `
+    )
+
+    return arrayAHtml
+}
+
+const verComoEnHtml = (d) => {
+
+    const data = d
+
+    selectorVerComo.onchange = () => {    
+        if (selectorVerComo.value === "images") {
+            contenedorCartas.innerHTML = aHTML(data)
+            contenedorTabla.style.display = "none"
+            contenedorCartas.style.display = "flex"
+        }
+        else {
+            tablaInfoPokemon.innerHTML = tablasHTML(data)            
+            contenedorTabla.style.display = "flex"
+            contenedorCartas.style.display = "none"
+        }
+    }
+}
+
+formularioCartaIndividual.onsubmit = (e) => {
+    e.preventDefault()
+    fetchBusquedaTablasEImagenes()
+    contenedorCartas.innerHTML = aHTML(data)
+}
+
+
 };
 
 setsPokemon();
 
 const setsHTML = (data) => {
-	const arraySets = data.data.reduce((acc, elemento) => {
-		return (
-			acc +
-			`
+    const arraySets = data.data.reduce((acc, elemento) => {
+        return (
+            acc +
+            `
 			<div class="tarjetas-sets">
             <div class="cotenedor-imagen-sets">
                   <img src="${elemento.images.logo}">
@@ -59,21 +182,20 @@ const setsHTML = (data) => {
                          <p> Legalities: ${elemento.legalities.unlimited} </p>
                          <p> Code: ${elemento.ptcgoCode} </p>
                </div>
-           </div>
-			  	
-			
+           </div>		  	
 			</div>
 			`
-		);
-	}, "");
+        );
+    }, "");
 
-	return arraySets;
+    return arraySets;
 };
 //paginado sets
 const firstPageSets = document.getElementById("first-page-sets");
 const prevSets = document.getElementById("prev-sets");
 const nextSets = document.getElementById("next-sets");
 const lastPageSets = document.getElementById("last-page-sets");
+
 
 firstPageSets.onclick = () => {
 	paginaActual = 1;
@@ -118,86 +240,7 @@ lastPageSets.onclick = () => {
 	setsPokemon();
 };
 
-//urlPokemon()
-const urlPokemon = async () => {
-	const respuesta = await fetch(
-		`https://api.pokemontcg.io/v2/cards?pageSize=10&page=${paginaActual}`
-	);
-	const data = await respuesta.json();
-	contenedorTarjetas.innerHTML = aHTML(data);
-};
 
-//fetchTablas()
-const fetchTablas = async () => {
-	const respuesta = await fetch(
-		`https://api.pokemontcg.io/v2/cards?pageSize=20&page=${paginaActual}`
-	);
-	const data = await respuesta.json();
-	tablaInfoPokemon.innerHTML = tablasHTML(data);
-};
-
-const fetchImagenes = async () => {
-	const respuesta = await fetch(
-		`https://api.pokemontcg.io/v2/cards?pageSize=20&page=${paginaActual}`
-	);
-	const data = await respuesta.json();
-	//contenedorCartas.innerHTML = aHTML(data)
-	console.log(data.data[6]);
-	//console.log(crearCartasIndividuales(data))
-};
-
-fetchImagenes();
-
-const tablasHTML = (data) => {
-	const arrayAHtml = data.data.reduce(
-		(acc, elemento) => {
-			return (
-				acc +
-				`
-        <tbody>
-            <tr>
-                <td>${elemento.name}</td>
-                <td>${elemento.nationalPokedexNumbers}</td>
-                <td>${elemento.set.name}</td>
-                <td>${elemento.rarity}</td>
-                <td>${elemento.types[0]}</td>
-                <td>${elemento.subtypes[0]}</td>
-                <td>${
-									elemento.resistances &&
-									elemento.resistances.length &&
-									elemento.resistances[0].type
-										? elemento.resistances[0].type
-										: "None"
-								}</td>
-                <td>${
-									elemento.weaknesses &&
-									elemento.weaknesses.length &&
-									elemento.weaknesses[0].type
-										? elemento.weaknesses[0].type
-										: "None"
-								}</td>            
-            </tr>
-        </tbody>
-        `
-			);
-		},
-		`
-    <thead>
-           <tr>
-                <th>Name</th>
-                <th>National Pokedex</th>
-                <th>Set</th>
-                <th>Rarity</th>
-                <th>Types</th>
-                <th>Subtypes</th>
-                <th>Resistances</th>
-                <th>Weaknesses</th>
-            </tr>
-    </thead> `
-	);
-
-	return arrayAHtml;
-};
 
 const aHTML = (data) => {
 	const arrayAHtml = data.data.reduce((acc, elemento) => {
@@ -207,6 +250,7 @@ const aHTML = (data) => {
         <div class="item" id="${elemento.id}">
         <img class="card-img" src="${elemento.images.large}" alt="${elemento.name}">
         </div>`
+
 		);
 	}, "");
 
@@ -214,63 +258,60 @@ const aHTML = (data) => {
 };
 
 firstPage.onclick = () => {
-	paginaActual = 1;
-	firstPage.disabled = true;
-	prev.disabled = true;
-	next.disabled = false;
-	lastPage.disabled = false;
-	urlPokemon();
+    paginaActual = 1;
+    firstPage.disabled = true;
+    prev.disabled = true;
+    next.disabled = false;
+    lastPage.disabled = false;
+    urlPokemon();
 };
 
 next.onclick = () => {
-	paginaActual++;
-	firstPage.disabled = false;
-	prev.disabled = false;
-	if (paginaActual === 1441) {
-		next.disabled = true;
-		lastPage.disabled = true;
-	}
-	urlPokemon();
+    paginaActual++;
+    firstPage.disabled = false;
+    prev.disabled = false;
+    if (paginaActual === 1441) {
+        next.disabled = true;
+        lastPage.disabled = true;
+    }
+    urlPokemon();
 };
 
 prev.onclick = () => {
-	paginaActual--;
-	next.disabled = false;
-	lastPage.disabled = false;
-	if (paginaActual === 1) {
-		prev.disabled = true;
-		firstPage.disabled = true;
-	}
-	urlPokemon();
+    paginaActual--;
+    next.disabled = false;
+    lastPage.disabled = false;
+    if (paginaActual === 1) {
+        prev.disabled = true;
+        firstPage.disabled = true;
+    }
+    urlPokemon();
 };
 
 lastPage.onclick = () => {
-	paginaActual = 1441;
-	prev.disabled = false;
-	firstPage.disabled = false;
-	if (paginaActual === 1441) {
-		next.disabled = true;
-		lastPage.disabled = true;
-	}
-	urlPokemon();
+    paginaActual = 1441;
+    prev.disabled = false;
+    firstPage.disabled = false;
+    if (paginaActual === 1441) {
+        next.disabled = true;
+        lastPage.disabled = true;
+    }
+    urlPokemon();
 };
 
-const attacks = (elemento) =>
-	elemento.attacks.reduce((acc, attack) => {
-		console.log(attack);
-		return (
-			acc +
-			`
+
+const attacks = (elemento) => elemento.attacks.reduce((acc, attack) => {
+    console.log(attack)
+    return acc + `
  <p>${attack.name}</p>
  `
-		);
-	}, "");
+}, "")
 
 const crearCartasIndividuales = (data) => {
-	const html = data.data.reduce((acc, elemento, i) => {
-		return (
-			acc +
-			`
+    const html = data.data.reduce((acc, elemento, i) => {
+
+        return acc +
+            `
         <article>
             <div class="container">
                 <div class="card-info">
@@ -346,10 +387,10 @@ const crearCartasIndividuales = (data) => {
             </div>
         </article>
     `
-		);
-	}, "");
-	return html;
-};
+    }, "")
+    return html
+}
+
 
 // FORMULARIO BÚSQUEDA Y SORTS DE CARTA-INDIVIDUAL.HTML
 
@@ -382,7 +423,21 @@ const paginaSiguiente = (boton, funcion) => {
 	};
 };
 
-paginaSiguiente(next, urlPokemon);
+    boton.onclick = () => {
+        paginaActual++
+        console.log(paginaActual)
+        firstPage.disabled = false
+        prev.disabled = false
+        if (paginaActual === 1441) {
+            next.disabled = true
+            lastPage.disabled = true
+        }
+        funcion()
+    }
+}
+
+paginaSiguiente(next, urlPokemon)
+
 
 const paginaAnterior = (boton, funcion) => {
 	boton.onclick = () => {
