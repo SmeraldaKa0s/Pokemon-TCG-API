@@ -1,43 +1,68 @@
-.container-form{  
-    display: flex;
-    justify-content: center;
-    background-color: rgb(240, 240, 240);
-    
-    .formularios{
-        margin: 20px 0px;
-        width: 40%;
+.light-mode{    
+
+    .container-form{  
+        width: 100%;
         display: flex;
-        justify-content: space-around;
-
-        .buscador-lista-cartas{
-            
-            display: flex;            
-
-            .contenedor-img-icon{
-                width: 100%;
-                display: flex;
-                justify-content: flex-end;
-                img{
-                    width: 45%;                   
-                    
-                }
-            }            
-        }
-
-        .selector-ver-como{
+        justify-content: center;
+        background-color: rgb(240, 240, 240);
+        font-family: $tipografia-secundaria;        
+        
+        .formularios{            
+            width: 50%;
+            height: 70px;
             display: flex;
-            align-items: center;
-            
-        }
-
-        .sort-formulario{
-            display: flex;
-            align-items: center;
-           
-        }
-
+            justify-content: space-evenly;
     
-       
-    }
+            .buscador-lista-cartas{                
+                display: flex;    
+                align-items: center;       
+    
+                .contenedor-img-icon{                    
+                    width: 45px;
+                    height: 45px;                   
+                    img{
+                        width: 100%;            
+                    }
+                } 
+                
+                input{
+                    height: 35%;                                  
+                    font-size: 20px;
+                    border: transparent;
+                    margin-left: 5px;
+                    padding: 10px;
+                    font-family: $tipografia-secundaria;
+                }
+            }
+    
+            .selector-ver-como{
+                display: flex;
+                align-items: center;
+                font-size: 25px;
+               
 
+                select{
+                    font-size: 20px;
+                    margin-left: 5px;
+                    font-family: $tipografia-secundaria;
+                    padding: 10px;             
+                    border: transparent;
+                }                
+            }
+    
+            .sort-formulario{
+                display: flex;
+                align-items: center;
+                font-size: 25px;
+
+                select{
+                    font-family: $tipografia-secundaria;                 
+                    border: transparent;
+                    margin-right: 5px;
+                    padding: 10px;
+                    font-size: 20px;
+                }               
+            }              
+        }    
+    }
 }

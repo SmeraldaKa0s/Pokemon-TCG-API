@@ -1,0 +1,40 @@
+.cotenedor-sets {
+	@include flex-centrar($direccion: row, $content: center, $items: normal);
+	flex-wrap: wrap;
+
+	.tarjetas-sets {
+		@include flex-centrar($direccion: column, $items: center, $content: normal);
+		width: 400px;
+		height: 250px;
+		margin: 10px;
+		border: solid 1px;
+		border-radius: 15px;
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+		.cotenedor-imagen-sets {
+			@include flex-centrar($direccion: row, $content: center, $items: center);
+			width: 150px;
+			height: 150px;
+			overflow: hidden;
+			img {
+				width: 100%;
+			}
+		}
+		.contenedor-logo-texto-sets {
+			@include flex-centrar($direccion: row);
+			.contenedor-texto-sets {
+				font-family: $tipogracia-principal;
+				margin: 5px;
+			}
+			.contenedor-logo-sets {
+				height: 50px;
+				width: 50px;
+				overflow: hidden;
+				margin: 5px;
+				img {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
