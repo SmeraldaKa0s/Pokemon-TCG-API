@@ -1,5 +1,3 @@
-
-//const contenedorTarjetas = document.querySelector(".tarjetas");
 const contenedorSets = document.querySelector(".cotenedor-sets");
 const contenedorTarjetas = document.querySelector("#tarjetas")
 const contenedorTabla = document.querySelector(".tablas")
@@ -38,6 +36,17 @@ closeMenu.addEventListener('click', () => {
 
 let paginaActual = 1
 let ultimaPagina = 0
+
+//Sets
+
+const setsPokemon = async () => {
+	const respuesta = await fetch(
+		`https://api.pokemontcg.io/v2/sets?pageSize=20&page=${paginaActual}`
+	);
+	const data = await respuesta.json();
+	// console.log(data);
+	// console.log(data.data);
+	contenedorSets.innerHTML = setsHTML(data);
 
 
 const fetchBusquedaTablasEImagenes = async () => {
@@ -147,15 +156,6 @@ formularioCartaIndividual.onsubmit = (e) => {
 }
 
 
-//Sets
-
-const setsPokemon = async () => {
-    const respuesta = await fetch(`https://api.pokemontcg.io/v2/sets`);
-    const data = await respuesta.json();
-    console.log(data);
-    console.log(data.data);
-
-    contenedorSets.innerHTML = setsHTML(data);
 };
 
 setsPokemon();
@@ -170,14 +170,17 @@ const setsHTML = (data) => {
                   <img src="${elemento.images.logo}">
             </div>
 				   <div class="contenedor-logo-texto-sets">
+                   
 						 <div class="contenedor-logo-sets">
               <img src="${elemento.images.symbol}">
               </div>
 							<div class="contenedor-texto-sets">
-				         <p> ${elemento.name} </p>
-				         <p> ${elemento.id} </p>
-						     <p> ${elemento.releaseDate} </p>
-				        <p> ${elemento.series} </p>
+				         <p> Name: ${elemento.name} </p>
+						 <p> Date: ${elemento.releaseDate} </p>
+                         <p> Total number of cards: ${elemento.total} </p>
+				         <p> Serie: ${elemento.series} </p>
+                         <p> Legalities: ${elemento.legalities.unlimited} </p>
+                         <p> Code: ${elemento.ptcgoCode} </p>
                </div>
            </div>		  	
 			</div>
@@ -187,30 +190,72 @@ const setsHTML = (data) => {
 
     return arraySets;
 };
+//paginado sets
+const firstPageSets = document.getElementById("first-page-sets");
+const prevSets = document.getElementById("prev-sets");
+const nextSets = document.getElementById("next-sets");
+const lastPageSets = document.getElementById("last-page-sets");
 
-const urlPokemon = async () => {
-    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=10&page=${paginaActual}`)
-    const data = await respuesta.json()
-    contenedorTarjetas.innerHTML = aHTML(data)
-}
 
-//urlPokemon()
+firstPageSets.onclick = () => {
+	paginaActual = 1;
+	firstPageSets.disabled = true;
+	prevSets.disabled = true;
+	nextSets.disabled = false;
+	lastPageSets.disabled = false;
+	setsPokemon();
+};
+
+nextSets.onclick = () => {
+	paginaActual++;
+	firstPageSets.disabled = false;
+	prevSets.disabled = false;
+	if (paginaActual === 7) {
+		nextSets.disabled = true;
+		lastPageSets.disabled = true;
+	}
+	setsPokemon();
+};
+
+prevSets.onclick = () => {
+	paginaActual--;
+	nextSets.disabled = false;
+	lastPageSets.disabled = false;
+	if (paginaActual === 1) {
+		prevSets.disabled = true;
+		firstPageSets.disabled = true;
+	}
+	setsPokemon();
+};
+
+lastPageSets.onclick = () => {
+	paginaActual = 7;
+	prevSets.disabled = false;
+	firstPageSets.disabled = false;
+	if (paginaActual === 7) {
+		nextSets.disabled = true;
+		lastPageSets.disabled = true;
+	}
+
+	setsPokemon();
+};
 
 
 
 const aHTML = (data) => {
-    const arrayAHtml = data.data.reduce((acc, elemento) => {
-        return acc + `
+	const arrayAHtml = data.data.reduce((acc, elemento) => {
+		return (
+			acc +
+			`
         <div class="item" id="${elemento.id}">
         <img class="card-img" src="${elemento.images.large}" alt="${elemento.name}">
         </div>`
-    }, "")
 
-    return arrayAHtml
-}
+		);
+	}, "");
 
-
-
+	return arrayAHtml;
+};
 
 firstPage.onclick = () => {
     paginaActual = 1;
@@ -292,7 +337,9 @@ const crearCartasIndividuales = (data) => {
                             </div>                        
                             <div>
                                 <h3>RULES</h3>
-                                <p class="card-info-txt-font">${elemento.attacks.text}</p>
+                                <p class="card-info-txt-font">${
+																	elemento.attacks.text
+																}</p>
                             </div>
                         </div>
                     <div>
@@ -347,25 +394,34 @@ const crearCartasIndividuales = (data) => {
 
 // FORMULARIO BÚSQUEDA Y SORTS DE CARTA-INDIVIDUAL.HTML
 
-
-
 // Paginado
 
 const primeraPagina = (boton, funcion) => {
+	boton.onclick = () => {
+		paginaActual = 1;
+		firstPage.disabled = true;
+		prev.disabled = true;
+		next.disabled = false;
+		lastPage.disabled = false;
+		funcion();
+	};
+};
 
-    boton.onclick = () => {
-        paginaActual = 1
-        firstPage.disabled = true
-        prev.disabled = true
-        next.disabled = false
-        lastPage.disabled = false
-        funcion()
-    }
-}
-
-primeraPagina(firstPage, urlPokemon)
+primeraPagina(firstPage, urlPokemon);
 
 const paginaSiguiente = (boton, funcion) => {
+	boton.onclick = () => {
+		paginaActual++;
+		console.log(paginaActual);
+		firstPage.disabled = false;
+		prev.disabled = false;
+		if (paginaActual === 1441) {
+			next.disabled = true;
+			lastPage.disabled = true;
+		}
+		funcion();
+	};
+};
 
     boton.onclick = () => {
         paginaActual++
@@ -382,35 +438,33 @@ const paginaSiguiente = (boton, funcion) => {
 
 paginaSiguiente(next, urlPokemon)
 
+
 const paginaAnterior = (boton, funcion) => {
+	boton.onclick = () => {
+		paginaActual--;
+		next.disabled = false;
+		lastPage.disabled = false;
+		if (paginaActual === 1) {
+			prev.disabled = true;
+			firstPage.disabled = true;
+		}
+		funcion();
+	};
+};
 
-    boton.onclick = () => {
-        paginaActual--
-        next.disabled = false
-        lastPage.disabled = false
-        if (paginaActual === 1) {
-            prev.disabled = true
-            firstPage.disabled = true
-        }
-        funcion()
-    }
-}
-
-paginaAnterior(prev, urlPokemon)
+paginaAnterior(prev, urlPokemon);
 
 const paginaUltima = (boton, funcion) => {
+	boton.onclick = () => {
+		paginaActual = 1441;
+		prev.disabled = false;
+		firstPage.disabled = false;
+		if (paginaActual === 1441) {
+			next.disabled = true;
+			lastPage.disabled = true;
+		}
+		funcion();
+	};
+};
 
-    boton.onclick = () => {
-        paginaActual = 1441
-        prev.disabled = false
-        firstPage.disabled = false
-        if (paginaActual === 1441) {
-            next.disabled = true
-            lastPage.disabled = true
-        }
-        funcion()
-    }
-}
-
-paginaUltima(lastPage, urlPokemon)
-
+paginaUltima(lastPage, urlPokemon);
