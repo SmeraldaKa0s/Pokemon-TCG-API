@@ -23,6 +23,26 @@ let ultimaPagina = 0;
 
 // CARTA-INDIVIDUAL.HTML 
 
+//Menu desplegable 
+const burgerMenu = document.querySelector(".burger-menu")
+const modalBg = document.querySelector(".modal-bg")
+const closeMenu = document.querySelector(".close-menu")
+
+
+//Funcionalidad Menu desplegable 
+burgerMenu.addEventListener('click', () => {
+    modalBg.classList.add('open-aside');
+})
+
+closeMenu.addEventListener('click', () => {
+    modalBg.classList.remove('open-aside')
+})
+
+
+let paginaActual = 1
+let ultimaPagina = 0
+
+
 const fetchBusquedaTablasEImagenes = async () => {
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${inputBusquedaCartaIndividual.value}&pageSize=20&page=1`)
     const data = await respuesta.json()
