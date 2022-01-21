@@ -17,9 +17,6 @@ const prev = document.getElementById("prev");
 const next = document.getElementById("next");
 const lastPage = document.getElementById("last-page");
 
-let paginaActual = 1;
-let ultimaPagina = 0;
-
 
 // CARTA-INDIVIDUAL.HTML 
 
