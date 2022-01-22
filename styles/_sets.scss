@@ -4,8 +4,7 @@
 
 	.tarjetas-sets {
 		@include flex-centrar($direccion: column, $items: center, $content: normal);
-		width: 400px;
-		height: 250px;
+		width: 300px;
 		margin: 10px;
 		border: solid 1px;
 		border-radius: 15px;
@@ -13,24 +12,25 @@
 
 		.cotenedor-imagen-sets {
 			@include flex-centrar($direccion: row, $content: center, $items: center);
-			width: 150px;
-			height: 150px;
+			width: 200px;
+			height: 200px;
 			overflow: hidden;
+			margin-top: 5px;
 			img {
-				width: 100%;
+				width: 80%;
 			}
 		}
 		.contenedor-logo-texto-sets {
-			@include flex-centrar($direccion: row);
+			@include flex-centrar();
+			margin-bottom: 10px;
 			.contenedor-texto-sets {
-				font-family: $tipogracia-principal;
-				margin: 5px;
+				font-family: $tipografia-secundaria;
 			}
 			.contenedor-logo-sets {
 				height: 50px;
 				width: 50px;
 				overflow: hidden;
-				margin: 5px;
+				margin: 6px;
 				img {
 					width: 100%;
 				}

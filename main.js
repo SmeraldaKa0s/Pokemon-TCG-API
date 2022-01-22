@@ -15,16 +15,15 @@ let ultimaPagina = 0;
 // FUNCIONES REDUCE A HTML
 
 const aHTML = (data) => {
-    const arrayAHtml = data.data.reduce((acc, elemento) => {
-        return acc + `
+	const arrayAHtml = data.data.reduce((acc, elemento) => {
+		return acc + 			
+			`
         <div class="item" id="${elemento.id}">
         <img class="card-img" src="${elemento.images.large}" alt="${elemento.name}">
         </div>`
+        
     }, "")
-
-    return arrayAHtml
 }
-
 
 const urlPokemon = async () => {
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=${paginaActual}`)
@@ -72,7 +71,9 @@ const crearCartasIndividuales = (data) => {
                             </div>                        
                             <div>
                                 <h3>RULES</h3>
-                                <p class="card-info-txt-font">${elemento.attacks.text}</p>
+                                <p class="card-info-txt-font">${
+																	elemento.attacks.text
+																}</p>
                             </div>
                         </div>
                     <div>
@@ -128,6 +129,15 @@ const crearCartasIndividuales = (data) => {
 // PAGINADO
 
 const primeraPagina = (boton, funcion) => {
+	boton.onclick = () => {
+		paginaActual = 1;
+		firstPage.disabled = true;
+		prev.disabled = true;
+		next.disabled = false;
+		lastPage.disabled = false;
+		funcion();
+	};
+};
 
     boton.onclick = () => {
         paginaActual = 1
@@ -137,11 +147,23 @@ const primeraPagina = (boton, funcion) => {
         lastPage.disabled = false
         funcion()
     }
-}
+
 
 //primeraPagina(firstPage, urlPokemon())
 
 const paginaSiguiente = (boton, funcion) => {
+	boton.onclick = () => {
+		paginaActual++;
+		console.log(paginaActual);
+		firstPage.disabled = false;
+		prev.disabled = false;
+		if (paginaActual === 1441) {
+			next.disabled = true;
+			lastPage.disabled = true;
+		}
+		funcion();
+	};
+};
 
     boton.onclick = () => {
         paginaActual++
@@ -154,11 +176,10 @@ const paginaSiguiente = (boton, funcion) => {
         }
         funcion()
     }
-}
+
 
 paginaSiguiente(next, urlPokemon())
 
-const paginaAnterior = (boton, funcion) => {
 
     boton.onclick = () => {
         paginaActual--
@@ -170,11 +191,22 @@ const paginaAnterior = (boton, funcion) => {
         }
         funcion()
     }
-}
+
 
 paginaAnterior(prev, urlPokemon())
 
 const paginaUltima = (boton, funcion) => {
+	boton.onclick = () => {
+		paginaActual = 1441;
+		prev.disabled = false;
+		firstPage.disabled = false;
+		if (paginaActual === 1441) {
+			next.disabled = true;
+			lastPage.disabled = true;
+		}
+		funcion();
+	};
+};
 
     boton.onclick = () => {
         paginaActual = 1441
@@ -186,7 +218,7 @@ const paginaUltima = (boton, funcion) => {
         }
         funcion()
     }
-}
+
 
 paginaUltima(lastPage, urlPokemon())
 
