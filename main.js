@@ -1,6 +1,6 @@
 
 //const contenedorTarjetas = document.querySelector(".tarjetas");
-const contenedorSets = document.querySelector(".cotenedor-sets");
+const contenedorSets = document.querySelector(".cotenedor-sets")
 const contenedorTarjetas = document.querySelector("#tarjetas")
 const contenedorTabla = document.querySelector(".tablas")
 const contenedorCartas = document.querySelector("#contenedor-cartas")
@@ -10,7 +10,9 @@ const selectorVerComo = document.querySelector("#selector-ver-como")
 const selectorOrdenarPorNombreYNumero = document.querySelector("#selector-ordenar-nombre-numero")
 const selectorOrdenarPorAscDesc = document.querySelector("#selector-ordenar-asc-desc")
 const formularioCartaIndividual = document.querySelector(".formularios")
-
+const botonSiguienteTablasCard = document.querySelector("#button-siguiente")
+const botonAnteriorTablasCard = document.querySelector("#button-anterior")
+const botonPrimeraPaginaTablasCard = document.querySelector("#boton-primera-pagina")
 // Paginado
 const firstPage = document.getElementById("first-page");
 const prev = document.getElementById("prev");
@@ -20,14 +22,28 @@ const lastPage = document.getElementById("last-page");
 let paginaActual = 1;
 let ultimaPagina = 0;
 
+// FUNCIONES REDUCE A HTML
+
+const aHTML = (data) => {
+    const arrayAHtml = data.data.reduce((acc, elemento) => {
+        return acc + `
+        <div class="item" id="${elemento.id}">
+        <img class="card-img" src="${elemento.images.large}" alt="${elemento.name}">
+        </div>`
+    }, "")
+
+    return arrayAHtml
+}
+
 
 // CARTA-INDIVIDUAL.HTML 
 
 const fetchBusquedaTablasEImagenes = async () => {
-    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${inputBusquedaCartaIndividual.value}&pageSize=20&page=1`)
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${inputBusquedaCartaIndividual.value}&pageSize=20&page=${paginaActual}`)
     const data = await respuesta.json()
     contenedorCartas.innerHTML = aHTML(data)
     verComoEnHtml(data)
+   
 }
 
 const fetchTablasEImagenes = async () => {
@@ -54,7 +70,7 @@ const tablasHTML = (data) => {
                 ${elemento.set.name}
                 </td>
                 <td>
-                ${elemento.rarity}
+                ${elemento.rarity ? elemento.rarity : "None"}
                 </td>
                 <td>
                 ${elemento.types[0]}
@@ -126,19 +142,22 @@ const verComoEnHtml = (d) => {
 formularioCartaIndividual.onsubmit = (e) => {
     e.preventDefault()
     fetchBusquedaTablasEImagenes()
-    contenedorCartas.innerHTML = aHTML(data)
+    //contenedorCartas.innerHTML = aHTML(data)
 }
+
+botonPrimeraPaginaTablasCard.onclick = () => paginaActual = 1 && fetchBusquedaTablasEImagenes()
+botonSiguienteTablasCard.onclick = () => (paginaActual++ && fetchBusquedaTablasEImagenes())
+botonAnteriorTablasCard.onclick = () => paginaActual !== 1 && (paginaActual-- && fetchBusquedaTablasEImagenes())  
+
+
 
 
 //Sets
 
 const setsPokemon = async () => {
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/sets`);
-    const data = await respuesta.json();
-    console.log(data);
-    console.log(data.data);
-
-    contenedorSets.innerHTML = setsHTML(data);
+    const data = await respuesta.json()
+    contenedorSets.innerHTML = setsHTML(data)
 };
 
 setsPokemon();
@@ -172,71 +191,13 @@ const setsHTML = (data) => {
 };
 
 const urlPokemon = async () => {
-    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=10&page=${paginaActual}`)
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=${paginaActual}`)
     const data = await respuesta.json()
     contenedorTarjetas.innerHTML = aHTML(data)
+    console.log(data)
 }
 
-//urlPokemon()
-
-
-
-const aHTML = (data) => {
-    const arrayAHtml = data.data.reduce((acc, elemento) => {
-        return acc + `
-        <div class="item" id="${elemento.id}">
-        <img class="card-img" src="${elemento.images.large}" alt="${elemento.name}">
-        </div>`
-    }, "")
-
-    return arrayAHtml
-}
-
-
-
-
-firstPage.onclick = () => {
-    paginaActual = 1;
-    firstPage.disabled = true;
-    prev.disabled = true;
-    next.disabled = false;
-    lastPage.disabled = false;
-    urlPokemon();
-};
-
-next.onclick = () => {
-    paginaActual++;
-    firstPage.disabled = false;
-    prev.disabled = false;
-    if (paginaActual === 1441) {
-        next.disabled = true;
-        lastPage.disabled = true;
-    }
-    urlPokemon();
-};
-
-prev.onclick = () => {
-    paginaActual--;
-    next.disabled = false;
-    lastPage.disabled = false;
-    if (paginaActual === 1) {
-        prev.disabled = true;
-        firstPage.disabled = true;
-    }
-    urlPokemon();
-};
-
-lastPage.onclick = () => {
-    paginaActual = 1441;
-    prev.disabled = false;
-    firstPage.disabled = false;
-    if (paginaActual === 1441) {
-        next.disabled = true;
-        lastPage.disabled = true;
-    }
-    urlPokemon();
-};
-
+urlPokemon()
 
 const attacks = (elemento) => elemento.attacks.reduce((acc, attack) => {
     console.log(attack)
@@ -328,11 +289,7 @@ const crearCartasIndividuales = (data) => {
 }
 
 
-// FORMULARIO BÚSQUEDA Y SORTS DE CARTA-INDIVIDUAL.HTML
-
-
-
-// Paginado
+// PAGINADO
 
 const primeraPagina = (boton, funcion) => {
 
@@ -346,7 +303,7 @@ const primeraPagina = (boton, funcion) => {
     }
 }
 
-primeraPagina(firstPage, urlPokemon)
+//primeraPagina(firstPage, urlPokemon())
 
 const paginaSiguiente = (boton, funcion) => {
 
@@ -363,14 +320,14 @@ const paginaSiguiente = (boton, funcion) => {
     }
 }
 
-paginaSiguiente(next, urlPokemon)
+paginaSiguiente(next, urlPokemon())
 
 const paginaAnterior = (boton, funcion) => {
 
     boton.onclick = () => {
         paginaActual--
-        next.disabled = false
-        lastPage.disabled = false
+        //next.disabled = false
+        //lastPage.disabled = false
         if (paginaActual === 1) {
             prev.disabled = true
             firstPage.disabled = true
@@ -379,7 +336,7 @@ const paginaAnterior = (boton, funcion) => {
     }
 }
 
-paginaAnterior(prev, urlPokemon)
+paginaAnterior(prev, urlPokemon())
 
 const paginaUltima = (boton, funcion) => {
 
@@ -395,5 +352,5 @@ const paginaUltima = (boton, funcion) => {
     }
 }
 
-paginaUltima(lastPage, urlPokemon)
+paginaUltima(lastPage, urlPokemon())
 
