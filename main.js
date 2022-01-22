@@ -1,6 +1,6 @@
 
 //const contenedorTarjetas = document.querySelector(".tarjetas");
-const contenedorSets = document.querySelector(".cotenedor-sets")
+
 const contenedorTarjetas = document.querySelector("#tarjetas")
 
 // Paginado
@@ -25,48 +25,6 @@ const aHTML = (data) => {
     return arrayAHtml
 }
 
-
-// CARTA-INDIVIDUAL.HTML 
-
-
-
-//Sets
-
-const setsPokemon = async () => {
-    const respuesta = await fetch(`https://api.pokemontcg.io/v2/sets`);
-    const data = await respuesta.json()
-    contenedorSets.innerHTML = setsHTML(data)
-};
-
-setsPokemon();
-
-const setsHTML = (data) => {
-    const arraySets = data.data.reduce((acc, elemento) => {
-        return (
-            acc +
-            `
-			<div class="tarjetas-sets">
-            <div class="cotenedor-imagen-sets">
-                  <img src="${elemento.images.logo}">
-            </div>
-				   <div class="contenedor-logo-texto-sets">
-						 <div class="contenedor-logo-sets">
-              <img src="${elemento.images.symbol}">
-              </div>
-							<div class="contenedor-texto-sets">
-				         <p> ${elemento.name} </p>
-				         <p> ${elemento.id} </p>
-						     <p> ${elemento.releaseDate} </p>
-				        <p> ${elemento.series} </p>
-               </div>
-           </div>		  	
-			</div>
-			`
-        );
-    }, "");
-
-    return arraySets;
-};
 
 const urlPokemon = async () => {
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=${paginaActual}`)
