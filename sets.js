@@ -3,6 +3,24 @@ const contenedorSets = document.querySelector(".cotenedor-sets")
 let paginaActual = 1;
 let ultimaPagina = 0;
 
+
+//Menu desplegable 
+const burgerMenu = document.querySelector(".burger-menu")
+const modalBg = document.querySelector(".modal-bg")
+const closeMenu = document.querySelector(".close-menu")
+
+
+//Funcionalidad Menu desplegable 
+burgerMenu.addEventListener('click', () => {
+    modalBg.classList.add('open-aside');
+})
+
+closeMenu.addEventListener('click', () => {
+    modalBg.classList.remove('open-aside')
+})
+
+////////////////////////////////////////////
+
 //Sets
 
 const setsPokemon = async () => {
