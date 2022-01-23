@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POKÉMON TCG</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+</head>
+
+<body class="light-mode">
+    <nav>
+         <!--Burger menu-->
+         <div class="burger-menu">
+            <div class="ico-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    <!--Fin burger menu-->
+    <!--Comienzo modal menu-->
+    <aside id="aside-menu" class="modal-bg">
+        <div class="modal">
+            <div class="ico-close">
+            <i class="fas fa-times close-menu"></i>
+            </div>
+            <ul class="list-aside">
+                <li>
+                    <a href="https://smeraldaka0s.github.io/API-/index.html" title="Home">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="https://smeraldaka0s.github.io/API-/cartas-tablas.html" title="Cards">
+                        Cards
+                    </a>
+                </li>
+                <li>
+                    <a href="https://smeraldaka0s.github.io/API-/sets.html" title="Sets">
+                        Sets
+                    </a>
+                </li>
+            </ul>
+            
+                <img src="assets/Vectorpokebola-menu.svg" alt="imagen pokebola">
+            
+        </div>
+    </aside>
+    <!--Fin modal menu-->
+        <ul class="list-nav">
+            <li>
+                <a href="https://smeraldaka0s.github.io/API-/index.html" title="Home">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="https://smeraldaka0s.github.io/API-/cartas-tablas.html" title="Cards">
+                    Cards
+                </a>
+            </li>
+            <li>
+                <a href="https://smeraldaka0s.github.io/API-/sets.html" title="Sets">
+                    Sets
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <div class="container-form">
+            <form class="formularios">
+                <label class="buscador-lista-cartas">
+                    <div class="contenedor-img-icon">
+                        <img src="assets/pokedex.png" alt="pokedex">
+                    </div>
+                    <input id="input-busqueda-carta-individual" type="text" placeholder="Search for a card">
+                </label>
+                <label class="selector-ver-como">
+                    View as
+                    <select id="selector-ver-como">
+                        <option value="images" selected>Images</option>
+                        <option value="list">List</option>
+                    </select>
+                </label>
+                <div class="sort-formulario">
+                    <label>
+                        Sorted by
+                        <select id="selector-ordenar-nombre-numero">
+                            <option value="name">Name</option>
+                            <option value="number">Set/Number</option>
+                        </select>
+                    </label>
+                    <label>
+                        <select id="selector-ordenar-asc-desc">
+                            <option value="asc">Ascendent</option>
+                            <option value="desc">Descendent</option>
+                        </select>
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div id="contenedor-cartas" class="tarjetas">
+
+        </div>
+        <div class="tablas">
+            <table id="tabla-resultados">
+            </table>
+        </div>
+        <div class="paginado-listas-cartas">
+            <button class="paginado-button" id="boton-primera-pagina" type="button">
+                <i class="fas fa-step-backward"></i>
+            </button>
+            <button class="paginado-button"  id="button-anterior" type="button">
+                Prev
+            </button>
+            <button class="paginado-button" id="button-siguiente" type="button">
+                Next
+            </button>
+            <button class="paginado-button" type="button">
+                <i class="fas fa-step-forward"></i>
+            </button>
+        </div>        
+    </main>
+    <footer>
+        <div class="contenedor-footer">
+            <div class="column-footer">
+                <h4 class="titulo-contacto-footer">Contact us</h4>
+                <p>made with ♡ by:</p>
+                <ul class="lista-footer">
+                    <a href="https://www.linkedin.com/in/mikayalandino">
+                        <li>Mika</li>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/carolina-lerner-223034214">
+                        <li>Caro</li>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/sofia-bernabei">
+                        <li>Sofi</li>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/alx-l">
+                        <li>Aleks</li>
+                    </a>
+
+                </ul>
+            </div>
+            <div class="contenedor-copyright-footer">
+                <img class="imagen-footer" src="assets/Grouppoke.svg">
+                <p class="posicion-parrafo-footer">Copyright © 2022 <a class="link-copyright-footer"
+                        href="https://docs.pokemontcg.io/">Pokémon TCG
+                        API</a>. This website is not
+                    produced, endorsed, supported, or affiliated with Nintendo or The Pokémon Company.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cartas-tablas.js"></script>
+</body>
+
+</html>
