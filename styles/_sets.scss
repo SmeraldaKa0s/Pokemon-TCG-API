@@ -5,10 +5,10 @@
 	.tarjetas-sets {
 		@include flex-centrar($direccion: column, $items: center, $content: normal);
 		width: 300px;
-		margin: 10px;
-		border: solid 1px;
+		margin: $margin;
+		border: $border;
 		border-radius: 15px;
-		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+		box-shadow: $box-shadow;
 
 		.cotenedor-imagen-sets {
 			@include flex-centrar($direccion: row, $content: center, $items: center);
@@ -22,7 +22,7 @@
 		}
 		.contenedor-logo-texto-sets {
 			@include flex-centrar();
-			margin-bottom: 10px;
+			margin-bottom: $margin;
 			.contenedor-texto-sets {
 				font-family: $tipografia-secundaria;
 			}
@@ -38,3 +38,44 @@
 		}
 	}
 }
+
+// .cotenedor-sets {
+// 	@include flex-centrar($direccion: row, $content: center, $items: normal);
+// 	flex-wrap: wrap;
+
+// 	.tarjetas-sets {
+// 		@include flex-centrar($direccion: column, $items: center, $content: normal);
+// 		width: 300px;
+// 		margin: $margin;
+// 		border: $border;
+// 		border-radius: 15px;
+// 		box-shadow: $box-shadow;
+
+// 		.cotenedor-imagen-sets {
+// 			@include flex-centrar($direccion: row, $content: center, $items: center);
+// 			width: 200px;
+// 			height: 200px;
+// 			overflow: hidden;
+// 			margin-top: 5px;
+// 			img {
+// 				width: 80%;
+// 			}
+// 		}
+// 		.contenedor-logo-texto-sets {
+// 			@include flex-centrar();
+// 			margin-bottom: $margin;
+// 			.contenedor-texto-sets {
+// 				font-family: $tipografia-secundaria;
+// 			}
+// 			.contenedor-logo-sets {
+// 				height: 50px;
+// 				width: 50px;
+// 				overflow: hidden;
+// 				margin: 6px;
+// 				img {
+// 					width: 100%;
+// 				}
+// 			}
+// 		}
+// 	}
+// }

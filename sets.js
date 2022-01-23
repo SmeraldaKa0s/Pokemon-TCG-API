@@ -1,9 +1,20 @@
-const contenedorSets = document.querySelector(".cotenedor-sets")
+const contenedorSets = document.querySelector(".cotenedor-sets");
+//paginado sets
+const firstPageSets = document.getElementById("first-page-sets");
+const prevSets = document.getElementById("prev-sets");
+const nextSets = document.getElementById("next-sets");
+const lastPageSets = document.getElementById("last-page-sets");
+//modal
+const botonCerrarSets = document.getElementById("boton-cerrar-sets");
+const sectionModalSets = document.querySelector(".section-modal-sets");
 
-let paginaActual = 1;
-let ultimaPagina = 0;
+botonCerrarSets.onclick = () => {
+	sectionModalSets.style.display = "none";
+};
 
 //Sets
+let paginaActual = 1;
+let ultimaPagina = 0;
 
 const setsPokemon = async () => {
 	const respuesta = await fetch(
@@ -13,15 +24,60 @@ const setsPokemon = async () => {
 	// console.log(data);
 	// console.log(data.data);
 	contenedorSets.innerHTML = setsHTML(data);
-}
+};
 
 setsPokemon();
 
 const setsHTML = (data) => {
-    const arraySets = data.data.reduce((acc, elemento) => {
-        return (
-            acc +
-            `
+	const arraySets = data.data.reduce((acc, elemento) => {
+		return (
+			acc +
+			`
+			<div data-id="${elemento.id} " class="tarjetas-sets">
+            <div class="cotenedor-imagen-sets">
+                  <img src="${elemento.images.logo}">
+            </div>
+				   <div class="contenedor-logo-texto-sets">
+                   
+						 <div class="contenedor-logo-sets">
+              <img src="${elemento.images.symbol}">
+              </div>
+							<div class="contenedor-texto-sets">
+				         <p> Name: ${elemento.name} </p>
+						 <p> Date: ${elemento.releaseDate} </p>
+                         <p> Total number of cards: ${elemento.total} </p>
+				         <p> Serie: ${elemento.series} </p>
+                         <p> Legalities: ${elemento.legalities.unlimited} </p>
+                         <p> Code: ${elemento.ptcgoCode} </p>
+               </div>
+           </div>		  	
+			</div>
+			`
+		);
+	}, "");
+
+	return arraySets;
+};
+
+const modalSets = async () => {
+	const tarjetasSets = document.querySelectorAll("tarjetas-sets");
+	for (let i = 0; i < tarjetasSets.length; i++) {
+		tarjetasSets[i].onclick = () => {
+			let id = tarjetasSets[i].dataset.id;
+		};
+	}
+	const respuesta = await fetch(`https://api.pokemontcg.io/v2/sets/<id>}`);
+	const data = await respuesta.json();
+	// console.log(data);
+	// console.log(data.data);
+	contenedorSets.innerHTML = setsHTML(data);
+};
+
+const modalSetsHTML = (data) => {
+	const arrayModalSets = data.data.reduce((acc, elemento) => {
+		return (
+			acc +
+			`
 			<div class="tarjetas-sets">
             <div class="cotenedor-imagen-sets">
                   <img src="${elemento.images.logo}">
@@ -42,18 +98,11 @@ const setsHTML = (data) => {
            </div>		  	
 			</div>
 			`
-        );
-    }, "");
+		);
+	}, "");
 
-    return arraySets;
+	return arrayModalSets;
 };
-
-//paginado sets
-const firstPageSets = document.getElementById("first-page-sets");
-const prevSets = document.getElementById("prev-sets");
-const nextSets = document.getElementById("next-sets");
-const lastPageSets = document.getElementById("last-page-sets");
-
 
 firstPageSets.onclick = () => {
 	paginaActual = 1;
@@ -97,4 +146,3 @@ lastPageSets.onclick = () => {
 
 	setsPokemon();
 };
-

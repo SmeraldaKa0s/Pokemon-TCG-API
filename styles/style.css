@@ -508,4 +508,28 @@ header .background-header img {
   transition: 500ms;
 }
 
+.section-modal-sets {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  background-color: #111111bd;
+}
+.section-modal-sets .contenedor-modal-sets {
+  margin: auto;
+  width: 300px;
+  height: 350px;
+  border: solid 1px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
+}
+.section-modal-sets .contenedor-modal-sets .contenedor-boton-cierre-sets {
+  display: flex;
+  justify-content: right;
+  margin: 10px;
+}
+
 /*# sourceMappingURL=style.css.map */

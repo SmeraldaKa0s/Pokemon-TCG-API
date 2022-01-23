@@ -1,0 +1,29 @@
+.section-modal-sets {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	// @include flex-centrar($content: normal);
+	display: flex;
+	background-color: #111111bd;
+
+	.contenedor-modal-sets {
+		margin: auto;
+		width: 300px;
+		height: 350px;
+		border: $border;
+		border-radius: 10px;
+		box-shadow: $box-shadow;
+		// width: 90%;
+		// max-width: 600px;
+		// max-height: 90%;
+		background-color: white;
+
+		.contenedor-boton-cierre-sets {
+			display: flex;
+			justify-content: right;
+			margin: $margin;
+		}
+	}
+}
