@@ -4,7 +4,9 @@
   "description": "webpage",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass ./styles/style.scss ./styles/style.css",
+    "sass-watch": "sass ./styles/style.scss ./styles/style.css --watch"
   },
   "repository": {
     "type": "git",
