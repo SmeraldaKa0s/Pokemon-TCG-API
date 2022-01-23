@@ -138,3 +138,5 @@ botonSiguienteTablasCard.onclick = () => (paginaActual++ && fetchBusquedaTablasE
 botonAnteriorTablasCard.onclick = () => paginaActual !== 1 && (paginaActual-- && fetchBusquedaTablasEImagenes())  
 
 
+const cartass = document.querySelectorAll("")
+console.log(cartass)

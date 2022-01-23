@@ -1,9 +1,4 @@
-
-//const contenedorTarjetas = document.querySelector(".tarjetas");
-
 const contenedorTarjetas = document.querySelector("#tarjetas")
-
-// Paginado
 const firstPage = document.getElementById("first-page");
 const prev = document.getElementById("prev");
 const next = document.getElementById("next");
@@ -23,16 +18,39 @@ const aHTML = (data) => {
         </div>`
         
     }, "")
+
+    return arrayAHtml
 }
 
 const urlPokemon = async () => {
-    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=${paginaActual}`)
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=1`)
     const data = await respuesta.json()
-    contenedorTarjetas.innerHTML = aHTML(data)
-    console.log(data)
+    contenedorTarjetas.innerHTML = aHTML(data)    
+    const cartasIndividuales = document.querySelectorAll(".item")
+    cartaIndividualClickleable(cartasIndividuales)
+   
 }
 
 urlPokemon()
+
+const cartaIndividualClickleable = (variable) => {
+
+    for(let i = 0; i < variable.length; i++){
+        variable[i].onclick = () => {
+            const idNumerico = variable[i].id
+            infoCartaIndividual(idNumerico)        
+        }
+    }
+}
+
+const infoCartaIndividual = async (id) => {
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards/${id}`)
+    const data = await respuesta.json()
+    console.log(data)
+}
+
+// CARTA INDIVIDUAL
+
 
 const attacks = (elemento) => elemento.attacks.reduce((acc, attack) => {
     console.log(attack)
@@ -128,97 +146,96 @@ const crearCartasIndividuales = (data) => {
 
 // PAGINADO
 
-const primeraPagina = (boton, funcion) => {
-	boton.onclick = () => {
-		paginaActual = 1;
-		firstPage.disabled = true;
-		prev.disabled = true;
-		next.disabled = false;
-		lastPage.disabled = false;
-		funcion();
-	};
-};
+// const primeraPagina = (boton, funcion) => {
+// 	boton.onclick = () => {
+// 		paginaActual = 1;
+// 		firstPage.disabled = true;
+// 		prev.disabled = true;
+// 		next.disabled = false;
+// 		lastPage.disabled = false;
+// 		funcion();
+// 	};
+// };
 
-    boton.onclick = () => {
-        paginaActual = 1
-        firstPage.disabled = true
-        prev.disabled = true
-        next.disabled = false
-        lastPage.disabled = false
-        funcion()
-    }
-
-
-//primeraPagina(firstPage, urlPokemon())
-
-const paginaSiguiente = (boton, funcion) => {
-	boton.onclick = () => {
-		paginaActual++;
-		console.log(paginaActual);
-		firstPage.disabled = false;
-		prev.disabled = false;
-		if (paginaActual === 1441) {
-			next.disabled = true;
-			lastPage.disabled = true;
-		}
-		funcion();
-	};
-};
-
-    boton.onclick = () => {
-        paginaActual++
-        console.log(paginaActual)
-        firstPage.disabled = false
-        prev.disabled = false
-        if (paginaActual === 1441) {
-            next.disabled = true
-            lastPage.disabled = true
-        }
-        funcion()
-    }
+//     boton.onclick = () => {
+//         paginaActual = 1
+//         firstPage.disabled = true
+//         prev.disabled = true
+//         next.disabled = false
+//         lastPage.disabled = false
+//         funcion()
+//     }
 
 
-paginaSiguiente(next, urlPokemon())
+// //primeraPagina(firstPage, urlPokemon())
+
+// const paginaSiguiente = (boton, funcion) => {
+// 	boton.onclick = () => {
+// 		paginaActual++;
+// 		console.log(paginaActual);
+// 		firstPage.disabled = false;
+// 		prev.disabled = false;
+// 		if (paginaActual === 1441) {
+// 			next.disabled = true;
+// 			lastPage.disabled = true;
+// 		}
+// 		funcion();
+// 	};
+// };
+
+//     boton.onclick = () => {
+//         paginaActual++
+//         console.log(paginaActual)
+//         firstPage.disabled = false
+//         prev.disabled = false
+//         if (paginaActual === 1441) {
+//             next.disabled = true
+//             lastPage.disabled = true
+//         }
+//         funcion()
+//     }
 
 
-    boton.onclick = () => {
-        paginaActual--
-        //next.disabled = false
-        //lastPage.disabled = false
-        if (paginaActual === 1) {
-            prev.disabled = true
-            firstPage.disabled = true
-        }
-        funcion()
-    }
+// paginaSiguiente(next, urlPokemon())
 
 
-paginaAnterior(prev, urlPokemon())
-
-const paginaUltima = (boton, funcion) => {
-	boton.onclick = () => {
-		paginaActual = 1441;
-		prev.disabled = false;
-		firstPage.disabled = false;
-		if (paginaActual === 1441) {
-			next.disabled = true;
-			lastPage.disabled = true;
-		}
-		funcion();
-	};
-};
-
-    boton.onclick = () => {
-        paginaActual = 1441
-        prev.disabled = false
-        firstPage.disabled = false
-        if (paginaActual === 1441) {
-            next.disabled = true
-            lastPage.disabled = true
-        }
-        funcion()
-    }
+//     boton.onclick = () => {
+//         paginaActual--
+//         //next.disabled = false
+//         //lastPage.disabled = false
+//         if (paginaActual === 1) {
+//             prev.disabled = true
+//             firstPage.disabled = true
+//         }
+//         funcion()
+//     }
 
 
-paginaUltima(lastPage, urlPokemon())
+// paginaAnterior(prev, urlPokemon())
 
+// const paginaUltima = (boton, funcion) => {
+// 	boton.onclick = () => {
+// 		paginaActual = 1441;
+// 		prev.disabled = false;
+// 		firstPage.disabled = false;
+// 		if (paginaActual === 1441) {
+// 			next.disabled = true;
+// 			lastPage.disabled = true;
+// 		}
+// 		funcion();
+// 	};
+// };
+
+//     boton.onclick = () => {
+//         paginaActual = 1441
+//         prev.disabled = false
+//         firstPage.disabled = false
+//         if (paginaActual === 1441) {
+//             next.disabled = true
+//             lastPage.disabled = true
+//         }
+//         funcion()
+//     }
+
+
+// paginaUltima(lastPage, urlPokemon())
