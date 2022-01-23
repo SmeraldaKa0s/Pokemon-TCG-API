@@ -21,88 +21,82 @@ const setsPokemon = async () => {
 		`https://api.pokemontcg.io/v2/sets?pageSize=20&page=${paginaActual}`
 	);
 	const data = await respuesta.json();
-	// console.log(data);
-	// console.log(data.data);
-	contenedorSets.innerHTML = setsHTML(data);
+	setsHTML(data);
 };
 
 setsPokemon();
 
-const setsHTML = (data) => {
-	const arraySets = data.data.reduce((acc, elemento) => {
-		return (
-			acc +
-			`
-			<div data-id="${elemento.id} " class="tarjetas-sets">
-            <div class="cotenedor-imagen-sets">
-                  <img src="${elemento.images.logo}">
-            </div>
-				   <div class="contenedor-logo-texto-sets">
-                   
-						 <div class="contenedor-logo-sets">
-              <img src="${elemento.images.symbol}">
-              </div>
-							<div class="contenedor-texto-sets">
-				         <p> Name: ${elemento.name} </p>
-						 <p> Date: ${elemento.releaseDate} </p>
-                         <p> Total number of cards: ${elemento.total} </p>
-				         <p> Serie: ${elemento.series} </p>
-                         <p> Legalities: ${elemento.legalities.unlimited} </p>
-                         <p> Code: ${elemento.ptcgoCode} </p>
-               </div>
-           </div>		  	
-			</div>
-			`
-		);
-	}, "");
-
-	return arraySets;
+const datosModalSets = (id) => {
+	fetch(`https://api.pokemontcg.io/v2/sets/${id}`)
+		.then((res) => res.json())
+		.then((data) => {
+			console.log(data);
+			modalHTMLsets(data);
+		});
 };
 
-const modalSets = async () => {
-	const tarjetasSets = document.querySelectorAll("tarjetas-sets");
+const asignarClikSets = () => {
+	const tarjetasSets = document.querySelectorAll(".tarjetas-sets");
+
 	for (let i = 0; i < tarjetasSets.length; i++) {
 		tarjetasSets[i].onclick = () => {
-			let id = tarjetasSets[i].dataset.id;
+			console.log("click");
+			const id = tarjetasSets[i].dataset.id;
+			datosModalSets(id);
 		};
 	}
-	const respuesta = await fetch(`https://api.pokemontcg.io/v2/sets/<id>}`);
-	const data = await respuesta.json();
-	// console.log(data);
-	// console.log(data.data);
-	contenedorSets.innerHTML = setsHTML(data);
+};
+const contenedorModalInfoSets = document.querySelector(
+	".contenedor-modal-info-sets"
+);
+const modalHTMLsets = (data) => {
+	sectionModalSets.style.display = "flex";
+
+	contenedorModalInfoSets.innerHTML = `
+	<div>
+	    <div class="modal-img-sets">
+        <img src="${data.data.images.logo}">
+      </div>
+		  <div class="modal-logo-texto-sets">
+                   
+				<div class="modal-logo-sets">
+          <img src="${data.data.images.symbol}">
+        </div>
+				<div class="modal-texto-sets">
+				   <p> Name: ${data.data.name} </p>
+				   <p> Date: ${data.data.releaseDate} </p>
+           <p> Total number of cards: ${data.data.total} </p>
+				   <p> Serie: ${data.data.series} </p>
+           <p> Legalities: ${data.data.legalities.unlimited} </p>
+           <p> Code: ${data.data.ptcgoCode} </p>
+        </div>
+     </div>		  	
+	
+	</div>`;
 };
 
-const modalSetsHTML = (data) => {
-	const arrayModalSets = data.data.reduce((acc, elemento) => {
+const setsHTML = (data) => {
+	contenedorSets.innerHTML = data.data.reduce((acc, elemento) => {
 		return (
 			acc +
 			`
-			<div class="tarjetas-sets">
+			<div data-id="${elemento.id}" class="tarjetas-sets">
             <div class="cotenedor-imagen-sets">
                   <img src="${elemento.images.logo}">
             </div>
-				   <div class="contenedor-logo-texto-sets">
-                   
-						 <div class="contenedor-logo-sets">
-              <img src="${elemento.images.symbol}">
-              </div>
-							<div class="contenedor-texto-sets">
+				   <div class="contenedor-texto-sets">
+							
 				         <p> Name: ${elemento.name} </p>
-						 <p> Date: ${elemento.releaseDate} </p>
-                         <p> Total number of cards: ${elemento.total} </p>
-				         <p> Serie: ${elemento.series} </p>
-                         <p> Legalities: ${elemento.legalities.unlimited} </p>
-                         <p> Code: ${elemento.ptcgoCode} </p>
-               </div>
+              
            </div>		  	
 			</div>
 			`
 		);
 	}, "");
-
-	return arrayModalSets;
+	asignarClikSets();
 };
+
+////paginado sets
 
 firstPageSets.onclick = () => {
 	paginaActual = 1;
@@ -146,3 +140,23 @@ lastPageSets.onclick = () => {
 
 	setsPokemon();
 };
+
+// const datosModalSets = () => {
+// 	const tarjetasSets = document.querySelectorAll("tarjetas-sets");
+// 	for (let i = 0; i < tarjetasSets.length; i++) {
+// 		tarjetasSets[i].onclick = () => {
+// 			console.log("click");
+// 			let idModal = tarjetasSets[i].dataset.id;
+// 			console.log(dataset.id);
+// 		};
+// 	}
+// };
+
+// const infoModalSets=(data)=>{
+// 	const infoModal = data.data.reduce((acc, elemento)=>{
+// 		return acc + `
+// 		<div> ${elemento.name} </div>`
+
+// 	}, "")
+// 	return infoModal
+// }

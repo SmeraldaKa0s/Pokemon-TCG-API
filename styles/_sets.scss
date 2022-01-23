@@ -4,7 +4,7 @@
 
 	.tarjetas-sets {
 		@include flex-centrar($direccion: column, $items: center, $content: normal);
-		width: 300px;
+		width: 280px;
 		margin: $margin;
 		border: $border;
 		border-radius: 15px;
@@ -20,21 +20,9 @@
 				width: 80%;
 			}
 		}
-		.contenedor-logo-texto-sets {
-			@include flex-centrar();
-			margin-bottom: $margin;
-			.contenedor-texto-sets {
-				font-family: $tipografia-secundaria;
-			}
-			.contenedor-logo-sets {
-				height: 50px;
-				width: 50px;
-				overflow: hidden;
-				margin: 6px;
-				img {
-					width: 100%;
-				}
-			}
+		.contenedor-texto-sets {
+			margin: $margin;
+			font-family: $tipografia-secundaria;
 		}
 	}
 }

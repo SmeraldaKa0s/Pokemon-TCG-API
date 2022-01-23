@@ -4,26 +4,52 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	// @include flex-centrar($content: normal);
 	display: flex;
 	background-color: #111111bd;
+	display: none;
 
 	.contenedor-modal-sets {
 		margin: auto;
-		width: 300px;
-		height: 350px;
+		width: 400px;
 		border: $border;
 		border-radius: 10px;
 		box-shadow: $box-shadow;
-		// width: 90%;
-		// max-width: 600px;
-		// max-height: 90%;
 		background-color: white;
 
 		.contenedor-boton-cierre-sets {
 			display: flex;
 			justify-content: right;
 			margin: $margin;
+		}
+		.contenedor-modal-info-sets {
+			@include flex-centrar();
+
+			.modal-img-sets {
+				@include flex-centrar();
+				width: 280px;
+				height: 250px;
+				overflow: hidden;
+				img {
+					width: 80%;
+				}
+			}
+			.modal-logo-texto-sets {
+				@include flex-centrar();
+				margin: $margin;
+				.modal-texto-sets {
+					margin: $margin;
+					font-family: $tipografia-secundaria;
+				}
+				.modal-logo-sets {
+					@include flex-centrar();
+					height: 50px;
+					width: 50px;
+					overflow: hidden;
+					img {
+						width: 100%;
+					}
+				}
+			}
 		}
 	}
 }
