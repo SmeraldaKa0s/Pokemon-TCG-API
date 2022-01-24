@@ -140,6 +140,10 @@ header .background-header img {
   font-family: "Nunito", sans-serif;
   color: #424242;
 }
+.light-mode .buscador span a {
+  font-weight: 600;
+  color: #704f92;
+}
 .light-mode .buscador form {
   width: 100%;
   display: flex;
@@ -192,6 +196,11 @@ header .background-header img {
   height: 400px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 15px;
+}
+
+.contenedor-sin-resultados {
+  display: none;
+  background: pink;
 }
 
 .cotenedor-sets {

@@ -1,4 +1,5 @@
 const contenedorTarjetas = document.querySelector("#tarjetas")
+const contenedorSinResultados = document.querySelector(".contenedor-sin-resultados")
 
 // Paginado
 const firstPage = document.getElementById("first-page")
@@ -357,9 +358,17 @@ const mostrarCartaIndividual = (data) => {
 let busquedaPorInput = ""
 
 const inputBusquedaPokemon = async () => {
-    const res = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${busquedaPorInput}&pageSize=10&page=${paginaActual}`)
+    const tieneParametro = busquedaPorInput.includes(':')
+    if (!tieneParametro) busquedaPorInput = 'name:' + busquedaPorInput
+    const res = await fetch(`https://api.pokemontcg.io/v2/cards?q=${busquedaPorInput}&pageSize=10&page=${paginaActual}`)
     const data = await res.json()
     contenedorTarjetas.innerHTML = aHTML(data)
+    console.log(data.data.length)
+    if(!data.data.length){ 
+        contenedorTarjetas.style.display= "block"
+        contenedorSinResultados.style.display= "flex"
+        console.log(contenedorSinResultados)
+    }
 }
 
 searchForm.onsubmit = (e) => {
