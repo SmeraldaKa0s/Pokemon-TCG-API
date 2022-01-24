@@ -1,224 +1,369 @@
-
-//const contenedorTarjetas = document.querySelector(".tarjetas");
-
 const contenedorTarjetas = document.querySelector("#tarjetas")
 
 // Paginado
-const firstPage = document.getElementById("first-page");
-const prev = document.getElementById("prev");
-const next = document.getElementById("next");
-const lastPage = document.getElementById("last-page");
+const firstPage = document.getElementById("first-page")
+const prev = document.getElementById("prev")
+const next = document.getElementById("next")
+const lastPage = document.getElementById("last-page")
 
-let paginaActual = 1;
-let ultimaPagina = 0;
+//Buscador
+const searchForm = document.getElementById("search-form")
+const searchInput = document.getElementById("search-input")
+
+//Menu desplegable 
+const burgerMenu = document.querySelector(".burger-menu")
+const modalBg = document.querySelector(".modal-bg")
+const closeMenu = document.querySelector(".close-menu")
+
+
+//Funcionalidad Menu desplegable 
+burgerMenu.addEventListener('click', () => {
+    modalBg.classList.add('open-aside');
+})
+
+closeMenu.addEventListener('click', () => {
+    modalBg.classList.remove('open-aside')
+})
+
+
+let paginaActual = 1
+let ultimaPagina = 0
+
+
+const tablasHTML = (data) => {
+    const arrayAHtml = data.data.reduce((acc, elemento) => {
+        return acc + `
+        <tbody>
+            <tr>
+                <td>${elemento.name}</td>
+                <td>${elemento.nationalPokedexNumbers}</td>
+                <td>${elemento.set.name}</td>
+                <td>${elemento.rarity}</td>
+                <td>${elemento.types[0]}</td>
+                <td>${elemento.subtypes[0]}</td>
+                <td>${elemento.resistances && elemento.resistances.length && elemento.resistances[0].type ? elemento.resistances[0].type : "None"}</td>
+                <td>${elemento.weaknesses && elemento.weaknesses.length && elemento.weaknesses[0].type ? elemento.weaknesses[0].type : "None"}</td>            
+            </tr>
+        </tbody>
+        `
+    }, `<thead>
+           <tr>
+                <th>Name</th>
+                <th>National Pokedex</th>
+                <th>Set</th>
+                <th>Rarity</th>
+                <th>Types</th>
+                <th>Subtypes</th>
+                <th>Resistances</th>
+                <th>Weaknesses</th>
+            </tr>
+        </thead> `
+    )
+
+    return arrayAHtml
+}
+
+
+
 
 // FUNCIONES REDUCE A HTML
 
 const aHTML = (data) => {
-	const arrayAHtml = data.data.reduce((acc, elemento) => {
-		return acc + 			
-			`
+    const arrayAHtml = data.data.reduce((acc, elemento) => {
+        return acc +
+            `
         <div class="item" id="${elemento.id}">
         <img class="card-img" src="${elemento.images.large}" alt="${elemento.name}">
         </div>`
-        
+
     }, "")
+
+    return arrayAHtml
 }
 
 const urlPokemon = async () => {
-    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=${paginaActual}`)
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=1`)
     const data = await respuesta.json()
-    contenedorTarjetas.innerHTML = aHTML(data)
-    console.log(data)
+    contenedorTarjetas.innerHTML = aHTML(data)    
+    const cartasIndividuales = document.querySelectorAll(".item")
+    cartaIndividualClickleable(cartasIndividuales)
+   
 }
 
 urlPokemon()
 
-const attacks = (elemento) => elemento.attacks.reduce((acc, attack) => {
-    console.log(attack)
+const cartaIndividualClickleable = (variable) => {
+
+    for(let i = 0; i < variable.length; i++){
+        variable[i].onclick = () => {
+            const idNumerico = variable[i].id
+            infoCartaIndividual(idNumerico)        
+        }
+    }
+}
+
+const infoCartaIndividual = async (id) => {
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards/${id}`)
+    const data = await respuesta.json()
+    console.log(mostrarCartaIndividual(data))      
+   
+}
+
+const attacks = (data) => data.data.attacks.reduce((acc, attack) => {
     return acc + `
- <p>${attack.name}</p>
- `
+    <div class="energía-y-nombre-ataque>
+        <div>
+            ${energy(attack)}        
+        </div>
+        <div>
+            ${attack.name}
+            ${attack.damage}
+        <span>
+    </div>
+    <div class="ataque-text">
+        <span>
+            ${attack.text}
+        </span>
+    </div>
+    `
 }, "")
 
-const crearCartasIndividuales = (data) => {
-    const html = data.data.reduce((acc, elemento, i) => {
+const energy = (attack) => {
+    let acc = ""
+    for(let i = 0; i < attack.cost.length; i++){
+        acc += `<img src="${attack.cost[i].toLowerCase()}.jpg">`
+    }
+    return acc
+}
 
-        return acc +
-            `
-        <article>
-            <div class="container">
-                <div class="card-info">
-                    <h2>${elemento.name}</h2>
-                    <div class="card-info-title">
-                        <p>${elemento.supertype} - ${elemento.supertype}</p>
-                        <div class="card-info-txt">
-                            <p>HP</p>
-                            <p>${elemento.hp}</p>
-                        </div>             
-                    </div>
-                    <img src="${elemento.images.large}" alt="">
+const habilidades = (data) => {
+    return `
+    <div class="habilidad">
+        <div class="type-name>
+            <span>
+                ${data.data.abilities[0].type}
+            </span>    
+            <span>
+                ${data.data.abilities[0].name}
+            </span>
+        </div>
+        <span>
+            ${data.data.abilities[0].text}
+        </span>
+    </div>
+    `
+}  
+
+const debilidad = (data) => data.data.weaknesses.reduce((acc, debilidad) => {
+    return acc + `
+    <div class="img-debilidad">
+    <img src="${debilidad.type.toLowerCase()}.jpg" alt="debilidad">
+    </div>
+    <span>
+        ${debilidad.value}
+    </span>
+    `
+}, "")
+
+const resistencia = (data) => data.data.resistances.reduce((acc, resistencia) => {
+    return acc + `
+    <div class="img-debilidad">
+    <img src="${resistencia.type.toLowerCase()}.jpg" alt="resistencia">
+    </div>
+    <span>
+        ${resistencia.value}
+    </span>
+    `
+}, "")
+
+const costoRetirada = (data) => data.data.retreatCost.reduce((acc, retirada) => {
+    return acc + `
+    <div class="container-img">
+       <img src="${retirada.toLowerCase()}.jpg" alt="retreat-cost">
+    </div>
+    `
+}, "")
+
+const mostrarCartaIndividual = (data) => {
+    return `
+    <div class="modal-container">
+        <div class="title-img-modal">
+            <h2>${data.data.name}</h2>
+            <div class="container-img">
+                <span>
+                ${data.data.subtypes} - HP: ${data.data.hp}
+                </span>
+                <img src="${data.data.images.large} alt="${data.data.name}">
+            </div>
+        </div>  
+        <div class="container-info">
+            <div class="info-ataques">
+                <h2>
+                    ATTACKS
+                </h2>
+                ${data.data.abilities ? habilidades(data) : ""}
+                ${attacks(data)}
+            </div>
+            <div class="info-secundaria">
+                <div class="debilidad">
+                    <h2>
+                        WEAKNESSES
+                    </h2>
+                    ${data.data.weaknesses ? debilidad(data) : "N/A"}                                        
                 </div>
-                <div class="card-info-container">
-                    <div class="card-info-left">
-                        <div>
-                            <div>
-                                <h3>ATTACKS</h3>
-                                <div class="card-info-left-primary">
-                                    <p>☀☀☀</p><!-- img -->
-                                    ${attacks(elemento)}
-                                </div>
-                            </div>                        
-                            <div>
-                                <h3>RULES</h3>
-                                <p class="card-info-txt-font">${
-																	elemento.attacks.text
-																}</p>
-                            </div>
-                        </div>
-                    <div>
-                        <div class="card-info-left-secondary">                        
-                            <div class="card-info-left-mr">
-                                <h3>WEAKNESS</h3>
-                                <div>
-                                    <p>${elemento.attacks.weakness.type}</p>
-                                    <p>${elemento.attacks.weakness.value}</p>
-                                </div>
-                            </div>
-                            <div  class="card-info-left-mr">
-                                <h3>RESISTANCE</h3>
-                                <div>
-                                    <p>${elemento.attacks.resistances.type}</p>
-                                    <p>${elemento.attacks.resistances.value}</p>
-                                </div>
-                            </div>
-                            <div class="card-info-left-mr">
-                                <h3>RETRAT COST</h3>
-                                <div>
-                                    <p>${elemento.attacks.retreatCost}</p>
-                                </div>
-                            </div>        
-                        </div>                        
-                        <div class="card-info-left-terciary">        
-                            <div class="card-info-left-mr">
-                                <h3>ARTIST</h3>
-                                <p>${elemento.artist}</p>
-                            </div>
-                            <div class="card-info-left-mr">
-                                <h3>RARITY</h3>
-                                <p>${elemento.rarity}</p>
-                            </div>
-                            <div class="card-info-left-mr">
-                                <h3>SET</h3>
-                                <div>
-                                    <p>${elemento.set}/p>
-                                </div>                    
-                            </div>        
-                            </div> 
-                        </div>
-                    </div>    
+                    <h2>
+                        RESISTANCES
+                    </h2>                    
+                <div class="resistencia">
+                    ${data.data.resistances ? resistencia(data) : "N/A"}
+                <div>
+                <div class="costo-retirada">
+                    <h2>
+                        RETREAT COST
+                    </h2>
+                    ${data.data.retreatCost ? costoRetirada(data) : "None"}
                 </div>
             </div>
-        </article>
+        </div>
+        <div class="info-adicional">
+            <div>
+                <h2>
+                    ARTIST
+                </h2>   
+                <span>
+                    ${data.data.artist}
+                </span>
+            </div>
+            <div>
+                <h2>
+                    RARITY
+                </h2>   
+                <span>
+                    ${data.data.rarity ? data.data.rarity : "None"}
+                </span>
+            </div>
+            <div>
+                <h2>
+                    SET
+                </h2>   
+                <span>
+                    ${data.data.set.name}
+                </span>
+            </div>
+        </div>  
+    </div>
     `
-    }, "")
-    return html
 }
 
 
 // PAGINADO
 
-const primeraPagina = (boton, funcion) => {
-	boton.onclick = () => {
-		paginaActual = 1;
-		firstPage.disabled = true;
-		prev.disabled = true;
-		next.disabled = false;
-		lastPage.disabled = false;
-		funcion();
-	};
-};
+// const primeraPagina = (boton, funcion) => {
+// 	boton.onclick = () => {
+// 		paginaActual = 1;
+// 		firstPage.disabled = true;
+// 		prev.disabled = true;
+// 		next.disabled = false;
+// 		lastPage.disabled = false;
+// 		funcion();
+// 	};
+// };
 
-    boton.onclick = () => {
-        paginaActual = 1
-        firstPage.disabled = true
-        prev.disabled = true
-        next.disabled = false
-        lastPage.disabled = false
-        funcion()
-    }
-
-
-//primeraPagina(firstPage, urlPokemon())
-
-const paginaSiguiente = (boton, funcion) => {
-	boton.onclick = () => {
-		paginaActual++;
-		console.log(paginaActual);
-		firstPage.disabled = false;
-		prev.disabled = false;
-		if (paginaActual === 1441) {
-			next.disabled = true;
-			lastPage.disabled = true;
-		}
-		funcion();
-	};
-};
-
-    boton.onclick = () => {
-        paginaActual++
-        console.log(paginaActual)
-        firstPage.disabled = false
-        prev.disabled = false
-        if (paginaActual === 1441) {
-            next.disabled = true
-            lastPage.disabled = true
-        }
-        funcion()
-    }
+//     boton.onclick = () => {
+//         paginaActual = 1
+//         firstPage.disabled = true
+//         prev.disabled = true
+//         next.disabled = false
+//         lastPage.disabled = false
+//         funcion()
+//     }
 
 
-paginaSiguiente(next, urlPokemon())
+// //primeraPagina(firstPage, urlPokemon())
+
+// const paginaSiguiente = (boton, funcion) => {
+// 	boton.onclick = () => {
+// 		paginaActual++;
+// 		console.log(paginaActual);
+// 		firstPage.disabled = false;
+// 		prev.disabled = false;
+// 		if (paginaActual === 1441) {
+// 			next.disabled = true;
+// 			lastPage.disabled = true;
+// 		}
+// 		funcion();
+// 	};
+// };
+
+//     boton.onclick = () => {
+//         paginaActual++
+//         console.log(paginaActual)
+//         firstPage.disabled = false
+//         prev.disabled = false
+//         if (paginaActual === 1441) {
+//             next.disabled = true
+//             lastPage.disabled = true
+//         }
+//         funcion()
+//     }
 
 
-    boton.onclick = () => {
-        paginaActual--
-        //next.disabled = false
-        //lastPage.disabled = false
-        if (paginaActual === 1) {
-            prev.disabled = true
-            firstPage.disabled = true
-        }
-        funcion()
-    }
+// paginaSiguiente(next, urlPokemon())
 
 
-paginaAnterior(prev, urlPokemon())
-
-const paginaUltima = (boton, funcion) => {
-	boton.onclick = () => {
-		paginaActual = 1441;
-		prev.disabled = false;
-		firstPage.disabled = false;
-		if (paginaActual === 1441) {
-			next.disabled = true;
-			lastPage.disabled = true;
-		}
-		funcion();
-	};
-};
-
-    boton.onclick = () => {
-        paginaActual = 1441
-        prev.disabled = false
-        firstPage.disabled = false
-        if (paginaActual === 1441) {
-            next.disabled = true
-            lastPage.disabled = true
-        }
-        funcion()
-    }
+//     boton.onclick = () => {
+//         paginaActual--
+//         //next.disabled = false
+//         //lastPage.disabled = false
+//         if (paginaActual === 1) {
+//             prev.disabled = true
+//             firstPage.disabled = true
+//         }
+//         funcion()
+//     }
 
 
-paginaUltima(lastPage, urlPokemon())
+// paginaAnterior(prev, urlPokemon())
 
+// const paginaUltima = (boton, funcion) => {
+// 	boton.onclick = () => {
+// 		paginaActual = 1441;
+// 		prev.disabled = false;
+// 		firstPage.disabled = false;
+// 		if (paginaActual === 1441) {
+// 			next.disabled = true;
+// 			lastPage.disabled = true;
+// 		}
+// 		funcion();
+// 	};
+// };
+
+//     boton.onclick = () => {
+//         paginaActual = 1441
+//         prev.disabled = false
+//         firstPage.disabled = false
+//         if (paginaActual === 1441) {
+//             next.disabled = true
+//             lastPage.disabled = true
+//         }
+//         funcion()
+//     }
+
+
+// paginaUltima(lastPage, urlPokemon())
+
+//Búsqueda 
+
+let busquedaPorInput = ""
+
+const inputBusquedaPokemon = async () => {
+    const res = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${busquedaPorInput}&pageSize=10&page=${paginaActual}`)
+    const data = await res.json()
+    contenedorTarjetas.innerHTML = aHTML(data)
+}
+
+searchForm.onsubmit = (e) => {
+    e.preventDefault()
+    busquedaPorInput = searchInput.value
+    inputBusquedaPokemon()
+}

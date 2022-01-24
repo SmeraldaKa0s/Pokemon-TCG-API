@@ -10,6 +10,24 @@ const botonSiguienteTablasCard = document.querySelector("#button-siguiente")
 const botonAnteriorTablasCard = document.querySelector("#button-anterior")
 const botonPrimeraPaginaTablasCard = document.querySelector("#boton-primera-pagina")
 
+
+//Menu desplegable 
+const burgerMenu = document.querySelector(".burger-menu")
+const modalBg = document.querySelector(".modal-bg")
+const closeMenu = document.querySelector(".close-menu")
+
+
+//Funcionalidad Menu desplegable 
+burgerMenu.addEventListener('click', () => {
+    modalBg.classList.add('open-aside');
+})
+
+closeMenu.addEventListener('click', () => {
+    modalBg.classList.remove('open-aside')
+})
+
+////////////////////////////////////////////
+
 let paginaActual = 1;
 let ultimaPagina = 0;
 
@@ -138,3 +156,5 @@ botonSiguienteTablasCard.onclick = () => (paginaActual++ && fetchBusquedaTablasE
 botonAnteriorTablasCard.onclick = () => paginaActual !== 1 && (paginaActual-- && fetchBusquedaTablasEImagenes())  
 
 
+const cartass = document.querySelectorAll("")
+console.log(cartass)
