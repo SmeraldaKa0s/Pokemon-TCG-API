@@ -14,7 +14,7 @@
 		border: $border;
 		border-radius: 10px;
 		box-shadow: $box-shadow;
-		background-color: white;
+		background-color: $color-tarjetas;
 
 		.contenedor-boton-cierre-sets {
 			display: flex;
@@ -49,7 +49,8 @@
 					$content: center,
 					$items: center
 				);
-				margin: $margin;
+				background-color: lightskyblue;
+
 				.modal-texto-sets {
 					margin: $margin;
 					font-family: $tipografia-secundaria;
@@ -65,5 +66,15 @@
 				}
 			}
 		}
+	}
+}
+
+// NO FUNCIONA EL COLUMN
+@media screen and (max-width: 600px) {
+	.contenedor-modal-sets {
+		width: 300px;
+	}
+	.modal-logo-texto-sets {
+		@include flex-centrar($direccion: column, $content: center, $items: center);
 	}
 }

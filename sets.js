@@ -1,38 +1,34 @@
 const contenedorSets = document.querySelector(".cotenedor-sets");
-//paginado sets
 const firstPageSets = document.getElementById("first-page-sets");
 const prevSets = document.getElementById("prev-sets");
 const nextSets = document.getElementById("next-sets");
 const lastPageSets = document.getElementById("last-page-sets");
-//modal
 const botonCerrarSets = document.getElementById("boton-cerrar-sets");
 const sectionModalSets = document.querySelector(".section-modal-sets");
+const contenedorModalInfoSets = document.querySelector(
+	".contenedor-modal-info-sets"
+);
+//Menu desplegable
+const burgerMenu = document.querySelector(".burger-menu");
+const modalBg = document.querySelector(".modal-bg");
+const closeMenu = document.querySelector(".close-menu");
 
-botonCerrarSets.onclick = () => {
-	sectionModalSets.style.display = "none";
-};
+//Funcionalidad Menu desplegable
+burgerMenu.addEventListener("click", () => {
+	modalBg.classList.add("open-aside");
+});
 
-
-//Menu desplegable 
-const burgerMenu = document.querySelector(".burger-menu")
-const modalBg = document.querySelector(".modal-bg")
-const closeMenu = document.querySelector(".close-menu")
-
-
-//Funcionalidad Menu desplegable 
-burgerMenu.addEventListener('click', () => {
-    modalBg.classList.add('open-aside');
-})
-
-closeMenu.addEventListener('click', () => {
-    modalBg.classList.remove('open-aside')
-})
-
-////////////////////////////////////////////
+closeMenu.addEventListener("click", () => {
+	modalBg.classList.remove("open-aside");
+});
 
 //Sets
 let paginaActual = 1;
 let ultimaPagina = 0;
+
+botonCerrarSets.onclick = () => {
+	sectionModalSets.style.display = "none";
+};
 
 const setsPokemon = async () => {
 	const respuesta = await fetch(
@@ -44,13 +40,10 @@ const setsPokemon = async () => {
 
 setsPokemon();
 
-const datosModalSets = (id) => {
-	fetch(`https://api.pokemontcg.io/v2/sets/${id}`)
-		.then((res) => res.json())
-		.then((data) => {
-			console.log(data);
-			modalHTMLsets(data);
-		});
+const datosModalSets = async (id) => {
+	const respuesta = await fetch(`https://api.pokemontcg.io/v2/sets/${id}`);
+	const data = await respuesta.json();
+	modalHTMLsets(data);
 };
 
 const asignarClikSets = () => {
@@ -64,9 +57,7 @@ const asignarClikSets = () => {
 		};
 	}
 };
-const contenedorModalInfoSets = document.querySelector(
-	".contenedor-modal-info-sets"
-);
+
 const modalHTMLsets = (data) => {
 	sectionModalSets.style.display = "flex";
 
@@ -90,7 +81,7 @@ const modalHTMLsets = (data) => {
 								? data.data.legalities.unlimited
 								: "None"
 						} </p>
-           <p>Code: ${data.data.ptcgoCode} </p>
+           <p>Code: ${data.data.ptcgoCode ? data.data.ptcgoCode : "None"} </p>
 					 <p>Date the set was released (in the USA):${data.data.releaseDate} </p>
         </div>
      </div>		  	
@@ -161,23 +152,3 @@ lastPageSets.onclick = () => {
 
 	setsPokemon();
 };
-
-// const datosModalSets = () => {
-// 	const tarjetasSets = document.querySelectorAll("tarjetas-sets");
-// 	for (let i = 0; i < tarjetasSets.length; i++) {
-// 		tarjetasSets[i].onclick = () => {
-// 			console.log("click");
-// 			let idModal = tarjetasSets[i].dataset.id;
-// 			console.log(dataset.id);
-// 		};
-// 	}
-// };
-
-// const infoModalSets=(data)=>{
-// 	const infoModal = data.data.reduce((acc, elemento)=>{
-// 		return acc + `
-// 		<div> ${elemento.name} </div>`
-
-// 	}, "")
-// 	return infoModal
-// }
