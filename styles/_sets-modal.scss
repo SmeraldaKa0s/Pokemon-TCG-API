@@ -46,7 +46,7 @@
 			.modal-logo-texto-sets {
 				@include flex-centrar(
 					$direccion: row,
-					$content: normal,
+					$content: center,
 					$items: center
 				);
 				margin: $margin;
