@@ -53,7 +53,7 @@ const modalHTMLsets = (data) => {
 	sectionModalSets.style.display = "flex";
 
 	contenedorModalInfoSets.innerHTML = `
-	<div>
+	<div class="contenedor">
 	    <div class="modal-img-sets">
         <img src="${data.data.images.logo}">
       </div>
@@ -64,11 +64,16 @@ const modalHTMLsets = (data) => {
         </div>
 				<div class="modal-texto-sets">
 				   <p> Name: ${data.data.name} </p>
-				   <p> Date: ${data.data.releaseDate} </p>
+				   <p>Date the set was released: ${data.data.releaseDate} </p>
            <p> Total number of cards: ${data.data.total} </p>
 				   <p> Serie: ${data.data.series} </p>
-           <p> Legalities: ${data.data.legalities.unlimited} </p>
-           <p> Code: ${data.data.ptcgoCode} </p>
+           <p> Legalities: ${
+							data.data.legalities.unlimited
+								? data.data.legalities.unlimited
+								: "None"
+						} </p>
+           <p>Code: ${data.data.ptcgoCode} </p>
+					 <p>Date the set was released (in the USA):${data.data.releaseDate} </p>
         </div>
      </div>		  	
 	
@@ -84,10 +89,8 @@ const setsHTML = (data) => {
             <div class="cotenedor-imagen-sets">
                   <img src="${elemento.images.logo}">
             </div>
-				   <div class="contenedor-texto-sets">
-							
+				   <div class="contenedor-texto-sets">	
 				         <p> Name: ${elemento.name} </p>
-              
            </div>		  	
 			</div>
 			`

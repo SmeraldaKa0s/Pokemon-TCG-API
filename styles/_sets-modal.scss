@@ -21,30 +21,44 @@
 			justify-content: right;
 			margin: $margin;
 		}
-		.contenedor-modal-info-sets {
-			@include flex-centrar();
-
+	}
+	.contenedor-modal-info-sets {
+		@include flex-centrar($direccion: column, $items: center, $content: normal);
+		.contenedor {
+			@include flex-centrar(
+				$direccion: column,
+				$items: center,
+				$content: center
+			);
 			.modal-img-sets {
-				@include flex-centrar();
-				width: 280px;
-				height: 250px;
+				@include flex-centrar(
+					$direccion: column,
+					$items: center,
+					$content: center
+				);
+				width: 200px;
+				height: 200px;
 				overflow: hidden;
 				img {
 					width: 80%;
 				}
 			}
 			.modal-logo-texto-sets {
-				@include flex-centrar();
+				@include flex-centrar(
+					$direccion: row,
+					$content: normal,
+					$items: center
+				);
 				margin: $margin;
 				.modal-texto-sets {
 					margin: $margin;
 					font-family: $tipografia-secundaria;
 				}
 				.modal-logo-sets {
-					@include flex-centrar();
 					height: 50px;
 					width: 50px;
 					overflow: hidden;
+					margin: $margin;
 					img {
 						width: 100%;
 					}
