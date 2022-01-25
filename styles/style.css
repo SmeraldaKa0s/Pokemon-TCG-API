@@ -568,12 +568,24 @@ header .background-header img {
   align-items: center;
   margin: 50px;
 }
+.modal-carta-individual .modal-container-carta-boton {
+  display: flex;
+  justify-content: end;
+}
+.modal-carta-individual .modal-container-carta-boton .boton-cerrar-modal-carta {
+  color: #fff;
+  font-size: 20px;
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  background: none;
+}
 
 .modal-container-carta {
   height: 700px;
   width: 550px;
   background-color: #e02443;
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 0px 20px;
   border: 1px solid #1f1c1c;
 }
 .modal-container-carta .modal-botones {
@@ -585,15 +597,11 @@ header .background-header img {
 .modal-container-carta .boton-modal {
   color: #fff;
   font-size: 20px;
-  margin: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
   padding: 5px;
   border: none;
   background: none;
-}
-.modal-container-carta .boton-cerrar-modal-carta {
-  margin-top: 0;
-  margin-bottom: 85px;
-  margin-right: 15px;
 }
 .modal-container-carta .modal-dibujo-pokedex {
   content: "";
@@ -682,6 +690,86 @@ header .background-header img {
   border-color: #000 transparent transparent transparent;
   border-radius: 10%/50px 100px 0 0;
   border-right-width: 12px;
+}
+
+.modal-img-carta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  padding: 10px;
+  background-color: #DBDDDC;
+  border-radius: 10px 10px 20px 75px;
+}
+.modal-img-carta img {
+  padding: 10px;
+  width: 300px;
+  border-radius: 20px;
+}
+
+.modal-container-carta-txt {
+  height: 700px;
+  width: 550px;
+  background-color: #e01a3b;
+  border-radius: 0 0 20px 0px;
+  border: 1px solid #1f1c1c;
+}
+.modal-container-carta-txt .modal-right-top {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.modal-container-carta-txt .modal-container-txt-name {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+.modal-container-carta-txt .modal-container-txt-primary {
+  color: #fff;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+}
+.modal-container-carta-txt .modal-container-carta-info-txt {
+  height: 150px;
+  background-color: #202020;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 20px;
+}
+.modal-container-carta-txt .modal-right-center {
+  width: 500px;
+  color: rgba(255, 255, 255, 0.801);
+  background-color: #28AAFE;
+  border-radius: 20px;
+  text-align: center;
+  margin: 15px;
+  padding: 10px;
+}
+.modal-container-carta-txt .modal-right-center .modal-right-center-bot {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+.modal-container-carta-txt .modal-right-center .modal-right-center-txt {
+  color: #000;
+  padding-right: 20px;
+}
+.modal-container-carta-txt .modal-right-bottom {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.modal-container-carta-txt .modal-right-bottom .modal-right-bottom-txt {
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */
