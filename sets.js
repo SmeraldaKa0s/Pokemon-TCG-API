@@ -29,17 +29,38 @@ let ultimaPagina = 0;
 botonCerrarSets.onclick = () => {
 	sectionModalSets.style.display = "none";
 };
-
+// fetch a sets
 const setsPokemon = async () => {
 	const respuesta = await fetch(
 		`https://api.pokemontcg.io/v2/sets?pageSize=20&page=${paginaActual}`
 	);
 	const data = await respuesta.json();
 	setsHTML(data);
+	ordenarFechaSet(data);
 };
 
 setsPokemon();
 
+const setsHTML = (data) => {
+	contenedorSets.innerHTML = data.data.reduce((acc, elemento) => {
+		return (
+			acc +
+			`
+			<div data-id="${elemento.id}" class="tarjetas-sets">
+            <div class="cotenedor-imagen-sets">
+                  <img src="${elemento.images.logo}">
+            </div>
+				   <div class="contenedor-texto-sets">	
+				         <p> Name: ${elemento.name} </p>
+           </div>		  	
+			</div>
+			`
+		);
+	}, "");
+	asignarClikSets();
+};
+
+// fech a tarjetas individuales
 const datosModalSets = async (id) => {
 	const respuesta = await fetch(`https://api.pokemontcg.io/v2/sets/${id}`);
 	const data = await respuesta.json();
@@ -87,25 +108,6 @@ const modalHTMLsets = (data) => {
      </div>		  	
 	
 	</div>`;
-};
-
-const setsHTML = (data) => {
-	contenedorSets.innerHTML = data.data.reduce((acc, elemento) => {
-		return (
-			acc +
-			`
-			<div data-id="${elemento.id}" class="tarjetas-sets">
-            <div class="cotenedor-imagen-sets">
-                  <img src="${elemento.images.logo}">
-            </div>
-				   <div class="contenedor-texto-sets">	
-				         <p> Name: ${elemento.name} </p>
-           </div>		  	
-			</div>
-			`
-		);
-	}, "");
-	asignarClikSets();
 };
 
 ////paginado sets
