@@ -180,6 +180,16 @@ header .background-header img {
   transition: 200ms;
 }
 
+@media screen and (max-width: 600px) {
+  .light-mode .buscador form label input {
+    width: 370px;
+  }
+}
+@media screen and (max-width: 460px) {
+  .light-mode .buscador form label input {
+    width: 270px;
+  }
+}
 .tarjetas {
   width: 70%;
   margin: 30px 0px;
