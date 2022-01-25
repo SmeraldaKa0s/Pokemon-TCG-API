@@ -88,21 +88,15 @@
                         <option value="list">List</option>
                     </select>
                 </label>
-                <div class="sort-formulario">
-                    <label>
-                        Sorted by
-                        <select id="selector-ordenar-nombre-numero">
-                            <option value="name">Name</option>
-                            <option value="number">Set/Number</option>
-                        </select>
-                    </label>
-                    <label>
-                        <select id="selector-ordenar-asc-desc">
-                            <option value="asc">Ascendent</option>
-                            <option value="desc">Descendent</option>
-                        </select>
-                    </label>
-                </div>
+                
+                <label class="sort-formulario">
+                    Sorted by                        
+                    <select id="selector-ordenar-asc-desc">
+                        <option value="asc">Ascendent</option>
+                        <option value="desc">Descendent</option>
+                    </select>
+                </label>
+               
             </form>
         </div>
         <div id="contenedor-cartas" class="tarjetas">
@@ -122,7 +116,7 @@
             <button class="paginado-button" id="button-siguiente" type="button">
                 Next
             </button>
-            <button class="paginado-button" type="button">
+            <button class="paginado-button" type="button" id="boton-ultima-pagina">
                 <i class="fas fa-step-forward"></i>
             </button>
         </div>        

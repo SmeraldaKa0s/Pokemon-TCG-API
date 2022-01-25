@@ -9,7 +9,7 @@ const formularioCartaIndividual = document.querySelector(".formularios")
 const botonSiguienteTablasCard = document.querySelector("#button-siguiente")
 const botonAnteriorTablasCard = document.querySelector("#button-anterior")
 const botonPrimeraPaginaTablasCard = document.querySelector("#boton-primera-pagina")
-
+const botonUltimaPaginaTablasCard = document.querySelector("#boton-ultima-pagina")
 
 //Menu desplegable 
 const burgerMenu = document.querySelector(".burger-menu")
@@ -28,17 +28,16 @@ closeMenu.addEventListener('click', () => {
 
 ////////////////////////////////////////////
 
-let paginaActual = 1;
+let paginadoActual = 3;
 let ultimaPagina = 0;
 
-const aHTML = (data) => {
-    const arrayAHtml = data.data.reduce((acc, elemento) => {
-        return acc + `
-        <div class="item" id="${elemento.id}">
-        <img class="card-img" src="${elemento.images.large}" alt="${elemento.name}">
+ const aHTML = (data) => {
+     const arrayAHtml = data.data.reduce((acc, elemento) => {
+         return acc + `
+         <div class="item" id="${elemento.id}">
+         <img class="card-img" src="${elemento.images.large}" alt="${elemento.name}">
         </div>`
-    }, "")
-
+     }, "")
     return arrayAHtml
 }
 
@@ -111,21 +110,36 @@ const tablasHTML = (data) => {
 
 
 const fetchBusquedaTablasEImagenes = async () => {
-    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${inputBusquedaCartaIndividual.value}&pageSize=20&page=${paginaActual}`)
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${inputBusquedaCartaIndividual.value}&pageSize=20&page=${paginadoActual}`)
     const data = await respuesta.json()
     contenedorCartas.innerHTML = aHTML(data)
-    verComoEnHtml(data)
-   
+    verComoEnHtml(data)    
+    ultimaPaginaBusqueda(data)
+    console.log(paginadoActual)
+    console.log(respuesta)
+        
 }
 
-const fetchTablasEImagenes = async () => {
-    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=${paginaActual}`)
-    const data = await respuesta.json()
-    contenedorCartas.innerHTML = aHTML(data)
-    verComoEnHtml(data)
+const ultimaPaginaBusqueda = (data) => {
+
+    let valorUltimaPagina = Math.ceil(data.totalCount/20)
+
+    botonUltimaPaginaTablasCard.onclick = () => {
+
+        const fetchBusquedaTablasEImagenes = async () => {
+            const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${inputBusquedaCartaIndividual.value}&pageSize=20&page=${valorUltimaPagina}`)
+            const data = await respuesta.json()
+            console.log(respuesta)
+            contenedorCartas.innerHTML = aHTML(data)
+            verComoEnHtml(data)
+        }
+
+        return fetchBusquedaTablasEImagenes()
+
+    }   
 }
 
-fetchTablasEImagenes()
+
 
 const verComoEnHtml = (d) => {
 
@@ -151,10 +165,19 @@ formularioCartaIndividual.onsubmit = (e) => {
     //contenedorCartas.innerHTML = aHTML(data)
 }
 
-botonPrimeraPaginaTablasCard.onclick = () => paginaActual = 1 && fetchBusquedaTablasEImagenes()
-botonSiguienteTablasCard.onclick = () => (paginaActual++ && fetchBusquedaTablasEImagenes())
-botonAnteriorTablasCard.onclick = () => paginaActual !== 1 && (paginaActual-- && fetchBusquedaTablasEImagenes())  
+botonPrimeraPaginaTablasCard.onclick = () => {
+     		paginadoActual = 1
+     		botonPrimeraPaginaTablasCard.disabled = true
+     		botonAnteriorTablasCard.disabled = true
+    		fetchBusquedaTablasEImagenes()
+}
 
 
-const cartass = document.querySelectorAll("")
-console.log(cartass)
+
+
+console.log(paginadoActual)
+    
+
+
+
+
