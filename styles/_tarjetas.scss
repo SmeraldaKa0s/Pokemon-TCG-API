@@ -18,6 +18,10 @@
 }
 
 .contenedor-sin-resultados {
-    display: none;
-    background: pink;
+    @include flex-centrar($display: none, $direccion: column, $content:center);
+    font-family: $tipografia-secundaria; 
+    font-size: 28px;
+    color: $tipografia-color-principal;
+    margin-top: 50px;
+    letter-spacing: 1px;
  }

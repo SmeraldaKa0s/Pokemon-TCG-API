@@ -131,7 +131,7 @@ header .background-header img {
   width: 100%;
   display: flex;
   align-items: center;
-  margin: 100px 0px;
+  margin-top: 100px;
   padding: 30px 0px;
   flex-direction: column;
 }
@@ -142,7 +142,7 @@ header .background-header img {
 }
 .light-mode .buscador span a {
   font-weight: 600;
-  color: #704f92;
+  color: #0086b7;
 }
 .light-mode .buscador form {
   width: 100%;
@@ -200,7 +200,14 @@ header .background-header img {
 
 .contenedor-sin-resultados {
   display: none;
-  background: pink;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "VT323", monospace;
+  font-size: 28px;
+  color: #424242;
+  margin-top: 50px;
+  letter-spacing: 1px;
 }
 
 .cotenedor-sets {

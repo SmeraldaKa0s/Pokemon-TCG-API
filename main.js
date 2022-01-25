@@ -360,14 +360,16 @@ let busquedaPorInput = ""
 const inputBusquedaPokemon = async () => {
     const tieneParametro = busquedaPorInput.includes(':')
     if (!tieneParametro) busquedaPorInput = 'name:' + busquedaPorInput
-    const res = await fetch(`https://api.pokemontcg.io/v2/cards?q=${busquedaPorInput}&pageSize=10&page=${paginaActual}`)
+    const res = await fetch(`https://api.pokemontcg.io/v2/cards?q=${busquedaPorInput}&pageSize=20&page=${paginaActual}`)
     const data = await res.json()
     contenedorTarjetas.innerHTML = aHTML(data)
-    console.log(data.data.length)
     if(!data.data.length){ 
-        contenedorTarjetas.style.display= "block"
+        contenedorTarjetas.style.display= "none"
         contenedorSinResultados.style.display= "flex"
-        console.log(contenedorSinResultados)
+    }
+    else{ 
+        contenedorTarjetas.style.display= "flex"
+        contenedorSinResultados.style.display= "none"
     }
 }
 
