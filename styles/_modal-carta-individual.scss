@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 100px;
+    margin: 50px;
 }
 
 .modal-container-carta {
@@ -11,12 +11,13 @@
     width: 550px;
     background-color: #e02443;
     border-radius: 0 0 20px 20px;
+    border: 1px solid #1f1c1c;
 
     .modal-botones {
         background-color: #DC0A2D;
         display: flex;
         justify-content: space-between;
-        border-bottom: 3px solid rgba(0, 0, 0, 0.774);
+        border-bottom: 2px solid black;
     }
 
     .boton-modal {
@@ -28,7 +29,11 @@
         background: none;
     }
 
-    /* modal-container-carta */
+    .boton-cerrar-modal-carta {
+        margin-top: 0;
+        margin-bottom: 85px;
+        margin-right: 15px;
+    }
 
     .modal-dibujo-pokedex {
         content: "";
@@ -40,6 +45,7 @@
         margin: 10px;
         display: flex;
         margin-left: 30px;
+        margin-bottom: 20px;
         
         .modal-dibujo-pokedex-circulo {
             content: "";
@@ -113,3 +119,12 @@
 
 }
 
+.curva {
+    width: 560px; 
+    height: 100px;  
+    border: solid 4px #000;
+    border-color: #000 transparent transparent transparent;
+    border-radius: 10%/50px 100px 0 0;
+    border-right-width: 12px;
+
+}
