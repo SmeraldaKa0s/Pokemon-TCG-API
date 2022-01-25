@@ -197,72 +197,86 @@ const mostrarCartaIndividual = (data) => {
     main.style.display = "none"
     modalCartaIndividual.style.display = "flex"
     return `
-    <div class="modal-carta-container">
-        <div class="modal-name-card">
-            <h2>${data.data.name}</h2>
-            <div class="modal-subtype-hp">
-                <p>${data.data.subtypes} - HP: ${data.data.hp}</p>
-            </div>
-            <img class="modal-card-img" src="${data.data.images.large} alt="${data.data.name}">
-        </div>  
-        <div class="modal-info-primaria">
-            <div class="info-ataques">
-                <h2>
-                    ATTACKS
-                </h2>
-                ${data.data.abilities ? habilidades(data) : ""}
-                ${attacks(data)}
-            </div>
-            <div class="modal-info-secundaria">
-                <div class="debilidad">
-                    <h2>
-                        WEAKNESSES
-                    </h2>
-                    ${data.data.weaknesses ? debilidad(data) : "N/A"}                                        
-                </div>
-                    <h2>
-                        RESISTANCES
-                    </h2>                    
-                <div class="resistencia">
-                    ${data.data.resistances ? resistencia(data) : "N/A"}
-                <div>
-                <div class="costo-retirada">
-                    <h2>
-                        RETREAT COST
-                    </h2>
-                    ${data.data.retreatCost ? costoRetirada(data) : "None"}
+    <div class="modal-container-carta">
+        <div class="modal-botones">
+            <div>
+                <button class="boton-modal boton-modal-ir-atras">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="modal-dibujo-pokedex">
+                    <div class="modal-dibujo-pokedex-circulo">
+                        <div class="modal-dibujo-pokedex-circulodoble"></div>
+                    </div>
+                    <div class="container-modal-dibujos">
+                        <div class="modal-dibujo-pokedex-circulo-rojo">
+                            <div class="modal-dibujo-pokedex-circulo-rojoblanco"></div>
+                        </div>
+                        <div class="modal-dibujo-pokedex-circulo-amarillo">
+                        </div>
+                        <div class="modal-dibujo-pokedex-circulo-verde">
+                            <div class="modal-dibujo-pokedex-circulo-verdeblanco"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="modal-info-adicional">
-            <div>
-                <h2>
-                    ARTIST
-                </h2>   
-                <span>
-                    ${data.data.artist}
-                </span>
+        <div class="cartas-individuales">
+            <div class="modal-img-carta" >
+                <div class="modal-img-carta-background">
+                    <img src="${data.data.images.large} alt="${data.data.name}">
+                </div>
             </div>
-            <div>
-                <h2>
-                    RARITY
-                </h2>   
-                <span>
-                    ${data.data.rarity ? data.data.rarity : "None"}
-                </span>
+        </div>
+    </div>
+    <div class="modal-container-carta-txt">
+            <div class="modal-container-carta-boton">
+                <button class="boton-modal boton-cerrar-modal-carta">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <div>
-                <h2>
-                    SET
-                </h2>   
-                <span>
-                    ${data.data.set.name}
-                </span>
+        <div>
+            <div class="modal-right-top">
+                <h2 class="modal-container-txt-name">${data.data.name}</h2>
+                <h2 class="modal-container-txt-primary">${data.data.subtypes} - HP: ${data.data.hp}</h2>
             </div>
-        </div>  
+            <div class="modal-container-carta-info-txt">
+                <h2>ATTACKS</h2>
+                <p>${data.data.abilities ? habilidades(data) : ""} ${attacks(data)}</p>
+            </div>
+            <div class="modal-right-center">
+
+                <div class="modal-right-center-bot">
+                    <div>
+                        <h2>WEAKNESS</h2>
+                        <p class="modal-right-center-txt">${data.data.weaknesses ? debilidad(data) : "N/A"}</p>
+                    </div>
+                    <div>
+                        <h2>RESISTANCE</h2>
+                        <p class="modal-right-center-txt">${data.data.resistances ? resistencia(data) : "N/A"}</p>
+                    </div>
+                    <div>
+                        <h2>RETRAT COST</h2>
+                        <p class="modal-right-center-txt">${data.data.retreatCost ? costoRetirada(data) : "None"}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-right-bottom">
+                <div class="modal-right-bottom-txt">
+                    <h2>ARTIST</h2>
+                    <p>${data.data.artist}</p>
+                </div>
+                <div class="modal-right-bottom-txt">
+                    <h2>RARITY</h2>
+                    <p>${data.data.rarity ? data.data.rarity : "None"}</p>
+                </div>
+                <div class="modal-right-bottom-txt">
+                    <h2>SET</h2>
+                    <p>${data.data.set.name}</p>
+                </div>
+            </div>
+        </div>
     </div>
     `
-    /* cartaIndividualClickleable() */
 }
 
 // Boton modal carta
