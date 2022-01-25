@@ -18,7 +18,14 @@
             background: none;
         }
     }
-      
+}
+
+.modal-right-top {
+    color: #fff;
+    margin-left: 125px;
+    margin-top: 10px;
+    font-size: 25px;    
+    margin-bottom: 10px;
 }
 
 .modal-container-carta {
@@ -33,6 +40,9 @@
         display: flex;
         justify-content: space-between;
         border-bottom: 2px solid black;
+        .modal-left-top {
+            display: flex;
+        }
     }
 
     .boton-modal {
@@ -143,9 +153,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px;
-    margin-left: 30px;
-    margin-right: 30px;
+    margin: 50px 30px 0 30px;
     padding: 10px;
     background-color: #DBDDDC;
     border-radius: 5px 5px 5px 90px;
@@ -169,17 +177,10 @@
     border-radius: 0 0 20px 0px;
     border: 1px solid #1f1c1c;
     margin-top: 122px;
-    .modal-right-top {
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
+    .modal-container-carta-info-title {
+        margin-bottom: 15px;
     }
-    .modal-container-txt-name{
-        font-size: 45px;    
-        margin-bottom: 10px;
-    }
+   
     .modal-container-txt-primary {
         color: #fff;
         font-size: 25px;
@@ -187,28 +188,29 @@
         justify-content: center;
     }
     .modal-container-carta-info-txt{
-        height: 150px;
         background-color: rgb(32, 32, 32);
         color: #fff;
-        font-size: 20px;
         text-align: center;
         border-radius: 10px;
         margin: 20px;
         padding: 20px;
+        .modal-container-carta-info-habilties {
+            font: bold;
+            color: red;
+        }
 
     }
     .modal-right-center {
         width: 500px;
-        color: rgba(255, 255, 255, 0.801);
         background-color: #28AAFE;
         border-radius: 10px;
         text-align: center;
         margin: 15px;
         padding: 10px;
+    
         .modal-right-center-bot {
             display: flex;
             justify-content: space-around;
-            margin: 20px;
 
         }
         .modal-right-center-txt {

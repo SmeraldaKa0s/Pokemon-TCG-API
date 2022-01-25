@@ -109,7 +109,7 @@ const cartaIndividualClickleable = (variable) => {
 const infoCartaIndividual = async (id) => {
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards/${id}`)
     const data = await respuesta.json()
-    mostrarCartaIndividual(data)
+    modalCartaIndividual.innerHTML = mostrarCartaIndividual(data)
     console.log(mostrarCartaIndividual(data))
 }
 
@@ -197,7 +197,7 @@ const mostrarCartaIndividual = (data) => {
     return `
     <div class="modal-container-carta">
         <div class="modal-botones">
-            <div>
+            <div class="modal-left-top">
                 <button class="boton-modal boton-modal-ir-atras">
                     <i class="fas fa-arrow-left"></i>
                 </button>
@@ -216,6 +216,10 @@ const mostrarCartaIndividual = (data) => {
                         </div>
                     </div>
                 </div>
+                <div class="modal-right-top">
+                <h2 class="modal-container-txt-name">${data.data.name}</h2>
+                <h2 class="modal-container-txt-primary">${data.data.subtypes} - HP: ${data.data.hp}</h2>
+            </div>
             </div>
         </div>
         <div class="cartas-individuales">
@@ -233,27 +237,23 @@ const mostrarCartaIndividual = (data) => {
                 </button>
             </div>
         <div>
-            <div class="modal-right-top">
-                <h2 class="modal-container-txt-name">${data.data.name}</h2>
-                <h2 class="modal-container-txt-primary">${data.data.subtypes} - HP: ${data.data.hp}</h2>
-            </div>
             <div class="modal-container-carta-info-txt">
-                <h2>ATTACKS</h2>
-                <p>${data.data.abilities ? habilidades(data) : ""} ${attacks(data)}</p>
+                <h2 class="modal-container-carta-info-title">ATTACKS</h2>
+                <p class="modal-container-carta-info-habilties">${data.data.abilities ? habilidades(data) : ""} ${attacks(data)}</p>
             </div>
             <div class="modal-right-center">
 
                 <div class="modal-right-center-bot">
                     <div>
-                        <h2>WEAKNESS</h2>
+                        <h2 class="modal-container-carta-info-title">WEAKNESS</h2>
                         <p class="modal-right-center-txt">${data.data.weaknesses ? debilidad(data) : "N/A"}</p>
                     </div>
                     <div>
-                        <h2>RESISTANCE</h2>
+                        <h2 class="modal-container-carta-info-title">RESISTANCE</h2>
                         <p class="modal-right-center-txt">${data.data.resistances ? resistencia(data) : "N/A"}</p>
                     </div>
                     <div>
-                        <h2>RETRAT COST</h2>
+                        <h2 class="modal-container-carta-info-title">RETRAT COST</h2>
                         <p class="modal-right-center-txt">${data.data.retreatCost ? costoRetirada(data) : "None"}</p>
                     </div>
                 </div>
