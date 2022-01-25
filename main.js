@@ -89,9 +89,7 @@ const urlPokemon = async () => {
     const data = await respuesta.json()
     contenedorTarjetas.innerHTML = aHTML(data)    
     const cartasIndividuales = document.querySelectorAll(".item")
-    cartaIndividualClickleable(cartasIndividuales)
-    /* mostrarCartaIndividual(data) */
-   
+    cartaIndividualClickleable(cartasIndividuales)   
 }
 
 urlPokemon()
@@ -111,8 +109,8 @@ const cartaIndividualClickleable = (variable) => {
 const infoCartaIndividual = async (id) => {
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards/${id}`)
     const data = await respuesta.json()
+    mostrarCartaIndividual(data)
     console.log(mostrarCartaIndividual(data))
-   
 }
 
 const attacks = (data) => data.data.attacks.reduce((acc, attack) => {
@@ -281,7 +279,7 @@ const mostrarCartaIndividual = (data) => {
 
 // Boton modal carta
 
-botonCerrarModalCarta.onclick = () => {
+/* botonCerrarModalCarta.onclick = () => {
     header.style.display = "flex"
     main.style.display = "flex"
     modalCartaIndividual.style.display = "none"
@@ -291,9 +289,8 @@ botonIrAtrasModal.onclick = () => {
     header.style.display = "flex"
     main.style.display = "flex"
     modalCartaIndividual.style.display = "none"
-    /* buscar si esta en una pagina en especifico */
-}
-
+    // buscar si esta en una pagina en especifico 
+}  */
 
 // PAGINADO
 
