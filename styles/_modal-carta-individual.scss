@@ -22,7 +22,7 @@
 }
 
 .modal-container-carta {
-    height: 700px;
+    height: 750px;
     width: 550px;
     background-color: #e02443;
     border-radius: 0 0 0px 20px;
@@ -143,10 +143,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px;
+    margin: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
     padding: 10px;
     background-color: #DBDDDC;
-    border-radius: 10px 10px 20px 75px;
+    border-radius: 5px 5px 5px 90px;
+    .modal-img-carta-background {
+        background-color: #232323;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 5px;
+    }
     img {
         padding: 10px;
         width: 300px;
@@ -155,11 +163,12 @@
 }
 
 .modal-container-carta-txt {
-    height: 700px;
+    height: 627px;
     width: 550px;
     background-color: #e01a3b;
     border-radius: 0 0 20px 0px;
     border: 1px solid #1f1c1c;
+    margin-top: 122px;
     .modal-right-top {
         color: #fff;
         display: flex;
@@ -183,7 +192,7 @@
         color: #fff;
         font-size: 20px;
         text-align: center;
-        border-radius: 20px;
+        border-radius: 10px;
         margin: 20px;
         padding: 20px;
 
@@ -192,7 +201,7 @@
         width: 500px;
         color: rgba(255, 255, 255, 0.801);
         background-color: #28AAFE;
-        border-radius: 20px;
+        border-radius: 10px;
         text-align: center;
         margin: 15px;
         padding: 10px;
