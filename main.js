@@ -23,6 +23,11 @@ const modalCartaIndividual = document.getElementById("modal-carta-individual");
 const botonIrAtrasModal = document.querySelector(".boton-modal-ir-atras");
 const botonCerrarModalCarta = document.querySelector(".boton-cerrar-modal-carta");
 
+// Switch toggle
+const switchToggle = document.getElementById("switch-toggle");
+const pokeball = document.getElementById("pokeball");
+const ultraball = document.getElementById("ultraball");
+
 //Funcionalidad Menu desplegable 
 burgerMenu.addEventListener('click', () => {
     modalBg.classList.add('open-aside');
@@ -403,3 +408,22 @@ searchForm.onsubmit = (e) => {
     busquedaPorInput = searchInput.value
     inputBusquedaPokemon()
 }
+
+// Switch toggle
+
+toggle.onclick = () => {
+    toggle.classList.toggle("active");
+    body.classList.toggle("active"); 
+}
+
+/* pokeball.onclick = () => {
+    pokeball.classList.add("pokeball-hide")
+    ultraball.classList.remove("ultraball-hide")
+
+}
+
+ultraball.onclick = () => {
+    pokeball.classList.remove("pokeball-hide")
+    ultraball.classList.add("ultraball-hide")
+} 
+ */
