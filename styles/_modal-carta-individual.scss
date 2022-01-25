@@ -231,3 +231,23 @@
     }
     
 }
+
+/* Responsive */
+
+                    /* Tablet */
+@media screen and (max-width: 1000px) {
+    .modal-carta-individual {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+        .modal-container-carta {
+            margin-top: 50px;
+            border-radius: 0;
+        }
+        .modal-container-carta-txt {
+            margin-top: 0px;
+        }
+    }
+
+
+}
