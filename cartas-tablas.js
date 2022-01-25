@@ -113,6 +113,7 @@ const fetchBusquedaTablasEImagenes = async () => {
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${inputBusquedaCartaIndividual.value}&pageSize=20&page=${paginadoActual}`)
     const data = await respuesta.json()
     contenedorCartas.innerHTML = aHTML(data)
+    tablaInfoPokemon.innerHTML = tablasHTML(data)
     verComoEnHtml(data)    
     ultimaPaginaBusqueda(data)
     console.log(paginadoActual)
@@ -161,6 +162,7 @@ const verComoEnHtml = (d) => {
 
 formularioCartaIndividual.onsubmit = (e) => {
     e.preventDefault()
+    paginadoActual = 1
     fetchBusquedaTablasEImagenes()
     //contenedorCartas.innerHTML = aHTML(data)
 }
