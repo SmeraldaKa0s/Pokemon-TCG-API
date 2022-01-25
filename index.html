@@ -18,11 +18,10 @@
     <!--Icon-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-
     <title>POKÉMON TCG</title>
 </head>
 
-<body class="light-mode">
+<body class="light-mode dark-mode">
     <nav>
         <!--Burger menu-->
             <div class="burger-menu">
@@ -80,13 +79,28 @@
                 </a>
             </li>
         </ul>
+
+        <!-- Switch Toggle -->
+        
+        <div class="right" id="toggle">
+            <div class="switch"></div>
+        </div>
+
+        <!-- Switch toggle pokeballs tablet-mobile  -->
+
+        <!-- <div class="switch-toggle">
+            <img class="pokeball-show" id="pokeball" src="./assets/Poke ball.png" alt="Pokeball">
+            <img class="ultraball-hide" id="ultraball" src="./assets/Ultra ball.png" alt="Ultraball">
+        </div>
+         -->
+  
     </nav>
-    <header>
+    <header id="header">
         <div class="background-header">
             <img src="assets/Logo_Pokémon_TCGO.png">
         </div>
     </header>
-    <main>
+    <main id="main">
         <div class="buscador">
             <div class="titulo">
                 <h1>Ultimate Pokémon Card Database</h1>
@@ -107,18 +121,25 @@
         <div id="tarjetas" class="tarjetas">
         </div>
         
-        
-            <!-- Paginado -->
-            <div class="paginado" id="paginado">
-                <button id="first-page"><i class="fas fa-step-backward"></i></button>
-                <button id="prev">Previous</button>
-                <button id="next">Next</button>
-                <button id="last-page"><i class="fas fa-step-forward"></i></button>
-            </div>
+        <!-- Paginado -->
+
+        <div class="paginado" id="paginado">
+            <button id="first-page">
+                <i class="fas fa-step-backward"></i>
+            </button>
+            <button id="prev">Previous</button>
+            <button id="next">Next</button>
+            <button id="last-page">
+                <i class="fas fa-step-forward"></i>
+            </button>
+        </div>
+
     </main>
 
-    <!-- Paginado -->
+    <!-- Seccion carta individual -->
 
+    <div class="modal-carta-individual" id="modal-carta-individual">
+    </div>
     
     <!--Comienzo Footer-->
     <footer>

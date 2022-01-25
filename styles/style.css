@@ -566,6 +566,7 @@ header .background-header img {
   width: 100%;
 }
 
+
 @media screen and (max-width: 600px) {
   .contenedor-modal-sets {
     width: 300px;
@@ -578,5 +579,323 @@ header .background-header img {
     align-items: center;
   }
 }
+
+.modal-carta-individual {
+  font-family: "VT323", monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+.modal-carta-individual .modal-container-carta-boton {
+  display: flex;
+  justify-content: end;
+}
+.modal-carta-individual .modal-container-carta-boton .boton-cerrar-modal-carta {
+  color: #fff;
+  font-size: 20px;
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  background: none;
+}
+
+.modal-right-top {
+  color: #fff;
+  margin-left: 85px;
+  margin-top: 10px;
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.modal-container-carta {
+  height: 750px;
+  width: 550px;
+  background-color: #e02443;
+  border-radius: 0 0 0px 20px;
+  border: 1px solid #1f1c1c;
+}
+.modal-container-carta .modal-botones {
+  background-color: #DC0A2D;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+}
+.modal-container-carta .modal-botones .modal-left-top {
+  display: flex;
+}
+.modal-container-carta .boton-modal {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 50px;
+  margin-left: 10px;
+  padding: 5px;
+  border: none;
+  background: none;
+}
+.modal-container-carta .modal-dibujo-pokedex {
+  content: "";
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #1D6CA4;
+  border: 4px solid #fff;
+  margin: 10px;
+  display: flex;
+  margin-top: 36px;
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo {
+  content: "";
+  height: 3px;
+  width: 3px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 5px solid #6bc1ff;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo .modal-dibujo-pokedex-circulodoble {
+  content: "";
+  height: 1px;
+  width: 1px;
+  border-radius: 50%;
+  background-color: #fff;
+  /* 
+  border: 5px solid #9bb9ce; */
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.modal-container-carta .modal-dibujo-pokedex .container-modal-dibujos {
+  display: flex;
+  margin-left: 40px;
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-rojo {
+  content: "";
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 0, 0, 0.884);
+  border: 1px solid rgba(0, 0, 0, 0.61);
+  margin-right: 10px;
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-rojo .modal-dibujo-pokedex-circulo-rojoblanco {
+  content: "";
+  height: 3px;
+  width: 3px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.61);
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-amarillo {
+  content: "";
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: yellow;
+  border: 1px solid rgba(0, 0, 0, 0.61);
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-verde {
+  content: "";
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: rgba(0, 128, 0, 0.863);
+  border: 1px solid rgba(0, 0, 0, 0.61);
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-verde .modal-dibujo-pokedex-circulo-verdeblanco {
+  content: "";
+  height: 3px;
+  width: 3px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.61);
+}
+
+.modal-img-carta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 30px 0 30px;
+  padding: 10px;
+  background-color: #DBDDDC;
+  border-radius: 5px 5px 5px 90px;
+}
+.modal-img-carta .modal-img-carta-background {
+  background-color: #232323;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+}
+.modal-img-carta img {
+  padding: 10px;
+  width: 300px;
+  border-radius: 20px;
+}
+
+.modal-container-carta-txt {
+  height: 652px;
+  width: 550px;
+  background-color: #e01a3b;
+  border-radius: 0 0 20px 0px;
+  border: 1px solid #1f1c1c;
+  margin-top: 98px;
+}
+.modal-container-carta-txt .modal-container-carta-info-title {
+  margin-bottom: 15px;
+}
+.modal-container-carta-txt .modal-container-txt-primary {
+  color: #fff;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+}
+.modal-container-carta-txt .modal-container-carta-info-txt {
+  background-color: #202020;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+}
+.modal-container-carta-txt .modal-container-carta-info-txt .modal-container-carta-info-habilties {
+  font: bold;
+  color: red;
+}
+.modal-container-carta-txt .modal-right-center {
+  background-color: #28AAFE;
+  border-radius: 10px;
+  text-align: center;
+  margin: 15px;
+  padding: 10px;
+}
+.modal-container-carta-txt .modal-right-center .modal-right-center-bot {
+  display: flex;
+  justify-content: space-around;
+}
+.modal-container-carta-txt .modal-right-center .modal-right-center-txt {
+  color: #000;
+  padding-right: 20px;
+}
+.modal-container-carta-txt .modal-right-bottom {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.modal-container-carta-txt .modal-right-bottom .modal-right-bottom-txt {
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Responsive */
+/* Tablet */
+@media screen and (max-width: 1000px) {
+  .modal-carta-individual {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+  .modal-carta-individual .modal-container-carta {
+    margin-top: 50px;
+    border-radius: 0;
+  }
+  .modal-carta-individual .modal-container-carta-txt {
+    margin-top: 0px;
+  }
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#toggle {
+  position: relative;
+  width: 10vmin;
+  top: 0.2vmin;
+  right: -43vmin;
+  height: 5vmin;
+  background: #ffffff;
+  border-radius: 50vmin;
+  cursor: pointer;
+  transition: 0.8s;
+}
+#toggle.active {
+  background: #333232;
+}
+#toggle.active .switch {
+  left: 5vmin;
+  transform: scale(0.9) rotate(180deg);
+  background: #ff0000;
+  transition: 0.8s;
+}
+#toggle .switch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5vmin;
+  height: 5vmin;
+  background: #ff0000;
+  border: 0.5vmin solid #000;
+  border-radius: 50%;
+  transform: scale(0.9);
+  transition: 0.8s;
+}
+
+.switch::before {
+  content: "";
+  position: absolute;
+  bottom: -0.1vmin;
+  left: -0.1vmin;
+  background: #fff;
+  width: 4.2vmin;
+  height: 2.2vmin;
+  border: 0.1vmin solid #000;
+  border-bottom-left-radius: 30vmin;
+  border-bottom-right-radius: 30vmin;
+  box-shadow: inset 1vmin -1vmin -2vmin #7f7c82;
+}
+.switch::after {
+  content: "";
+  position: absolute;
+  top: 1.6vmin;
+  left: 1.5vmin;
+  width: 1vmin;
+  height: 1vmin;
+  background: #fff;
+  border: 0.1vmin solid #000;
+  border-radius: 50%;
+  box-shadow: -4vmin -4vmin 0 -1vmin #fff;
+}
+
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: 0.5s;
+    background: $color-body;
+    &.active {
+        background: $color-body-active;
+    }
+}
+
+.right {
+    display: flex;
+    justify-content: flex-end;    
+} 
+.container-switch {
+    height: 100px;
+    width: 100px;
+}
+ */
+/* .dark-mode {
+
+} */
 
 /*# sourceMappingURL=style.css.map */

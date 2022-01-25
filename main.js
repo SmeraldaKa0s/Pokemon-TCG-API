@@ -1,20 +1,32 @@
-const contenedorTarjetas = document.querySelector("#tarjetas")
+const header = document.getElementById("header");
+const main = document.getElementById("main");
+
+const contenedorTarjetas = document.querySelector("#tarjetas");
 
 // Paginado
-const firstPage = document.getElementById("first-page")
-const prev = document.getElementById("prev")
-const next = document.getElementById("next")
-const lastPage = document.getElementById("last-page")
+const firstPage = document.getElementById("first-page");
+const prev = document.getElementById("prev");
+const next = document.getElementById("next");
+const lastPage = document.getElementById("last-page");
 
 //Buscador
-const searchForm = document.getElementById("search-form")
-const searchInput = document.getElementById("search-input")
+const searchForm = document.getElementById("search-form");
+const searchInput = document.getElementById("search-input");
 
 //Menu desplegable 
-const burgerMenu = document.querySelector(".burger-menu")
-const modalBg = document.querySelector(".modal-bg")
-const closeMenu = document.querySelector(".close-menu")
+const burgerMenu = document.querySelector(".burger-menu");
+const modalBg = document.querySelector(".modal-bg");
+const closeMenu = document.querySelector(".close-menu");
 
+//Carta individual
+const modalCartaIndividual = document.getElementById("modal-carta-individual");
+const botonIrAtrasModal = document.querySelector(".boton-modal-ir-atras");
+const botonCerrarModalCarta = document.querySelector(".boton-cerrar-modal-carta");
+
+// Switch toggle
+const switchToggle = document.getElementById("switch-toggle");
+const pokeball = document.getElementById("pokeball");
+const ultraball = document.getElementById("ultraball");
 
 //Funcionalidad Menu desplegable 
 burgerMenu.addEventListener('click', () => {
@@ -25,10 +37,8 @@ closeMenu.addEventListener('click', () => {
     modalBg.classList.remove('open-aside')
 })
 
-
 let paginaActual = 1
 let ultimaPagina = 0
-
 
 const tablasHTML = (data) => {
     const arrayAHtml = data.data.reduce((acc, elemento) => {
@@ -64,8 +74,6 @@ const tablasHTML = (data) => {
 }
 
 
-
-
 // FUNCIONES REDUCE A HTML
 
 const aHTML = (data) => {
@@ -86,11 +94,12 @@ const urlPokemon = async () => {
     const data = await respuesta.json()
     contenedorTarjetas.innerHTML = aHTML(data)    
     const cartasIndividuales = document.querySelectorAll(".item")
-    cartaIndividualClickleable(cartasIndividuales)
-   
+    cartaIndividualClickleable(cartasIndividuales)   
 }
 
 urlPokemon()
+
+//Carta individual
 
 const cartaIndividualClickleable = (variable) => {
 
@@ -105,8 +114,8 @@ const cartaIndividualClickleable = (variable) => {
 const infoCartaIndividual = async (id) => {
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards/${id}`)
     const data = await respuesta.json()
-    console.log(mostrarCartaIndividual(data))      
-   
+    modalCartaIndividual.innerHTML = mostrarCartaIndividual(data)
+    console.log(mostrarCartaIndividual(data))
 }
 
 const attacks = (data) => data.data.attacks.reduce((acc, attack) => {
@@ -184,77 +193,109 @@ const costoRetirada = (data) => data.data.retreatCost.reduce((acc, retirada) => 
     `
 }, "")
 
+modalCartaIndividual.style.display = "none"
+
 const mostrarCartaIndividual = (data) => {
+    header.style.display = "none"
+    main.style.display = "none"
+    modalCartaIndividual.style.display = "flex"
     return `
-    <div class="modal-container">
-        <div class="title-img-modal">
-            <h2>${data.data.name}</h2>
-            <div class="container-img">
-                <span>
-                ${data.data.subtypes} - HP: ${data.data.hp}
-                </span>
-                <img src="${data.data.images.large} alt="${data.data.name}">
-            </div>
-        </div>  
-        <div class="container-info">
-            <div class="info-ataques">
-                <h2>
-                    ATTACKS
-                </h2>
-                ${data.data.abilities ? habilidades(data) : ""}
-                ${attacks(data)}
-            </div>
-            <div class="info-secundaria">
-                <div class="debilidad">
-                    <h2>
-                        WEAKNESSES
-                    </h2>
-                    ${data.data.weaknesses ? debilidad(data) : "N/A"}                                        
+    <div class="modal-container-carta">
+        <div class="modal-botones">
+            <div class="modal-left-top">
+                <button class="boton-modal boton-modal-ir-atras">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="modal-dibujo-pokedex">
+                    <div class="modal-dibujo-pokedex-circulo">
+                        <div class="modal-dibujo-pokedex-circulodoble"></div>
+                    </div>
+                    <div class="container-modal-dibujos">
+                        <div class="modal-dibujo-pokedex-circulo-rojo">
+                            <div class="modal-dibujo-pokedex-circulo-rojoblanco"></div>
+                        </div>
+                        <div class="modal-dibujo-pokedex-circulo-amarillo">
+                        </div>
+                        <div class="modal-dibujo-pokedex-circulo-verde">
+                            <div class="modal-dibujo-pokedex-circulo-verdeblanco"></div>
+                        </div>
+                    </div>
                 </div>
-                    <h2>
-                        RESISTANCES
-                    </h2>                    
-                <div class="resistencia">
-                    ${data.data.resistances ? resistencia(data) : "N/A"}
-                <div>
-                <div class="costo-retirada">
-                    <h2>
-                        RETREAT COST
-                    </h2>
-                    ${data.data.retreatCost ? costoRetirada(data) : "None"}
+                <div class="modal-right-top">
+                <h2 class="modal-container-txt-name">${data.data.name}</h2>
+                <h2 class="modal-container-txt-primary">${data.data.subtypes} - HP: ${data.data.hp}</h2>
+            </div>
+            </div>
+        </div>
+        <div class="cartas-individuales">
+            <div class="modal-img-carta" >
+                <div class="modal-img-carta-background">
+                    <img src="${data.data.images.large} alt="${data.data.name}">
                 </div>
             </div>
         </div>
-        <div class="info-adicional">
-            <div>
-                <h2>
-                    ARTIST
-                </h2>   
-                <span>
-                    ${data.data.artist}
-                </span>
+    </div>
+    <div class="modal-container-carta-txt">
+            <div class="modal-container-carta-boton">
+                <button class="boton-modal boton-cerrar-modal-carta">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <div>
-                <h2>
-                    RARITY
-                </h2>   
-                <span>
-                    ${data.data.rarity ? data.data.rarity : "None"}
-                </span>
+        <div>
+            <div class="modal-container-carta-info-txt">
+                <h2 class="modal-container-carta-info-title">ATTACKS</h2>
+                <p class="modal-container-carta-info-habilties">${data.data.abilities ? habilidades(data) : ""} ${attacks(data)}</p>
             </div>
-            <div>
-                <h2>
-                    SET
-                </h2>   
-                <span>
-                    ${data.data.set.name}
-                </span>
+            <div class="modal-right-center">
+
+                <div class="modal-right-center-bot">
+                    <div>
+                        <h2 class="modal-container-carta-info-title">WEAKNESS</h2>
+                        <p class="modal-right-center-txt">${data.data.weaknesses ? debilidad(data) : "N/A"}</p>
+                    </div>
+                    <div>
+                        <h2 class="modal-container-carta-info-title">RESISTANCE</h2>
+                        <p class="modal-right-center-txt">${data.data.resistances ? resistencia(data) : "N/A"}</p>
+                    </div>
+                    <div>
+                        <h2 class="modal-container-carta-info-title">RETRAT COST</h2>
+                        <p class="modal-right-center-txt">${data.data.retreatCost ? costoRetirada(data) : "None"}</p>
+                    </div>
+                </div>
             </div>
-        </div>  
+            <div class="modal-right-bottom">
+                <div class="modal-right-bottom-txt">
+                    <h2>ARTIST</h2>
+                    <p>${data.data.artist}</p>
+                </div>
+                <div class="modal-right-bottom-txt">
+                    <h2>RARITY</h2>
+                    <p>${data.data.rarity ? data.data.rarity : "None"}</p>
+                </div>
+                <div class="modal-right-bottom-txt">
+                    <h2>SET</h2>
+                    <p>${data.data.set.name}</p>
+                </div>
+            </div>
+        </div>
     </div>
     `
 }
 
+// Boton modal carta
+
+/* botonCerrarModalCarta.onclick = () => {
+    header.style.display = "flex"
+    main.style.display = "flex"
+    modalCartaIndividual.style.display = "none"
+}
+
+botonIrAtrasModal.onclick = () => {
+    header.style.display = "flex"
+    main.style.display = "flex"
+    modalCartaIndividual.style.display = "none"
+    // buscar si esta en una pagina en especifico 
+}  */
 
 // PAGINADO
 
@@ -367,3 +408,24 @@ searchForm.onsubmit = (e) => {
     busquedaPorInput = searchInput.value
     inputBusquedaPokemon()
 }
+
+// Switch toggle
+
+toggle.onclick = () => {
+    toggle.classList.toggle("active")
+}
+
+            // Switch toggle pokeballs tablet-mobile 
+
+/* pokeball.onclick = () => {
+    pokeball.classList.add("pokeball-hide")
+    ultraball.classList.remove("ultraball-hide")
+
+}
+
+ultraball.onclick = () => {
+    pokeball.classList.remove("pokeball-hide")
+    ultraball.classList.add("ultraball-hide")
+} 
+
+ */

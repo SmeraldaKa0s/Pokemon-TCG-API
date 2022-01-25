@@ -4,3 +4,17 @@
   justify-content: $content;
   align-items: $items;
 }
+
+// switch toggle 
+
+@mixin switchStyle {
+    background: $color-switch;
+    transition: 0.8s;
+  }
+  
+  @mixin pokeballStyle {
+    content: "";
+    position: absolute;
+    border: 0.5vmin solid $color-border;
+    background: $color-pokeball;
+  }
