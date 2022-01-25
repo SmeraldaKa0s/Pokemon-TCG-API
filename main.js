@@ -1,20 +1,27 @@
-const contenedorTarjetas = document.querySelector("#tarjetas")
+const header = document.getElementById("header");
+const main = document.getElementById("main");
+
+const contenedorTarjetas = document.querySelector("#tarjetas");
 
 // Paginado
-const firstPage = document.getElementById("first-page")
-const prev = document.getElementById("prev")
-const next = document.getElementById("next")
-const lastPage = document.getElementById("last-page")
+const firstPage = document.getElementById("first-page");
+const prev = document.getElementById("prev");
+const next = document.getElementById("next");
+const lastPage = document.getElementById("last-page");
 
 //Buscador
-const searchForm = document.getElementById("search-form")
-const searchInput = document.getElementById("search-input")
+const searchForm = document.getElementById("search-form");
+const searchInput = document.getElementById("search-input");
 
 //Menu desplegable 
-const burgerMenu = document.querySelector(".burger-menu")
-const modalBg = document.querySelector(".modal-bg")
-const closeMenu = document.querySelector(".close-menu")
+const burgerMenu = document.querySelector(".burger-menu");
+const modalBg = document.querySelector(".modal-bg");
+const closeMenu = document.querySelector(".close-menu");
 
+//Carta individual
+const modalCartaIndividual = document.getElementById("modal-carta-individual");
+const botonIrAtrasModal = document.querySelector(".boton-modal-ir-atras");
+const botonCerrarModalCarta = document.querySelector(".boton-cerrar-modal-carta");
 
 //Funcionalidad Menu desplegable 
 burgerMenu.addEventListener('click', () => {
@@ -25,10 +32,8 @@ closeMenu.addEventListener('click', () => {
     modalBg.classList.remove('open-aside')
 })
 
-
 let paginaActual = 1
 let ultimaPagina = 0
-
 
 const tablasHTML = (data) => {
     const arrayAHtml = data.data.reduce((acc, elemento) => {
@@ -64,8 +69,6 @@ const tablasHTML = (data) => {
 }
 
 
-
-
 // FUNCIONES REDUCE A HTML
 
 const aHTML = (data) => {
@@ -87,10 +90,13 @@ const urlPokemon = async () => {
     contenedorTarjetas.innerHTML = aHTML(data)    
     const cartasIndividuales = document.querySelectorAll(".item")
     cartaIndividualClickleable(cartasIndividuales)
+    /* mostrarCartaIndividual(data) */
    
 }
 
 urlPokemon()
+
+//Carta individual
 
 const cartaIndividualClickleable = (variable) => {
 
@@ -105,7 +111,7 @@ const cartaIndividualClickleable = (variable) => {
 const infoCartaIndividual = async (id) => {
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards/${id}`)
     const data = await respuesta.json()
-    console.log(mostrarCartaIndividual(data))      
+    console.log(mostrarCartaIndividual(data))
    
 }
 
@@ -184,19 +190,22 @@ const costoRetirada = (data) => data.data.retreatCost.reduce((acc, retirada) => 
     `
 }, "")
 
+modalCartaIndividual.style.display = "none"
+
 const mostrarCartaIndividual = (data) => {
+    header.style.display = "none"
+    main.style.display = "none"
+    modalCartaIndividual.style.display = "flex"
     return `
-    <div class="modal-container">
-        <div class="title-img-modal">
+    <div class="modal-carta-container">
+        <div class="modal-name-card">
             <h2>${data.data.name}</h2>
-            <div class="container-img">
-                <span>
-                ${data.data.subtypes} - HP: ${data.data.hp}
-                </span>
-                <img src="${data.data.images.large} alt="${data.data.name}">
+            <div class="modal-subtype-hp">
+                <p>${data.data.subtypes} - HP: ${data.data.hp}</p>
             </div>
+            <img class="modal-card-img" src="${data.data.images.large} alt="${data.data.name}">
         </div>  
-        <div class="container-info">
+        <div class="modal-info-primaria">
             <div class="info-ataques">
                 <h2>
                     ATTACKS
@@ -204,7 +213,7 @@ const mostrarCartaIndividual = (data) => {
                 ${data.data.abilities ? habilidades(data) : ""}
                 ${attacks(data)}
             </div>
-            <div class="info-secundaria">
+            <div class="modal-info-secundaria">
                 <div class="debilidad">
                     <h2>
                         WEAKNESSES
@@ -225,7 +234,7 @@ const mostrarCartaIndividual = (data) => {
                 </div>
             </div>
         </div>
-        <div class="info-adicional">
+        <div class="modal-info-adicional">
             <div>
                 <h2>
                     ARTIST
@@ -253,6 +262,22 @@ const mostrarCartaIndividual = (data) => {
         </div>  
     </div>
     `
+    /* cartaIndividualClickleable() */
+}
+
+// Boton modal carta
+
+botonCerrarModalCarta.onclick = () => {
+    header.style.display = "flex"
+    main.style.display = "flex"
+    modalCartaIndividual.style.display = "none"
+}
+
+botonIrAtrasModal.onclick = () => {
+    header.style.display = "flex"
+    main.style.display = "flex"
+    modalCartaIndividual.style.display = "none"
+    /* buscar si esta en una pagina en especifico */
 }
 
 

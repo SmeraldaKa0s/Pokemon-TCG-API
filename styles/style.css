@@ -561,4 +561,103 @@ header .background-header img {
   width: 100%;
 }
 
+.modal-carta-individual {
+  font-family: "VT323", monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+
+.modal-container-carta {
+  height: 600px;
+  width: 500px;
+  background-color: #e02443;
+  border-radius: 0 0 20px 20px;
+  /*  .boton-modal-ir-atras {
+
+   } */
+}
+.modal-container-carta .modal-botones {
+  background-color: #38A8F0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.774);
+}
+.modal-container-carta .boton-modal {
+  color: #fff;
+  font-size: 20px;
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  background: none;
+}
+.modal-container-carta .modal-dibujo-pokedex {
+  content: "";
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #1D6CA4;
+  border: 4px solid #fff;
+  margin: 10px;
+  display: flex;
+  margin-left: 30px;
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo {
+  content: "";
+  height: 3px;
+  width: 3px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 5px solid #9bb9ce;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.modal-container-carta .modal-dibujo-pokedex .container-modal-dibujos {
+  display: flex;
+  margin-left: 40px;
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-rojo {
+  content: "";
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 0, 0, 0.884);
+  border: 1px solid rgba(0, 0, 0, 0.61);
+  margin-right: 10px;
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-rojo .modal-dibujo-pokedex-circulo-rojoblanco {
+  content: "";
+  height: 3px;
+  width: 3px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.61);
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-amarillo {
+  content: "";
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: yellow;
+  border: 1px solid rgba(0, 0, 0, 0.61);
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-verde {
+  content: "";
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: rgba(0, 128, 0, 0.863);
+  border: 1px solid rgba(0, 0, 0, 0.61);
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-verde .modal-dibujo-pokedex-circulo-verdeblanco {
+  content: "";
+  height: 3px;
+  width: 3px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.61);
+}
+
 /*# sourceMappingURL=style.css.map */

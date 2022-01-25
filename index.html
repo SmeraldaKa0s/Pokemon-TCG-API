@@ -18,7 +18,6 @@
     <!--Icon-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-
     <title>POKÉMON TCG</title>
 </head>
 
@@ -81,12 +80,12 @@
             </li>
         </ul>
     </nav>
-    <header>
+    <header id="header">
         <div class="background-header">
             <img src="assets/Logo_Pokémon_TCGO.png">
         </div>
     </header>
-    <main>
+    <main id="main">
         <div class="buscador">
             <div class="titulo">
                 <h1>Ultimate Pokémon Card Database</h1>
@@ -107,19 +106,53 @@
         <div id="tarjetas" class="tarjetas">
         </div>
         
-        
-            <!-- Paginado -->
-            <div class="paginado" id="paginado">
-                <button id="first-page"><i class="fas fa-step-backward"></i></button>
-                <button id="prev">Previous</button>
-                <button id="next">Next</button>
-                <button id="last-page"><i class="fas fa-step-forward"></i></button>
-            </div>
+        <!-- Paginado -->
+
+        <div class="paginado" id="paginado">
+            <button id="first-page">
+                <i class="fas fa-step-backward"></i>
+            </button>
+            <button id="prev">Previous</button>
+            <button id="next">Next</button>
+            <button id="last-page">
+                <i class="fas fa-step-forward"></i>
+            </button>
+        </div>
+
     </main>
 
-    <!-- Paginado -->
+    <!-- Seccion carta individual -->
 
+    <div class="modal-carta-individual" id="modal-carta-individual">
+        <div class="modal-container-carta">
+            <div class="modal-botones">
+                <button class="boton-modal boton-modal-ir-atras">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+
+                <div class="modal-dibujo-pokedex">
+                    <div class="modal-dibujo-pokedex-circulo"></div>
+                    <div class="container-modal-dibujos">
+                        <div class="modal-dibujo-pokedex-circulo-rojo">
+                            <div class="modal-dibujo-pokedex-circulo-rojoblanco"></div>
+                        </div>
+                        <div class="modal-dibujo-pokedex-circulo-amarillo">
+                        </div>
+                        <div class="modal-dibujo-pokedex-circulo-verde">
+                            <div class="modal-dibujo-pokedex-circulo-verdeblanco"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="boton-modal boton-cerrar-modal-carta">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cartas-individuales"></div>
+        </div>
+    </div>
     
+
     <!--Comienzo Footer-->
     <footer>
         <div class="contenedor-footer">
