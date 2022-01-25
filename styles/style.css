@@ -795,28 +795,6 @@ header .background-header img {
   box-sizing: border-box;
 }
 
-/* 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    transition: 0.5s;
-    background: $color-body;
-
-    &.active {
-        background: $color-body-active;
-    }
-} */
-/* .right {
-    display: flex;
-    justify-content: flex-end;    
-} 
-
-.container-switch {
-    height: 100px;
-    width: 100px;
-} */
 #toggle {
   position: relative;
   width: 10vmin;
@@ -875,5 +853,30 @@ body {
   border-radius: 50%;
   box-shadow: -4vmin -4vmin 0 -1vmin #fff;
 }
+
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: 0.5s;
+    background: $color-body;
+    &.active {
+        background: $color-body-active;
+    }
+}
+
+.right {
+    display: flex;
+    justify-content: flex-end;    
+} 
+.container-switch {
+    height: 100px;
+    width: 100px;
+}
+ */
+/* .dark-mode {
+
+} */
 
 /*# sourceMappingURL=style.css.map */

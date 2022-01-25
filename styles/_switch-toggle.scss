@@ -5,30 +5,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-/* 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    transition: 0.5s;
-    background: $color-body;
-
-    &.active {
-        background: $color-body-active;
-    }
-} */
-
-/* .right {
-    display: flex;
-    justify-content: flex-end;    
-} 
-
-.container-switch {
-    height: 100px;
-    width: 100px;
-} */
-
 
 #toggle {
     position: relative;
@@ -93,3 +69,27 @@ body {
         box-shadow: -4vmin -4vmin 0 -1vmin #fff;
     }
 }
+
+// Switch toggle pokeballs tablet-mobile 
+
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: 0.5s;
+    background: $color-body;
+    &.active {
+        background: $color-body-active;
+    }
+}
+
+.right {
+    display: flex;
+    justify-content: flex-end;    
+} 
+.container-switch {
+    height: 100px;
+    width: 100px;
+}
+ */

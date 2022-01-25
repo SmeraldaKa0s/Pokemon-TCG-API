@@ -412,9 +412,10 @@ searchForm.onsubmit = (e) => {
 // Switch toggle
 
 toggle.onclick = () => {
-    toggle.classList.toggle("active");
-    body.classList.toggle("active"); 
+    toggle.classList.toggle("active")
 }
+
+            // Switch toggle pokeballs tablet-mobile 
 
 /* pokeball.onclick = () => {
     pokeball.classList.add("pokeball-hide")
@@ -426,4 +427,5 @@ ultraball.onclick = () => {
     pokeball.classList.remove("pokeball-hide")
     ultraball.classList.add("ultraball-hide")
 } 
+
  */
