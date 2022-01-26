@@ -337,32 +337,6 @@ botonIrAtrasModal.onclick = () => {
 // 	};
 // };
 
-//     boton.onclick = () => {
-//         paginaActual++
-//         console.log(paginaActual)
-//         firstPage.disabled = false
-//         prev.disabled = false
-//         if (paginaActual === 1441) {
-//             next.disabled = true
-//             lastPage.disabled = true
-//         }
-//         funcion()
-//     }
-
-
-// paginaSiguiente(next, urlPokemon())
-
-
-//     boton.onclick = () => {
-//         paginaActual--
-//         //next.disabled = false
-//         //lastPage.disabled = false
-//         if (paginaActual === 1) {
-//             prev.disabled = true
-//             firstPage.disabled = true
-//         }
-//         funcion()
-//     }
 
 
 // paginaAnterior(prev, urlPokemon())

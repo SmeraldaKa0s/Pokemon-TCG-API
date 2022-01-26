@@ -10,6 +10,7 @@ const botonPrimeraPaginaTablasCard = document.querySelector("#boton-primera-pagi
 const botonUltimaPaginaTablasCard = document.querySelector("#boton-ultima-pagina")
 const divPaginadoListasCartas = document.querySelector(".paginado-listas-cartas")
 const modalCartaFlotante = document.querySelector(".modal-tablas")
+
 //Menu desplegable 
 const burgerMenu = document.querySelector(".burger-menu")
 const modalBg = document.querySelector(".modal-bg")
@@ -46,7 +47,7 @@ const tablasHTML = (data) => {
                 ${elemento.name}
                 </td>
                 <td>
-                ${elemento.nationalPokedexNumbers}
+                ${elemento.nationalPokedexNumbers ? elemento.nationalPokedexNumbers : "-"}
                 </td>
                 <td>
                 ${elemento.set.name}
@@ -113,13 +114,16 @@ const fetchBusquedaTablasEImagenes = async () => {
     seccionTablaConEvento(cartasEnLista)
 }
 
+// EVENTO ONCLICK SOBRE TBODY DE TABLAS
+
 const seccionTablaConEvento = (variable) => {
 
     for(let i = 0; i < variable.length; i++){
         variable[i].onclick = () => {
             const idNumerico = variable[i].id
             console.log("se mueve sobre}")
-            cartaVisiblePorEvento(idNumerico)       
+            cartaVisiblePorEvento(idNumerico)
+            modalCartaFlotante.style.display = "flex"      
         }
     }
 }
@@ -127,7 +131,17 @@ const seccionTablaConEvento = (variable) => {
 const cartaVisiblePorEvento = async (id) => {
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards/${id}`)
     const data = await respuesta.json()
-    modalCartaFlotante.innerHTML = `<img src="${data.data.images.large}">`
+    modalCartaFlotante.innerHTML = 
+    `<div class="modal-carta-tabla">
+        <button class="button-cerrar-modal-tablas">X</button>
+        <img src="${data.data.images.large}">
+    </div>`
+
+    const buttonCerrarModalTablas = document.querySelector(".button-cerrar-modal-tablas")
+
+    buttonCerrarModalTablas.onclick = () => {
+        modalCartaFlotante.style.display = "none"
+    }    
 }
 
 // ENVÍO DE FORMULARIO
@@ -161,6 +175,40 @@ botonPrimeraPaginaTablasCard.onclick = () => {
     		fetchBusquedaTablasEImagenes()
 }
 
+botonSiguienteTablasCard.onclick = () => {
+    paginadoActual++
+    fetchBusquedaTablasEImagenes()
+}
+
+botonAnteriorTablasCard.onclick = () => paginadoActual !== 1 && (paginadoActual -- && fetchBusquedaTablasEImagenes())
+
+
+//     boton.onclick = () => {
+//         paginaActual++
+//         console.log(paginaActual)
+//         firstPage.disabled = false
+//         prev.disabled = false
+//         if (paginaActual === 1441) {
+//             next.disabled = true
+//             lastPage.disabled = true
+//         }
+//         funcion()
+//     }
+
+
+// paginaSiguiente(next, urlPokemon())
+
+
+//     boton.onclick = () => {
+//         paginaActual--
+//         //next.disabled = false
+//         //lastPage.disabled = false
+//         if (paginaActual === 1) {
+//             prev.disabled = true
+//             firstPage.disabled = true
+//         }
+//         funcion()
+//     }
 
     
 
