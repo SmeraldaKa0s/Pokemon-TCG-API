@@ -142,6 +142,7 @@ const mostrarCartaIndividual = (data) => {
                             <div class="modal-dibujo-pokedex-circulo-rojoblanco"></div>
                         </div>
                         <div class="modal-dibujo-pokedex-circulo-amarillo">
+                            <div class="modal-dibujo-pokedex-circulo-amarilloblanco"></div>
                         </div>
                         <div class="modal-dibujo-pokedex-circulo-verde">
                             <div class="modal-dibujo-pokedex-circulo-verdeblanco"></div>
@@ -156,10 +157,26 @@ const mostrarCartaIndividual = (data) => {
         </div>
         <div class="cartas-individuales">
             <div class="modal-img-carta" >
+                <div class="container-circles">
+                    <div class="circle-red"></div>
+                    <div class="circle-red"></div>
+                </div>
                 <div class="modal-img-carta-background">
                     <img src="${data.data.images.large}" alt="${data.data.name}">
                 </div>
+                <div class="container-volume">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
+        </div>
+        <div class="container-line">
+            <div class="line-red"></div>
+            <div class="line-blue"></div>
+        </div>
+        <div class="container-icons">
+            <i class="fas fa-circle"></i>
+            <div class="rectangle"></div>
+            <i class="fas fa-plus"></i>
         </div>
     </div>
     <div class="modal-container-carta-txt">

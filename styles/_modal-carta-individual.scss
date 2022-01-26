@@ -27,7 +27,7 @@
 }
 
 .modal-container-carta {
-    height: 750px;
+    height: 770px;
     width: 550px;
     background-color: #e02443;
     border-radius: 0 0 0px 20px;
@@ -56,8 +56,8 @@
 
     .modal-dibujo-pokedex {
         content: "";
-        height: 40px;
-        width: 40px;
+        height: 60px;
+        width: 60px;
         border-radius: 50%;
         background-color: #1D6CA4;
         border: 4px solid #fff;
@@ -67,8 +67,8 @@
         
         .modal-dibujo-pokedex-circulo {
             content: "";
-            height: 3px;
-            width: 3px;
+            height: 12px;
+            width: 12px;
             border-radius: 50%;
             background-color: #fff;
             border: 5px solid #6bc1ff;
@@ -86,8 +86,8 @@
             }
             .modal-dibujo-pokedex-circulointerior {
                 content: "";
-                height: 3px;
-                width: 3px;
+                height: 4px;
+                width: 4px;
                 border-radius: 50%;
                 background-color: #fff;
                 margin-top: -10px;
@@ -96,13 +96,13 @@
 
         .container-modal-dibujos {
             display: flex;
-            margin-left: 30px;
+            margin-left: 40px;
         }
 
         .modal-dibujo-pokedex-circulo-rojo {
             content: "";
-            height: 8px;
-            width: 8px;
+            height: 12px;
+            width: 12px;
             border-radius: 50%;
             background-color: rgba(255, 0, 0, 0.884);
             border: 1px solid rgba(0, 0, 0, 0.61);
@@ -110,8 +110,8 @@
 
             .modal-dibujo-pokedex-circulo-rojoblanco {
                 content: "";
-                height: 3px;
-                width: 3px;
+                height: 6px;
+                width: 6px;
                 border-radius: 50%;
                 background-color: #fff;
                 border: 1px solid rgba(0, 0, 0, 0.61);
@@ -120,26 +120,35 @@
 
         .modal-dibujo-pokedex-circulo-amarillo {
             content: "";
-            height: 8px;
-            width: 8px;
+            height: 12px;
+            width: 12px;
             border-radius: 50%;
             margin-right: 10px;
             background-color: rgb(255, 255, 0);
             border: 1px solid rgba(0, 0, 0, 0.61)
         }
 
+        .modal-dibujo-pokedex-circulo-amarilloblanco {
+            content: "";
+            height: 6px;
+            width: 6px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.61);
+        }
+
         .modal-dibujo-pokedex-circulo-verde {
             content: "";
-            height: 8px;
-            width: 8px;
+            height: 12px;
+            width: 12px;
             border-radius: 50%;
             background-color: rgba(0, 128, 0, 0.863);
             border: 1px solid rgba(0, 0, 0, 0.61);
 
             .modal-dibujo-pokedex-circulo-verdeblanco {
                 content: "";
-                height: 3px;
-                width: 3px;
+                height: 6px;
+                width: 6px;
                 border-radius: 50%;
                 background-color: #fff;
                 border: 1px solid rgba(0, 0, 0, 0.61);
@@ -148,19 +157,65 @@
     }
 }
 
+.container-line {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 8px;
+
+    .line-red {
+        width: 60px;
+        height: 10px;
+        background-color: #D90E2E;
+        border: 2px solid rgb(54, 53, 53);
+        border-radius: 10px;
+    }
+    
+    .line-blue {
+        width: 60px;
+        height: 10px;
+        background-color: #096089;
+        border: 2px solid rgb(43, 42, 42);
+        border-radius: 10px;
+    }
+}
+
+.rectangle {
+    width: 150px;
+    height: 50px;
+    background-color: #52AE5F;
+    border: 2px solid rgb(80, 78, 78);
+    border-radius: 10px;
+    margin: 20px 0 0 25px;
+}
+
 .modal-img-carta {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 50px 30px 0 30px;
-    padding: 10px;
+    margin: 20px 30px 0 30px;
+    padding: 5px;
     background-color: #DBDDDC;
-    border-radius: 5px 5px 5px 90px;
+    border-radius: 10px 10px 10px 105px;
+    border: 2px solid black;
+
+    .container-circles {
+        display: flex;
+
+        .circle-red {
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 100%;
+            border: 2px solid #000;
+            margin: 0 5px 0 5px;
+        }
+    }
 
     .modal-img-carta-background {
         background-color: #232323;
         margin: 20px;
-        padding: 20px;
+        padding: 15px;
         border-radius: 5px;
     }
 
@@ -171,13 +226,17 @@
     }
 }
 
+.fa-bars {
+    font-size: 20px;
+}
+
 .modal-container-carta-txt {
-    height: 653px;
+    height: 661px;
     width: 550px;
     background-color: #e01a3b;
     border-radius: 0 0 20px 0px;
     border: 1px solid #1f1c1c;
-    margin-top: 96px;
+    margin-top: 108px;
 
     .modal-container-carta-info-title {
         font-size: 28px;
@@ -221,8 +280,8 @@
             padding-right: 10px;
             text-align: center;
         } 
-  
     }
+
     .modal-right-bottom {
         color: #000;
         display: flex;
@@ -267,6 +326,21 @@
 
 .resistencia-text {
     font-size: 20px;
+}
+
+.container-icons {
+    display: flex;
+    justify-content: space-around;
+    
+    .fa-circle {
+        font-size: 40px;
+        margin-top: 25px;
+    }
+
+    .fa-plus {
+        font-size: 80px;
+        margin-top: 5px;
+    }
 }
 
 /* Responsive */
