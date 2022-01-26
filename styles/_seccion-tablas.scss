@@ -5,10 +5,10 @@
     margin: 20px 0px;
     display: flex;
     align-items: center;
+    font-size: 40px;
 
-    span{
-      font-family: $tipografia-secundaria;
-      font-size: 60px;
+    .frase-de-busqueda{
+      font-family: $tipografia-secundaria;      
     }
   }
   
@@ -86,3 +86,65 @@
   }
     
 }
+
+@media screen and (max-width: 1100px){
+
+ .frase-de-busqueda{
+   font-size: 40px;  
+  }
+
+  .contenedor-img{
+    width: 350px;
+    height: 350px;
+
+    img{
+      width: 100%;
+    }
+  }
+    
+}
+
+@media screen and (max-width: 950px){
+
+  .frase-de-busqueda{
+    font-size: 30px;   
+   }
+
+  .contenedor-img{
+    width: 300px;
+    height: 300px;
+
+    img{
+      width: 100%;
+    }
+  }
+     
+ }
+
+ @media screen and (max-width: 600px){
+
+  #contenedor-busqueda{
+    flex-direction: column;
+  }
+
+  .frase-de-busqueda{
+    font-size: 30px;   
+   }
+
+  .contenedor-img{
+    width: 300px;
+    height: 300px;
+
+    img{
+      width: 100%;
+    }
+  }
+     
+ }
+
+ 
+ @media screen and (max-width: 500px){
+
+  
+     
+ }

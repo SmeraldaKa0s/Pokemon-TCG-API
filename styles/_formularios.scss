@@ -11,7 +11,7 @@
             width: 50%;
             height: 70px;
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-around;
     
             .buscador-lista-cartas{                
                 display: flex;    
@@ -26,7 +26,9 @@
                 } 
                 
                 input{
-                    height: 35%;                                  
+                    margin-right: 10px;
+                    width: 300px;
+                    height: 40px;                                  
                     font-size: 20px;
                     border: transparent;
                     margin-left: 5px;
@@ -66,3 +68,5 @@
         }    
     }
 }
+
+

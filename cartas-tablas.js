@@ -175,42 +175,11 @@ botonPrimeraPaginaTablasCard.onclick = () => {
     		fetchBusquedaTablasEImagenes()
 }
 
-botonSiguienteTablasCard.onclick = () => {
-    paginadoActual++
-    fetchBusquedaTablasEImagenes()
-}
+botonSiguienteTablasCard.onclick = () =>  paginadoActual++ && fetchBusquedaTablasEImagenes()
 
 botonAnteriorTablasCard.onclick = () => paginadoActual !== 1 && (paginadoActual -- && fetchBusquedaTablasEImagenes())
 
 
-//     boton.onclick = () => {
-//         paginaActual++
-//         console.log(paginaActual)
-//         firstPage.disabled = false
-//         prev.disabled = false
-//         if (paginaActual === 1441) {
-//             next.disabled = true
-//             lastPage.disabled = true
-//         }
-//         funcion()
-//     }
-
-
-// paginaSiguiente(next, urlPokemon())
-
-
-//     boton.onclick = () => {
-//         paginaActual--
-//         //next.disabled = false
-//         //lastPage.disabled = false
-//         if (paginaActual === 1) {
-//             prev.disabled = true
-//             firstPage.disabled = true
-//         }
-//         funcion()
-//     }
-
-    
 
 
 
