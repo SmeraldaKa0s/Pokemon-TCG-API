@@ -559,7 +559,6 @@ header .background-header img {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: lightskyblue;
 }
 .section-modal-sets .contenedor-modal-info-sets .contenedor .modal-logo-texto-sets .modal-texto-sets {
   margin: 10px;
@@ -575,7 +574,6 @@ header .background-header img {
   width: 100%;
 }
 
-
 @media screen and (max-width: 600px) {
   .contenedor-modal-sets {
     width: 300px;
@@ -588,7 +586,6 @@ header .background-header img {
     align-items: center;
   }
 }
-
 .modal-carta-individual {
   font-family: "VT323", monospace;
   display: flex;
@@ -611,10 +608,8 @@ header .background-header img {
 
 .modal-right-top {
   color: #fff;
-  margin-left: 85px;
-  margin-top: 10px;
-  font-size: 25px;
-  margin-bottom: 10px;
+  margin: 10px 0 10px 85px;
+  font-size: 20px;
 }
 
 .modal-container-carta {
@@ -665,18 +660,24 @@ header .background-header img {
 }
 .modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo .modal-dibujo-pokedex-circulodoble {
   content: "";
-  height: 1px;
-  width: 1px;
+  height: 3px;
+  width: 3px;
   border-radius: 50%;
   background-color: #fff;
-  /* 
-  border: 5px solid #9bb9ce; */
   margin-top: 5px;
   margin-left: 10px;
 }
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo .modal-dibujo-pokedex-circulointerior {
+  content: "";
+  height: 3px;
+  width: 3px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-top: -10px;
+}
 .modal-container-carta .modal-dibujo-pokedex .container-modal-dibujos {
   display: flex;
-  margin-left: 40px;
+  margin-left: 30px;
 }
 .modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-rojo {
   content: "";
@@ -743,15 +744,16 @@ header .background-header img {
 }
 
 .modal-container-carta-txt {
-  height: 652px;
+  height: 653px;
   width: 550px;
   background-color: #e01a3b;
   border-radius: 0 0 20px 0px;
   border: 1px solid #1f1c1c;
-  margin-top: 98px;
+  margin-top: 96px;
 }
 .modal-container-carta-txt .modal-container-carta-info-title {
-  margin-bottom: 15px;
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 .modal-container-carta-txt .modal-container-txt-primary {
   color: #fff;
@@ -760,43 +762,73 @@ header .background-header img {
   justify-content: center;
 }
 .modal-container-carta-txt .modal-container-carta-info-txt {
-  background-color: #202020;
+  background-color: #2c2b2b;
   color: #fff;
   text-align: center;
   border-radius: 10px;
-  margin: 20px;
-  padding: 20px;
-}
-.modal-container-carta-txt .modal-container-carta-info-txt .modal-container-carta-info-habilties {
-  font: bold;
-  color: red;
+  margin: 0 20px 20px 20px;
+  padding: 5px;
 }
 .modal-container-carta-txt .modal-right-center {
   background-color: #28AAFE;
   border-radius: 10px;
   text-align: center;
-  margin: 15px;
+  margin: 10px 25px 10px 25px;
   padding: 10px;
 }
 .modal-container-carta-txt .modal-right-center .modal-right-center-bot {
   display: flex;
   justify-content: space-around;
 }
-.modal-container-carta-txt .modal-right-center .modal-right-center-txt {
-  color: #000;
-  padding-right: 20px;
+.modal-container-carta-txt .modal-right-center .modal-right-center-bot .img-debilidad {
+  height: 20px;
+  width: 20px;
+}
+.modal-container-carta-txt .modal-right-center img {
+  width: 30px;
+  padding-right: 10px;
+  text-align: center;
 }
 .modal-container-carta-txt .modal-right-bottom {
+  color: #000;
   display: flex;
   justify-content: center;
-  margin: 20px;
 }
 .modal-container-carta-txt .modal-right-bottom .modal-right-bottom-txt {
   background-color: #fff;
   border-radius: 10px;
-  margin: 20px;
+  margin: 10px;
   padding: 20px;
   text-align: center;
+}
+
+.container-habilidades {
+  display: flex;
+  justify-content: center;
+}
+
+.img-energy {
+  width: 30px;
+  padding: 5px;
+}
+
+.attacks-container {
+  padding: 10px;
+}
+.attacks-container .energy-attack {
+  margin: 20px;
+}
+
+.ataque-text {
+  margin-top: 5px;
+}
+
+.attack-damage-name {
+  font-size: 25px;
+}
+
+.resistencia-text {
+  font-size: 20px;
 }
 
 /* Responsive */

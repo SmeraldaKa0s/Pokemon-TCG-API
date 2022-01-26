@@ -40,40 +40,6 @@ closeMenu.addEventListener('click', () => {
 let paginaActual = 1
 let ultimaPagina = 0
 
-const tablasHTML = (data) => {
-    const arrayAHtml = data.data.reduce((acc, elemento) => {
-        return acc + `
-        <tbody>
-            <tr>
-                <td>${elemento.name}</td>
-                <td>${elemento.nationalPokedexNumbers}</td>
-                <td>${elemento.set.name}</td>
-                <td>${elemento.rarity}</td>
-                <td>${elemento.types[0]}</td>
-                <td>${elemento.subtypes[0]}</td>
-                <td>${elemento.resistances && elemento.resistances.length && elemento.resistances[0].type ? elemento.resistances[0].type : "None"}</td>
-                <td>${elemento.weaknesses && elemento.weaknesses.length && elemento.weaknesses[0].type ? elemento.weaknesses[0].type : "None"}</td>            
-            </tr>
-        </tbody>
-        `
-    }, `<thead>
-           <tr>
-                <th>Name</th>
-                <th>National Pokedex</th>
-                <th>Set</th>
-                <th>Rarity</th>
-                <th>Types</th>
-                <th>Subtypes</th>
-                <th>Resistances</th>
-                <th>Weaknesses</th>
-            </tr>
-        </thead> `
-    )
-
-    return arrayAHtml
-}
-
-
 // FUNCIONES REDUCE A HTML
 
 const aHTML = (data) => {
@@ -89,51 +55,22 @@ const aHTML = (data) => {
     return arrayAHtml
 }
 
-const urlPokemon = async () => {
-    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=1`)
-    const data = await respuesta.json()
-    contenedorTarjetas.innerHTML = aHTML(data)    
-    const cartasIndividuales = document.querySelectorAll(".item")
-    cartaIndividualClickleable(cartasIndividuales)   
-}
-
-urlPokemon()
-
-//Carta individual
-
-const cartaIndividualClickleable = (variable) => {
-
-    for(let i = 0; i < variable.length; i++){
-        variable[i].onclick = () => {
-            const idNumerico = variable[i].id
-            infoCartaIndividual(idNumerico)        
-        }
-    }
-}
-
-const infoCartaIndividual = async (id) => {
-    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards/${id}`)
-    const data = await respuesta.json()
-    modalCartaIndividual.innerHTML = mostrarCartaIndividual(data)
-    console.log(mostrarCartaIndividual(data))
-    console.log(data.data.images)
-}
-
 const attacks = (data) => data.data.attacks.reduce((acc, attack) => {
     return acc + `
-    <div class="energía-y-nombre-ataque>
-        <div>
-            ${energy(attack)}        
+    <div class="attacks-container"> 
+        <div class="energía-y-nombre-ataque>
+            <div class"energy-attack">
+                ${energy(attack)}        
+            </div>
+            <div>
+                <p class="attack-damage-name"> ${attack.name} - <span>${attack.damage}</span></p>
+            <div>
         </div>
-        <div>
-            ${attack.name}
-            ${attack.damage}
-        <span>
-    </div>
-    <div class="ataque-text">
-        <span>
-            ${attack.text}
-        </span>
+        <div class="ataque-text">
+            <p>
+                ${attack.text}
+            </p>
+        </div>
     </div>
     `
 }, "")
@@ -141,56 +78,44 @@ const attacks = (data) => data.data.attacks.reduce((acc, attack) => {
 const energy = (attack) => {
     let acc = ""
     for(let i = 0; i < attack.cost.length; i++){
-        acc += `<img src="/assets/${attack.cost[i].toLowerCase()}.png">`
+        acc += `<img class="img-energy" src="/assets/${attack.cost[i].toLowerCase()}.png">`
     }
     return acc
 }
 
 const habilidades = (data) => {
     return `
-    <div class="habilidad">
+    <div class="">
         <div class="type-name>
-            <span>
-                ${data.data.abilities[0].type}
-            </span>    
-            <span>
-                ${data.data.abilities[0].name}
-            </span>
+            <p>${data.data.abilities[0].type}</p>    
+            <p>${data.data.abilities[0].name}</p>
         </div>
-        <span>
-            ${data.data.abilities[0].text}
-        </span>
+        <p>${data.data.abilities[0].text}</p>
     </div>
     `
 }  
 
 const debilidad = (data) => data.data.weaknesses.reduce((acc, debilidad) => {
     return acc + `
-    <div class="img-debilidad">
-    <img src="/assets/${debilidad.type.toLowerCase()}.png">
+    <div class="container-habilidades">
+        <img src="/assets/${debilidad.type.toLowerCase()}.png">
+        <p class="resistencia-text">${debilidad.value}</p>
     </div>
-    <span>
-        ${debilidad.value}
-    </span>
     `
 }, "")
 
 const resistencia = (data) => data.data.resistances.reduce((acc, resistencia) => {
     return acc + `
-    <div class="img-debilidad">
-    <img src="/assets/${resistencia.type.toLowerCase()}.png">
+    <div class="container-habilidades">
+        <img src="/assets/${resistencia.type.toLowerCase()}.png">
+        <p class="resistencia-text">${resistencia.value}</p>
     </div>
-    <span>
-        ${resistencia.value}
-    </span>
     `
 }, "")
 
 const costoRetirada = (data) => data.data.retreatCost.reduce((acc, retirada) => {
     return acc + `
-    <div class="container-img">
        <img src="/assets/${retirada.toLowerCase()}.png">
-    </div>
     `
 }, "")
 
@@ -204,12 +129,13 @@ const mostrarCartaIndividual = (data) => {
     <div class="modal-container-carta">
         <div class="modal-botones">
             <div class="modal-left-top">
-                <button class="boton-modal boton-modal-ir-atras">
+                <button class="boton-modal boton-modal-ir-atras" id="boton-modal-ir-atras">
                     <i class="fas fa-arrow-left"></i>
                 </button>
                 <div class="modal-dibujo-pokedex">
                     <div class="modal-dibujo-pokedex-circulo">
                         <div class="modal-dibujo-pokedex-circulodoble"></div>
+                        <div class="modal-dibujo-pokedex-circulointerior"></div>
                     </div>
                     <div class="container-modal-dibujos">
                         <div class="modal-dibujo-pokedex-circulo-rojo">
@@ -223,9 +149,9 @@ const mostrarCartaIndividual = (data) => {
                     </div>
                 </div>
                 <div class="modal-right-top">
-                <h2 class="modal-container-txt-name">${data.data.name}</h2>
-                <h2 class="modal-container-txt-primary">${data.data.subtypes} - HP: ${data.data.hp}</h2>
-            </div>
+                    <h2 class="modal-container-txt-name">${data.data.name}</h2>
+                    <h2 class="modal-container-txt-primary">${data.data.subtypes} - HP: ${data.data.hp}</h2>
+                </div>
             </div>
         </div>
         <div class="cartas-individuales">
@@ -237,16 +163,16 @@ const mostrarCartaIndividual = (data) => {
         </div>
     </div>
     <div class="modal-container-carta-txt">
-            <div class="modal-container-carta-boton">
-                <button class="boton-modal boton-cerrar-modal-carta">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
+        <div class="modal-container-carta-boton">
+            <button class="boton-modal boton-cerrar-modal-carta" id="boton-cerrar-modal-carta">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-container-carta-info-txt">
+            <h2 class="modal-container-carta-info-title">ATTACKS</h2>
+            <p class="modal-container-carta-info-habilties">${data.data.abilities ? habilidades(data) : ""} ${attacks(data)}</p>
+        </div>
         <div>
-            <div class="modal-container-carta-info-txt">
-                <h2 class="modal-container-carta-info-title">ATTACKS</h2>
-                <p class="modal-container-carta-info-habilties">${data.data.abilities ? habilidades(data) : ""} ${attacks(data)}</p>
-            </div>
             <div class="modal-right-center">
 
                 <div class="modal-right-center-bot">
@@ -283,22 +209,77 @@ const mostrarCartaIndividual = (data) => {
     `
 }
 
-// Boton modal carta
-
-/* botonCerrarModalCarta.onclick = () => {
-    header.style.display = "flex"
-    main.style.display = "flex"
-    modalCartaIndividual.style.display = "none"
+const urlPokemon = async () => {
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=1`)
+    const data = await respuesta.json()
+    contenedorTarjetas.innerHTML = aHTML(data)    
+    const cartasIndividuales = document.querySelectorAll(".item")
+    cartaIndividualClickleable(cartasIndividuales)   
 }
 
-botonIrAtrasModal.onclick = () => {
-    header.style.display = "flex"
-    main.style.display = "flex"
-    modalCartaIndividual.style.display = "none"
-    // buscar si esta en una pagina en especifico 
-}  */
+urlPokemon()
+
+//Carta individual
+
+const cartaIndividualClickleable = (variable) => {
+
+    for(let i = 0; i < variable.length; i++){
+        variable[i].onclick = () => {
+            const idNumerico = variable[i].id
+            infoCartaIndividual(idNumerico)        
+        }
+    }
+}
+
+const infoCartaIndividual = async (id) => {
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards/${id}`)
+    const data = await respuesta.json()
+    modalCartaIndividual.innerHTML = mostrarCartaIndividual(data)
+    const botonModalIrAtras = document.getElementById("boton-modal-ir-atras")
+    const botonModalCerrarCarta = document.getElementById("boton-cerrar-modal-carta")
+    cerrarModal(botonModalCerrarCarta)
+    cerrarModal(botonModalIrAtras)
+}
+
+// Boton modal carta
+
+const cerrarModal = (boton) => {
+    boton.onclick = () => {
+        header.style.display = "flex"
+        main.style.display = "flex"
+        modalCartaIndividual.style.display = "none"
+    }
+}
+
 
 // PAGINADO
+
+/* const ultimaPaginaBusqueda = (data) => {
+    let valorUltimaPagina = Math.ceil(data.totalCount/20)
+    botonUltimaPaginaTablasCard.onclick = () => {
+        const fetchBusquedaTablasEImagenes = async () => {
+            const respuesta = await fetch(``)
+            const data = await respuesta.json()
+            tablaInfoPokemon.innerHTML = tablasHTML(data)
+        }
+        return fetchBusquedaTablasEImagenes()
+    }   
+}
+
+botonPrimeraPaginaTablasCard.onclick = () => {
+    paginadoActual = 1
+    botonPrimeraPaginaTablasCard.disabled = true
+    botonAnteriorTablasCard.disabled = true
+    fetchBusquedaTablasEImagenes()
+}
+
+botonSiguienteTablasCard.onclick = () => {
+    paginadoActual++
+    fetchBusquedaTablasEImagenes()
+}
+
+botonAnteriorTablasCard.onclick = () => paginadoActual !== 1 && (paginadoActual -- && fetchBusquedaTablasEImagenes()) */
+
 
 // const primeraPagina = (boton, funcion) => {
 // 	boton.onclick = () => {

@@ -22,10 +22,8 @@
 
 .modal-right-top {
     color: #fff;
-    margin-left: 85px;
-    margin-top: 10px;
-    font-size: 25px;    
-    margin-bottom: 10px;
+    margin: 10px 0 10px 85px;
+    font-size: 20px;    
 }
 
 .modal-container-carta {
@@ -40,6 +38,7 @@
         display: flex;
         justify-content: space-between;
         border-bottom: 2px solid black;
+        
         .modal-left-top {
             display: flex;
         }
@@ -75,21 +74,29 @@
             border: 5px solid #6bc1ff;
             margin-top: 5px;
             margin-left: 10px;
+
             .modal-dibujo-pokedex-circulodoble {
                 content: "";
-                height: 1px;
-                width: 1px;
+                height: 3px;
+                width: 3px;
                 border-radius: 50%;
-                background-color: #fff;/* 
-                border: 5px solid #9bb9ce; */
+                background-color: #fff;
                 margin-top: 5px;
                 margin-left: 10px;
+            }
+            .modal-dibujo-pokedex-circulointerior {
+                content: "";
+                height: 3px;
+                width: 3px;
+                border-radius: 50%;
+                background-color: #fff;
+                margin-top: -10px;
             }
         }
 
         .container-modal-dibujos {
             display: flex;
-            margin-left: 40px;
+            margin-left: 30px;
         }
 
         .modal-dibujo-pokedex-circulo-rojo {
@@ -100,6 +107,7 @@
             background-color: rgba(255, 0, 0, 0.884);
             border: 1px solid rgba(0, 0, 0, 0.61);
             margin-right: 10px;
+
             .modal-dibujo-pokedex-circulo-rojoblanco {
                 content: "";
                 height: 3px;
@@ -109,6 +117,7 @@
                 border: 1px solid rgba(0, 0, 0, 0.61);
             }
         }
+
         .modal-dibujo-pokedex-circulo-amarillo {
             content: "";
             height: 8px;
@@ -118,6 +127,7 @@
             background-color: rgb(255, 255, 0);
             border: 1px solid rgba(0, 0, 0, 0.61)
         }
+
         .modal-dibujo-pokedex-circulo-verde {
             content: "";
             height: 8px;
@@ -125,6 +135,7 @@
             border-radius: 50%;
             background-color: rgba(0, 128, 0, 0.863);
             border: 1px solid rgba(0, 0, 0, 0.61);
+
             .modal-dibujo-pokedex-circulo-verdeblanco {
                 content: "";
                 height: 3px;
@@ -135,7 +146,6 @@
             }
         }
     }
-
 }
 
 .modal-img-carta {
@@ -146,12 +156,14 @@
     padding: 10px;
     background-color: #DBDDDC;
     border-radius: 5px 5px 5px 90px;
+
     .modal-img-carta-background {
         background-color: #232323;
         margin: 20px;
         padding: 20px;
         border-radius: 5px;
     }
+
     img {
         padding: 10px;
         width: 300px;
@@ -160,14 +172,16 @@
 }
 
 .modal-container-carta-txt {
-    height: 652px;
+    height: 653px;
     width: 550px;
     background-color: #e01a3b;
     border-radius: 0 0 20px 0px;
     border: 1px solid #1f1c1c;
-    margin-top: 98px;
+    margin-top: 96px;
+
     .modal-container-carta-info-title {
-        margin-bottom: 15px;
+        font-size: 28px;
+        margin-bottom: 10px;
     }
    
     .modal-container-txt-primary {
@@ -177,49 +191,82 @@
         justify-content: center;
     }
     .modal-container-carta-info-txt{
-        background-color: rgb(32, 32, 32);
+        background-color: rgb(44, 43, 43);
         color: #fff;
         text-align: center;
         border-radius: 10px;
-        margin: 20px;
-        padding: 20px;
-        .modal-container-carta-info-habilties {
-            font: bold;
-            color: red;
-        }
+        margin: 0 20px 20px 20px;
+        padding: 5px;
+    }    
 
-    }
     .modal-right-center {
         background-color: #28AAFE;
         border-radius: 10px;
         text-align: center;
-        margin: 15px;
+        margin: 10px 25px 10px 25px;
         padding: 10px;
     
         .modal-right-center-bot {
             display: flex;
             justify-content: space-around;
 
+            .img-debilidad {
+                height: 20px;
+                width: 20px;
+            }
         }
-        .modal-right-center-txt {
-            color: #000;
-            padding-right: 20px;
-        }
+
+        img {
+            width: 30px;
+            padding-right: 10px;
+            text-align: center;
+        } 
+  
     }
     .modal-right-bottom {
+        color: #000;
         display: flex;
         justify-content: center;
-        margin: 20px;
 
         .modal-right-bottom-txt {
             background-color: #fff;
             border-radius: 10px;
-            margin: 20px;
+            margin: 10px;
             padding: 20px;
             text-align: center;
         }
     }
-    
+}
+
+.container-habilidades {
+    display: flex;
+    justify-content: center;
+}
+
+.img-energy {
+    width: 30px;
+    padding: 5px;
+}
+
+.attacks-container {
+    padding: 10px;
+
+    .energy-attack {
+        margin: 20px;
+    }
+}
+
+.ataque-text {
+    margin-top: 5px;
+}
+
+
+.attack-damage-name {
+    font-size: 25px;
+}
+
+.resistencia-text {
+    font-size: 20px;
 }
 
 /* Responsive */
