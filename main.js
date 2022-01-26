@@ -228,19 +228,19 @@ const urlPokemon = async () => {
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=1`)
     const data = await respuesta.json()
     contenedorTarjetas.innerHTML = aHTML(data)    
-    const cartasIndividuales = document.querySelectorAll(".item")
-    cartaIndividualClickleable(cartasIndividuales)   
+    cartaIndividualClickleable()   
 }
 
 urlPokemon()
 
 //Carta individual
 
-const cartaIndividualClickleable = (variable) => {
+const cartaIndividualClickleable = () => {
+    const cartasIndividuales = document.querySelectorAll(".item")
 
-    for(let i = 0; i < variable.length; i++){
-        variable[i].onclick = () => {
-            const idNumerico = variable[i].id
+    for(let i = 0; i < cartasIndividuales.length; i++){
+        cartasIndividuales[i].onclick = () => {
+            const idNumerico = cartasIndividuales[i].id
             infoCartaIndividual(idNumerico)        
         }
     }
@@ -382,6 +382,7 @@ const inputBusquedaPokemon = async () => {
         contenedorTarjetas.style.display= "flex"
         contenedorSinResultados.style.display= "none"
     }
+    cartaIndividualClickleable()   
 }
 
 searchForm.onsubmit = (e) => {
