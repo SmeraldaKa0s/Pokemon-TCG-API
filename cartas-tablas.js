@@ -1,15 +1,15 @@
 const contenedorTabla = document.querySelector(".tablas")
-const contenedorCartas = document.querySelector("#contenedor-cartas")
+const contenedorMensaje = document.querySelector("#contenedor-busqueda")
 const tablaInfoPokemon = document.querySelector("#tabla-resultados")
 const inputBusquedaCartaIndividual = document.querySelector("#input-busqueda-carta-individual")
-const selectorVerComo = document.querySelector("#selector-ver-como")
-const selectorOrdenarPorNombreYNumero = document.querySelector("#selector-ordenar-nombre-numero")
 const selectorOrdenarPorAscDesc = document.querySelector("#selector-ordenar-asc-desc")
 const formularioCartaIndividual = document.querySelector(".formularios")
 const botonSiguienteTablasCard = document.querySelector("#button-siguiente")
 const botonAnteriorTablasCard = document.querySelector("#button-anterior")
 const botonPrimeraPaginaTablasCard = document.querySelector("#boton-primera-pagina")
-
+const botonUltimaPaginaTablasCard = document.querySelector("#boton-ultima-pagina")
+const divPaginadoListasCartas = document.querySelector(".paginado-listas-cartas")
+const modalCartaFlotante = document.querySelector(".modal-tablas")
 
 //Menu desplegable 
 const burgerMenu = document.querySelector(".burger-menu")
@@ -26,32 +26,28 @@ closeMenu.addEventListener('click', () => {
     modalBg.classList.remove('open-aside')
 })
 
-////////////////////////////////////////////
+let paginadoActual = 1
 
-let paginaActual = 1;
-let ultimaPagina = 0;
-
-const aHTML = (data) => {
-    const arrayAHtml = data.data.reduce((acc, elemento) => {
-        return acc + `
-        <div class="item" id="${elemento.id}">
-        <img class="card-img" src="${elemento.images.large}" alt="${elemento.name}">
+ const aHTML = (data) => {
+     const arrayAHtml = data.data.reduce((acc, elemento) => {
+         return acc + `
+         <div class="item" id="${elemento.id}">
+         <img class="card-img" src="${elemento.images.large}" alt="${elemento.name}">
         </div>`
-    }, "")
-
+     }, "")
     return arrayAHtml
 }
 
 const tablasHTML = (data) => {
-    const arrayAHtml = data.data.reduce((acc, elemento) => {
+    const arrayAHtml = data.data.reduce((acc, elemento, id) => {
         return acc + `
-        <tbody>
+        <tbody class="elementos-tabla" id="${elemento.id}">
             <tr>
                 <td>
                 ${elemento.name}
                 </td>
                 <td>
-                ${elemento.nationalPokedexNumbers}
+                ${elemento.nationalPokedexNumbers ? elemento.nationalPokedexNumbers : "-"}
                 </td>
                 <td>
                 ${elemento.set.name}
@@ -108,53 +104,114 @@ const tablasHTML = (data) => {
     return arrayAHtml
 }
 
-
-
 const fetchBusquedaTablasEImagenes = async () => {
-    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${inputBusquedaCartaIndividual.value}&pageSize=20&page=${paginaActual}`)
-    const data = await respuesta.json()
-    contenedorCartas.innerHTML = aHTML(data)
-    verComoEnHtml(data)
-   
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${inputBusquedaCartaIndividual.value}&pageSize=20&page=${paginadoActual}`)
+    const data = await respuesta.json()  
+    console.log(data)  
+    tablaInfoPokemon.innerHTML = tablasHTML(data)       
+    ultimaPaginaBusqueda(data)  
+    const cartasEnLista = document.querySelectorAll(".elementos-tabla")
+    seccionTablaConEvento(cartasEnLista)
 }
 
-const fetchTablasEImagenes = async () => {
-    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=${paginaActual}`)
-    const data = await respuesta.json()
-    contenedorCartas.innerHTML = aHTML(data)
-    verComoEnHtml(data)
-}
+// EVENTO ONCLICK SOBRE TBODY DE TABLAS
 
-fetchTablasEImagenes()
+const seccionTablaConEvento = (variable) => {
 
-const verComoEnHtml = (d) => {
-
-    const data = d
-
-    selectorVerComo.onchange = () => {    
-        if (selectorVerComo.value === "images") {
-            contenedorCartas.innerHTML = aHTML(data)
-            contenedorTabla.style.display = "none"
-            contenedorCartas.style.display = "flex"
-        }
-        else {
-            tablaInfoPokemon.innerHTML = tablasHTML(data)            
-            contenedorTabla.style.display = "flex"
-            contenedorCartas.style.display = "none"
+    for(let i = 0; i < variable.length; i++){
+        variable[i].onclick = () => {
+            const idNumerico = variable[i].id
+            console.log("se mueve sobre}")
+            cartaVisiblePorEvento(idNumerico)
+            modalCartaFlotante.style.display = "flex"      
         }
     }
 }
 
-formularioCartaIndividual.onsubmit = (e) => {
-    e.preventDefault()
-    fetchBusquedaTablasEImagenes()
-    //contenedorCartas.innerHTML = aHTML(data)
+const cartaVisiblePorEvento = async (id) => {
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards/${id}`)
+    const data = await respuesta.json()
+    modalCartaFlotante.innerHTML = 
+    `<div class="modal-carta-tabla">
+        <button class="button-cerrar-modal-tablas">X</button>
+        <img src="${data.data.images.large}">
+    </div>`
+
+    const buttonCerrarModalTablas = document.querySelector(".button-cerrar-modal-tablas")
+
+    buttonCerrarModalTablas.onclick = () => {
+        modalCartaFlotante.style.display = "none"
+    }    
 }
 
-botonPrimeraPaginaTablasCard.onclick = () => paginaActual = 1 && fetchBusquedaTablasEImagenes()
-botonSiguienteTablasCard.onclick = () => (paginaActual++ && fetchBusquedaTablasEImagenes())
-botonAnteriorTablasCard.onclick = () => paginaActual !== 1 && (paginaActual-- && fetchBusquedaTablasEImagenes())  
+// ENVÍO DE FORMULARIO
+
+formularioCartaIndividual.onsubmit = (e) => {
+    e.preventDefault()
+    paginadoActual = 1
+    fetchBusquedaTablasEImagenes()
+    contenedorMensaje.style.display = "none"
+    divPaginadoListasCartas.style.display = "flex"
+}
+
+// PAGINADO
+
+const ultimaPaginaBusqueda = (data) => {
+    let valorUltimaPagina = Math.ceil(data.totalCount/20)
+    botonUltimaPaginaTablasCard.onclick = () => {
+        const fetchBusquedaTablasEImagenes = async () => {
+            const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${inputBusquedaCartaIndividual.value}&pageSize=20&page=${valorUltimaPagina}`)
+            const data = await respuesta.json()
+            tablaInfoPokemon.innerHTML = tablasHTML(data)
+        }
+        return fetchBusquedaTablasEImagenes()
+    }   
+}
+
+botonPrimeraPaginaTablasCard.onclick = () => {
+     		paginadoActual = 1
+     		botonPrimeraPaginaTablasCard.disabled = true
+     		botonAnteriorTablasCard.disabled = true
+    		fetchBusquedaTablasEImagenes()
+}
+
+botonSiguienteTablasCard.onclick = () => {
+    paginadoActual++
+    fetchBusquedaTablasEImagenes()
+}
+
+botonAnteriorTablasCard.onclick = () => paginadoActual !== 1 && (paginadoActual -- && fetchBusquedaTablasEImagenes())
 
 
-const cartass = document.querySelectorAll("")
-console.log(cartass)
+//     boton.onclick = () => {
+//         paginaActual++
+//         console.log(paginaActual)
+//         firstPage.disabled = false
+//         prev.disabled = false
+//         if (paginaActual === 1441) {
+//             next.disabled = true
+//             lastPage.disabled = true
+//         }
+//         funcion()
+//     }
+
+
+// paginaSiguiente(next, urlPokemon())
+
+
+//     boton.onclick = () => {
+//         paginaActual--
+//         //next.disabled = false
+//         //lastPage.disabled = false
+//         if (paginaActual === 1) {
+//             prev.disabled = true
+//             firstPage.disabled = true
+//         }
+//         funcion()
+//     }
+
+    
+
+
+
+

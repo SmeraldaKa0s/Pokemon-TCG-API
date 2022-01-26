@@ -288,6 +288,15 @@ header .background-header img {
   font-size: 20px;
 }
 
+.light-mode #contenedor-busqueda {
+  margin: 20px 0px;
+  display: flex;
+  align-items: center;
+}
+.light-mode #contenedor-busqueda span {
+  font-family: "VT323", monospace;
+  font-size: 60px;
+}
 .light-mode .tablas {
   width: 100%;
   margin-top: 30px;
@@ -326,6 +335,7 @@ header .background-header img {
   display: flex;
   justify-content: center;
   margin: 20px;
+  display: none;
 }
 .light-mode .paginado-listas-cartas button {
   margin: 30px 15px;
@@ -504,7 +514,6 @@ header .background-header img {
   left: 0;
   right: 0;
   bottom: 0;
-  display: flex;
   background-color: #111111bd;
   display: none;
 }
@@ -897,5 +906,35 @@ header .background-header img {
 /* .dark-mode {
 
 } */
+.modal-tablas {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #111111bd;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-tablas .button-cerrar-modal-tablas {
+  text-align: left;
+  background-color: transparent;
+  font-family: "VT323", monospace;
+  font-size: 50px;
+  border: transparent;
+  color: white;
+  font-weight: bolder;
+}
+.modal-tablas .modal-carta-tabla {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 500px;
+  height: 700px;
+}
+.modal-tablas .modal-carta-tabla img {
+  width: 100%;
+  height: 100%;
+}
 
 /*# sourceMappingURL=style.css.map */
