@@ -5,6 +5,15 @@
   align-items: $items;
 }
 
+// carta individual
+
+@mixin circulo-dibujo {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
 // switch toggle 
 
 @mixin switchStyle {

@@ -613,7 +613,7 @@ header .background-header img {
 }
 
 .modal-container-carta {
-  height: 770px;
+  height: 780px;
   width: 550px;
   background-color: #e02443;
   border-radius: 0 0 0px 20px;
@@ -638,7 +638,6 @@ header .background-header img {
   background: none;
 }
 .modal-container-carta .modal-dibujo-pokedex {
-  content: "";
   height: 60px;
   width: 60px;
   border-radius: 50%;
@@ -649,7 +648,6 @@ header .background-header img {
   margin-top: 36px;
 }
 .modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo {
-  content: "";
   height: 12px;
   width: 12px;
   border-radius: 50%;
@@ -659,7 +657,6 @@ header .background-header img {
   margin-left: 10px;
 }
 .modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo .modal-dibujo-pokedex-circulodoble {
-  content: "";
   height: 3px;
   width: 3px;
   border-radius: 50%;
@@ -668,7 +665,6 @@ header .background-header img {
   margin-left: 10px;
 }
 .modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo .modal-dibujo-pokedex-circulointerior {
-  content: "";
   height: 4px;
   width: 4px;
   border-radius: 50%;
@@ -680,7 +676,6 @@ header .background-header img {
   margin-left: 40px;
 }
 .modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-rojo {
-  content: "";
   height: 12px;
   width: 12px;
   border-radius: 50%;
@@ -689,7 +684,6 @@ header .background-header img {
   margin-right: 10px;
 }
 .modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-rojo .modal-dibujo-pokedex-circulo-rojoblanco {
-  content: "";
   height: 6px;
   width: 6px;
   border-radius: 50%;
@@ -697,7 +691,6 @@ header .background-header img {
   border: 1px solid rgba(0, 0, 0, 0.61);
 }
 .modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-amarillo {
-  content: "";
   height: 12px;
   width: 12px;
   border-radius: 50%;
@@ -706,7 +699,6 @@ header .background-header img {
   border: 1px solid rgba(0, 0, 0, 0.61);
 }
 .modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-amarilloblanco {
-  content: "";
   height: 6px;
   width: 6px;
   border-radius: 50%;
@@ -714,7 +706,6 @@ header .background-header img {
   border: 1px solid rgba(0, 0, 0, 0.61);
 }
 .modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-verde {
-  content: "";
   height: 12px;
   width: 12px;
   border-radius: 50%;
@@ -722,7 +713,6 @@ header .background-header img {
   border: 1px solid rgba(0, 0, 0, 0.61);
 }
 .modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-verde .modal-dibujo-pokedex-circulo-verdeblanco {
-  content: "";
   height: 6px;
   width: 6px;
   border-radius: 50%;
@@ -733,7 +723,7 @@ header .background-header img {
 .container-line {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 .container-line .line-red {
   width: 60px;
@@ -798,7 +788,7 @@ header .background-header img {
 }
 
 .modal-container-carta-txt {
-  height: 661px;
+  height: 671px;
   width: 550px;
   background-color: #e01a3b;
   border-radius: 0 0 20px 0px;
@@ -907,11 +897,71 @@ header .background-header img {
     margin-bottom: 50px;
   }
   .modal-carta-individual .modal-container-carta {
+    height: 810px;
     margin-top: 50px;
     border-radius: 0;
   }
-  .modal-carta-individual .modal-container-carta-txt {
-    margin-top: 0px;
+
+  .modal-container-carta-txt {
+    margin-top: 0;
+  }
+}
+/* Mobile */
+@media screen and (max-width: 560px) {
+  .modal-container-carta {
+    width: 450px;
+    margin-left: 20px;
+  }
+
+  .modal-container-carta-txt {
+    width: 450px;
+    margin-left: 20px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .modal-container-carta {
+    width: 370px;
+    margin-left: 20px;
+  }
+
+  .modal-img-carta-background img {
+    padding: 10px;
+    width: 220px;
+    border-radius: 20px;
+  }
+
+  .modal-container-carta-txt {
+    width: 370px;
+    margin-left: 20px;
+  }
+
+  .modal-right-center-bot {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5px;
+  }
+
+  .modal-right-bottom-txt {
+    margin: 0;
+    padding-top: 12px;
+  }
+}
+@media screen and (max-width: 365px) {
+  .modal-container-carta {
+    margin-left: 45px;
+  }
+
+  .modal-container-carta-txt {
+    margin-left: 45px;
+  }
+}
+@media screen and (max-width: 340px) {
+  .modal-container-carta {
+    margin-right: 12px;
+  }
+
+  .modal-container-carta-txt {
+    margin-right: 12px;
   }
 }
 *,
