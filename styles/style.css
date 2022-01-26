@@ -1037,6 +1037,10 @@ header .background-header img {
   box-shadow: -4vmin -4vmin 0 -1vmin #fff;
 }
 
+.switch-toggle-pokaballs {
+  display: none;
+}
+
 /* body {
     display: flex;
     justify-content: center;
@@ -1047,8 +1051,8 @@ header .background-header img {
     &.active {
         background: $color-body-active;
     }
-}
-
+} */
+/* 
 .right {
     display: flex;
     justify-content: flex-end;    
@@ -1056,8 +1060,39 @@ header .background-header img {
 .container-switch {
     height: 100px;
     width: 100px;
+} */
+/* Responsive */
+#pokeball, #ultraball {
+  width: 50px;
 }
- */
+
+@media screen and (max-width: 1650px) {
+  .light-mode nav {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #toggle {
+    display: none;
+  }
+
+  .switch-toggle-pokaballs {
+    display: flex;
+    width: 50px;
+  }
+  .switch-toggle-pokaballs .pokeball-show {
+    display: flex;
+  }
+  .switch-toggle-pokaballs .pokeball-hide {
+    display: none;
+  }
+  .switch-toggle-pokaballs .ultraball-hide {
+    display: none;
+  }
+  .switch-toggle-pokaballs .ultraball-show {
+    display: flex;
+  }
+}
 /* .dark-mode {
 
 } */

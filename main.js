@@ -387,10 +387,9 @@ toggle.onclick = () => {
 
             // Switch toggle pokeballs tablet-mobile 
 
-/* pokeball.onclick = () => {
+pokeball.onclick = () => {
     pokeball.classList.add("pokeball-hide")
     ultraball.classList.remove("ultraball-hide")
-
 }
 
 ultraball.onclick = () => {
@@ -398,4 +397,3 @@ ultraball.onclick = () => {
     ultraball.classList.add("ultraball-hide")
 } 
 
- */
