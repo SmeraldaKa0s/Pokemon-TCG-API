@@ -207,15 +207,15 @@ const mostrarCartaIndividual = (data) => {
         </div>
         <div class="modal-right-bottom">
             <div class="modal-right-bottom-txt">
-                <h2>ARTIST</h2>
+                <h2 class="modal-container-carta-info-titles">ARTIST</h2>
                 <p>${data.data.artist}</p>
             </div>
             <div class="modal-right-bottom-txt">
-                <h2>RARITY</h2>
+                <h2 class="modal-container-carta-info-titles">RARITY</h2>
                 <p>${data.data.rarity ? data.data.rarity : "None"}</p>
             </div>
             <div class="modal-right-bottom-txt">
-                <h2>SET</h2>
+                <h2 class="modal-container-carta-info-titles">SET</h2>
                 <p>${data.data.set.name}</p>
             </div>
         </div>

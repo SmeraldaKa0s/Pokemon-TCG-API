@@ -239,6 +239,7 @@
         display: flex;
         justify-content: center;
     }
+    
     .modal-container-carta-info-txt{
         background-color: rgb(44, 43, 43);
         color: $color-pokeball;
@@ -340,14 +341,24 @@
         display: flex;
         flex-direction: column;
         margin-bottom: 50px;
+
         .modal-container-carta {
             height: 810px;
             margin-top: 50px;
             border-radius: 0;
         }
     }
+
     .modal-container-carta-txt {
         margin-top: 0;
+
+        .modal-container-carta-info-title {
+            font-size: 18px;
+        }
+
+        .modal-container-carta-info-titles {
+            font-size: 18px;
+        }
     }
 }
 

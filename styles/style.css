@@ -905,6 +905,12 @@ header .background-header img {
   .modal-container-carta-txt {
     margin-top: 0;
   }
+  .modal-container-carta-txt .modal-container-carta-info-title {
+    font-size: 18px;
+  }
+  .modal-container-carta-txt .modal-container-carta-info-titles {
+    font-size: 18px;
+  }
 }
 /* Mobile */
 @media screen and (max-width: 560px) {
