@@ -1,27 +1,49 @@
-.tarjetas{
-    width: 70%;
-    margin: 30px 0px;    
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+.tarjetas {
+  width: 70%;
+  margin: 30px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 
-    .item {
-        margin: 10px 0px;
-        justify-content: space-around;   
-        img{
-            width: 300px;
-            height: 400px;    
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;      
-            border-radius: 15px;             
-        }
+  .item {
+    margin: 10px 0px;
+    justify-content: space-around;
+    img {
+      width: 300px;
+      height: 400px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      border-radius: 15px;
     }
+  }
 }
 
 .contenedor-sin-resultados {
-    @include flex-centrar($display: none, $direccion: column, $content:center);
-    font-family: $tipografia-secundaria; 
-    font-size: 28px;
-    color: $tipografia-color-principal;
-    margin-top: 50px;
-    letter-spacing: 1px;
- }
+  @include flex-centrar($display: none, $direccion: column, $content: center);
+  font-family: $tipografia-secundaria;
+  font-size: 28px;
+  color: #000;
+  margin-top: 50px;
+  letter-spacing: 1px;
+}
+
+@media screen and (max-width: 600px) {
+  .contenedor-sin-resultados {
+    img {
+      width: 70%;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .contenedor-sin-resultados {
+    font-size: 20px;
+  }
+  .tarjetas {
+    .item {
+      img {
+        width: 210px;
+        height: 285px;
+      }
+    }
+  }
+}

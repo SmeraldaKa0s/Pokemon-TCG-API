@@ -112,7 +112,7 @@ header .background-header img {
 
 @media screen and (max-width: 700px) {
   header .background-header img {
-    width: 100%;
+    width: 70%;
   }
 }
 .light-mode .titulo {
@@ -181,6 +181,12 @@ header .background-header img {
 }
 
 @media screen and (max-width: 600px) {
+  .light-mode .titulo {
+    font-size: 14px;
+  }
+  .light-mode .buscador span {
+    font-size: 12px;
+  }
   .light-mode .buscador form label input {
     width: 370px;
   }
@@ -215,11 +221,26 @@ header .background-header img {
   align-items: center;
   font-family: "VT323", monospace;
   font-size: 28px;
-  color: #424242;
+  color: #000;
   margin-top: 50px;
   letter-spacing: 1px;
 }
 
+@media screen and (max-width: 600px) {
+  .contenedor-sin-resultados img {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .contenedor-sin-resultados {
+    font-size: 20px;
+  }
+
+  .tarjetas .item img {
+    width: 210px;
+    height: 285px;
+  }
+}
 .cotenedor-sets {
   display: flex;
   flex-direction: row;

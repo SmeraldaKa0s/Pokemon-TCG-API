@@ -73,7 +73,14 @@
 
 @media screen and (max-width: 600px) {
   .light-mode {
+    .titulo{
+      font-size: 14px;
+    }
     .buscador {
+      span{
+        font-size: 12px;
+      }
+
       form {
         label {
           input {
