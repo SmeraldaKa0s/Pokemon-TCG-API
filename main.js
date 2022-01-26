@@ -79,7 +79,7 @@ const attacks = (data) => data.data.attacks.reduce((acc, attack) => {
 const energy = (attack) => {
     let acc = ""
     for(let i = 0; i < attack.cost.length; i++){
-        acc += `<img class="img-energy" src="/assets/${attack.cost[i].toLowerCase()}.png">`
+        acc += `<img class="img-energy" src="https://raw.githubusercontent.com/SmeraldaKa0s/API-/master/assets/${attack.cost[i].toLowerCase()}.png">`
     }
     return acc
 }
@@ -99,7 +99,7 @@ const habilidades = (data) => {
 const debilidad = (data) => data.data.weaknesses.reduce((acc, debilidad) => {
     return acc + `
     <div class="container-habilidades">
-        <img src="/assets/${debilidad.type.toLowerCase()}.png">
+        <img src="https://raw.githubusercontent.com/SmeraldaKa0s/API-/master/assets/${debilidad.type.toLowerCase()}.png">
         <p class="resistencia-text">${debilidad.value}</p>
     </div>
     `
@@ -108,7 +108,7 @@ const debilidad = (data) => data.data.weaknesses.reduce((acc, debilidad) => {
 const resistencia = (data) => data.data.resistances.reduce((acc, resistencia) => {
     return acc + `
     <div class="container-habilidades">
-        <img src="/assets/${resistencia.type.toLowerCase()}.png">
+        <img src="https://raw.githubusercontent.com/SmeraldaKa0s/API-/master/assets/${resistencia.type.toLowerCase()}.png">
         <p class="resistencia-text">${resistencia.value}</p>
     </div>
     `
@@ -116,7 +116,7 @@ const resistencia = (data) => data.data.resistances.reduce((acc, resistencia) =>
 
 const costoRetirada = (data) => data.data.retreatCost.reduce((acc, retirada) => {
     return acc + `
-       <img src="/assets/${retirada.toLowerCase()}.png">
+       <img src="https://raw.githubusercontent.com/SmeraldaKa0s/API-/master/assets/${retirada.toLowerCase()}.png">
     `
 }, "")
 
