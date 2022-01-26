@@ -211,6 +211,7 @@ header .background-header img {
   border: solid 1px;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
 }
 .cotenedor-sets .tarjetas-sets .cotenedor-imagen-sets {
   display: flex;
@@ -445,6 +446,10 @@ header .background-header img {
   border-radius: 15px;
 }
 
+.tarjetas-sets:hover {
+  background-color: whitesmoke;
+}
+
 .modal-bg {
   display: flex;
   flex-direction: column;
@@ -554,7 +559,7 @@ header .background-header img {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 10px;
+  background-color: lightskyblue;
 }
 .section-modal-sets .contenedor-modal-info-sets .contenedor .modal-logo-texto-sets .modal-texto-sets {
   margin: 10px;
@@ -568,6 +573,20 @@ header .background-header img {
 }
 .section-modal-sets .contenedor-modal-info-sets .contenedor .modal-logo-texto-sets .modal-logo-sets img {
   width: 100%;
+}
+
+
+@media screen and (max-width: 600px) {
+  .contenedor-modal-sets {
+    width: 300px;
+  }
+
+  .modal-logo-texto-sets {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .modal-carta-individual {
