@@ -4,3 +4,26 @@
   justify-content: $content;
   align-items: $items;
 }
+
+// carta individual
+
+@mixin circulo-dibujo {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+// switch toggle 
+
+@mixin switchStyle {
+    background: $color-switch;
+    transition: 0.8s;
+  }
+  
+  @mixin pokeballStyle {
+    content: "";
+    position: absolute;
+    border: 0.5vmin solid $color-border;
+    background: $color-pokeball;
+  }

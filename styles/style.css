@@ -232,11 +232,12 @@ header .background-header img {
   flex-direction: column;
   justify-content: normal;
   align-items: center;
-  width: 300px;
+  width: 280px;
   margin: 10px;
   border: solid 1px;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
 }
 .cotenedor-sets .tarjetas-sets .cotenedor-imagen-sets {
   display: flex;
@@ -251,24 +252,9 @@ header .background-header img {
 .cotenedor-sets .tarjetas-sets .cotenedor-imagen-sets img {
   width: 80%;
 }
-.cotenedor-sets .tarjetas-sets .contenedor-logo-texto-sets {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-}
-.cotenedor-sets .tarjetas-sets .contenedor-logo-texto-sets .contenedor-texto-sets {
+.cotenedor-sets .tarjetas-sets .contenedor-texto-sets {
+  margin: 10px;
   font-family: "VT323", monospace;
-}
-.cotenedor-sets .tarjetas-sets .contenedor-logo-texto-sets .contenedor-logo-sets {
-  height: 50px;
-  width: 50px;
-  overflow: hidden;
-  margin: 6px;
-}
-.cotenedor-sets .tarjetas-sets .contenedor-logo-texto-sets .contenedor-logo-sets img {
-  width: 100%;
 }
 
 .light-mode .container-form {
@@ -328,6 +314,15 @@ header .background-header img {
   font-size: 20px;
 }
 
+.light-mode #contenedor-busqueda {
+  margin: 20px 0px;
+  display: flex;
+  align-items: center;
+}
+.light-mode #contenedor-busqueda span {
+  font-family: "VT323", monospace;
+  font-size: 60px;
+}
 .light-mode .tablas {
   width: 100%;
   margin-top: 30px;
@@ -366,6 +361,7 @@ header .background-header img {
   display: flex;
   justify-content: center;
   margin: 20px;
+  display: none;
 }
 .light-mode .paginado-listas-cartas button {
   margin: 30px 15px;
@@ -476,6 +472,10 @@ header .background-header img {
   border-radius: 15px;
 }
 
+.tarjetas-sets:hover {
+  background-color: whitesmoke;
+}
+
 .modal-bg {
   display: flex;
   flex-direction: column;
@@ -532,6 +532,625 @@ header .background-header img {
 .modal-bg.open-aside {
   width: 100vw;
   transition: 500ms;
+}
+
+.section-modal-sets {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #111111bd;
+  display: none;
+}
+.section-modal-sets .contenedor-modal-sets {
+  margin: auto;
+  width: 400px;
+  border: solid 1px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
+}
+.section-modal-sets .contenedor-modal-sets .contenedor-boton-cierre-sets {
+  display: flex;
+  justify-content: right;
+  margin: 10px;
+}
+.section-modal-sets .contenedor-modal-info-sets {
+  display: flex;
+  flex-direction: column;
+  justify-content: normal;
+  align-items: center;
+}
+.section-modal-sets .contenedor-modal-info-sets .contenedor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.section-modal-sets .contenedor-modal-info-sets .contenedor .modal-img-sets {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+.section-modal-sets .contenedor-modal-info-sets .contenedor .modal-img-sets img {
+  width: 80%;
+}
+.section-modal-sets .contenedor-modal-info-sets .contenedor .modal-logo-texto-sets {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.section-modal-sets .contenedor-modal-info-sets .contenedor .modal-logo-texto-sets .modal-texto-sets {
+  margin: 10px;
+  font-family: "VT323", monospace;
+}
+.section-modal-sets .contenedor-modal-info-sets .contenedor .modal-logo-texto-sets .modal-logo-sets {
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  margin: 10px;
+}
+.section-modal-sets .contenedor-modal-info-sets .contenedor .modal-logo-texto-sets .modal-logo-sets img {
+  width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .contenedor-modal-sets {
+    width: 300px;
+  }
+
+  .modal-logo-texto-sets {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.modal-carta-individual {
+  font-family: "VT323", monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+.modal-carta-individual .modal-container-carta-boton {
+  display: flex;
+  justify-content: end;
+}
+.modal-carta-individual .modal-container-carta-boton .boton-cerrar-modal-carta {
+  color: #fff;
+  font-size: 20px;
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  background: none;
+}
+
+.modal-right-top {
+  color: #fff;
+  margin: 10px 0 10px 85px;
+  font-size: 20px;
+}
+
+.modal-container-carta {
+  height: 780px;
+  width: 550px;
+  background-color: #e02443;
+  border-radius: 0 0 0px 20px;
+  border: 1px solid #1f1c1c;
+}
+.modal-container-carta .modal-botones {
+  background-color: #DC0A2D;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+}
+.modal-container-carta .modal-botones .modal-left-top {
+  display: flex;
+}
+.modal-container-carta .boton-modal {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 50px;
+  margin-left: 10px;
+  padding: 5px;
+  border: none;
+  background: none;
+}
+.modal-container-carta .modal-dibujo-pokedex {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: #1D6CA4;
+  border: 4px solid #fff;
+  margin: 10px;
+  display: flex;
+  margin-top: 36px;
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 5px solid #6bc1ff;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo .modal-dibujo-pokedex-circulodoble {
+  height: 3px;
+  width: 3px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo .modal-dibujo-pokedex-circulointerior {
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-top: -10px;
+}
+.modal-container-carta .modal-dibujo-pokedex .container-modal-dibujos {
+  display: flex;
+  margin-left: 40px;
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-rojo {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 0, 0, 0.884);
+  border: 1px solid rgba(0, 0, 0, 0.61);
+  margin-right: 10px;
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-rojo .modal-dibujo-pokedex-circulo-rojoblanco {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.61);
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-amarillo {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: yellow;
+  border: 1px solid rgba(0, 0, 0, 0.61);
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-amarilloblanco {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.61);
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-verde {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: rgba(0, 128, 0, 0.863);
+  border: 1px solid rgba(0, 0, 0, 0.61);
+}
+.modal-container-carta .modal-dibujo-pokedex .modal-dibujo-pokedex-circulo-verde .modal-dibujo-pokedex-circulo-verdeblanco {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.61);
+}
+
+.container-line {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+.container-line .line-red {
+  width: 60px;
+  height: 10px;
+  background-color: #D90E2E;
+  border: 2px solid #363535;
+  border-radius: 10px;
+}
+.container-line .line-blue {
+  width: 60px;
+  height: 10px;
+  background-color: #096089;
+  border: 2px solid #2b2a2a;
+  border-radius: 10px;
+}
+
+.rectangle {
+  width: 150px;
+  height: 50px;
+  background-color: #52AE5F;
+  border: 2px solid #504e4e;
+  border-radius: 10px;
+  margin: 20px 0 0 25px;
+}
+
+.modal-img-carta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 30px 0 30px;
+  padding: 5px;
+  background-color: #DBDDDC;
+  border-radius: 10px 10px 10px 105px;
+  border: 2px solid black;
+}
+.modal-img-carta .container-circles {
+  display: flex;
+}
+.modal-img-carta .container-circles .circle-red {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 100%;
+  border: 2px solid #000;
+  margin: 0 5px 0 5px;
+}
+.modal-img-carta .modal-img-carta-background {
+  background-color: #232323;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 5px;
+}
+.modal-img-carta img {
+  padding: 10px;
+  width: 300px;
+  border-radius: 20px;
+}
+
+.fa-bars {
+  font-size: 20px;
+}
+
+.modal-container-carta-txt {
+  height: 671px;
+  width: 550px;
+  background-color: #e01a3b;
+  border-radius: 0 0 20px 0px;
+  border: 1px solid #1f1c1c;
+  margin-top: 108px;
+}
+.modal-container-carta-txt .modal-container-carta-info-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.modal-container-carta-txt .modal-container-txt-primary {
+  color: #fff;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+}
+.modal-container-carta-txt .modal-container-carta-info-txt {
+  background-color: #2c2b2b;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0 20px 20px 20px;
+  padding: 5px;
+}
+.modal-container-carta-txt .modal-right-center {
+  background-color: #28AAFE;
+  border-radius: 10px;
+  text-align: center;
+  margin: 10px 25px 10px 25px;
+  padding: 10px;
+}
+.modal-container-carta-txt .modal-right-center .modal-right-center-bot {
+  display: flex;
+  justify-content: space-around;
+}
+.modal-container-carta-txt .modal-right-center .modal-right-center-bot .img-debilidad {
+  height: 20px;
+  width: 20px;
+}
+.modal-container-carta-txt .modal-right-center img {
+  width: 30px;
+  padding-right: 10px;
+  text-align: center;
+}
+.modal-container-carta-txt .modal-right-bottom {
+  color: #000;
+  display: flex;
+  justify-content: center;
+}
+.modal-container-carta-txt .modal-right-bottom .modal-right-bottom-txt {
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.container-habilidades {
+  display: flex;
+  justify-content: center;
+}
+
+.img-energy {
+  width: 30px;
+  padding: 5px;
+}
+
+.attacks-container {
+  padding: 10px;
+}
+.attacks-container .energy-attack {
+  margin: 20px;
+}
+
+.ataque-text {
+  margin-top: 5px;
+}
+
+.attack-damage-name {
+  font-size: 25px;
+}
+
+.resistencia-text {
+  font-size: 20px;
+}
+
+.container-icons {
+  display: flex;
+  justify-content: space-around;
+}
+.container-icons .fa-circle {
+  font-size: 40px;
+  margin-top: 25px;
+}
+.container-icons .fa-plus {
+  font-size: 80px;
+  margin-top: 5px;
+}
+
+/* Responsive */
+/* Tablet */
+@media screen and (max-width: 1000px) {
+  .modal-carta-individual {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+  .modal-carta-individual .modal-container-carta {
+    height: 810px;
+    margin-top: 50px;
+    border-radius: 0;
+  }
+
+  .modal-container-carta-txt {
+    margin-top: 0;
+  }
+  .modal-container-carta-txt .modal-container-carta-info-title {
+    font-size: 18px;
+  }
+  .modal-container-carta-txt .modal-container-carta-info-titles {
+    font-size: 18px;
+  }
+}
+/* Mobile */
+@media screen and (max-width: 560px) {
+  .modal-container-carta {
+    width: 450px;
+    margin-left: 20px;
+  }
+
+  .modal-container-carta-txt {
+    width: 450px;
+    margin-left: 20px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .modal-container-carta {
+    width: 370px;
+    margin-left: 20px;
+  }
+
+  .modal-img-carta-background img {
+    padding: 10px;
+    width: 220px;
+    border-radius: 20px;
+  }
+
+  .modal-container-carta-txt {
+    width: 370px;
+    margin-left: 20px;
+  }
+
+  .modal-right-center-bot {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5px;
+  }
+
+  .modal-right-bottom-txt {
+    margin: 0;
+    padding-top: 12px;
+  }
+}
+@media screen and (max-width: 365px) {
+  .modal-container-carta {
+    margin-left: 45px;
+  }
+
+  .modal-container-carta-txt {
+    margin-left: 45px;
+  }
+}
+@media screen and (max-width: 340px) {
+  .modal-container-carta {
+    margin-right: 12px;
+  }
+
+  .modal-container-carta-txt {
+    margin-right: 12px;
+  }
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#toggle {
+  position: relative;
+  width: 10vmin;
+  top: 0.2vmin;
+  right: -43vmin;
+  height: 5vmin;
+  background: #ffffff;
+  border-radius: 50vmin;
+  cursor: pointer;
+  transition: 0.8s;
+}
+#toggle.active {
+  background: #333232;
+}
+#toggle.active .switch {
+  left: 5vmin;
+  transform: scale(0.9) rotate(180deg);
+  background: #ff0000;
+  transition: 0.8s;
+}
+#toggle .switch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5vmin;
+  height: 5vmin;
+  background: #ff0000;
+  border: 0.5vmin solid #000;
+  border-radius: 50%;
+  transform: scale(0.9);
+  transition: 0.8s;
+}
+
+.switch::before {
+  content: "";
+  position: absolute;
+  bottom: -0.1vmin;
+  left: -0.1vmin;
+  background: #fff;
+  width: 4.2vmin;
+  height: 2.2vmin;
+  border: 0.1vmin solid #000;
+  border-bottom-left-radius: 30vmin;
+  border-bottom-right-radius: 30vmin;
+  box-shadow: inset 1vmin -1vmin -2vmin #7f7c82;
+}
+.switch::after {
+  content: "";
+  position: absolute;
+  top: 1.6vmin;
+  left: 1.5vmin;
+  width: 1vmin;
+  height: 1vmin;
+  background: #fff;
+  border: 0.1vmin solid #000;
+  border-radius: 50%;
+  box-shadow: -4vmin -4vmin 0 -1vmin #fff;
+}
+
+.switch-toggle-pokaballs {
+  display: none;
+}
+
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: 0.5s;
+    background: $color-body;
+    &.active {
+        background: $color-body-active;
+    }
+} */
+/* 
+.right {
+    display: flex;
+    justify-content: flex-end;    
+} 
+.container-switch {
+    height: 100px;
+    width: 100px;
+} */
+/* Responsive */
+#pokeball, #ultraball {
+  width: 50px;
+}
+
+@media screen and (max-width: 1650px) {
+  .light-mode nav {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #toggle {
+    display: none;
+  }
+
+  .switch-toggle-pokaballs {
+    display: flex;
+    width: 50px;
+  }
+  .switch-toggle-pokaballs .pokeball-show {
+    display: flex;
+  }
+  .switch-toggle-pokaballs .pokeball-hide {
+    display: none;
+  }
+  .switch-toggle-pokaballs .ultraball-hide {
+    display: none;
+  }
+  .switch-toggle-pokaballs .ultraball-show {
+    display: flex;
+  }
+}
+/* .dark-mode {
+
+} */
+.modal-tablas {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #111111bd;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal-tablas .button-cerrar-modal-tablas {
+  text-align: left;
+  background-color: transparent;
+  font-family: "VT323", monospace;
+  font-size: 50px;
+  border: transparent;
+  color: white;
+  font-weight: bolder;
+}
+.modal-tablas .modal-carta-tabla {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 500px;
+  height: 700px;
+}
+.modal-tablas .modal-carta-tabla img {
+  width: 100%;
+  height: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,33 @@
+.modal-tablas{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+	background-color: #111111bd;
+	display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .button-cerrar-modal-tablas{
+        text-align: left;
+        background-color: transparent;
+        font-family: $tipografia-secundaria;
+        font-size: 50px;
+        border: transparent;
+        color: white;
+        font-weight: bolder;
+    }
+    
+    .modal-carta-tabla{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 500px;
+        height: 700px;
+
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

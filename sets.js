@@ -1,77 +1,116 @@
-const contenedorSets = document.querySelector(".cotenedor-sets")
+const contenedorSets = document.querySelector(".cotenedor-sets");
+const firstPageSets = document.getElementById("first-page-sets");
+const prevSets = document.getElementById("prev-sets");
+const nextSets = document.getElementById("next-sets");
+const lastPageSets = document.getElementById("last-page-sets");
+const botonCerrarSets = document.getElementById("boton-cerrar-sets");
+const sectionModalSets = document.querySelector(".section-modal-sets");
+const contenedorModalInfoSets = document.querySelector(
+	".contenedor-modal-info-sets"
+);
+//Menu desplegable
+const burgerMenu = document.querySelector(".burger-menu");
+const modalBg = document.querySelector(".modal-bg");
+const closeMenu = document.querySelector(".close-menu");
 
+//Funcionalidad Menu desplegable
+burgerMenu.addEventListener("click", () => {
+	modalBg.classList.add("open-aside");
+});
+
+closeMenu.addEventListener("click", () => {
+	modalBg.classList.remove("open-aside");
+});
+
+//Sets
 let paginaActual = 1;
 let ultimaPagina = 0;
 
-
-//Menu desplegable 
-const burgerMenu = document.querySelector(".burger-menu")
-const modalBg = document.querySelector(".modal-bg")
-const closeMenu = document.querySelector(".close-menu")
-
-
-//Funcionalidad Menu desplegable 
-burgerMenu.addEventListener('click', () => {
-    modalBg.classList.add('open-aside');
-})
-
-closeMenu.addEventListener('click', () => {
-    modalBg.classList.remove('open-aside')
-})
-
-////////////////////////////////////////////
-
-//Sets
-
+botonCerrarSets.onclick = () => {
+	sectionModalSets.style.display = "none";
+};
+// fetch a sets
 const setsPokemon = async () => {
 	const respuesta = await fetch(
 		`https://api.pokemontcg.io/v2/sets?pageSize=20&page=${paginaActual}`
 	);
 	const data = await respuesta.json();
-	// console.log(data);
-	// console.log(data.data);
-	contenedorSets.innerHTML = setsHTML(data);
-}
+	setsHTML(data);
+	ordenarFechaSet(data);
+};
 
 setsPokemon();
 
 const setsHTML = (data) => {
-    const arraySets = data.data.reduce((acc, elemento) => {
-        return (
-            acc +
-            `
-			<div class="tarjetas-sets">
+	contenedorSets.innerHTML = data.data.reduce((acc, elemento) => {
+		return (
+			acc +
+			`
+			<div data-id="${elemento.id}" class="tarjetas-sets">
             <div class="cotenedor-imagen-sets">
                   <img src="${elemento.images.logo}">
             </div>
-				   <div class="contenedor-logo-texto-sets">
-                   
-						 <div class="contenedor-logo-sets">
-              <img src="${elemento.images.symbol}">
-              </div>
-							<div class="contenedor-texto-sets">
+				   <div class="contenedor-texto-sets">	
 				         <p> Name: ${elemento.name} </p>
-						 <p> Date: ${elemento.releaseDate} </p>
-                         <p> Total number of cards: ${elemento.total} </p>
-				         <p> Serie: ${elemento.series} </p>
-                         <p> Legalities: ${elemento.legalities.unlimited} </p>
-                         <p> Code: ${elemento.ptcgoCode} </p>
-               </div>
            </div>		  	
 			</div>
 			`
-        );
-    }, "");
-
-    return arraySets;
+		);
+	}, "");
+	asignarClikSets();
 };
 
-//paginado sets
-const firstPageSets = document.getElementById("first-page-sets");
-const prevSets = document.getElementById("prev-sets");
-const nextSets = document.getElementById("next-sets");
-const lastPageSets = document.getElementById("last-page-sets");
+// fech a tarjetas individuales
+const datosModalSets = async (id) => {
+	const respuesta = await fetch(`https://api.pokemontcg.io/v2/sets/${id}`);
+	const data = await respuesta.json();
+	modalHTMLsets(data);
+};
 
+const asignarClikSets = () => {
+	const tarjetasSets = document.querySelectorAll(".tarjetas-sets");
+
+	for (let i = 0; i < tarjetasSets.length; i++) {
+		tarjetasSets[i].onclick = () => {
+			console.log("click");
+			const id = tarjetasSets[i].dataset.id;
+			datosModalSets(id);
+		};
+	}
+};
+
+const modalHTMLsets = (data) => {
+	sectionModalSets.style.display = "flex";
+
+	contenedorModalInfoSets.innerHTML = `
+	<div class="contenedor">
+	    <div class="modal-img-sets">
+        <img src="${data.data.images.logo}">
+      </div>
+		  <div class="modal-logo-texto-sets">
+                   
+				<div class="modal-logo-sets">
+          <img src="${data.data.images.symbol}">
+        </div>
+				<div class="modal-texto-sets">
+				   <p> Name: ${data.data.name} </p>
+				   <p>Date the set was released: ${data.data.releaseDate} </p>
+           <p> Total number of cards: ${data.data.total} </p>
+				   <p> Serie: ${data.data.series} </p>
+           <p> Legalities: ${
+							data.data.legalities.unlimited
+								? data.data.legalities.unlimited
+								: "None"
+						} </p>
+           <p>Code: ${data.data.ptcgoCode ? data.data.ptcgoCode : "None"} </p>
+					 <p>Date the set was released (in the USA):${data.data.releaseDate} </p>
+        </div>
+     </div>		  	
+	
+	</div>`;
+};
+
+////paginado sets
 
 firstPageSets.onclick = () => {
 	paginaActual = 1;
@@ -115,4 +154,3 @@ lastPageSets.onclick = () => {
 
 	setsPokemon();
 };
-

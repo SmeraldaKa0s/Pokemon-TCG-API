@@ -1,0 +1,138 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#toggle {
+    position: relative;
+    width: 10vmin;
+    top: 0.2vmin;
+    right: -43vmin;
+    height: 5vmin;
+    background: #ffffff;
+    border-radius: 50vmin;
+    cursor: pointer;
+    transition: 0.8s;
+
+    &.active {
+        background: $color-toggle-active;
+
+        .switch {
+            left: 5vmin;
+            transform: scale(0.9) rotate(180deg);
+            @include switchStyle();
+        }
+    }
+
+    .switch {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5vmin;
+        height: 5vmin;
+        background: #ff0000;
+        border: 0.5vmin solid #000;
+        border-radius: 50%;
+        transform: scale(0.9);
+        transition: 0.8s;
+    }
+}
+
+.switch {
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: -0.1vmin;
+        left: -0.1vmin;
+        background: #fff;
+        width: 4.2vmin;
+        height: 2.2vmin;
+        border: 0.1vmin solid #000;
+        border-bottom-left-radius: 30vmin;
+        border-bottom-right-radius: 30vmin;
+        box-shadow: inset 1vmin -1vmin -2vmin #7f7c82;
+        }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 1.6vmin;
+        left: 1.5vmin;
+        width: 1vmin;
+        height: 1vmin;
+        background: #fff;
+        border: 0.1vmin solid #000;
+        border-radius: 50%;
+        box-shadow: -4vmin -4vmin 0 -1vmin #fff;
+    }
+}
+
+// Switch toggle pokeballs tablet-mobile 
+
+.switch-toggle-pokaballs {
+    display: none;
+}
+
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: 0.5s;
+    background: $color-body;
+    &.active {
+        background: $color-body-active;
+    }
+} */
+/* 
+.right {
+    display: flex;
+    justify-content: flex-end;    
+} 
+.container-switch {
+    height: 100px;
+    width: 100px;
+} */
+
+
+/* Responsive */
+
+#pokeball, #ultraball {
+    width: 50px;
+}
+
+@media screen and (max-width: 1650px) {
+    .light-mode {
+        nav {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+
+    #toggle {
+        display: none;
+    }
+    .switch-toggle-pokaballs {
+        display: flex;
+        width: 50px;
+        
+        .pokeball-show {
+            display: flex;
+        }    
+        .pokeball-hide {
+            display: none;
+        }
+        
+        .ultraball-hide {
+            display: none;
+        }
+        
+        .ultraball-show {
+            display: flex;
+        }
+    }
+}
+
