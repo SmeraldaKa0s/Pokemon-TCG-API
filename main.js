@@ -188,38 +188,35 @@ const mostrarCartaIndividual = (data) => {
         <div class="modal-container-carta-info-txt">
             <h2 class="modal-container-carta-info-title">ATTACKS</h2>
             <p class="modal-container-carta-info-habilties">${data.data.abilities ? habilidades(data) : ""} ${attacks(data)}</p>
-        </div>
-        <div>
-            <div class="modal-right-center">
-
-                <div class="modal-right-center-bot">
-                    <div>
-                        <h2 class="modal-container-carta-info-title">WEAKNESS</h2>
-                        <p class="modal-right-center-txt">${data.data.weaknesses ? debilidad(data) : "N/A"}</p>
-                    </div>
-                    <div>
-                        <h2 class="modal-container-carta-info-title">RESISTANCE</h2>
-                        <p class="modal-right-center-txt">${data.data.resistances ? resistencia(data) : "N/A"}</p>
-                    </div>
-                    <div>
-                        <h2 class="modal-container-carta-info-title">RETRAT COST</h2>
-                        <p class="modal-right-center-txt">${data.data.retreatCost ? costoRetirada(data) : "None"}</p>
-                    </div>
+        </div>      
+        <div class="modal-right-center">
+            <div class="modal-right-center-bot">
+                <div>
+                    <h2 class="modal-container-carta-info-title">WEAKNESS</h2>
+                    <p class="modal-right-center-txt">${data.data.weaknesses ? debilidad(data) : "N/A"}</p>
+                </div>
+                <div>
+                    <h2 class="modal-container-carta-info-title">RESISTANCE</h2>
+                    <p class="modal-right-center-txt">${data.data.resistances ? resistencia(data) : "N/A"}</p>
+                </div>
+                <div>
+                    <h2 class="modal-container-carta-info-title">RETRAT COST</h2>
+                    <p class="modal-right-center-txt">${data.data.retreatCost ? costoRetirada(data) : "None"}</p>
                 </div>
             </div>
-            <div class="modal-right-bottom">
-                <div class="modal-right-bottom-txt">
-                    <h2>ARTIST</h2>
-                    <p>${data.data.artist}</p>
-                </div>
-                <div class="modal-right-bottom-txt">
-                    <h2>RARITY</h2>
-                    <p>${data.data.rarity ? data.data.rarity : "None"}</p>
-                </div>
-                <div class="modal-right-bottom-txt">
-                    <h2>SET</h2>
-                    <p>${data.data.set.name}</p>
-                </div>
+        </div>
+        <div class="modal-right-bottom">
+            <div class="modal-right-bottom-txt">
+                <h2 class="modal-container-carta-info-titles">ARTIST</h2>
+                <p>${data.data.artist}</p>
+            </div>
+            <div class="modal-right-bottom-txt">
+                <h2 class="modal-container-carta-info-titles">RARITY</h2>
+                <p>${data.data.rarity ? data.data.rarity : "None"}</p>
+            </div>
+            <div class="modal-right-bottom-txt">
+                <h2 class="modal-container-carta-info-titles">SET</h2>
+                <p>${data.data.set.name}</p>
             </div>
         </div>
     </div>
