@@ -141,7 +141,7 @@ const attacks = (data) => data.data.attacks.reduce((acc, attack) => {
 const energy = (attack) => {
     let acc = ""
     for(let i = 0; i < attack.cost.length; i++){
-        acc += `<img src="${attack.cost[i].toLowerCase()}.jpg">`
+        acc += `<img src="/assets/${attack.cost[i].toLowerCase()}.png">`
     }
     return acc
 }
@@ -167,7 +167,7 @@ const habilidades = (data) => {
 const debilidad = (data) => data.data.weaknesses.reduce((acc, debilidad) => {
     return acc + `
     <div class="img-debilidad">
-    <img src="${debilidad.type.toLowerCase()}.jpg">
+    <img src="/assets/${debilidad.type.toLowerCase()}.png">
     </div>
     <span>
         ${debilidad.value}
@@ -178,7 +178,7 @@ const debilidad = (data) => data.data.weaknesses.reduce((acc, debilidad) => {
 const resistencia = (data) => data.data.resistances.reduce((acc, resistencia) => {
     return acc + `
     <div class="img-debilidad">
-    <img src="${resistencia.type.toLowerCase()}.jpg">
+    <img src="/assets/${resistencia.type.toLowerCase()}.png">
     </div>
     <span>
         ${resistencia.value}
@@ -189,7 +189,7 @@ const resistencia = (data) => data.data.resistances.reduce((acc, resistencia) =>
 const costoRetirada = (data) => data.data.retreatCost.reduce((acc, retirada) => {
     return acc + `
     <div class="container-img">
-       <img src="${retirada.toLowerCase()}.jpg">
+       <img src="/assets/${retirada.toLowerCase()}.png">
     </div>
     `
 }, "")

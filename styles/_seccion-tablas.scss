@@ -1,6 +1,16 @@
 
 .light-mode{
 
+  #contenedor-busqueda{
+    margin: 20px 0px;
+    display: flex;
+    align-items: center;
+
+    span{
+      font-family: $tipografia-secundaria;
+      font-size: 60px;
+    }
+  }
   
   .tablas{
     width: 100%;
@@ -49,6 +59,7 @@
     display: flex;
     justify-content: center;
     margin: 20px;
+    display: none;
   
     button{
       margin: 30px 15px;
