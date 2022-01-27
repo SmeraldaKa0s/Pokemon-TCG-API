@@ -494,7 +494,7 @@ header .background-header img {
 }
 
 .tarjetas-sets:hover {
-  background-color: #f3a65e30;
+  background-color: #f7e1e173;
 }
 
 .modal-bg {
@@ -1171,6 +1171,12 @@ header .background-header img {
 .dark-mode .paginado-listas-cartas button {
   background-color: #efd979;
   color: black;
+}
+.dark-mode .paginado-listas-cartas button:hover {
+  background-color: #f7e1e1;
+}
+.dark-mode .tablas table tbody:nth-child(even):hover {
+  background-color: #293236;
 }
 .dark-mode .contenedor-footer {
   background-color: #220d2c;

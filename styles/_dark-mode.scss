@@ -48,8 +48,18 @@
     background-color: #efd979;
     color:black;
   }
+  button:hover{
+    background-color: rgb(247, 225, 225);
+  }
 }
 
+.tablas{
+  table{
+    tbody:nth-child(even):hover{
+      background-color: #293236;
+    }
+  }
+}
 .contenedor-footer{
   background-color: #220d2c;
 }
