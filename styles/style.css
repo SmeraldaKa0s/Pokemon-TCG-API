@@ -37,7 +37,6 @@ a {
   justify-content: center;
   align-items: center;
   height: 80px;
-  background: #cfcedb;
   background: linear-gradient(180deg, #d2f9f0 28.04%, #5cd3ff 100%);
   box-shadow: 0px 4px 15px 9px rgba(0, 0, 0, 0.09);
   position: sticky;
@@ -64,9 +63,6 @@ a {
   transform: scale(1.1) translateY(3px);
 }
 
-/* .dark-mode{
-
-} */
 @media screen and (max-width: 700px) {
   .light-mode nav {
     display: flex;
@@ -77,7 +73,8 @@ a {
   .light-mode nav .list-nav li {
     display: none;
   }
-  .light-mode nav .burger-menu {
+
+  .burger-menu {
     display: grid;
     flex-direction: row;
     justify-content: center;
@@ -87,10 +84,10 @@ a {
     overflow: hidden;
     place-items: center;
   }
-  .light-mode nav .burger-menu .ico-menu {
+  .burger-menu .ico-menu {
     width: 25px;
   }
-  .light-mode nav .burger-menu .ico-menu .bar {
+  .burger-menu .ico-menu .bar {
     width: 100%;
     height: 3px;
     background-color: #424242;
@@ -247,6 +244,7 @@ header .background-header img {
   justify-content: center;
   align-items: normal;
   flex-wrap: wrap;
+  margin-top: 50px;
 }
 .cotenedor-sets .tarjetas-sets {
   display: flex;
@@ -259,6 +257,7 @@ header .background-header img {
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: white;
+  font-size: 20px;
 }
 .cotenedor-sets .tarjetas-sets .cotenedor-imagen-sets {
   display: flex;
@@ -346,7 +345,7 @@ header .background-header img {
 }
 .light-mode .tablas {
   width: 100%;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 .light-mode .tablas table {
   width: 80%;
@@ -375,7 +374,7 @@ header .background-header img {
   font-size: 20px;
 }
 .light-mode .tablas table thead tr {
-  background-color: #ad1818;
+  background-color: #dc3038;
   color: white;
 }
 .light-mode .paginado-listas-cartas {
@@ -388,7 +387,7 @@ header .background-header img {
   margin: 30px 15px;
   border: transparent;
   color: white;
-  background-color: #AD1818;
+  background-color: #dc3038;
   width: 80px;
   height: 30px;
   border-radius: 5px;
@@ -473,11 +472,12 @@ header .background-header img {
   width: 100px;
   margin: 10px;
   margin-top: 50px;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
   padding: 5px;
   border: 2px solid rgba(128, 128, 128, 0.37);
   border-radius: 5px;
-  background-color: transparent;
+  background-color: #f3a65e;
+  font-family: "Nunito", sans-serif;
 }
 .paginado button:hover {
   border: 2px solid gray;
@@ -494,7 +494,7 @@ header .background-header img {
 }
 
 .tarjetas-sets:hover {
-  background-color: whitesmoke;
+  background-color: #f7e1e173;
 }
 
 .modal-bg {
@@ -1140,9 +1140,48 @@ header .background-header img {
     display: flex;
   }
 }
-/* .dark-mode {
+.dark-mode nav {
+  background: linear-gradient(180deg, #4f11c1 13.04%, #8e9395 100%);
+}
+.dark-mode nav .list-nav {
+  color: white;
+}
+.dark-mode nav .list-nav li {
+  text-shadow: 2px 2px 2px #6a0b92f7;
+}
+.dark-mode nav .list-nav li:hover {
+  text-shadow: 2px 2px 2px #a58910;
+}
+.dark-mode .container-form {
+  background-color: #5b5a65e3;
+  color: white;
+}
+.dark-mode .burger-menu .ico-menu .bar {
+  background-color: #e9e0e0;
+}
+.dark-mode .modal-bg .modal {
+  background: linear-gradient(90deg, #ffffff 0%, #bcb4ff 100%);
+}
+.dark-mode .modal-bg a:hover {
+  background: linear-gradient(90deg, #ffffff 0%, #8c49f2 100%);
+}
+.dark-mode .paginado button {
+  background-color: #efd979;
+}
+.dark-mode .paginado-listas-cartas button {
+  background-color: #efd979;
+  color: black;
+}
+.dark-mode .paginado-listas-cartas button:hover {
+  background-color: #f7e1e1;
+}
+.dark-mode .tablas table tbody:nth-child(even):hover {
+  background-color: #293236;
+}
+.dark-mode .contenedor-footer {
+  background-color: #220d2c;
+}
 
-} */
 .modal-tablas {
   width: 100%;
   height: 100%;

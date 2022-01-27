@@ -11,6 +11,14 @@ const botonUltimaPaginaTablasCard = document.querySelector("#boton-ultima-pagina
 const divPaginadoListasCartas = document.querySelector(".paginado-listas-cartas")
 const modalCartaFlotante = document.querySelector(".modal-tablas")
 
+// Switch toggle 
+const switchToggle = document.querySelector(".switch-toggle-pokaballs");
+const pokeball = document.getElementById("pokeball");
+const ultraball = document.getElementById("ultraball");
+
+//Mode dark menu desktop 
+const desktopPokeball = document.getElementById("toggle"); 
+
 //Menu desplegable 
 const burgerMenu = document.querySelector(".burger-menu")
 const modalBg = document.querySelector(".modal-bg")
@@ -210,7 +218,31 @@ botonAnteriorTablasCard.onclick = () => paginadoActual !== 1 && (paginadoActual 
 //         funcion()
 //     }
 
-    
+ //Desktop switch toggle
+
+desktopPokeball.onclick = () => {
+    desktopPokeball.classList.toggle("active")
+    document.body.classList.toggle("dark-mode")
+}
+
+// Switch toggle pokeballs tablet-mobile 
+
+pokeball.onclick = () => {
+    pokeball.classList.add("pokeball-hide")
+    ultraball.classList.remove("ultraball-hide")
+}
+
+ultraball.onclick = () => {
+    pokeball.classList.remove("pokeball-hide")
+    ultraball.classList.add("ultraball-hide")
+} 
+
+//Dark mode
+
+switchToggle.onclick = () => {
+  document.body.classList.toggle("dark-mode")
+};
+   
 
 
 
