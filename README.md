@@ -155,4 +155,5 @@ With the navigation bar (navbar) we can return to the search.
 
 
 
+
 <p align="right"> <a href="https://www.linkedin.com/in/alx-l" target="_blank"><img src="https://img.shields.io/badge/Aleks-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/carolina-lerner-223034214" alt="Linkedin"/></a> <a href="https://www.linkedin.com/in/carolina-lerner-223034214" target="_blank"><img src="https://img.shields.io/badge/Caro-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/carolina-lerner-223034214" alt="Linkedin"/></a> <a href="https://www.linkedin.com/in/Mikayalandino" target="_blank"><img src="https://img.shields.io/badge/-Mika-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/Mikayalandino/" alt="Linkedin"/></a> <a href="https://www.linkedin.com/in/sofia-bernabei" target="_blank"><img src="https://img.shields.io/badge/Sofi-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/carolina-lerner-223034214" alt="Linkedin"/></a> </p>
