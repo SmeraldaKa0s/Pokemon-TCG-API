@@ -13,4 +13,30 @@
       }
     }
   }
+
+ 
+
+.burger-menu{
+  .ico-menu{
+    .bar{
+      background-color: $color-modo-oscuro-menu;
+    }
+  }
+}
+
+.modal-bg{
+  .modal{
+    background: $color-modo-oscuro-modal;
+  }
+
+  a:hover{
+    background: linear-gradient(90deg, #ffffff 0%, #8c49f2 100%);
+  }
+}
+
+
+
+
+
+
 }

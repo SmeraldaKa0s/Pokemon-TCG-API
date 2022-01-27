@@ -73,7 +73,8 @@ a {
   .light-mode nav .list-nav li {
     display: none;
   }
-  .light-mode nav .burger-menu {
+
+  .burger-menu {
     display: grid;
     flex-direction: row;
     justify-content: center;
@@ -83,10 +84,10 @@ a {
     overflow: hidden;
     place-items: center;
   }
-  .light-mode nav .burger-menu .ico-menu {
+  .burger-menu .ico-menu {
     width: 25px;
   }
-  .light-mode nav .burger-menu .ico-menu .bar {
+  .burger-menu .ico-menu .bar {
     width: 100%;
     height: 3px;
     background-color: #424242;
@@ -1137,7 +1138,7 @@ header .background-header img {
   }
 }
 .dark-mode nav {
-  background: linear-gradient(180deg, #4f11c1 13.04%, #6d7375 100%);
+  background: linear-gradient(180deg, #4f11c1 13.04%, #8e9395 100%);
 }
 .dark-mode nav .list-nav {
   color: white;
@@ -1147,6 +1148,15 @@ header .background-header img {
 }
 .dark-mode nav .list-nav li:hover {
   text-shadow: 2px 2px 2px #a58910;
+}
+.dark-mode .burger-menu .ico-menu .bar {
+  background-color: #e9e0e0;
+}
+.dark-mode .modal-bg .modal {
+  background: linear-gradient(90deg, #ffffff 0%, #bcb4ff 100%);
+}
+.dark-mode .modal-bg a:hover {
+  background: linear-gradient(90deg, #ffffff 0%, #8c49f2 100%);
 }
 
 .modal-tablas {
