@@ -1,3 +1,16 @@
-/* .dark-mode {
- 
-} */
+.dark-mode {
+  nav {
+    background: $color-modo-oscuro;
+
+    .list-nav {
+      color: white;
+      li{
+        text-shadow: 2px 2px 2px #6a0b92f7;
+      }
+
+      li:hover {
+        text-shadow: 2px 2px 2px #a58910; 
+      }
+    }
+  }
+}

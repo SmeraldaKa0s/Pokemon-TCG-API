@@ -24,8 +24,8 @@ const modalCartaIndividual = document.getElementById("modal-carta-individual");
 const botonIrAtrasModal = document.querySelector(".boton-modal-ir-atras");
 const botonCerrarModalCarta = document.querySelector(".boton-cerrar-modal-carta");
 
-// Switch toggle
-const switchToggle = document.getElementById("switch-toggle");
+// Switch toggle 
+const switchToggle = document.querySelector(".switch-toggle-pokaballs");
 const pokeball = document.getElementById("pokeball");
 const ultraball = document.getElementById("ultraball");
 
@@ -391,13 +391,13 @@ searchForm.onsubmit = (e) => {
     inputBusquedaPokemon()
 }
 
-// Switch toggle
+//Switch toggle
 
 toggle.onclick = () => {
     toggle.classList.toggle("active")
 }
 
-            // Switch toggle pokeballs tablet-mobile 
+// Switch toggle pokeballs tablet-mobile 
 
 pokeball.onclick = () => {
     pokeball.classList.add("pokeball-hide")
@@ -408,4 +408,10 @@ ultraball.onclick = () => {
     pokeball.classList.remove("pokeball-hide")
     ultraball.classList.add("ultraball-hide")
 } 
+
+//Dark mode
+
+switchToggle.onclick = () => {
+  document.body.classList.toggle("dark-mode")
+};
 
