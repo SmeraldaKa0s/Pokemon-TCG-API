@@ -14,7 +14,10 @@
     }
   }
 
- 
+ .container-form {
+   background-color: #5b5a65e3;
+   color:white;
+ }
 
 .burger-menu{
   .ico-menu{
@@ -34,6 +37,22 @@
   }
 }
 
+.paginado{
+  button{
+    background-color: #efd979;
+  }
+}
+
+.paginado-listas-cartas{
+  button{
+    background-color: #efd979;
+    color:black;
+  }
+}
+
+.contenedor-footer{
+  background-color: #220d2c;
+}
 
 
 

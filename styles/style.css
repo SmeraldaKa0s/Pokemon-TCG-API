@@ -244,6 +244,7 @@ header .background-header img {
   justify-content: center;
   align-items: normal;
   flex-wrap: wrap;
+  margin-top: 50px;
 }
 .cotenedor-sets .tarjetas-sets {
   display: flex;
@@ -256,6 +257,7 @@ header .background-header img {
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: white;
+  font-size: 20px;
 }
 .cotenedor-sets .tarjetas-sets .cotenedor-imagen-sets {
   display: flex;
@@ -343,7 +345,7 @@ header .background-header img {
 }
 .light-mode .tablas {
   width: 100%;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 .light-mode .tablas table {
   width: 80%;
@@ -372,7 +374,7 @@ header .background-header img {
   font-size: 20px;
 }
 .light-mode .tablas table thead tr {
-  background-color: #ad1818;
+  background-color: #dc3038;
   color: white;
 }
 .light-mode .paginado-listas-cartas {
@@ -385,7 +387,7 @@ header .background-header img {
   margin: 30px 15px;
   border: transparent;
   color: white;
-  background-color: #AD1818;
+  background-color: #dc3038;
   width: 80px;
   height: 30px;
   border-radius: 5px;
@@ -470,11 +472,12 @@ header .background-header img {
   width: 100px;
   margin: 10px;
   margin-top: 50px;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
   padding: 5px;
   border: 2px solid rgba(128, 128, 128, 0.37);
   border-radius: 5px;
-  background-color: transparent;
+  background-color: #f3a65e;
+  font-family: "Nunito", sans-serif;
 }
 .paginado button:hover {
   border: 2px solid gray;
@@ -491,7 +494,7 @@ header .background-header img {
 }
 
 .tarjetas-sets:hover {
-  background-color: whitesmoke;
+  background-color: #f3a65e30;
 }
 
 .modal-bg {
@@ -1149,6 +1152,10 @@ header .background-header img {
 .dark-mode nav .list-nav li:hover {
   text-shadow: 2px 2px 2px #a58910;
 }
+.dark-mode .container-form {
+  background-color: #5b5a65e3;
+  color: white;
+}
 .dark-mode .burger-menu .ico-menu .bar {
   background-color: #e9e0e0;
 }
@@ -1157,6 +1164,16 @@ header .background-header img {
 }
 .dark-mode .modal-bg a:hover {
   background: linear-gradient(90deg, #ffffff 0%, #8c49f2 100%);
+}
+.dark-mode .paginado button {
+  background-color: #efd979;
+}
+.dark-mode .paginado-listas-cartas button {
+  background-color: #efd979;
+  color: black;
+}
+.dark-mode .contenedor-footer {
+  background-color: #220d2c;
 }
 
 .modal-tablas {

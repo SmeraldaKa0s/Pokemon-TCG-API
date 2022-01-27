@@ -1,6 +1,7 @@
 .cotenedor-sets {
 	@include flex-centrar($direccion: row, $content: center, $items: normal);
 	flex-wrap: wrap;
+	margin-top: 50px;
 
 	.tarjetas-sets {
 		@include flex-centrar($direccion: column, $items: center, $content: normal);
@@ -10,6 +11,7 @@
 		border-radius: 15px;
 		box-shadow: $box-shadow;
 		background-color: $color-tarjetas;
+		font-size: 20px;
 		.cotenedor-imagen-sets {
 			@include flex-centrar($direccion: row, $content: center, $items: center);
 			width: 200px;
