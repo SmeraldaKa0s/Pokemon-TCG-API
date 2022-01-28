@@ -54,7 +54,7 @@ Every detail you see here was carefully researched and brought to you for use. I
 &nbsp;
 
 ``` 
-                                                         📝 Content
+                                                📝 Content
 ```
    
 &nbsp;
@@ -93,7 +93,7 @@ With the navigation bar (navbar) we can return to the search.
 &nbsp;
 
 ``` 
-                                                           ✔️
+                                                  ✔️
 ```
  
 &nbsp;
