@@ -7,11 +7,9 @@
         background-color: rgb(240, 240, 240);
         font-family: $tipografia-secundaria;        
         
-        .formularios{            
-            width: 50%;
+        .formularios{          
             height: 70px;
-            display: flex;
-            justify-content: space-around;
+            display: flex;            
     
             .buscador-lista-cartas{                
                 display: flex;    
@@ -37,17 +35,20 @@
                 }
             }
        
-            .sort-formulario{
+            .submit-formulario{
                 display: flex;
                 align-items: center;
                 font-size: 18px;
 
-                select{
-                    font-family: $tipografia-secundaria;                 
+                input{
+                    width: 80px;
+                    height: 40px;
                     border: transparent;
-                    padding: 10px 0px;
+                    background-color: white;
+                    font-family: $tipografia-secundaria;
                     font-size: 20px;
-                }               
+
+                }                            
             }              
         }    
     }
