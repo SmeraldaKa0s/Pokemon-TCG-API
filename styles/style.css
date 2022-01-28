@@ -309,7 +309,7 @@ header .background-header img {
   width: 100%;
   margin-top: 30px;
 }
-.light-mode .tablas table {
+.light-mode .tablas #tabla-resultados {
   width: 80%;
   margin: auto;
   table-layout: fixed;
@@ -317,25 +317,25 @@ header .background-header img {
   text-align: center;
   font-family: "VT323", monospace;
 }
-.light-mode .tablas table tbody:nth-child(even) {
+.light-mode .tablas #tabla-resultados tbody:nth-child(even) {
   background-color: #f7e1e1;
 }
-.light-mode .tablas table tbody:nth-child(even):hover {
+.light-mode .tablas #tabla-resultados tbody:nth-child(even):hover {
   background-color: #52cdfa;
   color: white;
 }
-.light-mode .tablas table tbody:nth-child(odd) {
+.light-mode .tablas #tabla-resultados tbody:nth-child(odd) {
   background-color: #efeff8;
 }
-.light-mode .tablas table tbody:nth-child(odd):hover {
+.light-mode .tablas #tabla-resultados tbody:nth-child(odd):hover {
   background-color: #f86565;
   color: white;
 }
-.light-mode .tablas table td, .light-mode .tablas table th {
+.light-mode .tablas #tabla-resultados td, .light-mode .tablas #tabla-resultados th {
   padding: 10px;
   font-size: 20px;
 }
-.light-mode .tablas table thead tr {
+.light-mode .tablas #tabla-resultados thead tr {
   background-color: #ad1818;
   color: white;
 }
@@ -364,6 +364,14 @@ header .background-header img {
 }
 
 @media screen and (max-width: 1100px) {
+  .light-mode .tablas #tabla-resultados {
+    width: 95%;
+  }
+
+  .light-mode .tablas #tabla-resultados td, th {
+    font-size: 18px;
+  }
+
   .frase-de-busqueda {
     font-size: 40px;
   }
@@ -387,6 +395,16 @@ header .background-header img {
   }
   .contenedor-img img {
     width: 100%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .tablas {
+    overflow-x: scroll;
+    width: 800px;
+  }
+
+  .light-mode .tablas #tabla-resultados {
+    width: 800px;
   }
 }
 @media screen and (max-width: 600px) {
@@ -1152,7 +1170,7 @@ header .background-header img {
 /* .dark-mode {
 
 } */
-.modal-tablas {
+.light-mode .modal-tablas {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -1162,7 +1180,7 @@ header .background-header img {
   justify-content: center;
   align-items: center;
 }
-.modal-tablas .button-cerrar-modal-tablas {
+.light-mode .modal-tablas .button-cerrar-modal-tablas {
   text-align: left;
   background-color: transparent;
   font-family: "VT323", monospace;
@@ -1171,16 +1189,30 @@ header .background-header img {
   color: white;
   font-weight: bolder;
 }
-.modal-tablas .modal-carta-tabla {
+.light-mode .modal-tablas .modal-carta-tabla {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 500px;
-  height: 700px;
+  width: 400px;
+  height: 600px;
+  margin-bottom: 120px;
 }
-.modal-tablas .modal-carta-tabla img {
+.light-mode .modal-tablas .modal-carta-tabla img {
   width: 100%;
   height: 100%;
+}
+
+@media screen and (max-width: 430px) {
+  .light-mode .modal-tablas .modal-carta-tabla {
+    width: 300px;
+    height: 500px;
+  }
+}
+@media screen and (max-width: 325px) {
+  .light-mode .modal-tablas .modal-carta-tabla {
+    width: 250px;
+    height: 450px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

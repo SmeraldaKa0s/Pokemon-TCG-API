@@ -1,33 +1,55 @@
-.modal-tablas{
-    width: 100%;
-    height: 100%;
-    position: fixed;
-	background-color: #111111bd;
-	display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.light-mode{
 
-    .button-cerrar-modal-tablas{
-        text-align: left;
-        background-color: transparent;
-        font-family: $tipografia-secundaria;
-        font-size: 50px;
-        border: transparent;
-        color: white;
-        font-weight: bolder;
-    }
-    
-    .modal-carta-tabla{
-        display: flex;
-        justify-content: center;
+    .modal-tablas{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background-color: #111111bd;
+        display: none;
         flex-direction: column;
-        width: 500px;
-        height: 700px;
-
-        img{
-            width: 100%;
-            height: 100%;
+        justify-content: center;
+        align-items: center;
+    
+        .button-cerrar-modal-tablas{
+            text-align: left;
+            background-color: transparent;
+            font-family: $tipografia-secundaria;
+            font-size: 50px;
+            border: transparent;
+            color: white;
+            font-weight: bolder;
+        }
+        
+        .modal-carta-tabla{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 400px;
+            height: 600px;
+            margin-bottom: 120px;
+    
+            img{
+                width: 100%;
+                height: 100%;
+            }
         }
     }
+}
+
+@media screen and (max-width: 430px){
+
+    .light-mode .modal-tablas .modal-carta-tabla{
+        width: 300px;
+        height: 500px;
+    }   
+       
+}
+
+@media screen and (max-width: 325px){
+
+    .light-mode .modal-tablas .modal-carta-tabla{
+        width: 250px;
+        height: 450px;
+    }   
+       
 }

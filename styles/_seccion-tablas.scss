@@ -16,7 +16,7 @@
     width: 100%;
     margin-top: 30px;
     
-    table {
+    #tabla-resultados {
       width: 80%;
       margin: auto;
       table-layout: fixed;        
@@ -50,8 +50,7 @@
       thead tr{
         background-color: rgb(173, 24, 24);
         color: white;
-      }
-      
+      }      
     }        
   }
 
@@ -75,20 +74,25 @@
       .fa-step-backward, .fa-step-forward{
         font-size: 15px;
       }
-
-
     }
 
     button:hover{
       background-color: #1EBAF1;
 
     }
-  }
-    
+  }    
 }
 
 @media screen and (max-width: 1100px){
 
+ .light-mode .tablas #tabla-resultados{
+   width: 95%;
+ }
+
+ .light-mode .tablas #tabla-resultados td, th{
+   font-size: 18px;
+ } 
+ 
  .frase-de-busqueda{
    font-size: 40px;  
   }
@@ -100,8 +104,7 @@
     img{
       width: 100%;
     }
-  }
-    
+  }    
 }
 
 @media screen and (max-width: 950px){
@@ -117,8 +120,20 @@
     img{
       width: 100%;
     }
+  }    
+ }
+
+ @media screen and (max-width: 700px){
+
+  .tablas{ 
+    overflow-x: scroll;
+    width: 800px;
+ 
   }
-     
+ 
+  .light-mode .tablas #tabla-resultados{
+    width: 800px;   
+  }     
  }
   
   @media screen and (max-width: 600px){
@@ -147,11 +162,7 @@
       margin: 5px;
       width: 50px;
       font-size: 15px;
-    }
-
-  
-    
-       
+    }   
   }
  
 
