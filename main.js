@@ -31,6 +31,9 @@ const ultraball = document.getElementById("ultraball");
 //Mode dark menu desktop 
 const desktopPokeball = document.getElementById("toggle"); 
 
+// Loading
+const loading = document.getElementById("loading");
+
 //Funcionalidad Menu desplegable 
 burgerMenu.addEventListener('click', () => {
     modalBg.classList.add('open-aside');
@@ -226,22 +229,35 @@ const mostrarCartaIndividual = (data) => {
     `
 }
 
+// Loading
+
+const showLoading = () => {
+    loading.style.display= "flex"
+}
+
+const hideLoading = () => {
+    loading.style.display= "none"
+}
+
 const urlPokemon = async () => {
+    showLoading()
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=1`)
     const data = await respuesta.json()
     contenedorTarjetas.innerHTML = aHTML(data)    
-    cartaIndividualClickleable()   
+    cartaIndividualClickleable()  
+    hideLoading() 
 }
 
 urlPokemon()
 
-
 const urlPokemonPaginado = async () => {
+    showLoading()
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=${paginaActual}`)
     const data = await respuesta.json()
     contenedorTarjetas.innerHTML = aHTML(data)    
     cartaIndividualClickleable()  
     inputBusquedaPokemon()
+    hideLoading() 
 }
 
 urlPokemonPaginado()
@@ -266,7 +282,7 @@ const infoCartaIndividual = async (id) => {
     const botonModalIrAtras = document.getElementById("boton-modal-ir-atras")
     const botonModalCerrarCarta = document.getElementById("boton-cerrar-modal-carta")
     cerrarModal(botonModalCerrarCarta)
-    cerrarModal(botonModalIrAtras)
+    cerrarModal(botonModalIrAtras) 
 }
 
 // Boton modal carta
@@ -328,6 +344,7 @@ lastPage.onclick = () => {
 let busquedaPorInput = ""
 
 const inputBusquedaPokemon = async () => {
+    showLoading() 
     const tieneParametro = busquedaPorInput.includes(':')
     if (!tieneParametro) busquedaPorInput = 'name:' + busquedaPorInput
     const res = await fetch(`https://api.pokemontcg.io/v2/cards?q=${busquedaPorInput}&pageSize=20&page=${paginaActual}`)
@@ -341,7 +358,8 @@ const inputBusquedaPokemon = async () => {
         contenedorTarjetas.style.display= "flex"
         contenedorSinResultados.style.display= "none"
     }
-    cartaIndividualClickleable()   
+    cartaIndividualClickleable()  
+    hideLoading()  
 }
 
 searchForm.onsubmit = (e) => {
@@ -362,7 +380,6 @@ desktopPokeball.onclick = () => {
     ultraball.classList.toggle("ultraball-hide", !isDark)
 }
 
-
 //Dark mode
 
 switchToggle.onclick = () => {
@@ -372,6 +389,4 @@ switchToggle.onclick = () => {
 	desktopPokeball.classList.toggle("active", isDark)
 	pokeball.classList.toggle("pokeball-hide", isDark)
 	ultraball.classList.toggle("ultraball-hide", !isDark)
-};
-
-
+}
