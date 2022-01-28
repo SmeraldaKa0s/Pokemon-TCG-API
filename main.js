@@ -1,6 +1,5 @@
 const header = document.getElementById("header");
 const main = document.getElementById("main");
-
 const contenedorTarjetas = document.querySelector("#tarjetas");
 
 // Paginado
@@ -8,6 +7,13 @@ const firstPage = document.getElementById("first-page");
 const prev = document.getElementById("prev");
 const next = document.getElementById("next");
 const lastPage = document.getElementById("last-page");
+
+// Paginado de búsqueda
+
+const botonFirstPageBusqueda = document.querySelector("#boton-firstpage-busqueda")
+const botonPrevBusqueda = document.querySelector("#boton-prev-busqueda")
+const botonNextBusqueda = document.querySelector("#boton-next-busqueda")
+const botonLastPageBusqueda = document.querySelector("#boton-lastpage-busqueda")
 
 //Buscador
 const searchForm = document.getElementById("search-form");
@@ -266,103 +272,6 @@ const cerrarModal = (boton) => {
 }
 
 
-// PAGINADO
-
-/* const ultimaPaginaBusqueda = (data) => {
-    let valorUltimaPagina = Math.ceil(data.totalCount/20)
-    botonUltimaPaginaTablasCard.onclick = () => {
-        const fetchBusquedaTablasEImagenes = async () => {
-            const respuesta = await fetch(``)
-            const data = await respuesta.json()
-            tablaInfoPokemon.innerHTML = tablasHTML(data)
-        }
-        return fetchBusquedaTablasEImagenes()
-    }   
-}
-
-botonPrimeraPaginaTablasCard.onclick = () => {
-    paginadoActual = 1
-    botonPrimeraPaginaTablasCard.disabled = true
-    botonAnteriorTablasCard.disabled = true
-    fetchBusquedaTablasEImagenes()
-}
-
-botonSiguienteTablasCard.onclick = () => {
-    paginadoActual++
-    fetchBusquedaTablasEImagenes()
-}
-
-botonAnteriorTablasCard.onclick = () => paginadoActual !== 1 && (paginadoActual -- && fetchBusquedaTablasEImagenes()) */
-
-
-// const primeraPagina = (boton, funcion) => {
-// 	boton.onclick = () => {
-// 		paginaActual = 1;
-// 		firstPage.disabled = true;
-// 		prev.disabled = true;
-// 		next.disabled = false;
-// 		lastPage.disabled = false;
-// 		funcion();
-// 	};
-// };
-
-//     boton.onclick = () => {
-//         paginaActual = 1
-//         firstPage.disabled = true
-//         prev.disabled = true
-//         next.disabled = false
-//         lastPage.disabled = false
-//         funcion()
-//     }
-
-
-// //primeraPagina(firstPage, urlPokemon())
-
-// const paginaSiguiente = (boton, funcion) => {
-// 	boton.onclick = () => {
-// 		paginaActual++;
-// 		console.log(paginaActual);
-// 		firstPage.disabled = false;
-// 		prev.disabled = false;
-// 		if (paginaActual === 1441) {
-// 			next.disabled = true;
-// 			lastPage.disabled = true;
-// 		}
-// 		funcion();
-// 	};
-// };
-
-
-
-// paginaAnterior(prev, urlPokemon())
-
-// const paginaUltima = (boton, funcion) => {
-// 	boton.onclick = () => {
-// 		paginaActual = 1441;
-// 		prev.disabled = false;
-// 		firstPage.disabled = false;
-// 		if (paginaActual === 1441) {
-// 			next.disabled = true;
-// 			lastPage.disabled = true;
-// 		}
-// 		funcion();
-// 	};
-// };
-
-//     boton.onclick = () => {
-//         paginaActual = 1441
-//         prev.disabled = false
-//         firstPage.disabled = false
-//         if (paginaActual === 1441) {
-//             next.disabled = true
-//             lastPage.disabled = true
-//         }
-//         funcion()
-//     }
-
-
-// paginaUltima(lastPage, urlPokemon())
-
 //Búsqueda 
 
 let busquedaPorInput = ""
@@ -371,6 +280,7 @@ const inputBusquedaPokemon = async () => {
     const res = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${busquedaPorInput}&pageSize=10&page=${paginaActual}`)
     const data = await res.json()
     contenedorTarjetas.innerHTML = aHTML(data)
+    ultimaPaginaBusqueda(data)
 }
 
 searchForm.onsubmit = (e) => {
@@ -378,6 +288,39 @@ searchForm.onsubmit = (e) => {
     busquedaPorInput = searchInput.value
     inputBusquedaPokemon()
 }
+
+// paginado de búsqueda
+
+botonFirstPageBusqueda.onclick = () => {
+    paginaActual = 1
+   inputBusquedaPokemon()
+}
+
+botonPrevBusqueda.onclick = () => {
+    if(paginaActual !== 1){
+            paginaActual--
+        } 
+    inputBusquedaPokemon()
+}
+
+botonNextBusqueda.onclick = () => {
+    paginaActual = paginaActual + 1
+    inputBusquedaPokemon()
+} 
+
+const ultimaPaginaBusqueda = (data) => {
+    let valorUltimaPagina = Math.ceil(data.totalCount/20)
+    botonLastPageBusqueda.onclick = () => {
+        const fetchBusquedaImagenes = async () => {
+            const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${busquedaPorInput}&pageSize=20&page=${valorUltimaPagina}`)
+            const data = await respuesta.json()
+            contenedorTarjetas.innerHTML = aHTML(data)
+        }
+        return fetchBusquedaImagenes()
+    }    
+}
+
+
 
 // Switch toggle
 
