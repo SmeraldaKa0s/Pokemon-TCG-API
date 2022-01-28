@@ -16,12 +16,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <!--Icon-->
+    <link rel="icon" href="assets/pokebolas.ico" type="image/ico">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <title>POKÉMON TCG</title>
 </head>
 
-<body class="light-mode dark-mode">
+<body class="light-mode">
+
+    <!-- Loading -->
+    <div class="loading" id="loading"></div>
+
     <nav>
         <!--Burger menu-->
             <div class="burger-menu">
@@ -38,66 +43,54 @@
                 <div class="ico-close">
                 <i class="fas fa-times close-menu"></i>
                 </div>
-                <ul class="list-aside">
-                    <li>
-                        <a href="https://smeraldaka0s.github.io/API-/index.html" title="Home">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://smeraldaka0s.github.io/API-/cartas-tablas.html" title="Cards">
-                            Cards
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://smeraldaka0s.github.io/API-/sets.html" title="Sets">
-                            Sets
-                        </a>
-                    </li>
-                </ul>
+                <div class="contenedor-links-aside">
+                    <a class="link-aside" href="https://smeraldaka0s.github.io/Pokemon-TCG-API/index.html" title="Home">
+                        Home
+                    </a>
+                    <a class="link-aside" href="https://smeraldaka0s.github.io/Pokemon-TCG-API/cartas-tablas.html" title="Cards">
+                        Cards
+                    </a>
+                    <a class="link-aside" href="https://smeraldaka0s.github.io/Pokemon-TCG-API/sets.html" title="Sets">
+                        Sets
+                    </a>
+                </div>
                 
                     <img src="assets/Vectorpokebola-menu.svg" alt="imagen pokebola">
                 
             </div>
         </aside>
         <!--Fin modal menu-->
-
-        <ul class="list-nav">
-            <li>
-                <a href="https://smeraldaka0s.github.io/API-/index.html" title="Home">
-                    Home
-                </a>
-            </li>
-            <li>
-                <a href="https://smeraldaka0s.github.io/API-/cartas-tablas.html" title="Cards">
-                    Cards
-                </a>
-            </li>
-            <li>
-                <a href="https://smeraldaka0s.github.io/API-/sets.html" title="Sets">
-                    Sets
-                </a>
-            </li>
-        </ul>
+        <div class="contenedor-links-nav">
+            <a class="link-nav" href="https://smeraldaka0s.github.io/Pokemon-TCG-API/index.html" title="Home">
+                Home
+            </a>
+            <a class="link-nav" href="https://smeraldaka0s.github.io/Pokemon-TCG-API/cartas-tablas.html" title="Cards">
+                Cards
+            </a>
+            <a class="link-nav" href="https://smeraldaka0s.github.io/Pokemon-TCG-API/sets.html" title="Sets">
+                Sets
+            </a>
+        </div>
 
         <!-- Switch Toggle -->
-        
-        <div class="right" id="toggle">
-            <div class="switch"></div>
-        </div>
 
-        <!-- Switch toggle pokeballs tablet-mobile  -->
+        <div>
+            <div class="right" id="toggle">
+                <div class="switch"></div>
+            </div>
 
-        <!-- <div class="switch-toggle">
-            <img class="pokeball-show" id="pokeball" src="./assets/Poke ball.png" alt="Pokeball">
-            <img class="ultraball-hide" id="ultraball" src="./assets/Ultra ball.png" alt="Ultraball">
-        </div>
-         -->
+            <!-- Switch toggle pokeballs tablet-mobile  -->
+    
+            <div class="switch-toggle-pokaballs">
+                <img class="pokeball-show" id="pokeball" src="./assets/Poke ball.png" alt="Pokeball">
+                <img class="ultraball-hide" id="ultraball" src="./assets/Ultra ball.png" alt="Ultraball">
+            </div>
+        </div>     
   
     </nav>
     <header id="header">
         <div class="background-header">
-            <img src="assets/Logo_Pokémon_TCGO.png">
+            <img src="assets/International_Pokémon_logo.svg" alt="">
         </div>
     </header>
     <main id="main">
@@ -114,11 +107,17 @@
                     </label>
                 </form>
             </div>
-            <span>Try 'venusaur' or simply Browse By Set</span>
+            <span>Try 'venusaur' or 'subtypes:ex' or simply <a href="https://smeraldaka0s.github.io/Pokemon-TCG-API/sets.html">Browse By Set</a></span>
         </div>
         <!--Fin Buscador-->
         </div>
         <div id="tarjetas" class="tarjetas">
+        </div>
+        <div class="contenedor-sin-resultados">
+                <span>Koffing is alone waiting for the results</span>
+                <img src="assets/koffing.png" alt="pokemon koffing">
+                <span>¡try the search again!</span>
+                
         </div>
         
         <!-- Paginado -->
@@ -186,7 +185,7 @@
             </div>
         </div>
     </footer>
+
     <script src="main.js"></script>
 </body>
-
 </html>

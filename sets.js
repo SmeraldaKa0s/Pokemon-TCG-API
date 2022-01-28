@@ -5,9 +5,16 @@ const nextSets = document.getElementById("next-sets");
 const lastPageSets = document.getElementById("last-page-sets");
 const botonCerrarSets = document.getElementById("boton-cerrar-sets");
 const sectionModalSets = document.querySelector(".section-modal-sets");
-const contenedorModalInfoSets = document.querySelector(
-	".contenedor-modal-info-sets"
-);
+const contenedorModalInfoSets = document.querySelector(".contenedor-modal-info-sets");
+
+// Switch toggle 
+const switchToggle = document.querySelector(".switch-toggle-pokaballs");
+const pokeball = document.getElementById("pokeball");
+const ultraball = document.getElementById("ultraball");
+
+//Mode dark menu desktop 
+const desktopPokeball = document.getElementById("toggle"); 
+
 //Menu desplegable
 const burgerMenu = document.querySelector(".burger-menu");
 const modalBg = document.querySelector(".modal-bg");
@@ -153,4 +160,28 @@ lastPageSets.onclick = () => {
 	}
 
 	setsPokemon();
+};
+
+//Desktop switch toggle
+
+desktopPokeball.onclick = () => {
+	document.body.classList.toggle("dark-mode")
+	
+	const isDark = document.body.className === "light-mode dark-mode"
+	
+	desktopPokeball.classList.toggle("active", isDark)
+	pokeball.classList.toggle("pokeball-hide", isDark)
+	ultraball.classList.toggle("ultraball-hide", !isDark)
+}
+
+
+//Dark mode
+
+switchToggle.onclick = () => {
+	document.body.classList.toggle("dark-mode")
+	const isDark = document.body.className === "light-mode dark-mode"
+
+	desktopPokeball.classList.toggle("active", isDark)
+	pokeball.classList.toggle("pokeball-hide", isDark)
+	ultraball.classList.toggle("ultraball-hide", !isDark)
 };

@@ -14,7 +14,7 @@
   
   .tablas{
     width: 100%;
-    margin-top: 30px;
+    margin-top: 40px;
     
     #tabla-resultados {
       width: 80%;
@@ -48,7 +48,7 @@
       }
 
       thead tr{
-        background-color: rgb(173, 24, 24);
+        background-color: $color-tablas-1;
         color: white;
       }      
     }        
@@ -64,7 +64,7 @@
       margin: 30px 15px;
       border: transparent;
       color: white;
-      background-color: #AD1818;
+      background-color: $color-tablas-1;
       width: 80px;
       height: 30px;
       border-radius: 5px;

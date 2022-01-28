@@ -1,6 +1,7 @@
+const contenedorTarjetas = document.querySelector("#tarjetas")
+const contenedorSinResultados = document.querySelector(".contenedor-sin-resultados")
 const header = document.getElementById("header");
 const main = document.getElementById("main");
-const contenedorTarjetas = document.querySelector("#tarjetas");
 
 // Paginado
 const firstPage = document.getElementById("first-page");
@@ -29,10 +30,16 @@ const modalCartaIndividual = document.getElementById("modal-carta-individual");
 const botonIrAtrasModal = document.querySelector(".boton-modal-ir-atras");
 const botonCerrarModalCarta = document.querySelector(".boton-cerrar-modal-carta");
 
-// Switch toggle
-const switchToggle = document.getElementById("switch-toggle");
+// Switch toggle 
+const switchToggle = document.querySelector(".switch-toggle-pokaballs");
 const pokeball = document.getElementById("pokeball");
 const ultraball = document.getElementById("ultraball");
+
+//Mode dark menu desktop 
+const desktopPokeball = document.getElementById("toggle"); 
+
+// Loading
+const loading = document.getElementById("loading");
 
 //Funcionalidad Menu desplegable 
 burgerMenu.addEventListener('click', () => {
@@ -84,7 +91,7 @@ const attacks = (data) => data.data.attacks.reduce((acc, attack) => {
 const energy = (attack) => {
     let acc = ""
     for(let i = 0; i < attack.cost.length; i++){
-        acc += `<img class="img-energy" src="/assets/${attack.cost[i].toLowerCase()}.png">`
+        acc += `<img class="img-energy" src="https://raw.githubusercontent.com/SmeraldaKa0s/Pokemon-TCG-API/master/assets/${attack.cost[i].toLowerCase()}.png">`
     }
     return acc
 }
@@ -104,7 +111,7 @@ const habilidades = (data) => {
 const debilidad = (data) => data.data.weaknesses.reduce((acc, debilidad) => {
     return acc + `
     <div class="container-habilidades">
-        <img src="/assets/${debilidad.type.toLowerCase()}.png">
+        <img src="https://raw.githubusercontent.com/SmeraldaKa0s/Pokemon-TCG-API/master/assets/${debilidad.type.toLowerCase()}.png">
         <p class="resistencia-text">${debilidad.value}</p>
     </div>
     `
@@ -113,7 +120,7 @@ const debilidad = (data) => data.data.weaknesses.reduce((acc, debilidad) => {
 const resistencia = (data) => data.data.resistances.reduce((acc, resistencia) => {
     return acc + `
     <div class="container-habilidades">
-        <img src="/assets/${resistencia.type.toLowerCase()}.png">
+        <img src="https://raw.githubusercontent.com/SmeraldaKa0s/Pokemon-TCG-API/master/assets/${resistencia.type.toLowerCase()}.png">
         <p class="resistencia-text">${resistencia.value}</p>
     </div>
     `
@@ -121,7 +128,7 @@ const resistencia = (data) => data.data.resistances.reduce((acc, resistencia) =>
 
 const costoRetirada = (data) => data.data.retreatCost.reduce((acc, retirada) => {
     return acc + `
-       <img src="/assets/${retirada.toLowerCase()}.png">
+       <img src="https://raw.githubusercontent.com/SmeraldaKa0s/Pokemon-TCG-API/master/assets/${retirada.toLowerCase()}.png">
     `
 }, "")
 
@@ -229,23 +236,47 @@ const mostrarCartaIndividual = (data) => {
     `
 }
 
+// Loading
+
+const showLoading = () => {
+    loading.style.display= "flex"
+}
+
+const hideLoading = () => {
+    loading.style.display= "none"
+}
+
 const urlPokemon = async () => {
+    showLoading()
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=1`)
     const data = await respuesta.json()
     contenedorTarjetas.innerHTML = aHTML(data)    
-    const cartasIndividuales = document.querySelectorAll(".item")
-    cartaIndividualClickleable(cartasIndividuales)   
+    cartaIndividualClickleable()  
+    hideLoading() 
 }
 
 urlPokemon()
 
+const urlPokemonPaginado = async () => {
+    showLoading()
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=${paginaActual}`)
+    const data = await respuesta.json()
+    contenedorTarjetas.innerHTML = aHTML(data)    
+    cartaIndividualClickleable()  
+    inputBusquedaPokemon()
+    hideLoading() 
+}
+
+urlPokemonPaginado()
+
 //Carta individual
 
-const cartaIndividualClickleable = (variable) => {
+const cartaIndividualClickleable = () => {
+    const cartasIndividuales = document.querySelectorAll(".item")
 
-    for(let i = 0; i < variable.length; i++){
-        variable[i].onclick = () => {
-            const idNumerico = variable[i].id
+    for(let i = 0; i < cartasIndividuales.length; i++){
+        cartasIndividuales[i].onclick = () => {
+            const idNumerico = cartasIndividuales[i].id
             infoCartaIndividual(idNumerico)        
         }
     }
@@ -258,7 +289,7 @@ const infoCartaIndividual = async (id) => {
     const botonModalIrAtras = document.getElementById("boton-modal-ir-atras")
     const botonModalCerrarCarta = document.getElementById("boton-cerrar-modal-carta")
     cerrarModal(botonModalCerrarCarta)
-    cerrarModal(botonModalIrAtras)
+    cerrarModal(botonModalIrAtras) 
 }
 
 // Boton modal carta
@@ -271,16 +302,71 @@ const cerrarModal = (boton) => {
     }
 }
 
+// PAGINADO
+
+firstPage.onclick = () => {
+    paginaActual = 1
+    firstPage.disabled = true
+    prev.disabled = true
+    next.disabled = false
+    lastPage.disabled = false
+    urlPokemonPaginado()
+}
+
+next.onclick = () => {
+    paginaActual++ 
+    firstPage.disabled = false
+    prev.disabled = false
+     if (paginaActual === 1441) {
+      next.disabled = true
+      lastPage.disabled = true
+    } 
+    urlPokemonPaginado()
+}
+
+prev.onclick = () => {
+    paginaActual--
+    next.disabled = false
+    lastPage.disabled = false
+    if (paginaActual === 1) {
+        prev.disabled = true
+        firstPage.disabled = true
+    }
+    urlPokemonPaginado()
+}
+
+lastPage.onclick = () => {
+    paginaActual = 721
+    prev.disabled = false
+    firstPage.disabled = false
+    if (paginaActual === 721) {
+        next.disabled = true
+        lastPage.disabled = true
+    }
+    urlPokemonPaginado()
+}
 
 //Búsqueda 
 
 let busquedaPorInput = ""
 
 const inputBusquedaPokemon = async () => {
-    const res = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${busquedaPorInput}&pageSize=10&page=${paginaActual}`)
+    showLoading() 
+    const tieneParametro = busquedaPorInput.includes(':')
+    if (!tieneParametro) busquedaPorInput = 'name:' + busquedaPorInput
+    const res = await fetch(`https://api.pokemontcg.io/v2/cards?q=${busquedaPorInput}&pageSize=20&page=${paginaActual}`)
     const data = await res.json()
     contenedorTarjetas.innerHTML = aHTML(data)
-    ultimaPaginaBusqueda(data)
+    if(!data.data.length){ 
+        contenedorTarjetas.style.display= "none"
+        contenedorSinResultados.style.display= "flex"
+    }
+    else{ 
+        contenedorTarjetas.style.display= "flex"
+        contenedorSinResultados.style.display= "none"
+    }
+    cartaIndividualClickleable()  
+    hideLoading()  
 }
 
 searchForm.onsubmit = (e) => {
@@ -320,25 +406,26 @@ const ultimaPaginaBusqueda = (data) => {
     }    
 }
 
-
-
 // Switch toggle
+//Desktop switch toggle
 
-toggle.onclick = () => {
-    toggle.classList.toggle("active")
+desktopPokeball.onclick = () => {
+    document.body.classList.toggle("dark-mode")
+    
+    const isDark = document.body.className === "light-mode dark-mode"
+    
+    desktopPokeball.classList.toggle("active", isDark)
+    pokeball.classList.toggle("pokeball-hide", isDark)
+    ultraball.classList.toggle("ultraball-hide", !isDark)
 }
 
-            // Switch toggle pokeballs tablet-mobile 
+//Dark mode
 
-/* pokeball.onclick = () => {
-    pokeball.classList.add("pokeball-hide")
-    ultraball.classList.remove("ultraball-hide")
+switchToggle.onclick = () => {
+	document.body.classList.toggle("dark-mode")
+	const isDark = document.body.className === "light-mode dark-mode"
 
+	desktopPokeball.classList.toggle("active", isDark)
+	pokeball.classList.toggle("pokeball-hide", isDark)
+	ultraball.classList.toggle("ultraball-hide", !isDark)
 }
-
-ultraball.onclick = () => {
-    pokeball.classList.remove("pokeball-hide")
-    ultraball.classList.add("ultraball-hide")
-} 
-
- */
