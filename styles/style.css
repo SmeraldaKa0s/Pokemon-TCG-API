@@ -265,29 +265,35 @@ header .background-header img {
   padding: 10px;
   font-family: "VT323", monospace;
 }
-.light-mode .container-form .formularios .selector-ver-como {
-  display: flex;
-  align-items: center;
-  font-size: 25px;
-}
-.light-mode .container-form .formularios .selector-ver-como select {
-  font-size: 20px;
-  margin-left: 5px;
-  font-family: "VT323", monospace;
-  padding: 10px;
-  border: transparent;
-}
 .light-mode .container-form .formularios .sort-formulario {
   display: flex;
   align-items: center;
-  font-size: 25px;
+  font-size: 18px;
 }
 .light-mode .container-form .formularios .sort-formulario select {
   font-family: "VT323", monospace;
   border: transparent;
-  margin-right: 5px;
-  padding: 10px;
+  padding: 10px 0px;
   font-size: 20px;
+}
+@media screen and (max-width: 500px) {
+  .light-mode #input-busqueda-carta-individual {
+    width: 150px;
+    font-size: 15px;
+  }
+  .light-mode select {
+    width: 95px;
+    background-color: white;
+  }
+}
+@media screen and (max-width: 310px) {
+  .light-mode #input-busqueda-carta-individual {
+    margin-left: 0;
+    padding: 10px 5px;
+  }
+  .light-mode .contenedor-img-icon {
+    display: none;
+  }
 }
 
 .light-mode #contenedor-busqueda {
@@ -339,7 +345,7 @@ header .background-header img {
   margin: 20px;
   display: none;
 }
-.light-mode .paginado-listas-cartas button {
+.light-mode .paginado-listas-cartas .paginado-button {
   margin: 30px 15px;
   border: transparent;
   color: white;
@@ -350,7 +356,7 @@ header .background-header img {
   font-size: 20px;
   font-family: "VT323", monospace;
 }
-.light-mode .paginado-listas-cartas button .fa-step-backward, .light-mode .paginado-listas-cartas button .fa-step-forward {
+.light-mode .paginado-listas-cartas .paginado-button .fa-step-backward, .light-mode .paginado-listas-cartas .paginado-button .fa-step-forward {
   font-size: 15px;
 }
 .light-mode .paginado-listas-cartas button:hover {
@@ -389,15 +395,22 @@ header .background-header img {
   }
 
   .frase-de-busqueda {
-    font-size: 30px;
+    font-size: 25px;
   }
 
   .contenedor-img {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
   }
   .contenedor-img img {
     width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .light-mode .paginado-listas-cartas .paginado-button {
+    margin: 5px;
+    width: 50px;
+    font-size: 15px;
   }
 }
 .contenedor-footer {
@@ -458,6 +471,39 @@ header .background-header img {
   object-fit: cover;
   max-width: 100%;
   min-height: 80px;
+}
+@media screen and (max-width: 1000px) {
+  .contenedor-footer .contenedor-copyright-footer {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 500px) {
+  .contenedor-footer .contenedor-footer {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  .contenedor-footer .column-footer {
+    width: 50%;
+    padding: 30px 0px;
+  }
+  .contenedor-footer .titulo-contacto-footer {
+    font-size: 15px;
+    margin-left: 10px;
+  }
+  .contenedor-footer p {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  .contenedor-footer .lista-footer {
+    font-size: 15px;
+  }
+  .contenedor-footer .contenedor-copyright-footer {
+    text-align: center;
+  }
+  .contenedor-footer .posicion-parrafo-footer {
+    font-size: 10px;
+  }
 }
 
 /* Paginado */
