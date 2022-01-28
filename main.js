@@ -406,17 +406,6 @@ desktopPokeball.onclick = () => {
     ultraball.classList.toggle("ultraball-hide", !isDark)
 }
 
-// Switch toggle pokeballs tablet-mobile 
-/* 
-pokeball.onclick = () => {
-    pokeball.classList.add("pokeball-hide")
-    ultraball.classList.remove("ultraball-hide")
-}
-
-ultraball.onclick = () => {
-    pokeball.classList.remove("pokeball-hide")
-    ultraball.classList.add("ultraball-hide")
-}  */
 
 //Dark mode
 

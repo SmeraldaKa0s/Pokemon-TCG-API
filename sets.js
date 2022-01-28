@@ -165,24 +165,23 @@ lastPageSets.onclick = () => {
 //Desktop switch toggle
 
 desktopPokeball.onclick = () => {
-	desktopPokeball.classList.toggle("active")
 	document.body.classList.toggle("dark-mode")
+	
+	const isDark = document.body.className === "light-mode dark-mode"
+	
+	desktopPokeball.classList.toggle("active", isDark)
+	pokeball.classList.toggle("pokeball-hide", isDark)
+	ultraball.classList.toggle("ultraball-hide", !isDark)
 }
 
-// Switch toggle pokeballs tablet-mobile 
-
-pokeball.onclick = () => {
-	pokeball.classList.add("pokeball-hide")
-	ultraball.classList.remove("ultraball-hide")
-}
-
-ultraball.onclick = () => {
-	pokeball.classList.remove("pokeball-hide")
-	ultraball.classList.add("ultraball-hide")
-} 
 
 //Dark mode
 
 switchToggle.onclick = () => {
-document.body.classList.toggle("dark-mode")
+	document.body.classList.toggle("dark-mode")
+	const isDark = document.body.className === "light-mode dark-mode"
+
+	desktopPokeball.classList.toggle("active", isDark)
+	pokeball.classList.toggle("pokeball-hide", isDark)
+	ultraball.classList.toggle("ultraball-hide", !isDark)
 };
