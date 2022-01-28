@@ -7,6 +7,10 @@
   flex-direction: column;
 }
 
+.disabled {
+  display: none !important;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -114,7 +118,7 @@ header .background-header img {
 
 @media screen and (max-width: 700px) {
   header .background-header img {
-    width: 70%;
+    width: 80%;
   }
 }
 .light-mode .titulo {
@@ -136,6 +140,7 @@ header .background-header img {
   margin-top: 100px;
   padding: 30px 0px;
   flex-direction: column;
+  text-align: center;
 }
 .light-mode .buscador span {
   margin-top: 7px;
@@ -186,6 +191,9 @@ header .background-header img {
   .light-mode .titulo {
     font-size: 14px;
   }
+  .light-mode .buscador {
+    margin-top: 30px;
+  }
   .light-mode .buscador span {
     font-size: 12px;
   }
@@ -194,6 +202,9 @@ header .background-header img {
   }
 }
 @media screen and (max-width: 460px) {
+  .light-mode .buscador {
+    margin-top: 20px;
+  }
   .light-mode .buscador form label input {
     width: 270px;
   }
