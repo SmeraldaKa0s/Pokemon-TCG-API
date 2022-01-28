@@ -43,17 +43,15 @@
 				}
 			}
 			.modal-logo-texto-sets {
-				@include flex-centrar(
-					$direccion: row,
-					$content: center,
-					$items: center
-				);
+				@include flex-centrar($direccion: row, $items: center);
+				padding: 15px;
 
-				.modal-texto-sets {
-					margin: $margin;
-					font-family: $tipografia-secundaria;
-				}
 				.modal-logo-sets {
+					@include flex-centrar(
+						$direccion: row,
+						$content: center,
+						$items: center
+					);
 					height: 50px;
 					width: 50px;
 					overflow: hidden;
@@ -61,6 +59,11 @@
 					img {
 						width: 100%;
 					}
+				}
+				.modal-texto-sets {
+					margin-left: 20px;
+
+					font-family: $tipografia-secundaria;
 				}
 			}
 		}
