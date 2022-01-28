@@ -3,7 +3,6 @@ const contenedorSinResultados = document.querySelector(".contenedor-sin-resultad
 const header = document.getElementById("header");
 const main = document.getElementById("main");
 
-
 // Paginado
 const firstPage = document.getElementById("first-page");
 const prev = document.getElementById("prev");
@@ -236,6 +235,17 @@ const urlPokemon = async () => {
 
 urlPokemon()
 
+
+const urlPokemonPaginado = async () => {
+    const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?pageSize=20&page=${paginaActual}`)
+    const data = await respuesta.json()
+    contenedorTarjetas.innerHTML = aHTML(data)    
+    cartaIndividualClickleable()  
+    inputBusquedaPokemon()
+}
+
+urlPokemonPaginado()
+
 //Carta individual
 
 const cartaIndividualClickleable = () => {
@@ -269,103 +279,49 @@ const cerrarModal = (boton) => {
     }
 }
 
-
 // PAGINADO
 
-/* const ultimaPaginaBusqueda = (data) => {
-    let valorUltimaPagina = Math.ceil(data.totalCount/20)
-    botonUltimaPaginaTablasCard.onclick = () => {
-        const fetchBusquedaTablasEImagenes = async () => {
-            const respuesta = await fetch(``)
-            const data = await respuesta.json()
-            tablaInfoPokemon.innerHTML = tablasHTML(data)
-        }
-        return fetchBusquedaTablasEImagenes()
-    }   
+firstPage.onclick = () => {
+    paginaActual = 1
+    firstPage.disabled = true
+    prev.disabled = true
+    next.disabled = false
+    lastPage.disabled = false
+    urlPokemonPaginado()
 }
 
-botonPrimeraPaginaTablasCard.onclick = () => {
-    paginadoActual = 1
-    botonPrimeraPaginaTablasCard.disabled = true
-    botonAnteriorTablasCard.disabled = true
-    fetchBusquedaTablasEImagenes()
+next.onclick = () => {
+    paginaActual++ 
+    firstPage.disabled = false
+    prev.disabled = false
+     if (paginaActual === 1441) {
+      next.disabled = true
+      lastPage.disabled = true
+    } 
+    urlPokemonPaginado()
 }
 
-botonSiguienteTablasCard.onclick = () => {
-    paginadoActual++
-    fetchBusquedaTablasEImagenes()
+prev.onclick = () => {
+    paginaActual--
+    next.disabled = false
+    lastPage.disabled = false
+    if (paginaActual === 1) {
+        prev.disabled = true
+        firstPage.disabled = true
+    }
+    urlPokemonPaginado()
 }
 
-botonAnteriorTablasCard.onclick = () => paginadoActual !== 1 && (paginadoActual -- && fetchBusquedaTablasEImagenes()) */
-
-
-// const primeraPagina = (boton, funcion) => {
-// 	boton.onclick = () => {
-// 		paginaActual = 1;
-// 		firstPage.disabled = true;
-// 		prev.disabled = true;
-// 		next.disabled = false;
-// 		lastPage.disabled = false;
-// 		funcion();
-// 	};
-// };
-
-//     boton.onclick = () => {
-//         paginaActual = 1
-//         firstPage.disabled = true
-//         prev.disabled = true
-//         next.disabled = false
-//         lastPage.disabled = false
-//         funcion()
-//     }
-
-
-// //primeraPagina(firstPage, urlPokemon())
-
-// const paginaSiguiente = (boton, funcion) => {
-// 	boton.onclick = () => {
-// 		paginaActual++;
-// 		console.log(paginaActual);
-// 		firstPage.disabled = false;
-// 		prev.disabled = false;
-// 		if (paginaActual === 1441) {
-// 			next.disabled = true;
-// 			lastPage.disabled = true;
-// 		}
-// 		funcion();
-// 	};
-// };
-
-
-
-// paginaAnterior(prev, urlPokemon())
-
-// const paginaUltima = (boton, funcion) => {
-// 	boton.onclick = () => {
-// 		paginaActual = 1441;
-// 		prev.disabled = false;
-// 		firstPage.disabled = false;
-// 		if (paginaActual === 1441) {
-// 			next.disabled = true;
-// 			lastPage.disabled = true;
-// 		}
-// 		funcion();
-// 	};
-// };
-
-//     boton.onclick = () => {
-//         paginaActual = 1441
-//         prev.disabled = false
-//         firstPage.disabled = false
-//         if (paginaActual === 1441) {
-//             next.disabled = true
-//             lastPage.disabled = true
-//         }
-//         funcion()
-//     }
-
-
-// paginaUltima(lastPage, urlPokemon())
+lastPage.onclick = () => {
+    paginaActual = 721
+    prev.disabled = false
+    firstPage.disabled = false
+    if (paginaActual === 721) {
+        next.disabled = true
+        lastPage.disabled = true
+    }
+    urlPokemonPaginado()
+}
 
 //Búsqueda 
 
@@ -410,11 +366,12 @@ desktopPokeball.onclick = () => {
 //Dark mode
 
 switchToggle.onclick = () => {
-    document.body.classList.toggle("dark-mode")
-    const isDark = document.body.className === "light-mode dark-mode"
+	document.body.classList.toggle("dark-mode")
+	const isDark = document.body.className === "light-mode dark-mode"
 
-    desktopPokeball.classList.toggle("active", isDark)
-    pokeball.classList.toggle("pokeball-hide", isDark)
-    ultraball.classList.toggle("ultraball-hide", !isDark)
+	desktopPokeball.classList.toggle("active", isDark)
+	pokeball.classList.toggle("pokeball-hide", isDark)
+	ultraball.classList.toggle("ultraball-hide", !isDark)
 };
+
 
