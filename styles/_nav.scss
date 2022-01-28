@@ -2,7 +2,8 @@
   nav {
     width: 100%;
     display: flex;
-    justify-content: center;
+    padding: 32px;
+    justify-content: flex-start;
     align-items: center;
     height: 80px;
     background: $color-modo-claro; 
@@ -13,11 +14,11 @@
     z-index: 10;
 
     .list-nav {
-      width: 50%;
+      width: 73%;
       display: flex;
-      justify-content: space-evenly;
+      justify-content: flex-start;
 
-      li {
+      .link-nav {
         font-family: $tipografia-secundaria;
         text-shadow: 2px 2px 2px #2e70b6a9;
         font-size: 30px;
@@ -26,7 +27,7 @@
         min-width: 100px;
       }
 
-      li:hover {
+      .link-nav:hover {
         text-shadow: 2px 2px 2px #d2f9f0;
         letter-spacing: 4px;
         transform: scale(1.1) translateY(3px);
@@ -35,7 +36,9 @@
   }
 }
 
-
+.burger-menu {
+  display: none;
+}
 
 @media screen and (max-width: 700px) {
   .light-mode {
@@ -43,7 +46,7 @@
       @include flex-centrar($content: start);
 
       .list-nav {
-        li {
+        .link-nav {
           display: none;
         }
       }

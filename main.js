@@ -82,7 +82,7 @@ const attacks = (data) => data.data.attacks.reduce((acc, attack) => {
 const energy = (attack) => {
     let acc = ""
     for(let i = 0; i < attack.cost.length; i++){
-        acc += `<img class="img-energy" src="https://raw.githubusercontent.com/SmeraldaKa0s/API-/master/assets/${attack.cost[i].toLowerCase()}.png">`
+        acc += `<img class="img-energy" src="https://raw.githubusercontent.com/SmeraldaKa0s/Pokemon-TCG-API/master/assets/${attack.cost[i].toLowerCase()}.png">`
     }
     return acc
 }
@@ -102,7 +102,7 @@ const habilidades = (data) => {
 const debilidad = (data) => data.data.weaknesses.reduce((acc, debilidad) => {
     return acc + `
     <div class="container-habilidades">
-        <img src="https://raw.githubusercontent.com/SmeraldaKa0s/API-/master/assets/${debilidad.type.toLowerCase()}.png">
+        <img src="https://raw.githubusercontent.com/SmeraldaKa0s/Pokemon-TCG-API/master/assets/${debilidad.type.toLowerCase()}.png">
         <p class="resistencia-text">${debilidad.value}</p>
     </div>
     `
@@ -111,7 +111,7 @@ const debilidad = (data) => data.data.weaknesses.reduce((acc, debilidad) => {
 const resistencia = (data) => data.data.resistances.reduce((acc, resistencia) => {
     return acc + `
     <div class="container-habilidades">
-        <img src="https://raw.githubusercontent.com/SmeraldaKa0s/API-/master/assets/${resistencia.type.toLowerCase()}.png">
+        <img src="https://raw.githubusercontent.com/SmeraldaKa0s/Pokemon-TCG-API/master/assets/${resistencia.type.toLowerCase()}.png">
         <p class="resistencia-text">${resistencia.value}</p>
     </div>
     `
@@ -119,7 +119,7 @@ const resistencia = (data) => data.data.resistances.reduce((acc, resistencia) =>
 
 const costoRetirada = (data) => data.data.retreatCost.reduce((acc, retirada) => {
     return acc + `
-       <img src="https://raw.githubusercontent.com/SmeraldaKa0s/API-/master/assets/${retirada.toLowerCase()}.png">
+       <img src="https://raw.githubusercontent.com/SmeraldaKa0s/Pokemon-TCG-API/master/assets/${retirada.toLowerCase()}.png">
     `
 }, "")
 
@@ -397,12 +397,17 @@ searchForm.onsubmit = (e) => {
 //Desktop switch toggle
 
 desktopPokeball.onclick = () => {
-    desktopPokeball.classList.toggle("active")
     document.body.classList.toggle("dark-mode")
+    
+    const isDark = document.body.className === "light-mode dark-mode"
+    
+    desktopPokeball.classList.toggle("active", isDark)
+    pokeball.classList.toggle("pokeball-hide", isDark)
+    ultraball.classList.toggle("ultraball-hide", !isDark)
 }
 
 // Switch toggle pokeballs tablet-mobile 
-
+/* 
 pokeball.onclick = () => {
     pokeball.classList.add("pokeball-hide")
     ultraball.classList.remove("ultraball-hide")
@@ -411,11 +416,16 @@ pokeball.onclick = () => {
 ultraball.onclick = () => {
     pokeball.classList.remove("pokeball-hide")
     ultraball.classList.add("ultraball-hide")
-} 
+}  */
 
 //Dark mode
 
 switchToggle.onclick = () => {
-  document.body.classList.toggle("dark-mode")
+    document.body.classList.toggle("dark-mode")
+    const isDark = document.body.className === "light-mode dark-mode"
+
+    desktopPokeball.classList.toggle("active", isDark)
+    pokeball.classList.toggle("pokeball-hide", isDark)
+    ultraball.classList.toggle("ultraball-hide", !isDark)
 };
 

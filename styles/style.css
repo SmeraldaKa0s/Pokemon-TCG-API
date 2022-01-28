@@ -1,4 +1,4 @@
-body {
+.light-mode {
   margin: 0;
   background: url("https://raw.githubusercontent.com/SmeraldaKa0s/API-/master/assets/body_bg.png");
   background-size: cover;
@@ -34,7 +34,8 @@ a {
 .light-mode nav {
   width: 100%;
   display: flex;
-  justify-content: center;
+  padding: 32px;
+  justify-content: flex-start;
   align-items: center;
   height: 80px;
   background: linear-gradient(180deg, #d2f9f0 28.04%, #5cd3ff 100%);
@@ -45,11 +46,11 @@ a {
   z-index: 10;
 }
 .light-mode nav .list-nav {
-  width: 50%;
+  width: 73%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 }
-.light-mode nav .list-nav li {
+.light-mode nav .list-nav .link-nav {
   font-family: "VT323", monospace;
   text-shadow: 2px 2px 2px #2e70b6a9;
   font-size: 30px;
@@ -57,10 +58,14 @@ a {
   transition: 500ms;
   min-width: 100px;
 }
-.light-mode nav .list-nav li:hover {
+.light-mode nav .list-nav .link-nav:hover {
   text-shadow: 2px 2px 2px #d2f9f0;
   letter-spacing: 4px;
   transform: scale(1.1) translateY(3px);
+}
+
+.burger-menu {
+  display: none;
 }
 
 @media screen and (max-width: 700px) {
@@ -70,7 +75,7 @@ a {
     justify-content: start;
     align-items: center;
   }
-  .light-mode nav .list-nav li {
+  .light-mode nav .list-nav .link-nav {
     display: none;
   }
 
@@ -104,7 +109,7 @@ header .background-header {
   margin-top: 20px;
 }
 header .background-header img {
-  width: 30%;
+  width: 60%;
 }
 
 @media screen and (max-width: 700px) {
@@ -1116,7 +1121,8 @@ header .background-header img {
 @media screen and (max-width: 1650px) {
   .light-mode nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 32px;
   }
 
   #toggle {
@@ -1140,8 +1146,13 @@ header .background-header img {
     display: flex;
   }
 }
+.dark-mode {
+  background-color: #af00005e;
+  background-blend-mode: hue;
+}
 .dark-mode nav {
-  background: linear-gradient(180deg, #4f11c1 13.04%, #8e9395 100%);
+  background: linear-gradient(180deg, #4f11c1 13.04%, #9d9de8 100%);
+  box-shadow: none;
 }
 .dark-mode nav .list-nav {
   color: white;
@@ -1177,9 +1188,6 @@ header .background-header img {
 }
 .dark-mode .tablas table tbody:nth-child(even):hover {
   background-color: #293236;
-}
-.dark-mode .contenedor-footer {
-  background-color: #220d2c;
 }
 
 .modal-tablas {
