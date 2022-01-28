@@ -254,7 +254,7 @@ header .background-header img {
   width: 280px;
   margin: 10px;
   border: solid 1px;
-  border-radius: 15px;
+  border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: white;
   font-size: 20px;
@@ -606,12 +606,13 @@ header .background-header img {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-}
-.section-modal-sets .contenedor-modal-info-sets .contenedor .modal-logo-texto-sets .modal-texto-sets {
-  margin: 10px;
-  font-family: "VT323", monospace;
+  padding: 15px;
 }
 .section-modal-sets .contenedor-modal-info-sets .contenedor .modal-logo-texto-sets .modal-logo-sets {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   height: 50px;
   width: 50px;
   overflow: hidden;
@@ -619,6 +620,10 @@ header .background-header img {
 }
 .section-modal-sets .contenedor-modal-info-sets .contenedor .modal-logo-texto-sets .modal-logo-sets img {
   width: 100%;
+}
+.section-modal-sets .contenedor-modal-info-sets .contenedor .modal-logo-texto-sets .modal-texto-sets {
+  margin-left: 25px;
+  font-family: "VT323", monospace;
 }
 
 @media screen and (max-width: 600px) {

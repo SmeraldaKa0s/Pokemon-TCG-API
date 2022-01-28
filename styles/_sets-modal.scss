@@ -43,17 +43,15 @@
 				}
 			}
 			.modal-logo-texto-sets {
-				@include flex-centrar(
-					$direccion: row,
-					$content: center,
-					$items: center
-				);
+				@include flex-centrar($direccion: row, $items: center);
+				padding: 15px;
 
-				.modal-texto-sets {
-					margin: $margin;
-					font-family: $tipografia-secundaria;
-				}
 				.modal-logo-sets {
+					@include flex-centrar(
+						$direccion: row,
+						$content: center,
+						$items: center
+					);
 					height: 50px;
 					width: 50px;
 					overflow: hidden;
@@ -61,6 +59,10 @@
 					img {
 						width: 100%;
 					}
+				}
+				.modal-texto-sets {
+					margin-left: 25px;
+					font-family: $tipografia-secundaria;
 				}
 			}
 		}
@@ -73,6 +75,6 @@
 		width: 300px;
 	}
 	.modal-logo-texto-sets {
-		@include flex-centrar($direccion: column, $content: center, $items: center);
+		@include flex-centrar($direccion: column);
 	}
 }
