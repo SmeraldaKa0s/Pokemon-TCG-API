@@ -61,8 +61,7 @@
 					}
 				}
 				.modal-texto-sets {
-					margin-left: 20px;
-
+					margin-left: 25px;
 					font-family: $tipografia-secundaria;
 				}
 			}
@@ -76,6 +75,6 @@
 		width: 300px;
 	}
 	.modal-logo-texto-sets {
-		@include flex-centrar($direccion: column, $content: center, $items: center);
+		@include flex-centrar($direccion: column);
 	}
 }
