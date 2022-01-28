@@ -16,14 +16,12 @@
       }
     }
   }
-
- .container-form {
-   background-color: #5b5a65e3;
-   color:white;
- }
-
-.burger-menu{
-  .ico-menu{
+   .container-form {
+     background-color: #5b5a65e3;
+     color:white;
+  }
+  .burger-menu{
+    .ico-menu{
     .bar{
       background-color: $color-modo-oscuro-menu;
     }
@@ -57,11 +55,39 @@
 }
 
 .tablas{
-  table{
-    tbody:nth-child(even):hover{
-      background-color: #293236;
+  #tabla-resultados{
+    
+    tbody:nth-child(odd){
+      background-color: rgb(209, 204, 255);
     }
-  }
+
+    tbody:nth-child(odd):hover{
+      background-color: rgb(0, 161, 140);
+      color: white;
+    }
+
+    tbody:nth-child(even){
+      background-color: rgb(194, 255, 250);
+    }
+
+    tbody:nth-child(even):hover{
+      background-color: rgb(123, 37, 150);
+      color: white;
+    }
+
+    thead tr{
+      background-color: rgb(72, 21, 121);
+      color: white;
+    } 
+  } 
+}
+
+.paginado-listas-cartas .paginado-button{
+  background-color: rgb(123, 37, 150);
+}
+
+.paginado-listas-cartas .paginado-button:hover{
+  background-color: rgb(72, 21, 121);
 }
 
 .buscador{
@@ -76,6 +102,5 @@
     }
   }
 }
-
 
 }
