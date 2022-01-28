@@ -1,14 +1,17 @@
 .dark-mode {
+  background-color: #af00005e;
+  background-blend-mode: hue;
   nav {
     background: $color-modo-oscuro;
+    box-shadow: none;
 
-    .list-nav {
+    .contenedor-links-nav {
       color: white;
-      li{
+      .link-nav{
         text-shadow: 2px 2px 2px #6a0b92f7;
       }
 
-      li:hover {
+      .link-nav:hover {
         text-shadow: 2px 2px 2px #a58910; 
       }
     }
@@ -60,12 +63,19 @@
     }
   }
 }
-.contenedor-footer{
-  background-color: #220d2c;
+
+.buscador{
+  .titulo{
+   text-shadow: 2px 2px 2px #d2f9f0;
+  }
+  span{
+    color: $color-negro;
+
+    a{
+      color: $color-negro;
+    }
+  }
 }
-
-
-
 
 
 }

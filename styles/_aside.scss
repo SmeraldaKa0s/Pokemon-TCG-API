@@ -29,11 +29,9 @@
   }
 
 
-  .list-aside {
-
-    li {
+  .contenedor-links-aside {
       @include flex-centrar($direccion:column, $content: center, $items: none);
-      a {
+      .link-aside {
         padding: 24px 36px;
         font-size: 30px;
         font-family: $tipografia-secundaria;
@@ -42,10 +40,10 @@
         border-width: 1px 0 1px 0px;
         transition: 1s; 
       }
-    }
+    
   }
 
-  a:hover {
+  .link-aside:hover {
     background: linear-gradient(90deg, #ffffff 0%, #63f1d0 100%);
   }
   
