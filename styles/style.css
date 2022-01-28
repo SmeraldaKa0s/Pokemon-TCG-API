@@ -293,7 +293,7 @@ header .background-header img {
   width: 50%;
   height: 70px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 .light-mode .container-form .formularios .buscador-lista-cartas {
   display: flex;
@@ -307,52 +307,60 @@ header .background-header img {
   width: 100%;
 }
 .light-mode .container-form .formularios .buscador-lista-cartas input {
-  height: 35%;
+  margin-right: 10px;
+  width: 300px;
+  height: 40px;
   font-size: 20px;
   border: transparent;
   margin-left: 5px;
   padding: 10px;
   font-family: "VT323", monospace;
-}
-.light-mode .container-form .formularios .selector-ver-como {
-  display: flex;
-  align-items: center;
-  font-size: 25px;
-}
-.light-mode .container-form .formularios .selector-ver-como select {
-  font-size: 20px;
-  margin-left: 5px;
-  font-family: "VT323", monospace;
-  padding: 10px;
-  border: transparent;
 }
 .light-mode .container-form .formularios .sort-formulario {
   display: flex;
   align-items: center;
-  font-size: 25px;
+  font-size: 18px;
 }
 .light-mode .container-form .formularios .sort-formulario select {
   font-family: "VT323", monospace;
   border: transparent;
-  margin-right: 5px;
-  padding: 10px;
+  padding: 10px 0px;
   font-size: 20px;
+}
+@media screen and (max-width: 500px) {
+  .light-mode #input-busqueda-carta-individual {
+    width: 150px;
+    font-size: 15px;
+  }
+  .light-mode select {
+    width: 95px;
+    background-color: white;
+  }
+}
+@media screen and (max-width: 310px) {
+  .light-mode #input-busqueda-carta-individual {
+    margin-left: 0;
+    padding: 10px 5px;
+  }
+  .light-mode .contenedor-img-icon {
+    display: none;
+  }
 }
 
 .light-mode #contenedor-busqueda {
   margin: 20px 0px;
   display: flex;
   align-items: center;
+  font-size: 40px;
 }
-.light-mode #contenedor-busqueda span {
+.light-mode #contenedor-busqueda .frase-de-busqueda {
   font-family: "VT323", monospace;
-  font-size: 60px;
 }
 .light-mode .tablas {
   width: 100%;
   margin-top: 40px;
 }
-.light-mode .tablas table {
+.light-mode .tablas #tabla-resultados {
   width: 80%;
   margin: auto;
   table-layout: fixed;
@@ -360,25 +368,25 @@ header .background-header img {
   text-align: center;
   font-family: "VT323", monospace;
 }
-.light-mode .tablas table tbody:nth-child(even) {
+.light-mode .tablas #tabla-resultados tbody:nth-child(even) {
   background-color: #f7e1e1;
 }
-.light-mode .tablas table tbody:nth-child(even):hover {
+.light-mode .tablas #tabla-resultados tbody:nth-child(even):hover {
   background-color: #52cdfa;
   color: white;
 }
-.light-mode .tablas table tbody:nth-child(odd) {
+.light-mode .tablas #tabla-resultados tbody:nth-child(odd) {
   background-color: #efeff8;
 }
-.light-mode .tablas table tbody:nth-child(odd):hover {
+.light-mode .tablas #tabla-resultados tbody:nth-child(odd):hover {
   background-color: #f86565;
   color: white;
 }
-.light-mode .tablas table td, .light-mode .tablas table th {
+.light-mode .tablas #tabla-resultados td, .light-mode .tablas #tabla-resultados th {
   padding: 10px;
   font-size: 20px;
 }
-.light-mode .tablas table thead tr {
+.light-mode .tablas #tabla-resultados thead tr {
   background-color: #dc3038;
   color: white;
 }
@@ -388,7 +396,7 @@ header .background-header img {
   margin: 20px;
   display: none;
 }
-.light-mode .paginado-listas-cartas button {
+.light-mode .paginado-listas-cartas .paginado-button {
   margin: 30px 15px;
   border: transparent;
   color: white;
@@ -399,13 +407,81 @@ header .background-header img {
   font-size: 20px;
   font-family: "VT323", monospace;
 }
-.light-mode .paginado-listas-cartas button .fa-step-backward, .light-mode .paginado-listas-cartas button .fa-step-forward {
+.light-mode .paginado-listas-cartas .paginado-button .fa-step-backward, .light-mode .paginado-listas-cartas .paginado-button .fa-step-forward {
   font-size: 15px;
 }
 .light-mode .paginado-listas-cartas button:hover {
   background-color: #1EBAF1;
 }
 
+@media screen and (max-width: 1100px) {
+  .light-mode .tablas #tabla-resultados {
+    width: 95%;
+  }
+
+  .light-mode .tablas #tabla-resultados td, th {
+    font-size: 18px;
+  }
+
+  .frase-de-busqueda {
+    font-size: 40px;
+  }
+
+  .contenedor-img {
+    width: 350px;
+    height: 350px;
+  }
+  .contenedor-img img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 950px) {
+  .frase-de-busqueda {
+    font-size: 30px;
+  }
+
+  .contenedor-img {
+    width: 300px;
+    height: 300px;
+  }
+  .contenedor-img img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .tablas {
+    overflow-x: scroll;
+    width: 800px;
+  }
+
+  .light-mode .tablas #tabla-resultados {
+    width: 800px;
+  }
+}
+@media screen and (max-width: 600px) {
+  #contenedor-busqueda {
+    flex-direction: column;
+  }
+
+  .frase-de-busqueda {
+    font-size: 25px;
+  }
+
+  .contenedor-img {
+    width: 250px;
+    height: 250px;
+  }
+  .contenedor-img img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .light-mode .paginado-listas-cartas .paginado-button {
+    margin: 5px;
+    width: 50px;
+    font-size: 15px;
+  }
+}
 .contenedor-footer {
   width: 100%;
   background-color: #000000;
@@ -464,6 +540,39 @@ header .background-header img {
   object-fit: cover;
   max-width: 100%;
   min-height: 80px;
+}
+@media screen and (max-width: 1000px) {
+  .contenedor-footer .contenedor-copyright-footer {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 500px) {
+  .contenedor-footer .contenedor-footer {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  .contenedor-footer .column-footer {
+    width: 50%;
+    padding: 30px 0px;
+  }
+  .contenedor-footer .titulo-contacto-footer {
+    font-size: 15px;
+    margin-left: 10px;
+  }
+  .contenedor-footer p {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  .contenedor-footer .lista-footer {
+    font-size: 15px;
+  }
+  .contenedor-footer .contenedor-copyright-footer {
+    text-align: center;
+  }
+  .contenedor-footer .posicion-parrafo-footer {
+    font-size: 10px;
+  }
 }
 
 /* Paginado */
@@ -1204,7 +1313,7 @@ header .background-header img {
   color: black;
 }
 
-.modal-tablas {
+.light-mode .modal-tablas {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -1214,7 +1323,7 @@ header .background-header img {
   justify-content: center;
   align-items: center;
 }
-.modal-tablas .button-cerrar-modal-tablas {
+.light-mode .modal-tablas .button-cerrar-modal-tablas {
   text-align: left;
   background-color: transparent;
   font-family: "VT323", monospace;
@@ -1223,18 +1332,31 @@ header .background-header img {
   color: white;
   font-weight: bolder;
 }
-.modal-tablas .modal-carta-tabla {
+.light-mode .modal-tablas .modal-carta-tabla {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 500px;
-  height: 700px;
+  width: 400px;
+  height: 600px;
+  margin-bottom: 120px;
 }
-.modal-tablas .modal-carta-tabla img {
+.light-mode .modal-tablas .modal-carta-tabla img {
   width: 100%;
   height: 100%;
 }
 
+@media screen and (max-width: 430px) {
+  .light-mode .modal-tablas .modal-carta-tabla {
+    width: 300px;
+    height: 500px;
+  }
+}
+@media screen and (max-width: 325px) {
+  .light-mode .modal-tablas .modal-carta-tabla {
+    width: 250px;
+    height: 450px;
+  }
+}
 .loading {
   position: fixed;
   width: 100%;

@@ -24,8 +24,8 @@ const burgerMenu = document.querySelector(".burger-menu")
 const modalBg = document.querySelector(".modal-bg")
 const closeMenu = document.querySelector(".close-menu")
 
+// FUNCIONALIDAD MENÚ DESPLEGABLE
 
-//Funcionalidad Menu desplegable 
 burgerMenu.addEventListener('click', () => {
     modalBg.classList.add('open-aside');
 })
@@ -114,12 +114,12 @@ const tablasHTML = (data) => {
 
 const fetchBusquedaTablasEImagenes = async () => {
     const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${inputBusquedaCartaIndividual.value}&pageSize=20&page=${paginadoActual}`)
-    const data = await respuesta.json()  
-    console.log(data)  
+    const data = await respuesta.json()   
     tablaInfoPokemon.innerHTML = tablasHTML(data)       
     ultimaPaginaBusqueda(data)  
     const cartasEnLista = document.querySelectorAll(".elementos-tabla")
-    seccionTablaConEvento(cartasEnLista)
+    seccionTablaConEvento(cartasEnLista)    
+    console.log(data)
 }
 
 // EVENTO ONCLICK SOBRE TBODY DE TABLAS
@@ -129,7 +129,6 @@ const seccionTablaConEvento = (variable) => {
     for(let i = 0; i < variable.length; i++){
         variable[i].onclick = () => {
             const idNumerico = variable[i].id
-            console.log("se mueve sobre}")
             cartaVisiblePorEvento(idNumerico)
             modalCartaFlotante.style.display = "flex"      
         }
@@ -164,6 +163,23 @@ formularioCartaIndividual.onsubmit = (e) => {
 
 // PAGINADO
 
+botonPrimeraPaginaTablasCard.onclick = () => {
+     		paginadoActual = 1
+    		fetchBusquedaTablasEImagenes()
+}
+
+botonAnteriorTablasCard.onclick = () => {
+   if(paginadoActual !== 1){
+       paginadoActual--    
+   }
+    fetchBusquedaTablasEImagenes()
+}
+
+botonSiguienteTablasCard.onclick = () => {
+    paginadoActual = paginadoActual + 1
+    fetchBusquedaTablasEImagenes()
+} 
+
 const ultimaPaginaBusqueda = (data) => {
     let valorUltimaPagina = Math.ceil(data.totalCount/20)
     botonUltimaPaginaTablasCard.onclick = () => {
@@ -171,52 +187,12 @@ const ultimaPaginaBusqueda = (data) => {
             const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${inputBusquedaCartaIndividual.value}&pageSize=20&page=${valorUltimaPagina}`)
             const data = await respuesta.json()
             tablaInfoPokemon.innerHTML = tablasHTML(data)
+            const cartasEnLista = document.querySelectorAll(".elementos-tabla")
+            seccionTablaConEvento(cartasEnLista)
         }
         return fetchBusquedaTablasEImagenes()
-    }   
+    }    
 }
-
-botonPrimeraPaginaTablasCard.onclick = () => {
-     		paginadoActual = 1
-     		botonPrimeraPaginaTablasCard.disabled = true
-     		botonAnteriorTablasCard.disabled = true
-    		fetchBusquedaTablasEImagenes()
-}
-
-botonSiguienteTablasCard.onclick = () => {
-    paginadoActual++
-    fetchBusquedaTablasEImagenes()
-}
-
-botonAnteriorTablasCard.onclick = () => paginadoActual !== 1 && (paginadoActual -- && fetchBusquedaTablasEImagenes())
-
-
-//     boton.onclick = () => {
-//         paginaActual++
-//         console.log(paginaActual)
-//         firstPage.disabled = false
-//         prev.disabled = false
-//         if (paginaActual === 1441) {
-//             next.disabled = true
-//             lastPage.disabled = true
-//         }
-//         funcion()
-//     }
-
-
-// paginaSiguiente(next, urlPokemon())
-
-
-//     boton.onclick = () => {
-//         paginaActual--
-//         //next.disabled = false
-//         //lastPage.disabled = false
-//         if (paginaActual === 1) {
-//             prev.disabled = true
-//             firstPage.disabled = true
-//         }
-//         funcion()
-//     }
 
 //Desktop switch toggle
 

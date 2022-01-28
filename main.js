@@ -9,6 +9,13 @@ const prev = document.getElementById("prev");
 const next = document.getElementById("next");
 const lastPage = document.getElementById("last-page");
 
+// Paginado de búsqueda
+
+const botonFirstPageBusqueda = document.querySelector("#boton-firstpage-busqueda")
+const botonPrevBusqueda = document.querySelector("#boton-prev-busqueda")
+const botonNextBusqueda = document.querySelector("#boton-next-busqueda")
+const botonLastPageBusqueda = document.querySelector("#boton-lastpage-busqueda")
+
 //Buscador
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
@@ -368,6 +375,38 @@ searchForm.onsubmit = (e) => {
     inputBusquedaPokemon()
 }
 
+// paginado de búsqueda
+
+botonFirstPageBusqueda.onclick = () => {
+    paginaActual = 1
+   inputBusquedaPokemon()
+}
+
+botonPrevBusqueda.onclick = () => {
+    if(paginaActual !== 1){
+            paginaActual--
+        } 
+    inputBusquedaPokemon()
+}
+
+botonNextBusqueda.onclick = () => {
+    paginaActual = paginaActual + 1
+    inputBusquedaPokemon()
+} 
+
+const ultimaPaginaBusqueda = (data) => {
+    let valorUltimaPagina = Math.ceil(data.totalCount/20)
+    botonLastPageBusqueda.onclick = () => {
+        const fetchBusquedaImagenes = async () => {
+            const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${busquedaPorInput}&pageSize=20&page=${valorUltimaPagina}`)
+            const data = await respuesta.json()
+            contenedorTarjetas.innerHTML = aHTML(data)
+        }
+        return fetchBusquedaImagenes()
+    }    
+}
+
+// Switch toggle
 //Desktop switch toggle
 
 desktopPokeball.onclick = () => {

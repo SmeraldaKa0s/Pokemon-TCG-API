@@ -53,4 +53,50 @@
     max-width: 100%;
     min-height: 80px;
   }
+
+  @media screen and (max-width: 1000px){
+
+    .contenedor-copyright-footer{
+      text-align: center;
+    }
+       
+}
+
+  @media screen and (max-width: 500px){
+
+    .contenedor-footer{
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      
+    }
+
+    .column-footer{
+      width: 50%;      
+      padding: 30px 0px;
+      
+    }
+
+    .titulo-contacto-footer{
+      font-size: 15px;
+      margin-left: 10px;
+    }   
+
+    p{
+      font-size: 14px;
+      margin-left: 10px;
+    }
+    
+    .lista-footer{
+      font-size: 15px;
+    }
+
+    .contenedor-copyright-footer{
+      text-align: center;
+    }
+
+    .posicion-parrafo-footer{
+      font-size: 10px;
+    }
+  }
 }

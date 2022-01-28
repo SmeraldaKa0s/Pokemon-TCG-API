@@ -5,10 +5,10 @@
     margin: 20px 0px;
     display: flex;
     align-items: center;
+    font-size: 40px;
 
-    span{
-      font-family: $tipografia-secundaria;
-      font-size: 60px;
+    .frase-de-busqueda{
+      font-family: $tipografia-secundaria;      
     }
   }
   
@@ -16,7 +16,7 @@
     width: 100%;
     margin-top: 40px;
     
-    table {
+    #tabla-resultados {
       width: 80%;
       margin: auto;
       table-layout: fixed;        
@@ -50,8 +50,7 @@
       thead tr{
         background-color: $color-tablas-1;
         color: white;
-      }
-      
+      }      
     }        
   }
 
@@ -61,7 +60,7 @@
     margin: 20px;
     display: none;
   
-    button{
+    .paginado-button{
       margin: 30px 15px;
       border: transparent;
       color: white;
@@ -75,14 +74,96 @@
       .fa-step-backward, .fa-step-forward{
         font-size: 15px;
       }
-
-
     }
 
     button:hover{
       background-color: #1EBAF1;
 
     }
-  }
-    
+  }    
 }
+
+@media screen and (max-width: 1100px){
+
+ .light-mode .tablas #tabla-resultados{
+   width: 95%;
+ }
+
+ .light-mode .tablas #tabla-resultados td, th{
+   font-size: 18px;
+ } 
+ 
+ .frase-de-busqueda{
+   font-size: 40px;  
+  }
+
+  .contenedor-img{
+    width: 350px;
+    height: 350px;
+
+    img{
+      width: 100%;
+    }
+  }    
+}
+
+@media screen and (max-width: 950px){
+
+  .frase-de-busqueda{
+    font-size: 30px;   
+   }
+
+  .contenedor-img{
+    width: 300px;
+    height: 300px;
+
+    img{
+      width: 100%;
+    }
+  }    
+ }
+
+ @media screen and (max-width: 700px){
+
+  .tablas{ 
+    overflow-x: scroll;
+    width: 800px;
+ 
+  }
+ 
+  .light-mode .tablas #tabla-resultados{
+    width: 800px;   
+  }     
+ }
+  
+  @media screen and (max-width: 600px){
+
+    #contenedor-busqueda{
+      flex-direction: column;
+    }
+  
+    .frase-de-busqueda{
+      font-size: 25px;   
+     }
+  
+    .contenedor-img{
+      width: 250px;
+      height: 250px;
+  
+      img{
+        width: 100%;
+      }
+    }  
+  } 
+
+  @media screen and (max-width: 500px){
+
+    .light-mode .paginado-listas-cartas .paginado-button{
+      margin: 5px;
+      width: 50px;
+      font-size: 15px;
+    }   
+  }
+ 
+
+ 

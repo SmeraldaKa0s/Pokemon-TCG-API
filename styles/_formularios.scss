@@ -11,7 +11,7 @@
             width: 50%;
             height: 70px;
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-around;
     
             .buscador-lista-cartas{                
                 display: flex;    
@@ -26,7 +26,9 @@
                 } 
                 
                 input{
-                    height: 35%;                                  
+                    margin-right: 10px;
+                    width: 300px;
+                    height: 40px;                                  
                     font-size: 20px;
                     border: transparent;
                     margin-left: 5px;
@@ -34,35 +36,52 @@
                     font-family: $tipografia-secundaria;
                 }
             }
-    
-            .selector-ver-como{
-                display: flex;
-                align-items: center;
-                font-size: 25px;
-               
-
-                select{
-                    font-size: 20px;
-                    margin-left: 5px;
-                    font-family: $tipografia-secundaria;
-                    padding: 10px;             
-                    border: transparent;
-                }                
-            }
-    
+       
             .sort-formulario{
                 display: flex;
                 align-items: center;
-                font-size: 25px;
+                font-size: 18px;
 
                 select{
                     font-family: $tipografia-secundaria;                 
                     border: transparent;
-                    margin-right: 5px;
-                    padding: 10px;
+                    padding: 10px 0px;
                     font-size: 20px;
                 }               
             }              
         }    
     }
+
+    @media screen and (max-width: 500px){
+
+        #input-busqueda-carta-individual{
+            width: 150px;
+            font-size: 15px;
+        }
+
+        select{
+            width: 95px;
+            background-color: white;
+        }
+           
+    }
+
+    @media screen and (max-width: 310px){
+
+        #input-busqueda-carta-individual{
+           margin-left: 0;
+           padding: 10px 5px;
+        }
+
+        .contenedor-img-icon{
+          display: none;
+        }
+           
+       }
+
+
+
+
 }
+
+
