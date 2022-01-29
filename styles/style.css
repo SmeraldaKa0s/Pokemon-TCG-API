@@ -1308,11 +1308,11 @@ header .background-header img {
 .dark-mode .paginado button {
   background-color: #efd979;
 }
-.dark-mode .paginado-listas-cartas button {
+.dark-mode .paginado-listas-cartas .paginado-button {
   background-color: #efd979;
   color: black;
 }
-.dark-mode .paginado-listas-cartas button:hover {
+.dark-mode .paginado-listas-cartas .paginado-button:hover {
   background-color: #f7e1e1;
 }
 .dark-mode .tablas table tbody:nth-child(even):hover {
