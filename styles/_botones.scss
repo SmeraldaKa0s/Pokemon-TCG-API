@@ -1,9 +1,12 @@
 /* Paginado */
 
 .paginado {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    &.disabled{
+        @include flex-centrar($display: none, $content: center, $items: center);
+    }
+    &.activated{
+        @include flex-centrar($display: flex, $content: center, $items: center);
+    }
     button {
         font-size: 18px;
         width: 100px;

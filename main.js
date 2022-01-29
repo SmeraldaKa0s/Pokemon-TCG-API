@@ -8,6 +8,7 @@ const firstPage = document.getElementById("first-page");
 const prev = document.getElementById("prev");
 const next = document.getElementById("next");
 const lastPage = document.getElementById("last-page");
+const activated = document.querySelector(".activated");
 
 // Paginado de búsqueda
 
@@ -15,6 +16,7 @@ const botonFirstPageBusqueda = document.querySelector("#boton-firstpage-busqueda
 const botonPrevBusqueda = document.querySelector("#boton-prev-busqueda")
 const botonNextBusqueda = document.querySelector("#boton-next-busqueda")
 const botonLastPageBusqueda = document.querySelector("#boton-lastpage-busqueda")
+const disabled = document.querySelector(".disabled");
 
 //Buscador
 const searchForm = document.getElementById("search-form");
@@ -364,6 +366,8 @@ const inputBusquedaPokemon = async () => {
     else{ 
         contenedorTarjetas.style.display= "flex"
         contenedorSinResultados.style.display= "none"
+        activated.style.display="none"
+        disabled.style.display="flex"
     }
     cartaIndividualClickleable()  
     hideLoading()  
