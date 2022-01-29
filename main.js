@@ -359,6 +359,7 @@ const inputBusquedaPokemon = async () => {
     const res = await fetch(`https://api.pokemontcg.io/v2/cards?q=${busquedaPorInput}&pageSize=20&page=${paginaActual}`)
     const data = await res.json()
     contenedorTarjetas.innerHTML = aHTML(data)
+    ultimaPaginaBusqueda(data)
     if(!data.data.length){ 
         contenedorTarjetas.style.display= "none"
         contenedorSinResultados.style.display= "flex"
@@ -402,7 +403,7 @@ const ultimaPaginaBusqueda = (data) => {
     let valorUltimaPagina = Math.ceil(data.totalCount/20)
     botonLastPageBusqueda.onclick = () => {
         const fetchBusquedaImagenes = async () => {
-            const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${busquedaPorInput}&pageSize=20&page=${valorUltimaPagina}`)
+            const respuesta = await fetch(`https://api.pokemontcg.io/v2/cards?q=name:${searchInput.value}&pageSize=20&page=${valorUltimaPagina}`)
             const data = await respuesta.json()
             contenedorTarjetas.innerHTML = aHTML(data)
         }
