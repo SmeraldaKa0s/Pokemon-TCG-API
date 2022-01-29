@@ -619,6 +619,7 @@ header .background-header img {
   .paginado button {
     width: 60px;
     font-size: 12px;
+    margin: 5px;
   }
 }
 .card-img:hover {
