@@ -365,11 +365,10 @@ header .background-header img {
   font-family: "VT323", monospace;
 }
 .light-mode .tablas {
-  width: 100%;
+  width: 80%;
   margin-top: 40px;
 }
 .light-mode .tablas #tabla-resultados {
-  width: 80%;
   margin: auto;
   table-layout: fixed;
   border-collapse: collapse;
@@ -423,10 +422,6 @@ header .background-header img {
 }
 
 @media screen and (max-width: 1100px) {
-  .light-mode .tablas #tabla-resultados {
-    width: 95%;
-  }
-
   .light-mode .tablas #tabla-resultados td, th {
     font-size: 18px;
   }
@@ -459,10 +454,6 @@ header .background-header img {
 @media screen and (max-width: 700px) {
   .tablas {
     overflow-x: scroll;
-    width: 800px;
-  }
-
-  .light-mode .tablas #tabla-resultados {
     width: 800px;
   }
 }
@@ -619,7 +610,7 @@ header .background-header img {
   .paginado button {
     width: 60px;
     font-size: 12px;
-    margin: 5px;
+    margin: 40px 5px;
   }
 }
 .card-img:hover {
