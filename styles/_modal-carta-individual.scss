@@ -367,19 +367,19 @@
 @media screen and (max-width: 560px) {
     .modal-container-carta {
         width: 450px;
-        margin-left: 20px;
+        margin-left: 0px;
     }
     
     .modal-container-carta-txt {
         width: 450px;
-        margin-left: 20px;
+        margin-left: 0px;
     }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 460px) {
     .modal-container-carta {
         width: 370px;
-        margin-left: 20px;
+        margin-left: 0px;
     }
     
     .modal-img-carta-background {
@@ -392,7 +392,7 @@
 
     .modal-container-carta-txt {
         width: 370px;
-        margin-left: 20px;
+        margin-left: 0px;
     }
 
     .modal-right-center-bot {
@@ -407,22 +407,27 @@
     }
 }
 
-@media screen and (max-width: 365px) {
+@media screen and (max-width: 375px) {
     .modal-container-carta {
-        margin-left: 45px;
+        width: 320px;
     }
 
     .modal-container-carta-txt {
-        margin-left: 45px;
+        width: 320px;
+    }
+
+    .modal-img-carta-background{
+        width: 220px;
+
+        img{
+            width: 100%;
+        }
+    }
+    
+    .modal-right-bottom-txt{
+        width: 80px;
+        text-align: center;
+        font-size: 15px;
     }
 }
 
-@media screen and (max-width: 340px) {
-    .modal-container-carta {
-        margin-right: 12px;
-    }
-
-    .modal-container-carta-txt {
-        margin-right: 12px;
-    }
-}
