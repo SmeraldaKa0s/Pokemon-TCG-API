@@ -10,6 +10,7 @@ const botonPrimeraPaginaTablasCard = document.querySelector("#boton-primera-pagi
 const botonUltimaPaginaTablasCard = document.querySelector("#boton-ultima-pagina")
 const divPaginadoListasCartas = document.querySelector(".paginado-listas-cartas")
 const modalCartaFlotante = document.querySelector(".modal-tablas")
+const contenedorSinResultados = document.querySelector(".contenedor-sin-resultados")
 
 // Switch toggle 
 const switchToggle = document.querySelector(".switch-toggle-pokaballs");
@@ -64,7 +65,7 @@ const tablasHTML = (data) => {
                 ${elemento.rarity ? elemento.rarity : "None"}
                 </td>
                 <td>
-                ${elemento.types[0]}
+                ${elemento.types ? elemento.types[0] : "None"}
                 </td>
                 <td>
                 ${elemento.subtypes[0]}
@@ -119,7 +120,14 @@ const fetchBusquedaTablasEImagenes = async () => {
     ultimaPaginaBusqueda(data)  
     const cartasEnLista = document.querySelectorAll(".elementos-tabla")
     seccionTablaConEvento(cartasEnLista)    
-    console.log(data)
+    if(!data.data.length){
+        contenedorTabla.style.display = "none"
+        contenedorSinResultados.style.display = "flex"
+    }
+    else{
+        contenedorTabla.style.display = "flex"
+        contenedorSinResultados.style.display = "none"
+    }
 }
 
 // EVENTO ONCLICK SOBRE TBODY DE TABLAS

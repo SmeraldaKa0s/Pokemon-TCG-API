@@ -45,11 +45,11 @@
 }
 
 .paginado-listas-cartas{
-  button{
+  .paginado-button{
     background-color: #efd979;
     color:black;
   }
-  button:hover{
+  .paginado-button:hover{
     background-color: rgb(247, 225, 225);
   }
 }
@@ -88,6 +88,10 @@
 
 .paginado-listas-cartas .paginado-button:hover{
   background-color: rgb(72, 21, 121);
+}
+
+.contenedor-sin-resultados{
+  text-shadow: 2px 2px 2px #c398c3;
 }
 
 .buscador{

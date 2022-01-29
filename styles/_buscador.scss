@@ -16,6 +16,7 @@
     margin-top: 100px;
     padding: 30px 0px;
     flex-direction: column;
+    text-align: center;
 
     span {
       margin-top: 7px;
@@ -77,6 +78,7 @@
       font-size: 14px;
     }
     .buscador {
+      margin-top: 30px;
       span{
         font-size: 12px;
       }
@@ -90,12 +92,13 @@
         }
       }
     }
-  }
+  } 
 }
 
 @media screen and (max-width: 460px) {
   .light-mode {
     .buscador {
+      margin-top: 20px;
       form {
         label {
           input {
