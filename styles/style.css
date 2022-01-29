@@ -761,18 +761,6 @@ header .background-header img {
   font-family: "VT323", monospace;
 }
 
-@media screen and (max-width: 600px) {
-  .contenedor-modal-sets {
-    width: 300px;
-  }
-
-  .modal-logo-texto-sets {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
 .modal-carta-individual {
   font-family: "VT323", monospace;
   display: flex;
@@ -1345,6 +1333,7 @@ header .background-header img {
 }
 .dark-mode .paginado-listas-cartas .paginado-button {
   background-color: #7b2596;
+  color: white;
 }
 .dark-mode .paginado-listas-cartas .paginado-button:hover {
   background-color: #481579;

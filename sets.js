@@ -79,7 +79,6 @@ const asignarClikSets = () => {
 
 	for (let i = 0; i < tarjetasSets.length; i++) {
 		tarjetasSets[i].onclick = () => {
-			console.log("click");
 			const id = tarjetasSets[i].dataset.id;
 			datosModalSets(id);
 		};
