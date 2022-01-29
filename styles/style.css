@@ -615,6 +615,12 @@ header .background-header img {
   border: 2px solid gray;
 }
 
+@media screen and (max-width: 500px) {
+  .paginado button {
+    width: 60px;
+    font-size: 12px;
+  }
+}
 .card-img:hover {
   transition: 0.5s;
   transform: scale(1.3);
@@ -1097,18 +1103,18 @@ header .background-header img {
 @media screen and (max-width: 560px) {
   .modal-container-carta {
     width: 450px;
-    margin-left: 20px;
+    margin-left: 0px;
   }
 
   .modal-container-carta-txt {
     width: 450px;
-    margin-left: 20px;
+    margin-left: 0px;
   }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 460px) {
   .modal-container-carta {
     width: 370px;
-    margin-left: 20px;
+    margin-left: 0px;
   }
 
   .modal-img-carta-background img {
@@ -1119,7 +1125,7 @@ header .background-header img {
 
   .modal-container-carta-txt {
     width: 370px;
-    margin-left: 20px;
+    margin-left: 0px;
   }
 
   .modal-right-center-bot {
@@ -1133,22 +1139,26 @@ header .background-header img {
     padding-top: 12px;
   }
 }
-@media screen and (max-width: 365px) {
+@media screen and (max-width: 375px) {
   .modal-container-carta {
-    margin-left: 45px;
+    width: 320px;
   }
 
   .modal-container-carta-txt {
-    margin-left: 45px;
-  }
-}
-@media screen and (max-width: 340px) {
-  .modal-container-carta {
-    margin-right: 12px;
+    width: 320px;
   }
 
-  .modal-container-carta-txt {
-    margin-right: 12px;
+  .modal-img-carta-background {
+    width: 220px;
+  }
+  .modal-img-carta-background img {
+    width: 100%;
+  }
+
+  .modal-right-bottom-txt {
+    width: 80px;
+    text-align: center;
+    font-size: 15px;
   }
 }
 *,
