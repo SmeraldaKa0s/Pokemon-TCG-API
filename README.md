@@ -88,7 +88,7 @@ With the navigation bar (navbar) we can return to the search.
 &nbsp;
 
 
-<p align="">🔗 Link to the project: <a href="https://smeraldaka0s.github.io/API-/" target="_blank">Pokemon TCG - API</a></p>
+<p align="">🔗 Link to the project: <a href="https://smeraldaka0s.github.io/Pokemon-TCG-API/" target="_blank">Pokemon TCG - API</a></p>
   
 &nbsp;
 
