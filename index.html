@@ -12,10 +12,13 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+        <!-- No necesitan repetir esto, una sola vez alcanza.  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <!--Icon-->
+
+    <!-- debe llamarse favicon.ico y estar en la carpeta principal -->
     <link rel="icon" href="assets/pokebolas.ico" type="image/ico">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
@@ -25,6 +28,7 @@
 <body class="light-mode">
 
     <!-- Loading -->
+    <!-- muy lindo! -->
     <div class="loading" id="loading"></div>
 
     <nav>
@@ -40,6 +44,7 @@
         <!--Comienzo modal menu-->
         <aside id="aside-menu" class="modal-bg">
             <div class="modal">
+                <!-- Esto deberia ser un boton, ya que genera una accion en la pagina -->
                 <div class="ico-close">
                 <i class="fas fa-times close-menu"></i>
                 </div>
@@ -54,7 +59,7 @@
                         Sets
                     </a>
                 </div>
-                
+                <!-- no es necesario aclarar imagen en el alt -->
                     <img src="assets/Vectorpokebola-menu.svg" alt="imagen pokebola">
                 
             </div>
@@ -90,6 +95,7 @@
     </nav>
     <header id="header">
         <div class="background-header">
+            <!-- no dejen un alt vacio -->
             <img src="assets/International_Pokémon_logo.svg" alt="">
         </div>
     </header>
@@ -102,6 +108,8 @@
             <div>
                 <form id="search-form">
                     <label>
+                        <!-- Para que sirve un label sin texto? el usuario que necesita el lector de pantalla no sabe que hace este input -->
+                        <!-- un boton que no tiene contenido de texto debe tener un aria label -->
                         <i class="fas fa-search"></i>
                         <input id="search-input" type="text" placeholder="Search for a card" required>
                     </label>
@@ -110,6 +118,7 @@
             <span>Try 'venusaur' or 'subtypes:ex' or simply <a href="https://smeraldaka0s.github.io/Pokemon-TCG-API/sets.html">Browse By Set</a></span>
         </div>
         <!--Fin Buscador-->
+        <!-- esta etiqueta de cierre sobra. prestenle atencion al tabulado, va a ser su guia para ver estos errores -->
         </div>
         <div id="tarjetas" class="tarjetas">
         </div>
@@ -124,11 +133,13 @@
 
         <div class="paginado activated" id="paginado">
             <button id="first-page">
+                <!-- falta aria label en este boton -->
                 <i class="fas fa-step-backward"></i>
             </button>
             <button id="prev">Previous</button>
             <button id="next">Next</button>
             <button id="last-page">
+                <!-- y en este  -->
                 <i class="fas fa-step-forward"></i>
             </button>
         </div>
@@ -136,11 +147,13 @@
         <!-- Paginado de búsqueda -->
         <div class="paginado disabled" id="paginado-busqueda">
             <button id="boton-firstpage-busqueda">
+                <!-- y en este  -->
                 <i class="fas fa-step-backward"></i>
             </button>
             <button id="boton-prev-busqueda">Previous</button>
             <button id="boton-next-busqueda">Next</button>
             <button id="boton-lastpage-busqueda">
+                <!-- y en este (perdon por ser tan densa)  -->
                 <i class="fas fa-step-forward"></i>
             </button>
         </div>         
@@ -158,6 +171,8 @@
                 <h4 class="titulo-contacto-footer">Contact us</h4>
                 <p>made with ♡ by:</p>
                 <ul class="lista-footer">
+                    <!-- Pongan aria label en sus links asi el lector de pantalla no lee toda la url  -->
+                    <!-- idealmente el li seria el hijo directo de ul: a deberia estar dentro de li -->
                     <a href="https://www.linkedin.com/in/mikayalandino">
                         <li>Mika</li>
                     </a>
@@ -177,6 +192,7 @@
                 </ul>
             </div>
             <div class="contenedor-copyright-footer">
+                <!-- falta alt aca  -->
                 <img class="imagen-footer" src="assets/Grouppoke.svg">
                 <p class="posicion-parrafo-footer">Copyright © 2022 <a class="link-copyright-footer"
                         href="https://docs.pokemontcg.io/">Pokémon TCG

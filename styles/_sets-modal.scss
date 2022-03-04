@@ -21,6 +21,7 @@
 			margin: $margin;
 		}
 	}
+	// impecable el anidado, me emociona
 	.contenedor-modal-info-sets {
 		@include flex-centrar($direccion: column, $items: center, $content: normal);
 		.contenedor {

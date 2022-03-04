@@ -4,6 +4,7 @@
 	margin-top: 50px;
 
 	.tarjetas-sets {
+		// muy buen uso de mixin 
 		@include flex-centrar($direccion: column, $items: center, $content: normal);
 		width: 280px;
 		margin: $margin;
