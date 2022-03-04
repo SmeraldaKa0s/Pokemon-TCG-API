@@ -2,6 +2,7 @@ const contenedorTabla = document.querySelector(".tablas")
 const contenedorMensaje = document.querySelector("#contenedor-busqueda")
 const tablaInfoPokemon = document.querySelector("#tabla-resultados")
 const inputBusquedaCartaIndividual = document.querySelector("#input-busqueda-carta-individual")
+// no usan esta variable en este archivo
 const selectorOrdenarPorAscDesc = document.querySelector("#selector-ordenar-asc-desc")
 const formularioCartaIndividual = document.querySelector(".formularios")
 const botonSiguienteTablasCard = document.querySelector("#button-siguiente")
@@ -36,7 +37,7 @@ closeMenu.addEventListener('click', () => {
 })
 
 let paginadoActual = 1
-
+// no usan esta funcion en este archivo
  const aHTML = (data) => {
      const arrayAHtml = data.data.reduce((acc, elemento) => {
          return acc + `
@@ -48,7 +49,9 @@ let paginadoActual = 1
 }
 
 const tablasHTML = (data) => {
+    // no necesitan el tercer parametro, no lo declaren
     const arrayAHtml = data.data.reduce((acc, elemento, id) => {
+        // tablas!! excelente!!
         return acc + `
         <tbody class="elementos-tabla" id="${elemento.id}">
             <tr>

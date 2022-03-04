@@ -20,7 +20,9 @@ const closeMenu = document.querySelector(".close-menu");
 
 //Carta individual
 const modalCartaIndividual = document.getElementById("modal-carta-individual");
+// no usan esta variable
 const botonIrAtrasModal = document.querySelector(".boton-modal-ir-atras");
+// no usan esta variable
 const botonCerrarModalCarta = document.querySelector(".boton-cerrar-modal-carta");
 
 // Switch toggle 
@@ -44,10 +46,11 @@ closeMenu.addEventListener('click', () => {
 })
 
 let paginaActual = 1
+// no usan esta variable 
 let ultimaPagina = 0
 
 // FUNCIONES REDUCE A HTML
-
+// entiendo por que tuvieron que repetir el codigo a tarves de distintos archivos, pero me imagino que ahora aman react!
 const aHTML = (data) => {
     const arrayAHtml = data.data.reduce((acc, elemento) => {
         return acc +
@@ -125,6 +128,7 @@ const costoRetirada = (data) => data.data.retreatCost.reduce((acc, retirada) => 
     `
 }, "")
 
+// al final de todo
 modalCartaIndividual.style.display = "none"
 
 const mostrarCartaIndividual = (data) => {

@@ -29,7 +29,9 @@ const closeMenu = document.querySelector(".close-menu");
 
 //Carta individual
 const modalCartaIndividual = document.getElementById("modal-carta-individual");
+// nunca usan esta variable
 const botonIrAtrasModal = document.querySelector(".boton-modal-ir-atras");
+// nunca usan esta variable
 const botonCerrarModalCarta = document.querySelector(".boton-cerrar-modal-carta");
 
 // Switch toggle 
@@ -53,6 +55,7 @@ closeMenu.addEventListener('click', () => {
 })
 
 let paginaActual = 1
+// no usan esta variable en este archivo
 let ultimaPagina = 0
 
 // FUNCIONES REDUCE A HTML
@@ -91,6 +94,7 @@ const attacks = (data) => data.data.attacks.reduce((acc, attack) => {
 }, "")
 
 const energy = (attack) => {
+    // traten de convertir este for en un reduce
     let acc = ""
     for(let i = 0; i < attack.cost.length; i++){
         acc += `<img class="img-energy" src="https://raw.githubusercontent.com/SmeraldaKa0s/Pokemon-TCG-API/master/assets/${attack.cost[i].toLowerCase()}.png">`
@@ -134,6 +138,8 @@ const costoRetirada = (data) => data.data.retreatCost.reduce((acc, retirada) => 
     `
 }, "")
 
+// esto se ejecuta apenas carga la pagina, esta algo perdido aca
+// pongan al final del codigo todo lo que se ejecuta al principio, asi es facil entender el flujo de ejecucion
 modalCartaIndividual.style.display = "none"
 
 const mostrarCartaIndividual = (data) => {
@@ -256,7 +262,7 @@ const urlPokemon = async () => {
     cartaIndividualClickleable()  
     hideLoading() 
 }
-
+// idem esta funcion, al final de todo
 urlPokemon()
 
 const urlPokemonPaginado = async () => {
@@ -268,7 +274,7 @@ const urlPokemonPaginado = async () => {
     inputBusquedaPokemon()
     hideLoading() 
 }
-
+// idem esta funcion, al final de todo
 urlPokemonPaginado()
 
 //Carta individual
@@ -349,12 +355,13 @@ lastPage.onclick = () => {
 }
 
 //Búsqueda 
-
+// idem esta variable, al final de todo
 let busquedaPorInput = ""
 
 const inputBusquedaPokemon = async () => {
     showLoading() 
     const tieneParametro = busquedaPorInput.includes(':')
+    // excelente
     if (!tieneParametro) busquedaPorInput = 'name:' + busquedaPorInput
     const res = await fetch(`https://api.pokemontcg.io/v2/cards?q=${busquedaPorInput}&pageSize=20&page=${paginaActual}`)
     const data = await res.json()
